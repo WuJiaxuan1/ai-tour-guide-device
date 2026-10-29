@@ -1,0 +1,107 @@
+{
+  "official_static_volume_mm3": {
+    "1": {
+      "body": 0.0,
+      "ring": 0.0
+    },
+    "3": {
+      "body": 0.0,
+      "ring": 0.0
+    },
+    "5": {
+      "body": 0.0,
+      "ring": 0.0
+    },
+    "7": {
+      "body": 0.0,
+      "ring": 0.0
+    }
+  },
+  "continuous_button_sweep_volume_mm3": {
+    "3": 0.0,
+    "5": 0.0,
+    "7": 0.0
+  },
+  "front_manual_allowance_continuous_sweep_mm3": 0.0,
+  "ring_front_allowance_mm3": 0.0,
+  "release_proxy_overlap_samples": [
+    {
+      "forward_mm": 0.0,
+      "volume_mm3": 0.0020576695883526277
+    },
+    {
+      "forward_mm": 0.5,
+      "volume_mm3": 0.0
+    },
+    {
+      "forward_mm": 1.0,
+      "volume_mm3": 0.0
+    },
+    {
+      "forward_mm": 1.5,
+      "volume_mm3": 0.0
+    },
+    {
+      "forward_mm": 2.0,
+      "volume_mm3": 0.0
+    },
+    {
+      "forward_mm": 2.5,
+      "volume_mm3": 0.0
+    },
+    {
+      "forward_mm": 3.0,
+      "volume_mm3": 0.0
+    },
+    {
+      "forward_mm": 3.5,
+      "volume_mm3": 0.0
+    },
+    {
+      "forward_mm": 4.0,
+      "volume_mm3": 0.0
+    },
+    {
+      "forward_mm": 4.5,
+      "volume_mm3": 0.0
+    },
+    {
+      "forward_mm": 5.0,
+      "volume_mm3": 0.0
+    },
+    {
+      "forward_mm": 5.5,
+      "volume_mm3": 0.0
+    },
+    {
+      "forward_mm": 6.0,
+      "volume_mm3": 0.0
+    },
+    {
+      "forward_mm": 6.5,
+      "volume_mm3": 0.0
+    },
+    {
+      "forward_mm": 7.0,
+      "volume_mm3": 0.0
+    },
+    {
+      "forward_mm": 7.5,
+      "volume_mm3": 0.0
+    },
+    {
+      "forward_mm": 8.0,
+      "volume_mm3": 0.0
+    }
+  ],
+  "rigid_unreleased_pull_1mm_overlap_mm3": 1.2169879328023194,
+  "release_proxy_limitation": "Prescribed vertex displacement, not FEA or proof of PLA strain/fatigue.",
+  "tool_inserted_body_overlap_mm3": {
+    "230": 0.0,
+    "310": 0.0
+  },
+  "tool_released_ring_overlap_mm3": {
+    "230": 0.0,
+    "310": 0.0
+  }
+}

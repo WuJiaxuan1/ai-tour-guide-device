@@ -1,0 +1,143 @@
+{
+  "version": "v05",
+  "units": "mm",
+  "source": "round1 original front mesh; v04 closed rear surface reused only behind x=0.25",
+  "axis_y": -0.02733765,
+  "axis_z": 22.28087056,
+  "device_back_x": 16.0,
+  "manual_device_diameter": 52.0,
+  "manual_device_thickness": 15.5,
+  "centering_diameter": 52.8,
+  "front_contact_x": 31.7,
+  "front_ring_aperture": 50.5,
+  "ring_outer_diameter": 67.0,
+  "rear_surface_axial_thickness": 4.0,
+  "post_angles_deg": [
+    90,
+    200,
+    340
+  ],
+  "post_lower_contact_x": 15.8,
+  "post_upper_contact_x": 16.6,
+  "nominal_rear_gap": 0.2,
+  "nominal_front_gap": 0.2,
+  "button_clearances": {
+    "3": {
+      "raw_bbox": [
+        [
+          6.199999809265137,
+          -21.122041702270508,
+          -21.122041702270508
+        ],
+        [
+          11.0,
+          -12.374368667602539,
+          -12.374368667602539
+        ]
+      ],
+      "margin_each_side_mm": 0.65
+    },
+    "5": {
+      "raw_bbox": [
+        [
+          3.8499999046325684,
+          -21.6861515045166,
+          12.374368667602539
+        ],
+        [
+          11.149999618530273,
+          -12.374368667602539,
+          21.686426162719727
+        ]
+      ],
+      "margin_each_side_mm": 0.65
+    },
+    "7": {
+      "raw_bbox": [
+        [
+          3.8717246055603027,
+          12.374368667602539,
+          12.374368667602539
+        ],
+        [
+          11.149999618530273,
+          21.6861515045166,
+          21.686426162719727
+        ]
+      ],
+      "margin_each_side_mm": 0.65
+    }
+  },
+  "clip": {
+    "root_angles": [
+      200,
+      340
+    ],
+    "hook_angles": [
+      230,
+      310
+    ],
+    "arm_inner_radius": 30.9,
+    "arm_outer_radius": 32.1,
+    "arm_length_mm": 16.49336143134641,
+    "axial_width": 3.0,
+    "hook_outer_radius": 32.9,
+    "socket_mouth_radius": 32.6,
+    "nominal_engagement": 0.3,
+    "release_travel_target": 0.6,
+    "axial_range": [
+      27.2,
+      30.2
+    ]
+  },
+  "sound_holes": {
+    "count": 7,
+    "diameter": 2.4,
+    "note": "rear cavity vents; acoustic performance pending physical test"
+  },
+  "glass_boundary": "user ruler approx 2mm plastic rim; coplanar glass/plastic; not precision measured",
+  "status": "digital prototype; awaiting physical fit",
+  "printer": "Anycubic Mega-S; PLA; actual nozzle unknown",
+  "ring_outer_boundary": "radius 33.5 mm except smooth inward relief to 32.0 mm at maple leaf; not a constant-radius circle",
+  "front_master_surface": "six-coefficient quadratic hood surface excluding leaf and cape; ring and body share it",
+  "hood_guide_coefficients": [
+    38.0246763347,
+    0.003872879,
+    -0.0428389661,
+    -0.00448269422,
+    0.000281676666,
+    -0.00501200704
+  ],
+  "appearance_edit": {
+    "method": "original front hood vertices adjusted to shared quadratic guide, bounded radial blend; leaf relief masked; no front voxel remesh",
+    "guide_coefficients": [
+      38.0246763347,
+      0.003872879,
+      -0.0428389661,
+      -0.00448269422,
+      0.000281676666,
+      -0.00501200704
+    ],
+    "changed_vertices": 60464,
+    "max_axial_displacement_mm": 10.48644290140849,
+    "ring_outer_radius_minmax": [
+      32.0,
+      33.5
+    ],
+    "protected_relief_vertices": 4370
+  },
+  "hard_stop_angles": [
+    0,
+    120,
+    270
+  ],
+  "front_locating_lip": {
+    "axial_range": [
+      30.8,
+      31.8
+    ],
+    "bore_diameter": 52.8,
+    "lead_in_length": 0.3,
+    "lead_in_bore_diameter": 53.4
+  }
+}

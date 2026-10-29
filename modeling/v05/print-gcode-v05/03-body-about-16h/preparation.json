@@ -1,0 +1,41 @@
+{
+  "source_stl": "F:\\coding_projects\\ai-tour-guide-device\\modeling\\v05\\print-delivery-v05\\01_FULL_HOUSING_CLOSED_BACK_v05.stl",
+  "source_sha256": "e00d33b47102fdfb28124ac0f79f3846b84dd3442a27c19e0ce753095eb3c5a3",
+  "geometry_changes": "none; rigid rotation only",
+  "rotation_y_deg": -90,
+  "orientation": "front opening up; curved back down",
+  "nozzle_mm": 0.4,
+  "nozzle_assumed": true,
+  "layer_height_mm": 0.22,
+  "first_layer_height_mm": 0.2,
+  "temperature_C": 200,
+  "first_layer_temperature_C": 205,
+  "bed_C": 60,
+  "physical_quality": "not yet validated",
+  "outer_speed_mm_s": 40,
+  "inner_and_infill_speed_mm_s": 80,
+  "perimeters": 3,
+  "fill_percent": 10,
+  "support_style": "snug",
+  "support_z_contact_distance_mm": 0.2,
+  "selected_trial": {
+    "tag": "trial022b",
+    "layer_height": 0.22,
+    "outer_speed": 40.0,
+    "inner_speed": 80.0,
+    "fill_speed": 80.0,
+    "support_speed": 50.0,
+    "perimeters": "3",
+    "fill_density": "10%",
+    "stats": {
+      "filament used [mm]": "65314.21",
+      "filament used [cm3]": "157.10",
+      "filament used [g]": "194.80",
+      "estimated printing time (normal mode)": "15h 50m 36s",
+      "estimated first layer printing time (normal mode)": "28m 50s"
+    },
+    "bytes": 54794659
+  },
+  "time_constraint": "15-16 hours desired; slicer prediction 15h50m36s; actual duration may exceed 16h",
+  "comparison": "old clip layer 0.20 mm and external wall speed 25 mm/s; new body 0.22 mm and 40 mm/s, not finer"
+}

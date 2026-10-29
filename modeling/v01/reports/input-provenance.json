@@ -1,0 +1,38 @@
+[
+  {
+    "Name": "modeling\\v00\\device-housing.blend",
+    "Bytes": 92606364,
+    "LastWriteTime": "2026-10-27T21:29:48.2634558+08:00",
+    "SHA256": "5B006B9E438E3589C8B32549E080E2532B1E163B74AA4A714224C9D856DC0388"
+  },
+  {
+    "Name": "modeling\\v00\\device-ring.blend",
+    "Bytes": 86568552,
+    "LastWriteTime": "2026-10-27T21:32:07.2926488+08:00",
+    "SHA256": "FA8810A0CF1B90AB47338956C23A24D396384547E3C1F1A230CF48A93688B16F"
+  },
+  {
+    "Name": "modeling\\hardware-reference\\StopWatch-official.stl",
+    "Bytes": 853484,
+    "LastWriteTime": "2026-10-27T23:27:38.2361346+08:00",
+    "SHA256": "48B292C76F929ACB75868CBA47CCDA86800FBFF7CFFF172161DF64FF87F220D5"
+  },
+  {
+    "Name": "modeling\\hardware-reference\\StopWatch.pdf",
+    "Bytes": 20811687,
+    "LastWriteTime": "2026-10-27T02:20:19.6056902+08:00",
+    "SHA256": "062899A348B12E75B8A3F9D66B1B92489304DD6DB697776FD94C2B60CAD4D26B"
+  },
+  {
+    "Name": "docs\\meetings\\第一次南客松项目筹备会会议纪要.docx",
+    "Bytes": 44094,
+    "LastWriteTime": "2026-10-27T02:20:11.0555006+08:00",
+    "SHA256": "52035B7BD7E275FA677C4948E6D8B547F0C49A045A71D63A1E66A5DE9E7AD94A"
+  },
+  {
+    "Name": "modeling\\v00\\modeling-handoff.md",
+    "Bytes": 8042,
+    "LastWriteTime": "2026-10-27T17:36:01.7496408+08:00",
+    "SHA256": "175956812BCCCD611DCC8B9D53D6E60DED32156EAC857F28197B69FFD33DD1C2"
+  }
+]

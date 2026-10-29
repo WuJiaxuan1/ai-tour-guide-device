@@ -1,0 +1,63 @@
+from pathlib import Path
+import json,hashlib,shutil,zipfile
+from PIL import Image,ImageDraw,ImageFont
+O=Path.cwd()/'output/mega-s-body-fine';R=Path('F:/coding_projects/ai-tour-guide-device');D=R/'print-gcode-v05/02-body-fine-008';D.mkdir(parents=True,exist_ok=True)
+report=json.loads((O/'GCODE_CHECKS.json').read_text());report['combined_model_support_z_level_count']=report.pop('object_layer_count');report['combined_model_support_z_steps_mm']=report.pop('object_layer_steps_mm');report['nominal_object_layer_height_mm']=.08;report['first_layer_height_mm']=.2
+(O/'GCODE_CHECKS.json').write_text(json.dumps(report,indent=2))
+meta=json.loads((O/'preparation.json').read_text());assert hashlib.sha256(Path(meta['source_stl']).read_bytes()).hexdigest()==meta['source_sha256'];assert 'Error:' not in (O/'slicing.log').read_text()
+for name in ['BODY008.gcode','MegaS_BODY_008.ini','GCODE_CHECKS.json','preparation.json']:
+ shutil.copy2(O/name,D/name)
+font=lambda n:ImageFont.truetype('C:/Windows/Fonts/msyh.ttc',n)
+im=Image.new('RGB',(1600,850),'white');dr=ImageDraw.Draw(im);dr.text((25,16),'主体精细试打印：正面开口朝上，模型形状与尺寸保持不变',font=font(32),fill='#172B3A')
+for x,n,label in [(0,'BODY_SUPPORTS_OVERVIEW.png','实际打印摆放'),(800,'BODY_SUPPORTS_CUTAWAY.png','剖视检查：只在图片中剖开，打印件不会被切开')]:
+ pic=Image.open(O/n).convert('RGB');pic.thumbnail((800,667),Image.Resampling.LANCZOS);im.paste(pic,(x,80));dr.text((x+20,752),label,font=font(23),fill='#172B3A')
+dr.text((25,808),'橙色是导出 G-code 中的支撑路径（抽层显示）。内部支撑须从正面分段取出；背面会有支撑接触痕迹。',font=font(21),fill='#456072');im.save(D/'BODY_PRINT_ORIENTATION.png')
+guide='''# v05 主体精细试打印版：0.08 mm
+
+## 本次范围
+用户选择保留现有 v05 吉祥物主体模型，只打印主体，不打印前压圈；随后自行使用磁吸和双面胶固定可取出的 StopWatch。本次未设计磁铁槽、未修改前口和壁厚，也未验证磁铁与胶贴的实物固定效果。
+原始 STL 未修改。切片时将主体绕 Y 轴旋转 -90°，正面开口朝上、弧形背面朝下。几何体积与尺寸经核对保持一致。预览图的剖面仅供查看支撑，实际模型没有被切开。
+
+## 打印文件
+只把 BODY008.gcode 复制到实验室正常使用的 SD 卡根目录，在 Anycubic Mega-S 的 Print 页面选择它。
+不要同时导入其他模型后重新生成一整盘。此文件仅包含一个完整主体及其支撑、底边，不包含前圈、StopWatch 参考模型或试装夹具。
+
+## 参数
+- 机器：Anycubic Mega-S；0.4 mm 喷嘴按用户要求使用默认值，未实测。
+- 线材：1.75 mm PLA，标签推荐喷嘴温度 195–220°C。
+- 模型层高 0.08 mm；首层 0.20 mm。支撑有独立高度，所以运动文件内并非每次升高都恰好为 0.08 mm。
+- 首层喷嘴 205°C，后续 200°C；热床 60°C。
+- 外墙 15 mm/s，普通墙 25 mm/s，内部填充 35 mm/s，首层 15 mm/s；空走最高 100 mm/s，Z 轴移动 5 mm/s。
+- 4 道外墙、20% gyroid 填充；顶底实心厚度目标各 1.2 mm。原模型的薄区域不会因设置 4 道外墙就自动变厚。
+- 普通贴合支撑，顶底接触间距 0.16 mm，侧向间距 0.35 mm，3 层支撑接触层，6 mm 外底边。
+- 不使用二进制 G-code，不写入机器固件校准参数。
+
+## 时间与耗材
+PrusaSlicer 2.9.6 估计 3 天 3 小时 38 分 24 秒，约 252.88 g / 84.79 m PLA。第一层约 28 分 49 秒。实际时间会受机器加热和运动限制影响。确认耗材余量超过 253 g 并留余量，按实验室对长时间打印的管理要求执行。
+
+## 支撑与取件
+开口朝上让内部三根支柱沿打印高度生长，减少横向支柱下方的悬空；但弧形背面、手脚及前口内侧仍需支撑。
+等平台冷却后取件。先拆外部底边和支撑，再从正面开口分段移除腔体内的薄支撑。前口内侧的支撑不能整圈硬拔，否则可能拉伤前口或支柱。切勿剪断实体支柱、定位边及模型装饰。
+支撑接触面的表面质量会低于自由外表面，必要时轻微打磨背面。若内部支撑无法从开口安全分段取出，不要强撬；先记录位置，再调整支撑方案。
+
+## 对质量的实际预期
+这是一份精细试打印配置，并非实物质量合格证。0.08 mm 层高主要减轻层纹，不等于 ±0.08 mm 尺寸精度，也不是这台机器已验证的最佳设置。材料受潮、喷嘴磨损或堵塞、挤出量、机械松动及原网格已有的表面不平整，仍可能造成粗糙；继续减小层高不一定改善这些问题。
+原 v05 不是等厚壳体；原有局部薄边、卡槽和前圈缺席后的台阶仍保留。本次未进行全局最小壁厚修复或验证。已检查导出路径、温度等待、运动范围、结束关闭加热和支撑分布；未完成真实打印、支撑拆除及整机装配试验，因此不能保证完全没有局部下垂或支撑痕迹。
+
+## 502 与填充物
+不要用 502/氰基丙烯酸酯胶浸粘棉布、棉花或羊毛，这类纤维可能促使胶快速聚合放热，造成烫伤。磁铁固定与干填充物分开处理，避免胶接触这些纤维。资料：https://www.poison.org/articles/super-glue
+
+## 包内其他文件
+BODY_PRINT_ORIENTATION.png：实际摆放及支撑抽层预览。
+MegaS_BODY_008.ini：供后续调整的切片配置，不必放入打印机。
+GCODE_CHECKS.json / preparation.json：检查记录和原模型来源。
+MANIFEST_SHA256.json：文件校验值。
+'''
+(D/'主体精细打印说明.md').write_text(guide,encoding='utf-8')
+manifest={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in D.iterdir() if p.is_file() and p.name!='MANIFEST_SHA256.json'};assert manifest['BODY008.gcode']==report['sha256'];(D/'MANIFEST_SHA256.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')
+zpath=R/'MegaS_Body_Fine_008_v05.zip'
+with zipfile.ZipFile(zpath,'w',zipfile.ZIP_DEFLATED,compresslevel=5) as z:
+ for p in sorted(D.iterdir()):
+  if p.is_file():z.write(p,'02-body-fine-008/'+p.name)
+with zipfile.ZipFile(zpath) as z:assert z.testzip() is None
+print('BODY_FINE_DELIVERY_VERIFIED',D,zpath,zpath.stat().st_size,sep='\n')

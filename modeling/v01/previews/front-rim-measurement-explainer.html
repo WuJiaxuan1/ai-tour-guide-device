@@ -1,0 +1,64 @@
+<div id="stopwatch-rim-measurement" aria-label="玻璃外围塑料边缘的宽度与表面高差测量示意">
+  <style>
+    #stopwatch-rim-measurement { color:var(--foreground); }
+    #stopwatch-rim-measurement .rim-panels { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    #stopwatch-rim-measurement figure { margin:0; min-width:0; }
+    #stopwatch-rim-measurement h3 { margin:0 0 8px; }
+    #stopwatch-rim-measurement svg { display:block; width:100%; overflow:visible; }
+    #stopwatch-rim-measurement svg text { font:inherit; fill:var(--foreground); }
+    #stopwatch-rim-measurement .glass { fill:color-mix(in srgb,var(--blue) 20%,var(--background)); stroke:var(--blue); stroke-width:1.5; }
+    #stopwatch-rim-measurement .plastic { fill:color-mix(in srgb,var(--orange) 25%,var(--background)); stroke:var(--orange); stroke-width:1.5; }
+    #stopwatch-rim-measurement .measure { stroke:var(--foreground); stroke-width:1.5; fill:none; }
+    #stopwatch-rim-measurement .guide { stroke:var(--muted-foreground); stroke-width:1; fill:none; }
+    #stopwatch-rim-measurement .contact { fill:color-mix(in srgb,var(--green) 20%,var(--background)); stroke:var(--green); stroke-width:1.5; }
+    #stopwatch-rim-measurement .rim-note { margin-top:8px; }
+    @media(max-width:650px) { #stopwatch-rim-measurement .rim-panels { grid-template-columns:1fr; gap:24px; } }
+  </style>
+  <div class="rim-panels">
+    <figure>
+      <h3>A：正面看，塑料边有多宽</h3>
+      <svg data-rim-front role="img" aria-label="正面示意。蓝色为整片玻璃，橙色为假设存在的塑料外圈。A 是从玻璃最外缘到塑料外缘的一边宽度。"></svg>
+    </figure>
+    <figure>
+      <h3>B：剖面看，两个表面谁高谁低</h3>
+      <svg data-rim-section role="img" aria-label="边缘局部剖面示意。A 是露出塑料的宽度；B 是玻璃正面与塑料正面的高度差。B 不是玻璃或显示屏的厚度。"></svg>
+    </figure>
+  </div>
+  <div class="text-small rim-note">示意，非实物结构；塑料边宽和高差均已夸大。蓝色＝整片玻璃，橙色＝塑料。</div>
+</div>
+<script>
+(() => {
+  const root=document.getElementById('stopwatch-rim-measurement');
+  const front=root.querySelector('[data-rim-front]');
+  const section=root.querySelector('[data-rim-section]');
+  const line=(x1,y1,x2,y2,cls='measure')=>`<line class="${cls}" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>`;
+  const label=(x,y,s,anchor='middle')=>`<text x="${x}" y="${y}" text-anchor="${anchor}">${s}</text>`;
+  const hdim=(x1,x2,y)=>line(x1,y,x2,y)+line(x1,y,x1+5,y-4)+line(x1,y,x1+5,y+4)+line(x2,y,x2-5,y-4)+line(x2,y,x2-5,y+4);
+  const vdim=(x,y1,y2)=>line(x,y1,x,y2)+line(x,y1,x-4,y1+5)+line(x,y1,x+4,y1+5)+line(x,y2,x-4,y2-5)+line(x,y2,x+4,y2-5);
+  function draw(){
+    let w=front.parentElement.clientWidth; front.setAttribute('viewBox',`0 0 ${w} 300`);front.setAttribute('height','300');
+    const cx=w/2,cy=122,R=Math.min(92,(w-66)/2),r=R-29;
+    front.innerHTML=`<title>正面塑料边宽 A</title><circle class="plastic" cx="${cx}" cy="${cy}" r="${R}"/><circle class="glass" cx="${cx}" cy="${cy}" r="${r}"/>`+
+      label(cx,cy-5,'整片玻璃')+label(cx,cy+18,'含不发光的黑边')+
+      hdim(cx+r,cx+R,cy)+label(cx+R-14,cy-12,'A')+
+      line(cx+R*.64,cy+R*.67,cx+R*.78,cy+R+26,'guide')+
+      label(cx,cy+R+47,'假设露出的塑料外圈')+
+      label(cx,cy+R+73,'A 只量一边，不是整个直径');
+    w=section.parentElement.clientWidth;section.setAttribute('viewBox',`0 0 ${w} 300`);section.setAttribute('height','300');
+    const left=18,edge=w*.55,outer=w-43,bx=w-20,topGlass=90,topPlastic=119,low=205;
+    const ring1=edge+16,ring2=outer-10;
+    section.innerHTML=`<title>边缘局部剖面：露出宽度 A 与表面高差 B</title>`+
+      `<rect class="glass" x="${left}" y="${topGlass}" width="${edge-left}" height="25"/><rect class="plastic" x="${edge}" y="${topPlastic}" width="${outer-edge}" height="${low-topPlastic}"/>`+
+      label((left+edge)/2,topGlass+18,'玻璃')+label((edge+outer)/2,topPlastic+46,'塑料')+
+      `<rect class="contact" x="${ring1}" y="55" width="${Math.max(18,ring2-ring1)}" height="16"/>`+
+      line((ring1+ring2)/2,72,(ring1+ring2)/2,topPlastic-4,'guide')+
+      line((ring1+ring2)/2,topPlastic-4,(ring1+ring2)/2-4,topPlastic-10,'guide')+
+      line((ring1+ring2)/2,topPlastic-4,(ring1+ring2)/2+4,topPlastic-10,'guide')+
+      label(w/2,26,'前圈拟接触塑料的位置（示意）')+
+      line(edge,topGlass,bx+4,topGlass,'guide')+line(outer,topPlastic,bx+4,topPlastic,'guide')+vdim(bx,topGlass,topPlastic)+label(bx+8,(topGlass+topPlastic)/2+5,'B','start')+
+      line(edge,low+3,edge,low+35,'guide')+line(outer,low+3,outer,low+35,'guide')+hdim(edge,outer,low+26)+label((edge+outer)/2,low+49,'A：露出宽度')+
+      label(w/2,285,'图示：玻璃表面比塑料表面高');
+  }
+  new ResizeObserver(draw).observe(root);draw();
+})();
+</script>

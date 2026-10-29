@@ -1,0 +1,470 @@
+{
+  "exports": {
+    "01_FULL_HOUSING_CLOSED_BACK_v05.stl": {
+      "file": "F:\\coding_projects\\ai-tour-guide-device\\modeling\\v05\\exports\\01_FULL_HOUSING_CLOSED_BACK_v05.stl",
+      "dimensions_mm": [
+        75.92955017089844,
+        113.17986297607422,
+        148.996826171875
+      ],
+      "triangles": 557536,
+      "readback_status": "Error.NoError",
+      "components": 1,
+      "min_z": 0.0,
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0.020952224731445312,
+        -0.016040802001953125,
+        96.28086853027344
+      ]
+    },
+    "02_CURVED_SNAP_RING_v05.stl": {
+      "file": "F:\\coding_projects\\ai-tour-guide-device\\modeling\\v05\\exports\\02_CURVED_SNAP_RING_v05.stl",
+      "dimensions_mm": [
+        66.99993896484375,
+        66.99993896484375,
+        7.2956085205078125
+      ],
+      "triangles": 32540,
+      "readback_status": "Error.NoError",
+      "components": 1,
+      "min_z": 0.0,
+      "rotation_deg": [
+        0,
+        -90,
+        0
+      ],
+      "translation": [
+        -3.0517578125e-05,
+        3.0517578125e-05,
+        -27.200000762939453
+      ]
+    },
+    "03_FULL_FIT_JIG_v05.stl": {
+      "file": "F:\\coding_projects\\ai-tour-guide-device\\modeling\\v05\\fit-test\\03_FULL_FIT_JIG_v05.stl",
+      "dimensions_mm": [
+        70.4000015258789,
+        70.4000015258789,
+        45.869808197021484
+      ],
+      "triangles": 18376,
+      "readback_status": "Error.NoError",
+      "components": 1,
+      "min_z": 0.0,
+      "rotation_deg": [
+        0,
+        -90,
+        0
+      ],
+      "translation": [
+        -0.0,
+        -0.0,
+        10.0
+      ]
+    },
+    "04_RELEASE_TOOL_v05.stl": {
+      "file": "F:\\coding_projects\\ai-tour-guide-device\\modeling\\v05\\fit-test\\04_RELEASE_TOOL_v05.stl",
+      "dimensions_mm": [
+        22.0,
+        3.799999952316284,
+        3.0
+      ],
+      "triangles": 32,
+      "readback_status": "Error.NoError",
+      "components": 1,
+      "min_z": 0.0,
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        -38.0,
+        -33.2,
+        1.5
+      ]
+    },
+    "05_CLIP_TEST_SOCKET_v05.stl": {
+      "file": "F:\\coding_projects\\ai-tour-guide-device\\modeling\\v05\\fit-test\\05_CLIP_TEST_SOCKET_v05.stl",
+      "dimensions_mm": [
+        24.24674415588379,
+        19.430795669555664,
+        10.295672416687012
+      ],
+      "triangles": 2288,
+      "readback_status": "Error.NoError",
+      "components": 1,
+      "min_z": 0.0,
+      "rotation_deg": [
+        0,
+        -90,
+        0
+      ],
+      "translation": [
+        -18.360722467303276,
+        24.715397771447897,
+        -23.5
+      ]
+    },
+    "06_CLIP_TEST_2_TENTHS_v05.stl": {
+      "file": "F:\\coding_projects\\ai-tour-guide-device\\modeling\\v05\\fit-test\\06_CLIP_TEST_2_TENTHS_v05.stl",
+      "dimensions_mm": [
+        23.762081146240234,
+        20.1429443359375,
+        7.281588554382324
+      ],
+      "triangles": 4308,
+      "readback_status": "Error.NoError",
+      "components": 1,
+      "min_z": 0.0,
+      "rotation_deg": [
+        0,
+        -90,
+        0
+      ],
+      "translation": [
+        -17.130810357133356,
+        22.696472227748128,
+        -27.200000762939453
+      ]
+    },
+    "06_CLIP_TEST_3_TENTHS_v05.stl": {
+      "file": "F:\\coding_projects\\ai-tour-guide-device\\modeling\\v05\\fit-test\\06_CLIP_TEST_3_TENTHS_v05.stl",
+      "dimensions_mm": [
+        23.762081146240234,
+        20.1429443359375,
+        7.281588554382324
+      ],
+      "triangles": 4328,
+      "readback_status": "Error.NoError",
+      "components": 1,
+      "min_z": 0.0,
+      "rotation_deg": [
+        0,
+        -90,
+        0
+      ],
+      "translation": [
+        -17.130810357133356,
+        22.696472227748128,
+        -27.200000762939453
+      ]
+    },
+    "06_CLIP_TEST_4_TENTHS_v05.stl": {
+      "file": "F:\\coding_projects\\ai-tour-guide-device\\modeling\\v05\\fit-test\\06_CLIP_TEST_4_TENTHS_v05.stl",
+      "dimensions_mm": [
+        23.762081146240234,
+        20.1429443359375,
+        7.281589508056641
+      ],
+      "triangles": 4420,
+      "readback_status": "Error.NoError",
+      "components": 1,
+      "min_z": 0.0,
+      "rotation_deg": [
+        0,
+        -90,
+        0
+      ],
+      "translation": [
+        -17.130810357133356,
+        22.696472227748128,
+        -27.200000002980232
+      ]
+    }
+  },
+  "assembly": {
+    "path_nonzero": [],
+    "path_sample_count": 141,
+    "ring_static": {
+      "REFERENCE_ONLY_1": 0,
+      "REFERENCE_ONLY_3": 0,
+      "REFERENCE_ONLY_5": 0,
+      "REFERENCE_ONLY_7": 0,
+      "REFERENCE_ONLY_GLASS_SCHEMATIC": 0
+    },
+    "body_wall_samples": {
+      "valid": 3967,
+      "minimum_mm": 0.050573916093069916,
+      "below_0p8": 9,
+      "below_1p2": 23,
+      "lowest_20": [
+        {
+          "mm": 0.050573916093069916,
+          "point": [
+            0.25,
+            20.663816452026367,
+            60.08557891845703
+          ]
+        },
+        {
+          "mm": 0.15724118309872462,
+          "point": [
+            31.141340255737305,
+            -20.60250473022461,
+            49.096900939941406
+          ]
+        },
+        {
+          "mm": 0.21341107260232006,
+          "point": [
+            28.75235939025879,
+            -10.672669410705566,
+            53.19200134277344
+          ]
+        },
+        {
+          "mm": 0.2670668504047555,
+          "point": [
+            29.823022842407227,
+            -29.972387313842773,
+            35.405670166015625
+          ]
+        },
+        {
+          "mm": 0.2829075256648535,
+          "point": [
+            28.70330238342285,
+            -3.4480183124542236,
+            54.826480865478516
+          ]
+        },
+        {
+          "mm": 0.5695385642253094,
+          "point": [
+            33.08436965942383,
+            -33.207740783691406,
+            15.240796089172363
+          ]
+        },
+        {
+          "mm": 0.6628004254379328,
+          "point": [
+            32.47739791870117,
+            26.9144287109375,
+            41.38154602050781
+          ]
+        },
+        {
+          "mm": 0.7583665456950593,
+          "point": [
+            32.39131164550781,
+            23.34193992614746,
+            44.9325065612793
+          ]
+        },
+        {
+          "mm": 0.767776749903856,
+          "point": [
+            33.5999755859375,
+            13.486411094665527,
+            -8.898026466369629
+          ]
+        },
+        {
+          "mm": 0.8002518718377911,
+          "point": [
+            32.51306915283203,
+            -33.77582931518555,
+            26.16716766357422
+          ]
+        },
+        {
+          "mm": 0.851486328419213,
+          "point": [
+            33.58412551879883,
+            -26.25037956237793,
+            0.6641764044761658
+          ]
+        },
+        {
+          "mm": 0.969595290501393,
+          "point": [
+            -31.586280822753906,
+            7.439120769500732,
+            16.612045288085938
+          ]
+        },
+        {
+          "mm": 0.9719934311613401,
+          "point": [
+            31.0710391998291,
+            23.157276153564453,
+            -0.6355367302894592
+          ]
+        },
+        {
+          "mm": 0.9731337809411514,
+          "point": [
+            33.44381332397461,
+            -29.534578323364258,
+            5.383541584014893
+          ]
+        },
+        {
+          "mm": 1.1131080827385964,
+          "point": [
+            32.95412826538086,
+            -12.928728103637695,
+            -8.90454387664795
+          ]
+        },
+        {
+          "mm": 1.1446885319855349,
+          "point": [
+            33.397216796875,
+            9.997026443481445,
+            -10.630919456481934
+          ]
+        },
+        {
+          "mm": 1.1475046301763812,
+          "point": [
+            32.952178955078125,
+            -14.559539794921875,
+            -8.17696475982666
+          ]
+        },
+        {
+          "mm": 1.190212337877054,
+          "point": [
+            30.13132667541504,
+            29.76235008239746,
+            36.38657760620117
+          ]
+        },
+        {
+          "mm": 1.1998965308165868,
+          "point": [
+            26.616666793823242,
+            20.544218063354492,
+            2.415158271789551
+          ]
+        },
+        {
+          "mm": 1.1999450993893588,
+          "point": [
+            29.033334732055664,
+            -16.690011978149414,
+            -2.422572135925293
+          ]
+        }
+      ],
+      "limitation": "finite normal rays; sharp edges may yield shorter ray lengths than nominal wall thickness"
+    },
+    "actual_stl_readback_used": true
+  },
+  "mechanical": {
+    "official_static_volume_mm3": {
+      "1": {
+        "body": 0.0,
+        "ring": 0.0
+      },
+      "3": {
+        "body": 0.0,
+        "ring": 0.0
+      },
+      "5": {
+        "body": 0.0,
+        "ring": 0.0
+      },
+      "7": {
+        "body": 0.0,
+        "ring": 0.0
+      }
+    },
+    "continuous_button_sweep_volume_mm3": {
+      "3": 0.0,
+      "5": 0.0,
+      "7": 0.0
+    },
+    "front_manual_allowance_continuous_sweep_mm3": 0.0,
+    "ring_front_allowance_mm3": 0.0,
+    "release_proxy_overlap_samples": [
+      {
+        "forward_mm": 0.0,
+        "volume_mm3": 0.0007655128112478398
+      },
+      {
+        "forward_mm": 0.5,
+        "volume_mm3": 0.0
+      },
+      {
+        "forward_mm": 1.0,
+        "volume_mm3": 0.0
+      },
+      {
+        "forward_mm": 1.5,
+        "volume_mm3": 0.0
+      },
+      {
+        "forward_mm": 2.0,
+        "volume_mm3": 0.0
+      },
+      {
+        "forward_mm": 2.5,
+        "volume_mm3": 0.0
+      },
+      {
+        "forward_mm": 3.0,
+        "volume_mm3": 0.0
+      },
+      {
+        "forward_mm": 3.5,
+        "volume_mm3": 0.0
+      },
+      {
+        "forward_mm": 4.0,
+        "volume_mm3": 0.0
+      },
+      {
+        "forward_mm": 4.5,
+        "volume_mm3": 0.0
+      },
+      {
+        "forward_mm": 5.0,
+        "volume_mm3": 0.0
+      },
+      {
+        "forward_mm": 5.5,
+        "volume_mm3": 0.0
+      },
+      {
+        "forward_mm": 6.0,
+        "volume_mm3": 0.0
+      },
+      {
+        "forward_mm": 6.5,
+        "volume_mm3": 0.0
+      },
+      {
+        "forward_mm": 7.0,
+        "volume_mm3": 0.0
+      },
+      {
+        "forward_mm": 7.5,
+        "volume_mm3": 0.0
+      },
+      {
+        "forward_mm": 8.0,
+        "volume_mm3": 0.0
+      }
+    ],
+    "rigid_unreleased_pull_1mm_overlap_mm3": 1.215296033047908,
+    "release_proxy_limitation": "Prescribed vertex displacement, not FEA or proof of PLA strain/fatigue.",
+    "tool_inserted_body_overlap_mm3": {
+      "230": 0.0,
+      "310": 0.0
+    },
+    "tool_released_ring_overlap_mm3": {
+      "230": 0.0,
+      "310": 0.0
+    }
+  },
+  "physical_fit": "PENDING",
+  "slicer_supports": "NOT CONFIGURED; user/lab must preview and configure removable supports"
+}

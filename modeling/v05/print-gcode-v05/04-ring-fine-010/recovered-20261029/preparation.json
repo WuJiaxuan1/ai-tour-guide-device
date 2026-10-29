@@ -1,0 +1,12 @@
+{
+  "source_stl": "F:\\coding_projects\\ai-tour-guide-device\\print-delivery-v05\\02_CURVED_SNAP_RING_v05.stl",
+  "source_sha256": "f94984e66cea35d11c037f339e99e9c6221f926bbd2744d692944def837cb45b",
+  "geometry_changes": false,
+  "orientation": "original STL, cosmetic face up, clips horizontal near bed",
+  "layer_mm": 0.1,
+  "nozzle_mm": 0.4,
+  "nozzle_verified": false,
+  "PLA_density_g_cm3": 1.24,
+  "support": "snug automatic overhang threshold 40 degrees, XY gap 0.4, Z gap 0.2, no raft",
+  "physical_fit": "unverified"
+}

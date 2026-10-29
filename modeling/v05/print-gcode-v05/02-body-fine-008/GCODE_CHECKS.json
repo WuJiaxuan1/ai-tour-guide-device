@@ -1,0 +1,144 @@
+{
+  "file": "BODY008.gcode",
+  "sha256": "0543b709d171214e65c4166dbef9081f05659ce2ca7ce20f038e91b8226a47d6",
+  "bytes": 177267086,
+  "all_commanded_positions_in_210x210x205": true,
+  "motion_min": [
+    0.0,
+    0.0,
+    0.2
+  ],
+  "motion_max": [
+    185.24,
+    200.0,
+    80.96
+  ],
+  "printed_path_min": [
+    30.712,
+    46.489,
+    0.2
+  ],
+  "printed_path_max": [
+    185.24,
+    162.757,
+    75.96
+  ],
+  "heating_wait_before_positive_extrusion": true,
+  "heaters_off_at_end": true,
+  "no_firmware_calibration_writes": true,
+  "temperature_commands": [
+    [
+      20,
+      "M140",
+      60.0
+    ],
+    [
+      21,
+      "M104",
+      140.0
+    ],
+    [
+      24,
+      "M190",
+      60.0
+    ],
+    [
+      25,
+      "M104",
+      205.0
+    ],
+    [
+      26,
+      "M109",
+      205.0
+    ],
+    [
+      2735,
+      "M104",
+      200.0
+    ],
+    [
+      6853202,
+      "M104",
+      0.0
+    ],
+    [
+      6853203,
+      "M140",
+      0.0
+    ]
+  ],
+  "motion_feature_segment_counts": {
+    "Skirt/Brim": 537,
+    "Support material interface": 118442,
+    "Support material": 339456,
+    "Perimeter": 1418907,
+    "External perimeter": 468201,
+    "Solid infill": 862457,
+    "Overhang perimeter": 2355,
+    "Bridge infill": 1844,
+    "Internal infill": 2193763,
+    "Top solid infill": 1346
+  },
+  "stats": {
+    "filament used [mm]": "84788.18",
+    "filament used [cm3]": "203.94",
+    "filament used [g]": "252.88",
+    "estimated printing time (normal mode)": "3d 3h 38m 24s",
+    "estimated first layer printing time (normal mode)": "28m 49s"
+  },
+  "support_path_count": 457898,
+  "physical_print_validation": "not performed",
+  "wall_thickness": "unchanged v05; not a global minimum-wall certification",
+  "combined_model_support_z_level_count": 992,
+  "combined_model_support_z_steps_mm": [
+    0.0084,
+    0.0101,
+    0.0105,
+    0.0126,
+    0.0147,
+    0.016,
+    0.0168,
+    0.0189,
+    0.02,
+    0.0211,
+    0.0232,
+    0.0253,
+    0.0274,
+    0.0275,
+    0.0295,
+    0.03,
+    0.0316,
+    0.032,
+    0.0337,
+    0.0358,
+    0.0374,
+    0.0379,
+    0.04,
+    0.0421,
+    0.0426,
+    0.0442,
+    0.0463,
+    0.048,
+    0.0484,
+    0.05,
+    0.0505,
+    0.0525,
+    0.0526,
+    0.0547,
+    0.0568,
+    0.0589,
+    0.06,
+    0.0611,
+    0.0632,
+    0.064,
+    0.0653,
+    0.0674,
+    0.0695,
+    0.0699,
+    0.0716,
+    0.08
+  ],
+  "nominal_object_layer_height_mm": 0.08,
+  "first_layer_height_mm": 0.2
+}

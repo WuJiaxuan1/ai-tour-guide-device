@@ -1,0 +1,18 @@
+{
+  "tag": "trial022",
+  "layer_height": 0.22,
+  "outer_speed": 40.0,
+  "inner_speed": 70.0,
+  "fill_speed": 80.0,
+  "support_speed": 45.0,
+  "perimeters": "3",
+  "fill_density": "10%",
+  "stats": {
+    "filament used [mm]": "65314.21",
+    "filament used [cm3]": "157.10",
+    "filament used [g]": "194.80",
+    "estimated printing time (normal mode)": "16h 15m 25s",
+    "estimated first layer printing time (normal mode)": "28m 50s"
+  },
+  "bytes": 54617399
+}

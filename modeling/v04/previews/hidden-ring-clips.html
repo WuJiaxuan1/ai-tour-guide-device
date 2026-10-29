@@ -1,0 +1,87 @@
+<div id="ring-clips-explainer">
+  <div class="text-small">结构原理示意 · 非等比例 · 卡扣角度待避让三个按钮后确定</div>
+  <svg class="layout" role="img" aria-label="前圈背面透视示意：顶部定位筋，左右下侧两个沿圆周展开的弹性卡扣，释放口位于外缘。"></svg>
+  <div class="viz-row" role="group" aria-label="卡扣状态">
+    <button class="btn" type="button" data-state="insert" aria-pressed="false">按入时</button>
+    <button class="btn" type="button" data-state="locked" aria-pressed="true">扣好后</button>
+    <button class="btn" type="button" data-state="release" aria-pressed="false">拆卸时</button>
+  </div>
+  <svg class="section" role="img" aria-label="局部剖面：凸钩进入主体卡槽；释放工具沿外缘专用通道推回凸钩，内侧隔挡将工具与设备隔开。"></svg>
+  <div class="text-small" data-detail aria-live="polite"></div>
+</div>
+<style>
+#ring-clips-explainer { color:var(--foreground); }
+#ring-clips-explainer svg { display:block; width:100%; overflow:visible; }
+#ring-clips-explainer .layout { height:310px; }
+#ring-clips-explainer .section { height:350px; }
+#ring-clips-explainer text { fill:var(--foreground); font-size:14px; font-weight:400; }
+#ring-clips-explainer .shell { fill:var(--muted); stroke:var(--foreground); stroke-width:1; }
+#ring-clips-explainer .clip { fill:var(--viz-series-1); fill-opacity:.25; stroke:var(--viz-series-1); stroke-width:2; }
+#ring-clips-explainer .line { fill:none; stroke:var(--foreground); stroke-width:1.2; }
+#ring-clips-explainer .tool { fill:var(--viz-series-2); fill-opacity:.3; stroke:var(--viz-series-2); stroke-width:2; }
+</style>
+<script>
+(() => {
+ const root=document.getElementById('ring-clips-explainer');
+ const layout=root.querySelector('.layout'),section=root.querySelector('.section');
+ const valid=['insert','locked','release'];
+ let state=valid.includes(window.openai?.widgetState?.modelContent?.clipState)?window.openai.widgetState.modelContent.clipState:'locked';
+ const text=(x,y,t,anchor='start')=>`<text x="${x}" y="${y}" text-anchor="${anchor}">${t}</text>`;
+ const line=(d,extra='')=>`<path class="line" d="${d}" ${extra}/>`;
+ function draw(){
+   const w=Math.max(300,Math.floor(root.getBoundingClientRect().width)),c=w/2;
+   layout.setAttribute('viewBox',`0 0 ${w} 310`);
+   const p=(r,a)=>[c+r*Math.cos(a*Math.PI/180),150+r*Math.sin(a*Math.PI/180)];
+   const arc=(r,a,b)=>{const x=p(r,a),y=p(r,b);return `M${x} A${r},${r} 0 0 1 ${y}`};
+   let s=text(8,24,'① 前圈背面：外观面已省略');
+   s+=`<circle class="shell" cx="${c}" cy="150" r="99"/><circle cx="${c}" cy="150" r="71" fill="var(--background)" stroke="var(--border)"/>`;
+   s+=text(c,145,'屏幕开口','middle')+text(c,166,'按钮藏在腔体内','middle');
+   s+=`<rect class="shell" x="${c-7}" y="43" width="14" height="25" rx="2"/>`;
+   s+=line(`M${c+11},53 H${c+60} V38`)+text(c+62,39,'定位筋');
+   for(const [a,b] of [[25,67],[113,155]]){
+     s+=`<path d="${arc(86,a,b)}" fill="none" stroke="var(--viz-series-1)" stroke-width="8"/>`;
+     s+=`<path d="${arc(77,a+3,b+3)}" fill="none" stroke="var(--foreground)" stroke-width="1.2" stroke-dasharray="3 3"/>`;
+     const q=p(94,b);s+=`<circle class="clip" cx="${q[0]}" cy="${q[1]}" r="5"/>`;
+     const e=p(104,b);s+=line(`M${q} L${e}`);
+   }
+   const left=p(88,135),right=p(94,67);
+   s+=line(`M${left} L${c-110},246`)+text(c-125,265,'圆周弹性臂');
+   s+=line(`M${right} L${c+75},246`)+text(c+30,265,'外缘释放口');
+   s+=text(c,293,'虚线：让弹性臂向内退让的空隙','middle');
+   layout.innerHTML=s;
+   section.setAttribute('viewBox',`0 0 ${w} 350`);
+   const wall=w*.70,bar=w*.46,dev=w*.30;
+   let x=wall-20,dy=0;
+   if(state==='insert'){x-=23;dy=-55;}if(state==='release')x-=23;
+   let z=text(8,26,'② 凸钩局部剖面（放大）');
+   z+=text(8,53,'上：正面／拔出方向 ↑');
+   z+=`<rect class="shell" x="12" y="140" width="${dev-12}" height="160" rx="4"/>`;
+   z+=text((dev+12)/2,205,'设备','middle');
+   z+=`<rect class="shell" x="${bar-7}" y="128" width="14" height="172"/>`;
+   z+=line(`M${bar},295 V320 H${bar-38}`)+text(bar-42,339,'实体隔挡','middle');
+   z+=`<path class="shell" d="M${wall},125 H${w-14} V300 H${wall} V218 H${wall+17} V177 H${wall} Z"/>`;
+   z+=text((wall+w-14)/2,268,'主体','middle');
+   z+=line(`M${wall+20},197 H${w-18} V157`)+text(w-18,148,'浅卡槽','end');
+   z+=`<path class="clip" d="M${x-12},${180+dy} H${x+32} V${192+dy} L${x+7},${216+dy} H${x-12} Z"/>`;
+   z+=line(`M${x-10},${197+dy} H${bar+20} V100`,'stroke-dasharray="3 3"');
+   z+=text(bar+13,88,'弹性臂末端');
+   if(state==='locked'){
+     z+=line(`M${x+25},180 L${x+25},166 M${x+21},170 L${x+25},166 L${x+29},170`);
+     z+=text(c,118,'挡肩阻止前圈向外脱出','middle');
+   }else if(state==='release'){
+     z+=`<path class="tool" d="M${wall-11},62 H${wall-1} V181 L${wall-34},201 V185 L${wall-11},171 Z"/>`;
+     z+=line(`M${wall-15},234 H${wall-45} M${wall-40},230 L${wall-45},234 L${wall-40},238`);
+     z+=text(w-17,316,'凸钩向内退开 ←','end');
+   }else{
+     z+=line(`M${wall-24},229 V253 M${wall-28},248 L${wall-24},253 L${wall-20},248`);
+     z+=text(w-17,316,'前圈向后按入 ↓','end');
+   }
+   section.innerHTML=z;
+   root.querySelector('[data-detail]').textContent={insert:'按入：凸钩斜面越过入口，弹性臂暂时向内弯。',locked:'扣好：凸钩回弹进入浅槽；前圈另有硬限位，不靠挤压玻璃锁紧。',release:'拆卸：外缘拨片推回凸钩，逐侧解锁；隔挡与限深结构隔开设备。'}[state];
+   root.querySelectorAll('[data-state]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.state===state)));
+ }
+ root.querySelectorAll('[data-state]').forEach(b=>b.addEventListener('click',()=>{state=b.dataset.state;draw();window.openai?.setWidgetState?.({modelContent:{clipState:state},privateContent:null})?.catch(()=>{});}));
+ window.addEventListener('openai:set_globals',e=>{const s=e.detail?.globals?.widgetState?.modelContent?.clipState;if(valid.includes(s)){state=s;draw();}});
+ new ResizeObserver(draw).observe(root);draw();
+})();
+</script>

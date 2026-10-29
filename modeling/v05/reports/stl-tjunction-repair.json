@@ -1,0 +1,22 @@
+[
+  {
+    "initial_float32_vertices_welded": 48,
+    "maximum_weld_distance_mm": 0.0001
+  },
+  {
+    "point": [
+      35.0660514831543,
+      3.0678820610046387,
+      26.0
+    ],
+    "edge_split_fraction": 0.2727272727272727
+  },
+  {
+    "point": [
+      35.0660514831543,
+      -3.0678820610046387,
+      35.0
+    ],
+    "edge_split_fraction": 0.49819402458064116
+  }
+]

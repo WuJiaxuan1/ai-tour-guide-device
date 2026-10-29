@@ -1,0 +1,168 @@
+{
+  "parameters": {
+    "status": "layout_and_clearance_draft_not_for_print",
+    "units": "mm",
+    "appearance_height": 150.0,
+    "appearance_height_is_confirmed": false,
+    "axis_y": -0.02733765,
+    "axis_z": 22.28087056,
+    "device_back_x": 10.0,
+    "manual_overall_diameter": 52.0,
+    "manual_overall_thickness": 15.5,
+    "bore_diameter_candidate": 53.0,
+    "button_bbox_margin_candidate": 2.0,
+    "through_cutter_length": 140.0,
+    "screws": {
+      "count": 2,
+      "candidate": "M2.5 machine screw and captive hex nut",
+      "length": null,
+      "status": "proposed_not_purchased_or_final"
+    },
+    "front_bearing_dimensions": null,
+    "rear_support_contacts": null,
+    "usb_plug_envelope": null,
+    "official_assembly_component_ids": [
+      1,
+      3,
+      5,
+      7
+    ]
+  },
+  "limitations": [
+    "Not a printable or retaining assembly",
+    "Front glass and bearing boundary absent in manual",
+    "Official STL omits screen and electronics",
+    "USB plug, support contacts, wall thickness and self intersection not verified"
+  ],
+  "appearance_dimensions_mm": [
+    75.93180847167969,
+    113.18196105957031,
+    150.0
+  ],
+  "appearance_scale_to_mm": 153.067971084634,
+  "official_casing_dimensions_mm": [
+    15.0,
+    51.94694137573242,
+    51.94578552246094
+  ],
+  "reference_faces": 8534,
+  "welded_vertices_before_boolean": 974357,
+  "official_surface_insertion_samples": [
+    {
+      "front_translation_mm": 0,
+      "surface_triangle_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 5,
+      "surface_triangle_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 10,
+      "surface_triangle_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 15,
+      "surface_triangle_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 20,
+      "surface_triangle_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 25,
+      "surface_triangle_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 30,
+      "surface_triangle_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 35,
+      "surface_triangle_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 40,
+      "surface_triangle_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 45,
+      "surface_triangle_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 50,
+      "surface_triangle_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 55,
+      "surface_triangle_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 60,
+      "surface_triangle_intersection_pairs": 0
+    }
+  ],
+  "cylinder_clearance_samples": [
+    {
+      "x_mm": 10,
+      "minimum_sampled_radius_mm": 26.496464948712713,
+      "hit_rays": 360
+    },
+    {
+      "x_mm": 15,
+      "minimum_sampled_radius_mm": 26.49646494815033,
+      "hit_rays": 360
+    },
+    {
+      "x_mm": 20,
+      "minimum_sampled_radius_mm": 26.496464947587945,
+      "hit_rays": 360
+    },
+    {
+      "x_mm": 25,
+      "minimum_sampled_radius_mm": 26.49646494815033,
+      "hit_rays": 360
+    },
+    {
+      "x_mm": 30,
+      "minimum_sampled_radius_mm": 26.49646494815033,
+      "hit_rays": 360
+    },
+    {
+      "x_mm": 35,
+      "minimum_sampled_radius_mm": 26.49646433149737,
+      "hit_rays": 294
+    },
+    {
+      "x_mm": 40,
+      "minimum_sampled_radius_mm": null,
+      "hit_rays": 0
+    },
+    {
+      "x_mm": 50,
+      "minimum_sampled_radius_mm": null,
+      "hit_rays": 0
+    },
+    {
+      "x_mm": 60,
+      "minimum_sampled_radius_mm": null,
+      "hit_rays": 0
+    }
+  ],
+  "after_dimensions_mm": [
+    75.93180847167969,
+    113.18196105957031,
+    150.0
+  ],
+  "after_triangles": 1605328,
+  "original_at_same_placement_surface_intersection_pairs": 10127,
+  "draft_edge_usage": {
+    "boundary": 0,
+    "more_than_two_faces": 0,
+    "loose": 0
+  },
+  "reference_stl_reimport_dimensions_mm": [
+    15.0,
+    51.94694137573242,
+    51.94578552246094
+  ]
+}

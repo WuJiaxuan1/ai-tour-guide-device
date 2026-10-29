@@ -1,0 +1,15 @@
+{
+  "source_stl": "F:\\coding_projects\\ai-tour-guide-device\\print-delivery-v05\\01_FULL_HOUSING_CLOSED_BACK_v05.stl",
+  "source_sha256": "e00d33b47102fdfb28124ac0f79f3846b84dd3442a27c19e0ce753095eb3c5a3",
+  "geometry_changes": "none; rigid rotation only",
+  "rotation_y_deg": -90,
+  "orientation": "front opening up; curved back down",
+  "nozzle_mm": 0.4,
+  "nozzle_assumed": true,
+  "layer_height_mm": 0.08,
+  "first_layer_height_mm": 0.2,
+  "temperature_C": 200,
+  "first_layer_temperature_C": 205,
+  "bed_C": 60,
+  "physical_quality": "not yet validated"
+}

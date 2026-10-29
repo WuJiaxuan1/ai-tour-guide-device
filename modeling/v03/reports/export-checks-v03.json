@@ -1,0 +1,129 @@
+{
+  "carrier": {
+    "status": "Error.NoError",
+    "volume_mm3": 22168.477768417306,
+    "bounding_box": [
+      23.6,
+      -40.5,
+      -33.0,
+      43.0,
+      40.5,
+      33.0
+    ],
+    "connected_components": 1
+  },
+  "ring": {
+    "status": "Error.NoError",
+    "volume_mm3": 4278.031911398125,
+    "bounding_box": [
+      43.0,
+      -40.5,
+      -33.0,
+      46.0,
+      40.5,
+      33.0
+    ],
+    "connected_components": 1
+  },
+  "01_FIT_TEST_CARRIER_52p6mm_PLA_v03.stl": {
+    "float32_collapsed_triangles_removed": 0,
+    "triangles": 3646,
+    "dimensions_mm": [
+      66.0,
+      81.0,
+      19.399999618530273
+    ],
+    "min_z": 0.0,
+    "volume_mm3": 22169.139664302227,
+    "connected_components": 1,
+    "manifold_status": "Error.NoError",
+    "file": "F:\\coding_projects\\ai-tour-guide-device\\modeling\\v03\\fit-test\\01_FIT_TEST_CARRIER_52p6mm_PLA_v03.stl",
+    "reimport_dimensions_mm": [
+      66.0,
+      81.0,
+      19.399999618530273
+    ],
+    "reimport_manifold_status": "Error.NoError",
+    "actual_readback_triangles": 3646,
+    "print_translation_mm": [
+      -0.0,
+      -0.0,
+      -23.6
+    ]
+  },
+  "02_FRONT_RING_50p5mm_PLA_v03.stl": {
+    "float32_collapsed_triangles_removed": 0,
+    "triangles": 2582,
+    "dimensions_mm": [
+      66.0,
+      81.0,
+      3.0
+    ],
+    "min_z": 0.0,
+    "volume_mm3": 4278.112859075894,
+    "connected_components": 1,
+    "manifold_status": "Error.NoError",
+    "file": "F:\\coding_projects\\ai-tour-guide-device\\modeling\\v03\\exports\\02_FRONT_RING_50p5mm_PLA_v03.stl",
+    "reimport_dimensions_mm": [
+      66.0,
+      81.0,
+      3.0
+    ],
+    "reimport_manifold_status": "Error.NoError",
+    "actual_readback_triangles": 2582,
+    "print_translation_mm": [
+      -0.0,
+      -0.0,
+      -43.0
+    ]
+  },
+  "source_body": {
+    "status": "Error.NoError",
+    "volume_mm3": 458155.05159819644
+  },
+  "filled_enclosed_microvoids_mm3": [
+    51.726530669762745
+  ],
+  "full_body_components": [
+    {
+      "volume_mm3": 472629.88008960994,
+      "bbox": [
+        -37.98799133300781,
+        -56.60245895385742,
+        -74.0,
+        43.0,
+        56.579498291015625,
+        74.99723815917969
+      ]
+    }
+  ],
+  "03_FULL_HOUSING_ONE_PIECE_PLA_v03.stl": {
+    "float32_collapsed_triangles_removed": 29,
+    "triangles": 515171,
+    "dimensions_mm": [
+      80.98765563964844,
+      113.18109893798828,
+      148.99684143066406
+    ],
+    "min_z": 0.0,
+    "volume_mm3": 472590.8187977642,
+    "connected_components": 1,
+    "manifold_status": "Error.NoError",
+    "file": "F:\\coding_projects\\ai-tour-guide-device\\modeling\\v03\\exports\\03_FULL_HOUSING_ONE_PIECE_PLA_v03.stl",
+    "reimport_dimensions_mm": [
+      80.98765563964844,
+      113.18109893798828,
+      148.99684143066406
+    ],
+    "reimport_manifold_status": "Error.NoError",
+    "actual_readback_triangles": 515168,
+    "print_translation_mm": [
+      -2.506174087524414,
+      0.01190948486328125,
+      74.0
+    ]
+  },
+  "ring_vs_body_intersection_volume_mm3": -8.337007247395242e-14,
+  "fit_sample_constraints": "Same carrier, rear supports, bore, key reliefs, nut seats, screw holes, ring seats and charging bay as full body; no locating feature cropped.",
+  "physical_fit_status": "PENDING REAL STOPWATCH TEST"
+}

@@ -1,0 +1,101 @@
+{
+  "file": "RING010.gcode",
+  "sha256": "eadf095e42c0d52b1497f35160b0675fa029a015f17a5dfe73ff10c20916ce35",
+  "bytes": 5349484,
+  "all_commanded_positions_in_210x210x205": true,
+  "motion_min": [
+    0.0,
+    0.0,
+    0.2
+  ],
+  "motion_max": [
+    144.667,
+    200.0,
+    12.3
+  ],
+  "printed_path_min": [
+    64.926,
+    65.333,
+    0.2
+  ],
+  "printed_path_max": [
+    144.667,
+    144.667,
+    7.3
+  ],
+  "heating_wait_before_positive_extrusion": true,
+  "heaters_off_at_end": true,
+  "no_firmware_calibration_writes": true,
+  "temperature_commands": [
+    [
+      20,
+      "M140",
+      60.0
+    ],
+    [
+      21,
+      "M104",
+      140.0
+    ],
+    [
+      24,
+      "M190",
+      60.0
+    ],
+    [
+      25,
+      "M104",
+      205.0
+    ],
+    [
+      26,
+      "M109",
+      205.0
+    ],
+    [
+      2722,
+      "M104",
+      200.0
+    ],
+    [
+      147456,
+      "M104",
+      0.0
+    ],
+    [
+      147457,
+      "M140",
+      0.0
+    ]
+  ],
+  "motion_feature_segment_counts": {
+    "Skirt/Brim": 720,
+    "Support material": 12919,
+    "External perimeter": 18402,
+    "Perimeter": 36418,
+    "Support material interface": 5300,
+    "Overhang perimeter": 1259,
+    "Solid infill": 20336,
+    "Bridge infill": 843,
+    "Internal infill": 856,
+    "Top solid infill": 28
+  },
+  "stats": {
+    "filament used [mm]": "2865.71",
+    "filament used [cm3]": "6.89",
+    "filament used [g]": "8.55",
+    "estimated printing time (normal mode)": "2h 3m 4s",
+    "estimated first layer printing time (normal mode)": "8m 15s"
+  },
+  "support_path_count": 18219,
+  "physical_print_validation": "not performed",
+  "gcode_z_event_count_including_support": 75,
+  "gcode_z_event_steps_including_support_mm": [
+    0.025,
+    0.05,
+    0.075,
+    0.1
+  ],
+  "configured_object_layer_height_mm": 0.1,
+  "geometry": "unchanged v05 front ring"
+}

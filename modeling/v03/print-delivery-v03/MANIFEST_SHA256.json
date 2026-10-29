@@ -1,0 +1,34 @@
+{
+  "00_PRINT_FIRST_TEST_PAIR_PLA_v03.3mf": {
+    "bytes": 57826,
+    "sha256": "ed666ba487be39c963c3e51b205ce9fb73b63fd7de63edba360b64d74f9db2d5"
+  },
+  "01_FIT_TEST_CARRIER_52p6mm_PLA_v03.stl": {
+    "bytes": 182384,
+    "sha256": "a05db2502ee1aa6eedd0824003b5518769ce8107950de6935dd519ce46230760"
+  },
+  "02_FRONT_RING_50p5mm_PLA_v03.stl": {
+    "bytes": 129184,
+    "sha256": "d602810fad1663266f54e9a976e23ea245a9fa496c862e24c1b3a45707789ffd"
+  },
+  "03_FULL_HOUSING_ONE_PIECE_PLA_v03.stl": {
+    "bytes": 25758484,
+    "sha256": "9b4b6c9ac1add31615e59a0e4c5c1d048f06985003045b74151b67440d17ac8e"
+  },
+  "04_FULL_HOUSING_AND_RING_PLA_v03.3mf": {
+    "bytes": 7482213,
+    "sha256": "f91ce5be0400c6d0c1eeda469419a319b9ac61033e3bfba387cbc08c82cbe790"
+  },
+  "CHECKS_SUMMARY_v03.md": {
+    "bytes": 3822,
+    "sha256": "3773a55a6e65b63ff1142e636d0d9a1967295a9e5fc53230b4c9aa7ffcfccd28"
+  },
+  "PRINT_OVERVIEW_v03.png": {
+    "bytes": 803391,
+    "sha256": "202e530066ce00a79255f994c257abe5cff81b5bf2baba322c908e09ac37f848"
+  },
+  "README_CN_v03.md": {
+    "bytes": 7763,
+    "sha256": "28198837a570a3e1f0cd6ad75a323c379abf214cac4c28299a20d4dd2ec1c6e6"
+  }
+}

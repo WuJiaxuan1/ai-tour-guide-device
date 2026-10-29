@@ -1,0 +1,34 @@
+{
+  "method": "same-Z XY segment distances minus half commanded extrusion widths; finite centerline bead approximation, not physical extrusion simulation",
+  "minimum_gap_mm": 0.2960217301605459,
+  "layers": [
+    {
+      "z_mm": 0.2,
+      "minimum_nominal_bead_edge_gap_mm": 3.071416831519341
+    },
+    {
+      "z_mm": 3.4,
+      "minimum_nominal_bead_edge_gap_mm": 0.30469584990276244
+    },
+    {
+      "z_mm": 3.6,
+      "minimum_nominal_bead_edge_gap_mm": 0.2960217301605459
+    },
+    {
+      "z_mm": 3.8,
+      "minimum_nominal_bead_edge_gap_mm": 0.3147167598215286
+    },
+    {
+      "z_mm": 4.0,
+      "minimum_nominal_bead_edge_gap_mm": 0.310602049186518
+    },
+    {
+      "z_mm": 4.2,
+      "minimum_nominal_bead_edge_gap_mm": 0.30939737898442776
+    },
+    {
+      "z_mm": 4.4,
+      "minimum_nominal_bead_edge_gap_mm": 0.686508484676654
+    }
+  ]
+}

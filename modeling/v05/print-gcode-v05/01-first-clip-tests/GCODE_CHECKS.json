@@ -1,0 +1,37 @@
+{
+  "file": "CLIPV05.gcode",
+  "sha256": "6ae7f39dfff2174badac6171e27e2154a78d886f1e7ea2ec5698f4252a5a6db0",
+  "bytes": 2035704,
+  "all_commanded_positions_within_210x210x205": true,
+  "motion_min_xyz": [
+    0.0,
+    0.0,
+    0.2
+  ],
+  "motion_max_xyz": [
+    183.691,
+    200.0,
+    15.2
+  ],
+  "print_extrusion_bounds_min": [
+    26.434,
+    53.206,
+    0.2
+  ],
+  "print_extrusion_bounds_max": [
+    183.691,
+    118.239,
+    10.2
+  ],
+  "extrusion_waits_for_205C": true,
+  "heaters_off_at_end": true,
+  "no_firmware_configuration_write_commands": true,
+  "ordinary_text_gcode": true,
+  "support_segment_count": 5632,
+  "max_commanded_feed_mm_s": 100.0,
+  "estimated_time": "44m 23s",
+  "filament_grams": "5.28",
+  "filament_mm": "1770.40",
+  "physical_print_test": "NOT PERFORMED",
+  "nozzle": "0.4 mm assumed per user instruction"
+}

@@ -1,0 +1,108 @@
+[
+  {
+    "tag": "trial016",
+    "layer_height": 0.16,
+    "outer_speed": 40.0,
+    "inner_speed": 70.0,
+    "fill_speed": 80.0,
+    "support_speed": 45.0,
+    "perimeters": "3",
+    "fill_density": "10%",
+    "stats": {
+      "filament used [mm]": "66210.10",
+      "filament used [cm3]": "159.25",
+      "filament used [g]": "197.47",
+      "estimated printing time (normal mode)": "21h 14m 15s",
+      "estimated first layer printing time (normal mode)": "28m 57s"
+    },
+    "bytes": 72759108
+  },
+  {
+    "tag": "trial020",
+    "layer_height": 0.2,
+    "outer_speed": 30.0,
+    "inner_speed": 50.0,
+    "fill_speed": 60.0,
+    "support_speed": 40.0,
+    "stats": {
+      "filament used [mm]": "82681.75",
+      "filament used [cm3]": "198.87",
+      "filament used [g]": "246.60",
+      "estimated printing time (normal mode)": "1d 0h 9m 11s",
+      "estimated first layer printing time (normal mode)": "28m 52s"
+    },
+    "bytes": 77495669
+  },
+  {
+    "tag": "trial020b",
+    "layer_height": 0.2,
+    "outer_speed": 35.0,
+    "inner_speed": 60.0,
+    "fill_speed": 70.0,
+    "support_speed": 45.0,
+    "perimeters": "3",
+    "fill_density": "15%",
+    "stats": {
+      "filament used [mm]": "71000.13",
+      "filament used [cm3]": "170.78",
+      "filament used [g]": "211.76",
+      "estimated printing time (normal mode)": "19h 33m 4s",
+      "estimated first layer printing time (normal mode)": "28m 52s"
+    },
+    "bytes": 68965338
+  },
+  {
+    "tag": "trial022",
+    "layer_height": 0.22,
+    "outer_speed": 40.0,
+    "inner_speed": 70.0,
+    "fill_speed": 80.0,
+    "support_speed": 45.0,
+    "perimeters": "3",
+    "fill_density": "10%",
+    "stats": {
+      "filament used [mm]": "65314.21",
+      "filament used [cm3]": "157.10",
+      "filament used [g]": "194.80",
+      "estimated printing time (normal mode)": "16h 15m 25s",
+      "estimated first layer printing time (normal mode)": "28m 50s"
+    },
+    "bytes": 54617399
+  },
+  {
+    "tag": "trial022b",
+    "layer_height": 0.22,
+    "outer_speed": 40.0,
+    "inner_speed": 80.0,
+    "fill_speed": 80.0,
+    "support_speed": 50.0,
+    "perimeters": "3",
+    "fill_density": "10%",
+    "stats": {
+      "filament used [mm]": "65314.21",
+      "filament used [cm3]": "157.10",
+      "filament used [g]": "194.80",
+      "estimated printing time (normal mode)": "15h 50m 36s",
+      "estimated first layer printing time (normal mode)": "28m 50s"
+    },
+    "bytes": 54794659
+  },
+  {
+    "tag": "trial024",
+    "layer_height": 0.24,
+    "outer_speed": 40.0,
+    "inner_speed": 70.0,
+    "fill_speed": 80.0,
+    "support_speed": 45.0,
+    "perimeters": "3",
+    "fill_density": "15%",
+    "stats": {
+      "filament used [mm]": "69776.38",
+      "filament used [cm3]": "167.83",
+      "filament used [g]": "208.11",
+      "estimated printing time (normal mode)": "16h 9m 58s",
+      "estimated first layer printing time (normal mode)": "28m 52s"
+    },
+    "bytes": 58445655
+  }
+]

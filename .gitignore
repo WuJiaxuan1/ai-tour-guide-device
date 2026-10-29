@@ -1,0 +1,47 @@
+# External material: local by default; review before publishing
+/project-files/
+
+# Dependencies and generated caches
+node_modules/
+dist/
+.venv/
+__pycache__/
+*.pyc
+mesh-tools/
+
+# Local secrets and machine files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+Thumbs.db
+
+# Blender backup files
+*.blend1
+*.blend2
+
+# Local distribution snapshots; use release assets when publishing
+*.zip
+/docs/history/reorganization-20261029/
+
+# Received hardware build caches, private signing material and release snapshots
+.gradle/
+.cxx/
+build/
+.tools/
+local.properties
+*.jks
+*.keystore
+/stopwatch-nav/releases/
+/stopwatch-nav/logs/
+
+# Local maintenance receipts
+/.local-work/
+
+# Machine-specific print jobs and reproducible calculation caches
+*.gcode
+*.npz
+*.npy
+*.log

@@ -1,0 +1,274 @@
+{
+  "version": "v03",
+  "status": "PLA assembly prototype pending physical fit",
+  "units": "mm",
+  "printer": {
+    "model": "ANYCUBIC MEGA-S",
+    "source": "User machine photograph received 2026-10-28",
+    "material": "laboratory PLA",
+    "actual_nozzle_diameter_mm": null
+  },
+  "axis_y": -0.02733765,
+  "axis_z": 22.28087056,
+  "appearance_height_initial_mm": 150,
+  "floor_trim_plane_z_mm": -74.0,
+  "carrier_outer_diameter_mm": 66.0,
+  "cavity_diameter_mm": 52.6,
+  "front_ring_inner_diameter_mm": 50.5,
+  "front_ring_thickness_mm": 3.0,
+  "front_ring_seat_x_mm": 43.0,
+  "axial_cavity_depth_mm": 16.2,
+  "rear_support_plane_lower_x_mm": 26.8,
+  "carrier_rear_x_mm": 23.6,
+  "rear_supports": [
+    {
+      "angle_deg": 90,
+      "half_angle_deg": 10,
+      "inner_radius_mm": 23.1,
+      "outer_radius_mm": 32.0,
+      "front_x_mm": 27.6,
+      "case_surface_x_offset_mm": 0.8
+    },
+    {
+      "angle_deg": 200,
+      "half_angle_deg": 10,
+      "inner_radius_mm": 23.1,
+      "outer_radius_mm": 32.0,
+      "front_x_mm": 26.8,
+      "case_surface_x_offset_mm": 0
+    },
+    {
+      "angle_deg": 340,
+      "half_angle_deg": 10,
+      "inner_radius_mm": 23.1,
+      "outer_radius_mm": 32.0,
+      "front_x_mm": 26.8,
+      "case_surface_x_offset_mm": 0
+    }
+  ],
+  "radial_case_diameter_nominal_mm": 51.95,
+  "device_thickness_manual_mm": 15.5,
+  "reference_device_back_x_mm": 27.3,
+  "rear_pad_allowance_mm": 0.5,
+  "front_plastic_rim_width_user_approx_mm": 2,
+  "front_plastic_minus_glass_height_user_approx_mm": 0,
+  "front_observation_precision": "millimeter ruler rough measurement; unknown uncertainty",
+  "button_bbox_yz_margin_mm": 2.0,
+  "button_relief_outer_radius_mm": 29.7,
+  "ear_centers_y_mm": [
+    -34,
+    34
+  ],
+  "screw": {
+    "thread": "M2.5",
+    "quantity": 2,
+    "shank_length_mm": 10,
+    "clearance_hole_mm": 2.9,
+    "head": "pan or cap; no countersink",
+    "nut_across_flats_nominal_mm": 5.0,
+    "nut_height_nominal_mm": 2.0,
+    "nut_pocket_across_flats_mm": 5.4,
+    "nut_pocket_x_min_mm": 37.9,
+    "nut_pocket_x_max_mm": 40.3,
+    "nut_entry_z_height_mm": 5.4
+  },
+  "charging_bay_local_bounds": {
+    "x": [
+      29.5,
+      43.05
+    ],
+    "y": [
+      -18,
+      18
+    ],
+    "z": [
+      -48,
+      -18
+    ]
+  },
+  "charging_bay_status": "generous open under-chin clearance, not measured plug CAD; test actual USB-C plug",
+  "circular_segments": 256,
+  "deliverable_priority": [
+    "fit-test carrier with identical mounting constraints",
+    "common removable ring",
+    "full one-piece housing"
+  ],
+  "manufacturing_status": "geometry checked prototype; physical fit not yet verified",
+  "ear_shape": "rounded square, 13x13 mm, corner radius 1",
+  "ear_half_size_mm": 6.5,
+  "ear_corner_radius_mm": 1,
+  "rear_opening_reinforcement": {
+    "x_min": -32,
+    "x_max": -24,
+    "inner_radius_mm": 26.3,
+    "outer_radius_mm": 33
+  },
+  "local_rear_hood_thickening": {
+    "method": "bounded 18..28.5 Y,43..49 Z rear-hood internal reinforcement; 2.5mm-radius overlapping spheres 2.4mm inside original outer surface",
+    "centers_mm": [
+      [
+        -16.812828063964844,
+        19.009449005126953,
+        45.8424072265625
+      ],
+      [
+        -16.426969528198242,
+        17.76845359802246,
+        46.05291748046875
+      ],
+      [
+        -15.316158294677734,
+        17.44753646850586,
+        47.26970672607422
+      ],
+      [
+        -17.284671783447266,
+        19.36415672302246,
+        44.663299560546875
+      ],
+      [
+        -16.32198715209961,
+        18.891368865966797,
+        45.823551177978516
+      ],
+      [
+        -14.767386436462402,
+        18.848031997680664,
+        47.28299331665039
+      ],
+      [
+        -17.268945693969727,
+        20.364912033081055,
+        44.34711456298828
+      ],
+      [
+        -15.760730743408203,
+        20.301652908325195,
+        45.801780700683594
+      ],
+      [
+        -14.138649940490723,
+        20.270618438720703,
+        47.270137786865234
+      ],
+      [
+        -16.67807960510254,
+        21.74860382080078,
+        44.33039474487305
+      ],
+      [
+        -15.053112030029297,
+        21.72534942626953,
+        45.81700134277344
+      ],
+      [
+        -13.387693405151367,
+        21.683156967163086,
+        47.28171157836914
+      ],
+      [
+        -19.19456672668457,
+        23.305479049682617,
+        41.330955505371094
+      ],
+      [
+        -17.625308990478516,
+        23.20285987854004,
+        42.8123779296875
+      ],
+      [
+        -15.948317527770996,
+        23.167835235595703,
+        44.32659149169922
+      ],
+      [
+        -14.323604583740234,
+        23.13605308532715,
+        45.7808723449707
+      ],
+      [
+        -12.570651054382324,
+        23.105268478393555,
+        47.25860595703125
+      ],
+      [
+        -18.52760887145996,
+        24.664440155029297,
+        41.316490173339844
+      ],
+      [
+        -16.839397430419922,
+        24.62641143798828,
+        42.81234359741211
+      ],
+      [
+        -15.117911338806152,
+        24.576366424560547,
+        44.329105377197266
+      ],
+      [
+        -13.41872501373291,
+        24.538915634155273,
+        45.790523529052734
+      ],
+      [
+        -11.576608657836914,
+        24.515239715576172,
+        47.2772331237793
+      ],
+      [
+        -17.670957565307617,
+        26.05572509765625,
+        41.33790588378906
+      ],
+      [
+        -15.939950942993164,
+        26.039012908935547,
+        42.81465148925781
+      ],
+      [
+        -14.179237365722656,
+        26.0150146484375,
+        44.31084442138672
+      ],
+      [
+        -12.390774726867676,
+        25.9688720703125,
+        45.78605270385742
+      ],
+      [
+        -10.483616828918457,
+        25.88001823425293,
+        47.29629135131836
+      ],
+      [
+        -16.66899299621582,
+        27.448827743530273,
+        41.35167694091797
+      ],
+      [
+        -14.887853622436523,
+        27.450115203857422,
+        42.83246612548828
+      ],
+      [
+        -13.101468086242676,
+        27.36604881286621,
+        44.3319206237793
+      ],
+      [
+        -11.19649600982666,
+        27.312711715698242,
+        45.8100700378418
+      ],
+      [
+        -9.096050262451172,
+        27.292341232299805,
+        47.309234619140625
+      ]
+    ],
+    "radius_mm": 2.5,
+    "outward_local_allowance_mm": 0.1,
+    "reason": "continuous backing of localized thin original hood skin, remote from hardware"
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "01_FULL_HOUSING_CLOSED_BACK_v04.stl": {
+    "file": "F:\\coding_projects\\ai-tour-guide-device\\modeling\\v04\\exports\\01_FULL_HOUSING_CLOSED_BACK_v04.stl",
+    "dimensions_mm": [
+      75.9266128540039,
+      113.17093658447266,
+      148.9940643310547
+    ],
+    "triangles": 556748,
+    "readback_status": "Error.NoError",
+    "components": 1,
+    "min_z": 0.0,
+    "rotation_deg": [
+      0,
+      0,
+      0
+    ],
+    "translation": [
+      0.022418975830078125,
+      -0.016429901123046875,
+      96.28086853027344
+    ]
+  },
+  "02_CURVED_SNAP_RING_v04.stl": {
+    "file": "F:\\coding_projects\\ai-tour-guide-device\\modeling\\v04\\exports\\02_CURVED_SNAP_RING_v04.stl",
+    "dimensions_mm": [
+      69.5,
+      69.5,
+      7.323902130126953
+    ],
+    "triangles": 39406,
+    "readback_status": "Error.NoError",
+    "components": 1,
+    "min_z": 0.0,
+    "rotation_deg": [
+      0,
+      -90,
+      0
+    ],
+    "translation": [
+      -0.0,
+      -0.0,
+      -27.200000762939453
+    ]
+  },
+  "03_FULL_FIT_JIG_v04.stl": {
+    "file": "F:\\coding_projects\\ai-tour-guide-device\\modeling\\v04\\fit-test\\03_FULL_FIT_JIG_v04.stl",
+    "dimensions_mm": [
+      70.4000015258789,
+      70.4000015258789,
+      44.69845962524414
+    ],
+    "triangles": 14282,
+    "readback_status": "Error.NoError",
+    "components": 1,
+    "min_z": 0.0,
+    "rotation_deg": [
+      0,
+      -90,
+      0
+    ],
+    "translation": [
+      -0.0,
+      -0.0,
+      10.0
+    ]
+  },
+  "04_RELEASE_TOOL_v04.stl": {
+    "file": "F:\\coding_projects\\ai-tour-guide-device\\modeling\\v04\\fit-test\\04_RELEASE_TOOL_v04.stl",
+    "dimensions_mm": [
+      22.0,
+      3.799999952316284,
+      3.0
+    ],
+    "triangles": 32,
+    "readback_status": "Error.NoError",
+    "components": 1,
+    "min_z": 0.0,
+    "rotation_deg": [
+      0,
+      0,
+      0
+    ],
+    "translation": [
+      -38.0,
+      -33.2,
+      1.5
+    ]
+  },
+  "05_CLIP_TEST_SOCKET_v04.stl": {
+    "file": "F:\\coding_projects\\ai-tour-guide-device\\modeling\\v04\\fit-test\\05_CLIP_TEST_SOCKET_v04.stl",
+    "dimensions_mm": [
+      24.24674415588379,
+      19.430795669555664,
+      10.06545639038086
+    ],
+    "triangles": 2326,
+    "readback_status": "Error.NoError",
+    "components": 1,
+    "min_z": 0.0,
+    "rotation_deg": [
+      0,
+      -90,
+      0
+    ],
+    "translation": [
+      -18.360722467303276,
+      24.715397771447897,
+      -23.5
+    ]
+  },
+  "06_CLIP_TEST_2_TENTHS_v04.stl": {
+    "file": "F:\\coding_projects\\ai-tour-guide-device\\modeling\\v04\\fit-test\\06_CLIP_TEST_2_TENTHS_v04.stl",
+    "dimensions_mm": [
+      24.84461212158203,
+      21.36562728881836,
+      7.323902130126953
+    ],
+    "triangles": 4744,
+    "readback_status": "Error.NoError",
+    "components": 1,
+    "min_z": 0.0,
+    "rotation_deg": [
+      0,
+      -90,
+      0
+    ],
+    "translation": [
+      -17.672076657762986,
+      23.307813704188558,
+      -27.200000762939453
+    ]
+  },
+  "06_CLIP_TEST_3_TENTHS_v04.stl": {
+    "file": "F:\\coding_projects\\ai-tour-guide-device\\modeling\\v04\\fit-test\\06_CLIP_TEST_3_TENTHS_v04.stl",
+    "dimensions_mm": [
+      24.84461212158203,
+      21.36562728881836,
+      7.323902130126953
+    ],
+    "triangles": 4752,
+    "readback_status": "Error.NoError",
+    "components": 1,
+    "min_z": 0.0,
+    "rotation_deg": [
+      0,
+      -90,
+      0
+    ],
+    "translation": [
+      -17.672076657762986,
+      23.307813704188558,
+      -27.200000762939453
+    ]
+  },
+  "06_CLIP_TEST_4_TENTHS_v04.stl": {
+    "file": "F:\\coding_projects\\ai-tour-guide-device\\modeling\\v04\\fit-test\\06_CLIP_TEST_4_TENTHS_v04.stl",
+    "dimensions_mm": [
+      24.84461212158203,
+      21.36562728881836,
+      7.3239030838012695
+    ],
+    "triangles": 4834,
+    "readback_status": "Error.NoError",
+    "components": 1,
+    "min_z": 0.0,
+    "rotation_deg": [
+      0,
+      -90,
+      0
+    ],
+    "translation": [
+      -17.672076657762986,
+      23.307813704188558,
+      -27.200000002980232
+    ]
+  }
+}

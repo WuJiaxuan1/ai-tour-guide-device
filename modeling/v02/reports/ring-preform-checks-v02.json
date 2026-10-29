@@ -1,0 +1,52 @@
+{
+  "boolean_sliver_face_repair_area_mm2": 0.1423281729221344,
+  "connected_components": 1,
+  "status": "front_ring_independent_preform_NOT_ASSEMBLED_NOT_FOR_PRINT",
+  "units": "mm",
+  "ring_dimensions_local_xyz": [
+    3.0,
+    78.0,
+    66.0
+  ],
+  "boundary_edges": 0,
+  "edges_with_more_than_two_faces": 0,
+  "loose_edges": 0,
+  "ring_inner_diameter_candidate_mm": 50.5,
+  "contact_data": {
+    "device_outer_diameter_nominal_mm": 51.95,
+    "glass_outer_diameter_derived_approx_mm": 47.95,
+    "glass_diameter_status": "derived from 51.95 - 2*2; not directly measured",
+    "ring_inner_diameter_mm": 50.5,
+    "ring_outer_diameter_mm": 66,
+    "ring_thickness_mm": 3,
+    "nominal_plastic_overlap_radial_mm": 0.725,
+    "nominal_glass_clearance_radial_mm": 1.275,
+    "nominal_radial_device_play_mm": 0.525,
+    "idealized_play_adjusted_minimum_glass_clearance_mm": 0.75,
+    "idealized_play_adjusted_minimum_plastic_overlap_mm": 0.2,
+    "play_analysis_status": "ideal circles only; unknown ruler error and print error excluded; centering needs design",
+    "screw_count": 2,
+    "screw_candidate": "M2.5 machine screws and accessible hex nuts; length not set",
+    "screw_clearance_hole_diameter_mm": 2.9,
+    "ear_center_offsets_y_mm": [
+      -34,
+      34
+    ],
+    "ear_radius_mm": 5,
+    "button_channel_margin_mm": 2,
+    "coordinate_system": "local X thickness (back contact face X=0, front face X=3), Y horizontal, Z up; independent ring not placed on full housing",
+    "housing_interface_status": "not designed; ear holes do not align with any validated housing seats",
+    "bearing_force_or_torque": null,
+    "limitations": [
+      "No verified back support",
+      "No housing fastening seats or axial hard stop",
+      "No verified pad thickness or preload",
+      "No final fit test",
+      "Bore play can reduce local plastic overlap to about 0.2 mm under ideal assumptions"
+    ],
+    "button_relief_outer_radius_mm": 29.7,
+    "minimum_outer_web_nominal_mm": 3.3
+  },
+  "body_assembly_interference_checked": false,
+  "is_print_file": false
+}

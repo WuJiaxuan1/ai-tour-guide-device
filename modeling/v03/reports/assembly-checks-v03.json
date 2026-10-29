@@ -1,0 +1,750 @@
+{
+  "physical_body_stl_topology": {
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "loose_edges": 0
+  },
+  "front_insertion_path": [
+    {
+      "front_translation_mm": 0.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 0.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 1.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 1.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 2.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 2.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 3.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 3.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 4.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 4.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 5.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 5.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 6.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 6.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 7.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 7.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 8.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 8.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 9.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 9.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 10.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 10.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 11.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 11.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 12.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 12.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 13.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 13.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 14.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 14.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 15.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 15.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 16.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 16.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 17.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 17.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 18.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 18.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 19.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 19.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 20.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 20.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 21.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 21.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 22.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 22.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 23.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 23.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 24.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 24.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 25.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 25.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 26.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 26.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 27.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 27.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 28.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 28.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 29.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 29.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 30.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 30.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 31.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 31.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 32.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 32.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 33.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 33.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 34.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 34.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 35.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 35.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 36.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 36.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 37.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 37.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 38.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 38.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 39.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 39.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 40.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 40.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 41.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 41.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 42.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 42.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 43.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 43.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 44.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 44.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 45.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 45.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 46.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 46.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 47.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 47.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 48.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 48.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 49.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 49.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 50.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 50.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 51.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 51.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 52.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 52.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 53.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 53.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 54.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 54.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 55.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 55.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 56.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 56.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 57.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 57.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 58.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 58.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 59.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 59.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 60.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 60.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 61.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 61.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 62.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 62.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 63.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 63.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 64.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 64.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 65.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 65.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 66.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 66.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 67.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 67.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 68.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 68.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 69.0,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 69.5,
+      "surface_intersection_pairs": 0
+    },
+    {
+      "front_translation_mm": 70.0,
+      "surface_intersection_pairs": 0
+    }
+  ],
+  "nonzero_path_samples": [],
+  "ring_vs_reference_intersection_pairs": {
+    "REFERENCE_ONLY_Official_1": 0,
+    "REFERENCE_ONLY_Official_3": 0,
+    "REFERENCE_ONLY_Official_5": 0,
+    "REFERENCE_ONLY_Official_7": 0,
+    "REFERENCE_ONLY_Manual_Front_Allowance_SCREEN_SCHEMATIC": 0
+  },
+  "wall_sampling": {
+    "valid_rays": 2453,
+    "min_mm": 1.0588568188130116,
+    "below_0p8_count": 0,
+    "below_1p2_count": 1,
+    "lowest_20": [
+      {
+        "thickness_mm": 1.0588568188130116,
+        "point": [
+          32.73972702026367,
+          18.342906951904297,
+          -17.18657875061035
+        ]
+      },
+      {
+        "thickness_mm": 1.3287112611015763,
+        "point": [
+          -14.627492904663086,
+          -12.462206840515137,
+          46.43803024291992
+        ]
+      },
+      {
+        "thickness_mm": 1.4677496303472766,
+        "point": [
+          25.733333587646484,
+          -20.960552215576172,
+          12.519543647766113
+        ]
+      },
+      {
+        "thickness_mm": 1.5588121476284464,
+        "point": [
+          -18.206701278686523,
+          -19.983089447021484,
+          47.05002212524414
+        ]
+      },
+      {
+        "thickness_mm": 1.5694689169127258,
+        "point": [
+          33.26738357543945,
+          -18.388029098510742,
+          -6.993123531341553
+        ]
+      },
+      {
+        "thickness_mm": 1.695528141932953,
+        "point": [
+          -14.528407096862793,
+          12.782706260681152,
+          46.71895217895508
+        ]
+      },
+      {
+        "thickness_mm": 2.1330375133493815,
+        "point": [
+          35.40913772583008,
+          -18.0273380279541,
+          -3.863591432571411
+        ]
+      },
+      {
+        "thickness_mm": 2.207574477057219,
+        "point": [
+          36.8018684387207,
+          -19.320541381835938,
+          -4.488706111907959
+        ]
+      },
+      {
+        "thickness_mm": 2.3021298198120284,
+        "point": [
+          36.76657485961914,
+          19.321243286132812,
+          -4.448679447174072
+        ]
+      },
+      {
+        "thickness_mm": 2.421825457650723,
+        "point": [
+          -15.267740249633789,
+          -24.487972259521484,
+          47.68888473510742
+        ]
+      },
+      {
+        "thickness_mm": 2.6999855111757696,
+        "point": [
+          40.30000305175781,
+          31.894203186035156,
+          22.28087043762207
+        ]
+      },
+      {
+        "thickness_mm": 2.6999855111757696,
+        "point": [
+          40.30000305175781,
+          37.698177337646484,
+          24.08087158203125
+        ]
+      },
+      {
+        "thickness_mm": 2.6999855111757696,
+        "point": [
+          43.0,
+          37.040950775146484,
+          24.169309616088867
+        ]
+      },
+      {
+        "thickness_mm": 2.6999855111757696,
+        "point": [
+          40.30000305175781,
+          -36.105796813964844,
+          22.28087043762207
+        ]
+      },
+      {
+        "thickness_mm": 2.6999855111757696,
+        "point": [
+          43.0,
+          -38.607276916503906,
+          22.476736068725586
+        ]
+      },
+      {
+        "thickness_mm": 2.6999855111757696,
+        "point": [
+          43.0,
+          38.59405517578125,
+          22.03449058532715
+        ]
+      },
+      {
+        "thickness_mm": 2.6999855111757696,
+        "point": [
+          43.0,
+          -40.33207321166992,
+          20.447534561157227
+        ]
+      },
+      {
+        "thickness_mm": 2.6999855111757696,
+        "point": [
+          40.30000305175781,
+          -33.34265899658203,
+          20.429582595825195
+        ]
+      },
+      {
+        "thickness_mm": 2.6999855111757696,
+        "point": [
+          40.30000305175781,
+          39.3452262878418,
+          22.28087043762207
+        ]
+      },
+      {
+        "thickness_mm": 2.6999855111757696,
+        "point": [
+          43.0,
+          36.929447174072266,
+          24.76519012451172
+        ]
+      }
+    ],
+    "limitation": "finite normal-ray sampling; not exhaustive wall or self-intersection certification"
+  }
+}
