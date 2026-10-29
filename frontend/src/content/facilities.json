@@ -1,0 +1,559 @@
+[
+  {
+    "id": "facility-b0j3r72a3p",
+    "name": "公共厕所(栖霞山虎山)",
+    "category": "公共厕所",
+    "facilityType": "厕所",
+    "kind": "facility",
+    "tags": [
+      "厕所"
+    ],
+    "intro": "栖霞街88号虎山处",
+    "story": "位置：栖霞街88号虎山处。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
+    "images": [
+      "/assets/amap/e47a74728f7208dfce47.webp",
+      "/assets/amap/1f43700eff1f9b8c81a5.webp",
+      "/assets/amap/ecde0b1c9660602aa7fd.webp"
+    ],
+    "image": "/assets/amap/e47a74728f7208dfce47.webp",
+    "audio": null,
+    "amapPoiId": "B0J3R72A3P",
+    "navigationAvailable": true,
+    "location": [
+      118.959769,
+      32.155878
+    ],
+    "address": "栖霞街88号虎山处",
+    "tel": null,
+    "openingHours": "07:00-17:00"
+  },
+  {
+    "id": "facility-b0ffg77c3p",
+    "name": "栖霞山名胜风景区-公共厕所",
+    "category": "公共厕所",
+    "facilityType": "厕所",
+    "kind": "facility",
+    "tags": [
+      "厕所"
+    ],
+    "intro": "栖霞街与栖石路交叉口东南120米",
+    "story": "位置：栖霞街与栖石路交叉口东南120米。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
+    "images": [
+      "/assets/amap/b2e5712edc9dadab8ebc.webp"
+    ],
+    "image": "/assets/amap/b2e5712edc9dadab8ebc.webp",
+    "audio": null,
+    "amapPoiId": "B0FFG77C3P",
+    "navigationAvailable": true,
+    "location": [
+      118.955111,
+      32.151278
+    ],
+    "address": "栖霞街与栖石路交叉口东南120米",
+    "tel": null,
+    "openingHours": null
+  },
+  {
+    "id": "facility-b0ffgxei9y",
+    "name": "栖霞山名胜风景区-公共厕所",
+    "category": "公共厕所",
+    "facilityType": "厕所",
+    "kind": "facility",
+    "tags": [
+      "厕所"
+    ],
+    "intro": "栖霞山名胜风景区-太虚亭西南侧",
+    "story": "位置：栖霞山名胜风景区-太虚亭西南侧。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
+    "images": [
+      "/assets/amap/93f6c3335de51a5c69e6.webp"
+    ],
+    "image": "/assets/amap/93f6c3335de51a5c69e6.webp",
+    "audio": null,
+    "amapPoiId": "B0FFGXEI9Y",
+    "navigationAvailable": true,
+    "location": [
+      118.969182,
+      32.155877
+    ],
+    "address": "栖霞山名胜风景区-太虚亭西南侧",
+    "tel": null,
+    "openingHours": null
+  },
+  {
+    "id": "facility-b0fffvfdhv",
+    "name": "栖霞山名胜风景区-公共厕所",
+    "category": "公共厕所",
+    "facilityType": "厕所",
+    "kind": "facility",
+    "tags": [
+      "厕所"
+    ],
+    "intro": "栖霞街88号(近栖霞大道)栖霞山风景名胜区栖霞古寺内",
+    "story": "位置：栖霞街88号(近栖霞大道)栖霞山风景名胜区栖霞古寺内。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
+    "images": [],
+    "image": null,
+    "audio": null,
+    "amapPoiId": "B0FFFVFDHV",
+    "navigationAvailable": true,
+    "location": [
+      118.960575,
+      32.151246
+    ],
+    "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区栖霞古寺内",
+    "tel": null,
+    "openingHours": null
+  },
+  {
+    "id": "facility-b0fffvhs03",
+    "name": "栖霞山名胜风景区-公共厕所",
+    "category": "公共厕所",
+    "facilityType": "厕所",
+    "kind": "facility",
+    "tags": [
+      "厕所"
+    ],
+    "intro": "红叶谷北侧100米",
+    "story": "位置：红叶谷北侧100米。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
+    "images": [
+      "/assets/amap/2461108f52ba78778d44.webp"
+    ],
+    "image": "/assets/amap/2461108f52ba78778d44.webp",
+    "audio": null,
+    "amapPoiId": "B0FFFVHS03",
+    "navigationAvailable": true,
+    "location": [
+      118.963909,
+      32.158429
+    ],
+    "address": "红叶谷北侧100米",
+    "tel": null,
+    "openingHours": null
+  },
+  {
+    "id": "facility-b0fffvmvbs",
+    "name": "栖霞山名胜风景区-公共厕所",
+    "category": "公共厕所",
+    "facilityType": "厕所",
+    "kind": "facility",
+    "tags": [
+      "厕所"
+    ],
+    "intro": "近郊栖霞街88号(近栖霞大道)栖霞山风景名胜区内",
+    "story": "位置：近郊栖霞街88号(近栖霞大道)栖霞山风景名胜区内。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
+    "images": [
+      "/assets/amap/b80f876b63fd22a1bf8f.webp",
+      "/assets/amap/315f5ec0524fdc583187.webp",
+      "/assets/amap/206cd53a2c80c513221a.webp"
+    ],
+    "image": "/assets/amap/b80f876b63fd22a1bf8f.webp",
+    "audio": null,
+    "amapPoiId": "B0FFFVMVBS",
+    "navigationAvailable": true,
+    "location": [
+      118.967951,
+      32.159269
+    ],
+    "address": "近郊栖霞街88号(近栖霞大道)栖霞山风景名胜区内",
+    "tel": null,
+    "openingHours": null
+  },
+  {
+    "id": "facility-b0hdghowfo",
+    "name": "公共厕所",
+    "category": "公共厕所",
+    "facilityType": "厕所",
+    "kind": "facility",
+    "tags": [
+      "厕所"
+    ],
+    "intro": "栖霞山名胜风景区-太虚亭东南侧",
+    "story": "位置：栖霞山名胜风景区-太虚亭东南侧。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
+    "images": [
+      "/assets/amap/7ce115fea5d0a76033b3.webp"
+    ],
+    "image": "/assets/amap/7ce115fea5d0a76033b3.webp",
+    "audio": null,
+    "amapPoiId": "B0HDGHOWFO",
+    "navigationAvailable": true,
+    "location": [
+      118.969429,
+      32.156015
+    ],
+    "address": "栖霞山名胜风景区-太虚亭东南侧",
+    "tel": null,
+    "openingHours": null
+  },
+  {
+    "id": "facility-b0j0jctst5",
+    "name": "公共厕所",
+    "category": "公共厕所",
+    "facilityType": "厕所",
+    "kind": "facility",
+    "tags": [
+      "厕所"
+    ],
+    "intro": "栖霞街88号",
+    "story": "位置：栖霞街88号。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
+    "images": [],
+    "image": null,
+    "audio": null,
+    "amapPoiId": "B0J0JCTST5",
+    "navigationAvailable": true,
+    "location": [
+      118.963926,
+      32.158675
+    ],
+    "address": "栖霞街88号",
+    "tel": null,
+    "openingHours": null
+  },
+  {
+    "id": "facility-b0ffm0lnsv",
+    "name": "公共厕所",
+    "category": "公共厕所",
+    "facilityType": "厕所",
+    "kind": "facility",
+    "tags": [
+      "厕所"
+    ],
+    "intro": "栖霞街88号(近栖霞大道)栖霞山风景名胜区栖霞古寺内",
+    "story": "位置：栖霞街88号(近栖霞大道)栖霞山风景名胜区栖霞古寺内。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
+    "images": [
+      "/assets/amap/1f5690c87154e215c6bc.webp"
+    ],
+    "image": "/assets/amap/1f5690c87154e215c6bc.webp",
+    "audio": null,
+    "amapPoiId": "B0FFM0LNSV",
+    "navigationAvailable": true,
+    "location": [
+      118.954089,
+      32.150655
+    ],
+    "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区栖霞古寺内",
+    "tel": null,
+    "openingHours": null
+  },
+  {
+    "id": "facility-b001913yx0",
+    "name": "栖霞山风景名胜区西门售票处",
+    "category": "入园与售票",
+    "facilityType": "出入口",
+    "kind": "facility",
+    "tags": [
+      "出入口",
+      "游客服务"
+    ],
+    "intro": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
+    "story": "位置：栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
+    "images": [
+      "/assets/amap/8eab48b026c23190d892.webp",
+      "/assets/amap/6167c427383dc4582335.webp",
+      "/assets/amap/98850cfc833cbac400dc.webp"
+    ],
+    "image": "/assets/amap/8eab48b026c23190d892.webp",
+    "audio": null,
+    "amapPoiId": "B001913YX0",
+    "navigationAvailable": true,
+    "location": [
+      118.954566,
+      32.150215
+    ],
+    "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
+    "tel": null,
+    "openingHours": "08:30-17:30"
+  },
+  {
+    "id": "facility-b0i3ccqtcd",
+    "name": "栖霞山风景名胜区南门地面停车场(入口)",
+    "category": "停车场",
+    "facilityType": "停车场",
+    "kind": "facility",
+    "tags": [
+      "停车场"
+    ],
+    "intro": "栖霞山风景名胜区南门地面停车场",
+    "story": "位置：栖霞山风景名胜区南门地面停车场。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
+    "images": [
+      "/assets/amap/f77bfdcbc1ee7fe36161.webp",
+      "/assets/amap/cacd0369ffb5af59938a.webp",
+      "/assets/amap/0eb2a084bc8a7654287f.webp"
+    ],
+    "image": "/assets/amap/f77bfdcbc1ee7fe36161.webp",
+    "audio": null,
+    "amapPoiId": "B0I3CCQTCD",
+    "navigationAvailable": true,
+    "location": [
+      118.962199,
+      32.145348
+    ],
+    "address": "栖霞山风景名胜区南门地面停车场",
+    "tel": null,
+    "openingHours": null
+  },
+  {
+    "id": "facility-b0k6b5gtiv",
+    "name": "栖霞山风景名胜区南门地面停车场",
+    "category": "停车场",
+    "facilityType": "停车场",
+    "kind": "facility",
+    "tags": [
+      "停车场"
+    ],
+    "intro": "栖霞街88号栖霞山风景名胜区",
+    "story": "位置：栖霞街88号栖霞山风景名胜区。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
+    "images": [
+      "/assets/amap/116b51791811151134a5.webp",
+      "/assets/amap/fc7ec0220e6cad12f760.webp",
+      "/assets/amap/dd00f6c682d02e630ec5.webp"
+    ],
+    "image": "/assets/amap/116b51791811151134a5.webp",
+    "audio": null,
+    "amapPoiId": "B0K6B5GTIV",
+    "navigationAvailable": true,
+    "location": [
+      118.960318,
+      32.146069
+    ],
+    "address": "栖霞街88号栖霞山风景名胜区",
+    "tel": null,
+    "openingHours": "24小时营业"
+  },
+  {
+    "id": "facility-b0g0m1mptg",
+    "name": "栖霞山风景名胜区南门售票处",
+    "category": "入园与售票",
+    "facilityType": "出入口",
+    "kind": "facility",
+    "tags": [
+      "出入口",
+      "游客服务"
+    ],
+    "intro": "宁镇线与玻璃厂路交叉口东260米",
+    "story": "位置：宁镇线与玻璃厂路交叉口东260米。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
+    "images": [
+      "/assets/amap/c1b8eb3fab7808b598b0.webp",
+      "/assets/amap/5e66ebb95ffa5abdbd1a.webp",
+      "/assets/amap/0ddf2379b17dd3403f6d.webp"
+    ],
+    "image": "/assets/amap/c1b8eb3fab7808b598b0.webp",
+    "audio": null,
+    "amapPoiId": "B0G0M1MPTG",
+    "navigationAvailable": true,
+    "location": [
+      118.965153,
+      32.145722
+    ],
+    "address": "宁镇线与玻璃厂路交叉口东260米",
+    "tel": null,
+    "openingHours": "06:00-17:00"
+  },
+  {
+    "id": "facility-b0m60gm2tc",
+    "name": "南京栖霞山风景名胜区-南门栖霞山地上停车场",
+    "category": "停车场",
+    "facilityType": "停车场",
+    "kind": "facility",
+    "tags": [
+      "停车场"
+    ],
+    "intro": "玻璃厂路与栖霞大道交叉口西南20米",
+    "story": "位置：玻璃厂路与栖霞大道交叉口西南20米。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
+    "images": [],
+    "image": null,
+    "audio": null,
+    "amapPoiId": "B0M60GM2TC",
+    "navigationAvailable": true,
+    "location": [
+      118.962075,
+      32.145592
+    ],
+    "address": "玻璃厂路与栖霞大道交叉口西南20米",
+    "tel": null,
+    "openingHours": null
+  },
+  {
+    "id": "facility-b0ffgu8c5c",
+    "name": "栖霞山风景名胜区西门停车场",
+    "category": "停车场",
+    "facilityType": "停车场",
+    "kind": "facility",
+    "tags": [
+      "停车场"
+    ],
+    "intro": "栖霞街88号栖霞山风景名胜区",
+    "story": "位置：栖霞街88号栖霞山风景名胜区。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
+    "images": [
+      "/assets/amap/266ab086f408e4121145.webp",
+      "/assets/amap/4f921482f689c390c4d9.webp",
+      "/assets/amap/edd21c1d2895a95e8672.webp"
+    ],
+    "image": "/assets/amap/266ab086f408e4121145.webp",
+    "audio": null,
+    "amapPoiId": "B0FFGU8C5C",
+    "navigationAvailable": true,
+    "location": [
+      118.950793,
+      32.15115
+    ],
+    "address": "栖霞街88号栖霞山风景名胜区",
+    "tel": null,
+    "openingHours": "24小时营业"
+  },
+  {
+    "id": "facility-b0iu95x33a",
+    "name": "南京栖霞山风景名胜区西门南侧地面停车场",
+    "category": "停车场",
+    "facilityType": "停车场",
+    "kind": "facility",
+    "tags": [
+      "停车场"
+    ],
+    "intro": "栖霞街与20县道交叉口南60米",
+    "story": "位置：栖霞街与20县道交叉口南60米。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
+    "images": [
+      "/assets/amap/7d206dc13812175c8b5c.webp",
+      "/assets/amap/93d3d66661ba15996194.webp",
+      "/assets/amap/b70c89a3ccc1272d390d.webp"
+    ],
+    "image": "/assets/amap/7d206dc13812175c8b5c.webp",
+    "audio": null,
+    "amapPoiId": "B0IU95X33A",
+    "navigationAvailable": true,
+    "location": [
+      118.954158,
+      32.147944
+    ],
+    "address": "栖霞街与20县道交叉口南60米",
+    "tel": null,
+    "openingHours": null
+  },
+  {
+    "id": "facility-b0hahkgs6k",
+    "name": "南京栖霞山风景名胜区地面停车场",
+    "category": "停车场",
+    "facilityType": "停车场",
+    "kind": "facility",
+    "tags": [
+      "停车场"
+    ],
+    "intro": "栖霞街88号",
+    "story": "位置：栖霞街88号。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
+    "images": [
+      "/assets/amap/353c44bd579fba88134c.webp"
+    ],
+    "image": "/assets/amap/353c44bd579fba88134c.webp",
+    "audio": null,
+    "amapPoiId": "B0HAHKGS6K",
+    "navigationAvailable": true,
+    "location": [
+      118.954907,
+      32.151006
+    ],
+    "address": "栖霞街88号",
+    "tel": null,
+    "openingHours": "24小时营业"
+  },
+  {
+    "id": "facility-b0mbt49eql",
+    "name": "南京栖霞山风景名胜区-P2地上停车场",
+    "category": "停车场",
+    "facilityType": "停车场",
+    "kind": "facility",
+    "tags": [
+      "停车场"
+    ],
+    "intro": "红枫路与石江线交叉口西南300米",
+    "story": "位置：红枫路与石江线交叉口西南300米。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
+    "images": [],
+    "image": null,
+    "audio": null,
+    "amapPoiId": "B0MBT49EQL",
+    "navigationAvailable": true,
+    "location": [
+      118.950277,
+      32.150684
+    ],
+    "address": "红枫路与石江线交叉口西南300米",
+    "tel": null,
+    "openingHours": null
+  },
+  {
+    "id": "facility-b0l01ohlb7",
+    "name": "南京栖霞山风景名胜区-P3地上停车场",
+    "category": "停车场",
+    "facilityType": "停车场",
+    "kind": "facility",
+    "tags": [
+      "停车场"
+    ],
+    "intro": "栖霞街与20县道交叉口南60米",
+    "story": "位置：栖霞街与20县道交叉口南60米。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
+    "images": [],
+    "image": null,
+    "audio": null,
+    "amapPoiId": "B0L01OHLB7",
+    "navigationAvailable": true,
+    "location": [
+      118.954198,
+      32.147876
+    ],
+    "address": "栖霞街与20县道交叉口南60米",
+    "tel": null,
+    "openingHours": "24小时营业"
+  },
+  {
+    "id": "facility-b00190z2ds",
+    "name": "栖霞山风景名胜区游客服务中心(栖霞大道店)",
+    "category": "游客服务",
+    "facilityType": "游客服务",
+    "kind": "facility",
+    "tags": [
+      "游客服务"
+    ],
+    "intro": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
+    "story": "位置：栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
+    "images": [
+      "/assets/amap/1c4acfe803c5a181edb7.webp",
+      "/assets/amap/6cd12a4e6daecbb6b25b.webp",
+      "/assets/amap/9599b43cbd3a23785c58.webp"
+    ],
+    "image": "/assets/amap/1c4acfe803c5a181edb7.webp",
+    "audio": null,
+    "amapPoiId": "B00190Z2DS",
+    "navigationAvailable": true,
+    "location": [
+      118.9547,
+      32.150235
+    ],
+    "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
+    "tel": null,
+    "openingHours": "07:00-17:30"
+  },
+  {
+    "id": "facility-b0m6dm67xq",
+    "name": "摄山栖霞寺售票处",
+    "category": "售票咨询",
+    "facilityType": "游客服务",
+    "kind": "facility",
+    "tags": [
+      "游客服务"
+    ],
+    "intro": "栖霞山名胜风景区摄山栖霞寺(东北角)",
+    "story": "位置：栖霞山名胜风景区摄山栖霞寺(东北角)。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
+    "images": [
+      "/assets/amap/a75f5d8c755057eb05ba.webp",
+      "/assets/amap/5a6d6540df620f2af1b3.webp"
+    ],
+    "image": "/assets/amap/a75f5d8c755057eb05ba.webp",
+    "audio": null,
+    "amapPoiId": "B0M6DM67XQ",
+    "navigationAvailable": true,
+    "location": [
+      118.95849,
+      32.152465
+    ],
+    "address": "栖霞山名胜风景区摄山栖霞寺(东北角)",
+    "tel": null,
+    "openingHours": "08:00-17:30"
+  }
+]

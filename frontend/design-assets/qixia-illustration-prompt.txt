@@ -1,0 +1,2 @@
+Built-in imagegen, 2026-10-29.
+Reusable landscape placeholder for Qixia Mountain: clearly non-photographic flat editorial illustration, layered mountains, stylized maple leaves, sage lake and winding path, warm white paper, dusty rose and olive accents, no text, no people, no temples or specific invented landmarks. Wide landscape 3:2 composition. Final asset: frontend/public/assets/qixia-illustration.png.
