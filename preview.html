@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+ <meta charset="utf-8"/>
+ <meta name="viewport" content="width=device-width,initial-scale=1"/>
+ <title>栖霞漫游 · 手机尺寸预览</title>
+ <style>
+ *{box-sizing:border-box}body{margin:0;background:#f2f1ee;color:#35332e;font:14px Arial,"Microsoft YaHei",sans-serif}.toolbar{padding:18px 24px;background:white;border-bottom:1px solid #e6e2dc;display:flex;flex-wrap:wrap;align-items:center;gap:16px}.toolbar strong{font-size:15px;font-weight:500}.toolbar select{padding:8px 12px;border:1px solid #ded8cf;border-radius:9px;background:white;color:inherit;font:inherit}.toolbar a{color:#86715a;margin-left:auto;text-decoration:none}.hint{text-align:center;padding:16px 20px;color:#897d6c;font-size:12px;line-height:1.8}.screen{margin:0 auto 28px;width:390px;max-width:calc(100vw - 24px);background:white;box-shadow:0 8px 35px #302a2014;border:1px solid #e9e4dc;border-radius:12px;overflow:hidden}iframe{display:block;width:100%;height:844px;border:0;background:white}.caption{padding:12px;color:#877b69;text-align:center;font-size:11px}select:focus-visible,a:focus-visible{outline:2px solid #bd7c8a;outline-offset:3px}@media(max-width:600px){.toolbar{padding:14px;gap:12px}.toolbar a{font-size:12px}.toolbar select{font-size:12px}}
+ </style>
+</head>
+<body>
+ <header class="toolbar"><strong>栖霞漫游 · 手机预览</strong><label>屏幕尺寸 <select id="size" aria-label="选择手机尺寸"><option value="390,844">390 × 844 · 标准手机</option><option value="360,800">360 × 800 · 窄屏手机</option><option value="414,896">414 × 896 · 大屏手机</option></select></label><a href="/" target="_blank" rel="noopener">打开自适应网页 ↗</a></header>
+ <p class="hint">下方是真实网页，按手机宽度运行，可直接操作。<br/>这是电脑上的尺寸预览；实际手机键盘、语音和触摸体验仍需真机检查。</p>
+ <section class="screen" id="screen"><iframe src="/" title="栖霞漫游手机交互预览"></iframe><p class="caption" id="caption">手机内容区域 · 390 × 844</p></section>
+ <script>
+ const select=document.getElementById('size'),screen=document.getElementById('screen'),frame=document.querySelector('iframe'),caption=document.getElementById('caption');
+ select.addEventListener('change',()=>{const [w,h]=select.value.split(',').map(Number);screen.style.width=w+'px';frame.style.height=h+'px';caption.textContent='手机内容区域 · '+w+' × '+h});
+ </script>
+</body>
+</html>
