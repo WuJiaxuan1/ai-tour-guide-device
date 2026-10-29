@@ -10,7 +10,7 @@ Node.js 22+；`npm ci` 后运行 `npm run dev -- --host 127.0.0.1 --port 4173 --
 
 ## Implemented
 
-- 探索、景点详情、收藏、浏览器朗读、对话历史，以及可添加、移除、排序的路线景点。
+- 探索、景点详情、收藏、浏览器讲解播放、对话历史，以及可添加、移除、排序的路线景点。
 - 吉祥物使用透明 PNG；原始外观意向图保留在建模目录。
 - 随网站提供 Noto Serif SC Variable 与 Noto Sans SC Variable 字体，避免依赖手机/电脑的默认中文字体。字体分片由浏览器按需加载，不依赖 Google Fonts 在线服务。
 - 情侣主题建议、轻量入场和点击动效；尊重系统减少动态效果设置。
@@ -19,7 +19,7 @@ Node.js 22+；`npm ci` 后运行 `npm run dev -- --host 127.0.0.1 --port 4173 --
 
 ## Configuration and actual integration status
 
-复制 `.env.example` 为 `.env.local`，填写后重启开发服务或重新构建。
+推荐在项目根目录配置 `.env.local`：AMAP_WEB_KEY、AMAP_SECURITY_JSCODE、AMAP_SERVER_KEY。后端按请求读取更新，网页通过同源 `/api/config` 获取公开网页 Key；安全密钥始终留在后端。前端 `.env.example` 仅用于接入不同团队接口时的可选覆盖。
 
 | 配置项 | 用途 |
 | --- | --- |
@@ -29,7 +29,7 @@ Node.js 22+；`npm ci` 后运行 `npm run dev -- --host 127.0.0.1 --port 4173 --
 | `VITE_NAVIGATION_PLACES_URL` | 团队已核验景点位置接口 |
 | `VITE_ROUTE_PLAN_URL` | 团队步行路线计算接口 |
 
-当前未提供高德网页 Key、安全代理或团队后端；已完成接入代码，不代表外部服务已经开通或联调通过。未配置时，不请求地图 SDK，不绘制虚构的地图/坐标/路线，页面明确提示连接状态，并保留景区导览图入口。景点卡片的数量不等于已完成路线计算。
+本地高德网关已实现，实际可用性取决于根目录配置及平台权限。未配置时，不请求地图 SDK，不绘制虚构的地图/坐标/路线，页面明确提示连接状态，并保留景区导览图入口。景点卡片的数量不等于已完成路线计算。
 
 问答未配置时，仅提供主办方资料整理的本地景点内容，“关于”说明自由问答尚未连接。配置真实接口后，失败显示错误，不替换成假 AI 回复。已有历史对话保留在浏览器本地。
 
@@ -59,10 +59,16 @@ POST：`{"sessionId":"uuid","messages":[{"role":"user","content":"一起看红�
 
 返回：`{"reply":"后端实际回复","placeIds":["autumn","tea"]}`。
 
-有效 ID：`autumn`、`temple`、`pagoda`、`buddha`、`tea`。支持非流式 JSON、45 秒超时与取消。与队友实际接口核对后再调整。VITE_* 均会进入浏览器，禁止放 Web服务 Key、securityJsCode、模型密钥、私钥；真实鉴权收到后单独接入。
+有效 ID 见 `src/content/places.json` 的38条记录，保留原有5个 ID。支持非流式 JSON、45 秒超时与取消。与队友实际接口核对后再调整。VITE_* 均会进入浏览器，禁止放 Web服务 Key、securityJsCode、模型密钥、私钥；真实鉴权收到后单独接入。
 
 ## Sources
 
 视觉方向参考 OpenUI Trip Planner；本项目为独立实现，未复用其未获授权的应用源码。导航布局参考 [Promptrip](https://github.com/sergfv/promptrip)，按现有网站的字体和配色实现。
 
 照片和景区导览图来自 `project-files/organizer/`。文字依据主办方两份参赛资料；`tea` 的照片为“白乳泉试茶亭”摩崖题刻，不是亭台建筑或白鹿泉遗址。Noto 字体采用 OFL-1.1，Lucide 图标采用 ISC，随依赖保留许可。
+
+## Content and version history
+
+38条景点/主题、41张独立实景照片、38段本地预生成的讲解音频；相册可左右滑动、查看大图。浏览器按实际媒体事件显示播放状态，右侧按钮固定宽度；不再调用不稳定的系统 speechSynthesis。天气使用真实栖霞区预报，页面显示昼夜温度和发布时间，并非景区实测。
+
+当前版本0.1.0；Git已有修改前基线与本轮完成记录。开发保持单一frontend目录，不复制v01/v02；构建产物和依赖不提交。

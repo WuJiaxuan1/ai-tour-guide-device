@@ -61,7 +61,7 @@ export default function NavigationMap({stops, geometry, selectedId, onSelect, on
       <h2>{status === 'loading' ? '正在打开山里的地图' : status === 'unconfigured' ? '地图服务尚未连接' : '地图暂时无法打开'}</h2>
       <p>{status === 'loading' ? '把想一起去的地方，放在同一张地图上。' : '你仍然可以挑选景点、调整顺序，或查看景区导览图。'}</p>
       <div><button onClick={onIllustration}><MapIcon size={15}/>查看景区导览图</button>
-        {status === 'error' && <button onClick={() => window.location.reload()}><RotateCcw size={15}/>重新加载</button>}</div>
+        {['error','unconfigured'].includes(status) && <button onClick={() => window.location.reload()}><RotateCcw size={15}/>重新加载</button>}</div>
     </div>}
     {status === 'ready' && <div className="navigation-map-tools">
       <button aria-label="放大地图" onClick={() => map.current.zoomIn()}><Plus size={18}/></button>

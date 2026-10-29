@@ -24,3 +24,11 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 - The user requested removing all Chinese demo wording from the visitor UI. Do not imply live AI is connected when it is not; disclose the local content boundary in About.
 - Focus suggestions on couples. Use organizer-provided photos and factual stories; do not invent romantic folklore.
 - The requested navigation direction is a real map with numbered markers and a bottom place sheet, inspired by Promptrip and styled consistently with the current app. The user selected AMap (Web JS API 2.0), with team-backend walking route calculation; do not treat the static illustration as routed navigation.
+
+## Full guide update — 2026-10-29
+- Maintain all organizer point groups and theme coverage in src/content/places.json; preserve photo provenance outside visitor UI. Gallery contains all 41 unique ZIP photos; keep source archive unchanged.
+- Temple is third in the default list; other religious entries remain at the end. Do not distort physical walking routes to enforce content-list order.
+- Use actual bundled audio files and media events for narration. Keep action widths stable through play/pause/loading/error states.
+- Weather is a compact expandable strip on Explore, using real district data and report times, never fabricated conditions.
+- Hardware handoff P7-test07 uses Android phone GPS and a local QMAP map-chunk channel. Do not repeat the earlier unsupported external-GPS assumption or claim web-to-watch route sync exists.
+- Root .env.local owns credentials. Only the public browser Key may be returned by /api/config; never expose securityJsCode or the Web service Key.

@@ -15,9 +15,9 @@ export default function RoutePage({route, setRoute, onExplore, onDetail, onIllus
   const signature = route.join('|');
   useEffect(() => {
     const c = new AbortController();
-    loadNavigationPlaces({signal: c.signal}).then(setCatalog).catch(() => {});
+    loadNavigationPlaces({signal: c.signal, stopIds: route}).then(setCatalog).catch(() => {});
     return () => c.abort();
-  }, []);
+  }, [signature]);
   useEffect(() => {
     controller.current?.abort();controller.current = null;setBusy(false);setPlanned(null);setError('');
     setSelected(old => route.includes(old) ? old : route[0] || null);
@@ -36,7 +36,7 @@ export default function RoutePage({route, setRoute, onExplore, onDetail, onIllus
   const plan = async () => {
     if (busy) return;
     const c = new AbortController();controller.current = c;setBusy(true);setError('');setPlanned(null);
-    const timeout = setTimeout(() => c.abort(), 30000);
+    const timeout = setTimeout(() => c.abort(), 45000);
     try {
       const result = await planWalkingRoute({stopIds: [...route], signal: c.signal});
       if (controller.current === c && !c.signal.aborted) setPlanned(result);
@@ -57,7 +57,7 @@ export default function RoutePage({route, setRoute, onExplore, onDetail, onIllus
         {stops.map((place, i) => <article key={place.id} ref={node => {if (node) cards.current.set(place.id, node);else cards.current.delete(place.id);}}
           className={`navigation-card ${selected === place.id ? 'is-selected' : ''}`}>
           <button className="navigation-card-main" onClick={() => select(place.id)} aria-pressed={selected === place.id}>
-            <img src={place.image} alt=""/><span className="navigation-card-copy"><small>第 {i + 1} 站 · {place.category}</small><strong>{place.name}</strong><span>{place.intro}</span></span>
+            {place.image&&<img src={place.image} alt=""/>}<span className="navigation-card-copy"><small>第 {i + 1} 站 · {place.category}</small><strong>{place.name}</strong><span>{place.intro}</span></span>
           </button>
           <div className="navigation-card-actions"><button onClick={() => onDetail(place)}>看看这里</button><span/>
             {i > 0 && <button aria-label={`上移${place.name}`} onClick={() => setRoute(old => {const next = [...old];[next[i - 1], next[i]] = [next[i], next[i - 1]];return next;})}><ArrowUp size={15}/></button>}

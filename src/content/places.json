@@ -1,0 +1,716 @@
+[
+  {
+    "id": "autumn",
+    "name": "红叶谷",
+    "category": "山林与四季",
+    "intro": "一起比较叶形与颜色，把秋天留在两个人的记忆里。",
+    "story": "枫香、三角枫、鸡爪槭，都是栖霞山的红叶植物。红叶谷位于御花园与凤翔峰西南山腰相接的一带，有铺翠、揽红二池和夕佳亭长廊。红、黄、绿会随气温逐渐交错；古道、湖边与亭旁，也各有看秋色的角度。南京的赏枫习俗，让同一座山留在不同年份的生活记忆里。",
+    "tags": [
+      "自然",
+      "赏秋"
+    ],
+    "images": [
+      "/assets/places/486384665bd863.webp",
+      "/assets/places/a05b340bf6f80c.webp"
+    ],
+    "image": "/assets/places/486384665bd863.webp",
+    "religious": false,
+    "mapName": "红叶谷",
+    "aliases": [],
+    "audio": "/assets/audio/autumn.wav"
+  },
+  {
+    "id": "mirror-lake",
+    "name": "明镜湖",
+    "category": "湖光与倒影",
+    "intro": "不急着拍照，先一起看看湖面留下了什么。",
+    "story": "湖面、亭桥、倒影与题名，让明镜湖成为认识栖霞山水的一处线索。看山可以从水开始：近处的树影、桥与亭，和远处的山色落在同一面湖里。季节、光线与风，也会让这里呈现不同的样子。",
+    "tags": [
+      "自然",
+      "湖景"
+    ],
+    "images": [
+      "/assets/places/7cfa779125af2b.webp"
+    ],
+    "image": "/assets/places/7cfa779125af2b.webp",
+    "religious": false,
+    "mapName": "明镜湖",
+    "aliases": [],
+    "audio": "/assets/audio/mirror-lake.wav"
+  },
+  {
+    "id": "temple",
+    "name": "栖霞寺",
+    "category": "建筑与地方记忆",
+    "intro": "从山门、建筑和人物故事，认识栖霞的千年往来。",
+    "story": "栖霞寺与栖霞山的地名、六朝遗存及历代游山活动紧密相连。明僧绍隐居摄山、舍宅为寺，是这里的重要人物线索；陆羽采茶、诗人游山，也让建筑与山林有了不同的观看方式。近代，寂然法师等人在这里参与难民救护。今天看建筑时，可以留意始建、重建与现存实物所处的不同年代。",
+    "tags": [
+      "人文",
+      "建筑"
+    ],
+    "images": [
+      "/assets/places/2299a31d423f16.webp"
+    ],
+    "image": "/assets/places/2299a31d423f16.webp",
+    "religious": false,
+    "mapName": "栖霞寺",
+    "aliases": [],
+    "audio": "/assets/audio/temple.wav"
+  },
+  {
+    "id": "spring-bridge",
+    "name": "春雨桥",
+    "category": "溪涧与古桥",
+    "intro": "桥边停一停，听水声，也读一段旧日行宫的故事。",
+    "story": "春雨桥跨越中峰涧，与栖霞行宫的外墙边界和内外通道相连。桥、石墙、道路与林木，共同留下了旧日空间的线索。行宫主体虽已不存，仍可从桥梁、墙基、柱础及排水遗迹理解它依山而建的布局。",
+    "tags": [
+      "自然",
+      "遗址"
+    ],
+    "images": [
+      "/assets/places/8eb4fc05e69e0a.webp",
+      "/assets/places/fd34db614b31e0.webp",
+      "/assets/places/c350d06ad02df2.webp"
+    ],
+    "image": "/assets/places/8eb4fc05e69e0a.webp",
+    "religious": false,
+    "mapName": "春雨桥",
+    "aliases": [],
+    "audio": "/assets/audio/spring-bridge.wav"
+  },
+  {
+    "id": "peach-fan",
+    "name": "桃花扇亭",
+    "category": "文学与山水",
+    "intro": "在扇形窗洞与山林之间，找一段文学的回声。",
+    "story": "桃花扇亭的名字与孔尚任的《桃花扇》相连。李香君、侯方域的文学故事，与桃花涧、葆贞庵等地方空间相接。亭的形态和窗洞中可见扇形、桃花花瓣的意象。戏曲中的故事与后来的纪念景观，在这里与山林相遇。",
+    "tags": [
+      "人文",
+      "文学"
+    ],
+    "images": [],
+    "image": null,
+    "religious": false,
+    "mapName": "桃花扇亭",
+    "aliases": [],
+    "audio": "/assets/audio/peach-fan.wav"
+  },
+  {
+    "id": "peach-stream",
+    "name": "桃花涧",
+    "category": "溪涧与四季",
+    "intro": "沿着溪涧看山，也为下一次春天留下一个理由。",
+    "story": "桃花涧因旧时涧旁的桃树而得名，后来经过补植，恢复了春季景致。它与中峰涧共同组成栖霞的两条重要溪涧。桃花扇亭、桃花湖、诗文与山林，使这里的景观不只属于一个季节。",
+    "tags": [
+      "自然",
+      "溪涧"
+    ],
+    "images": [],
+    "image": null,
+    "religious": false,
+    "mapName": "桃花涧",
+    "aliases": [],
+    "audio": "/assets/audio/peach-stream.wav"
+  },
+  {
+    "id": "peach-lake",
+    "name": "桃花湖",
+    "category": "湖水与泉声",
+    "intro": "把脚步放慢，看看泉、湖与亭如何连在一起。",
+    "story": "桃花湖与珍珠泉的地方记忆相接。旧泉眼、题字、湖面和后来的亭景，构成了认识这里的线索。水源与景物曾经历变化，名字仍留着往日的记忆。",
+    "tags": [
+      "自然",
+      "湖景"
+    ],
+    "images": [],
+    "image": null,
+    "religious": false,
+    "mapName": "桃花湖",
+    "aliases": [],
+    "audio": "/assets/audio/peach-lake.wav"
+  },
+  {
+    "id": "pearl-spring",
+    "name": "珍珠泉亭",
+    "category": "泉水与亭景",
+    "intro": "从一处泉名，认识水景背后的时间。",
+    "story": "珍珠泉连着旧泉眼、题字与桃花湖，后来又形成亭景。泉水与亭台是栖霞山水文化的一部分；观察眼前景观时，也可以想一想名字、旧水源和后来建设之间的关系。",
+    "tags": [
+      "茶事",
+      "泉水"
+    ],
+    "images": [],
+    "image": null,
+    "religious": false,
+    "mapName": "珍珠泉",
+    "aliases": [],
+    "audio": "/assets/audio/pearl-spring.wav"
+  },
+  {
+    "id": "tea",
+    "name": "白乳泉试茶亭题刻",
+    "category": "泉水与茶事",
+    "intro": "一起认一认岩壁上的字，听听山中的茶事。",
+    "story": "白乳泉试茶亭是摩崖题刻上的文字，与白鹿泉遗址是不同的地点。陆羽在栖霞采茶、试茶、品茶的故事，连着山路、泉水和友人交往。皇甫冉的送别诗留下季节、劳作与居停的画面。读题刻，也是在读茶与地方生活的记忆。",
+    "tags": [
+      "茶事",
+      "题刻"
+    ],
+    "images": [
+      "/assets/places/d729be179e2075.webp",
+      "/assets/places/67ef30c34a8c58.webp",
+      "/assets/places/2ffbbbab0c5714.webp",
+      "/assets/places/62ebfe3b1df8ff.webp",
+      "/assets/places/5bd7e39f56db15.webp",
+      "/assets/places/b90939f6702a46.webp",
+      "/assets/places/53466a5eb7925f.webp",
+      "/assets/places/bf5662eb1ae87e.webp"
+    ],
+    "image": "/assets/places/d729be179e2075.webp",
+    "religious": false,
+    "mapName": "白乳泉试茶亭",
+    "aliases": [
+      "白乳泉"
+    ],
+    "audio": "/assets/audio/tea.wav"
+  },
+  {
+    "id": "tea-house",
+    "name": "陆羽茶庄",
+    "category": "茶与地方生活",
+    "intro": "让茶事成为同行路上的一个小主题。",
+    "story": "陆羽茶庄、泉边题刻与历史茶肆，把栖霞的茶文化和地方生活串在一起。山中采茶、泉边试茶、街上饮茶，呈现着不同时代的停留与交往。陆羽与皇甫冉的交游，以及李白寓居栖霞的相关故事，也让山中的茶与诗相伴。",
+    "tags": [
+      "茶事",
+      "人文"
+    ],
+    "images": [
+      "/assets/places/1a8b711b3cfd69.webp"
+    ],
+    "image": "/assets/places/1a8b711b3cfd69.webp",
+    "religious": false,
+    "mapName": "陆羽茶庄",
+    "aliases": [],
+    "audio": "/assets/audio/tea-house.wav"
+  },
+  {
+    "id": "pinwai-spring",
+    "name": "品外泉",
+    "category": "泉水与地方故事",
+    "intro": "泉名里，也藏着人们讲述山水的方式。",
+    "story": "品外泉的名字来自后人讲述的陆羽品泉故事：泉水很好，却未列入品评，因此称作品外。它曾通过暗渠进入寺中，成为生活用水的一部分。传说、泉名和日常生活，为同一处水源留下不同的线索。",
+    "tags": [
+      "茶事",
+      "泉水"
+    ],
+    "images": [],
+    "image": null,
+    "religious": false,
+    "mapName": "品外泉",
+    "aliases": [],
+    "audio": "/assets/audio/pinwai-spring.wav"
+  },
+  {
+    "id": "white-deer-spring",
+    "name": "白鹿泉遗址",
+    "category": "泉水与行宫",
+    "intro": "沿着遗址，寻找山水与旧日建筑的联系。",
+    "story": "白鹿泉遗址与行宫空间相关。其上方又联系着话山亭、有凌云意、石梁精舍与畅观亭等景观。文伯仁的摄山白鹿泉庵图，也把这里带入绘画记忆。白鹿泉与白乳泉试茶亭题刻并不是同一处地点。",
+    "tags": [
+      "遗址",
+      "茶事"
+    ],
+    "images": [],
+    "image": null,
+    "religious": false,
+    "mapName": "白鹿泉",
+    "aliases": [],
+    "audio": "/assets/audio/white-deer-spring.wav"
+  },
+  {
+    "id": "palace",
+    "name": "乾隆行宫遗址",
+    "category": "行宫与山林",
+    "intro": "看墙基、柱础和水路，想象依山展开的旧日空间。",
+    "story": "乾隆六下江南、六到栖霞山，五次驻跸栖霞行宫。行宫依山布置，采用前朝后寝的格局；春雨山房、太古堂、武夷一曲精庐与政务活动有关，另有后寝、夕佳楼、白下卷阿等建筑。今天主体建筑虽已不存，古桥、墙基、柱础和排水遗迹，仍能帮助我们辨认旧日布局。",
+    "tags": [
+      "遗址",
+      "人文"
+    ],
+    "images": [
+      "/assets/places/51cb895cf70def.webp",
+      "/assets/places/8fbc5060e0c271.webp"
+    ],
+    "image": "/assets/places/51cb895cf70def.webp",
+    "religious": false,
+    "mapName": "乾隆行宫遗址",
+    "aliases": [
+      "栖霞行宫"
+    ],
+    "audio": "/assets/audio/palace.wav"
+  },
+  {
+    "id": "taigu-hall",
+    "name": "太古堂",
+    "category": "行宫与题名",
+    "intro": "从一个旧日名称，读行宫与山林的关系。",
+    "story": "太古堂属于认识栖霞行宫的重要名称，与春雨山房、武夷一曲精庐等共同联系着行宫的政务空间。行宫在乾隆后几次南巡期间仍有增建。读山中的地名、题刻和遗迹，可以逐渐理解这片依山展开的历史空间。",
+    "tags": [
+      "遗址",
+      "人文"
+    ],
+    "images": [
+      "/assets/places/0e66f4381d1f5e.webp",
+      "/assets/places/c7f342ff179cae.webp",
+      "/assets/places/830f714895dab7.webp",
+      "/assets/places/b4e6fb730cef51.webp"
+    ],
+    "image": "/assets/places/0e66f4381d1f5e.webp",
+    "religious": false,
+    "mapName": "太古堂",
+    "aliases": [],
+    "audio": "/assets/audio/taigu-hall.wav"
+  },
+  {
+    "id": "camp",
+    "name": "小营盘遗址",
+    "category": "地形与驻军生活",
+    "intro": "把目光从宫殿移向守卫、道路与山地生活。",
+    "story": "小营盘遗址与行宫守卫有关，发现过围墙、道路和房址等遗迹。它的地势较高，可俯瞰行宫及周边。附近的半馆、饮马池等线索，让行宫历史与驻军生活、药草文化和山林环境相接。",
+    "tags": [
+      "遗址",
+      "人文"
+    ],
+    "images": [],
+    "image": null,
+    "religious": false,
+    "mapName": "小营盘",
+    "aliases": [],
+    "audio": "/assets/audio/camp.wav"
+  },
+  {
+    "id": "ban-guan",
+    "name": "半馆",
+    "category": "药草与途中休憩",
+    "intro": "歇一歇，也认识摄山这个旧名字。",
+    "story": "半馆位于小营盘一带，是登山途中的休憩空间，也有中草药文化展示。栖霞山古称摄山，山中多药草可以摄生，是旧名的一种由来。葛玄、葛洪、陶弘景、李时珍等人的地方记忆，也与植物观察和药草相连。",
+    "tags": [
+      "人文",
+      "自然"
+    ],
+    "images": [
+      "/assets/places/1d15a9fb2764ea.webp"
+    ],
+    "image": "/assets/places/1d15a9fb2764ea.webp",
+    "religious": false,
+    "mapName": "半馆",
+    "aliases": [],
+    "audio": "/assets/audio/ban-guan.wav"
+  },
+  {
+    "id": "horse-pond",
+    "name": "饮马池",
+    "category": "驻军与山林",
+    "intro": "一处生活遗迹，也能连接更大的历史。",
+    "story": "饮马池与小营盘、半馆周边的地方空间相接。行宫之外，还有驻军、道路与人在山地中的活动。将这些线索放在一起看，便能从生活设施理解历史，而不只关注宫殿本身。",
+    "tags": [
+      "遗址",
+      "人文"
+    ],
+    "images": [],
+    "image": null,
+    "religious": false,
+    "mapName": "饮马池",
+    "aliases": [],
+    "audio": "/assets/audio/horse-pond.wav"
+  },
+  {
+    "id": "changguan",
+    "name": "畅观亭",
+    "category": "亭台与远眺",
+    "intro": "走到亭边，和同行的人换一个看山的角度。",
+    "story": "畅观亭是认识行宫与山林空间的一处方位线索，与白鹿泉、话山亭、有凌云意和石梁精舍等景观相联系。亭台、山间平台与峰顶，为看山和望远提供不同的位置。眼前景色也随季节、天气和观看方向变化。",
+    "tags": [
+      "自然",
+      "观景"
+    ],
+    "images": [
+      "/assets/places/64498e577b2105.webp",
+      "/assets/places/6b82e1d9750032.webp",
+      "/assets/places/41b86cee71137c.webp",
+      "/assets/places/553005c3d29c39.webp",
+      "/assets/places/2cb72840a51510.webp"
+    ],
+    "image": "/assets/places/64498e577b2105.webp",
+    "religious": false,
+    "mapName": "畅观亭",
+    "aliases": [],
+    "audio": "/assets/audio/changguan.wav"
+  },
+  {
+    "id": "taixu",
+    "name": "太虚亭",
+    "category": "亭台与题刻",
+    "intro": "在亭台和题刻之间，停下来看看山。",
+    "story": "太虚亭的内容线索是亭台、题刻与观景。山中的题名保留不同年代的观看方式；今天的来客也能从眼前景物出发，读山水与文字之间的关系。",
+    "tags": [
+      "人文",
+      "观景"
+    ],
+    "images": [],
+    "image": null,
+    "religious": false,
+    "mapName": "太虚亭",
+    "aliases": [],
+    "audio": "/assets/audio/taixu.wav"
+  },
+  {
+    "id": "tianjie",
+    "name": "天街",
+    "category": "山路与服务空间",
+    "intro": "途中留一点休息时间，再决定下一段怎么走。",
+    "story": "天街是登山途中的服务空间。游山除了景点与故事，也包括休息、饮水、餐饮和返程安排。和同行的人一起按时间与体力调整节奏，是认识这座山的一部分；具体服务和营业情况请查看现场信息。",
+    "tags": [
+      "服务",
+      "慢游"
+    ],
+    "images": [],
+    "image": null,
+    "religious": false,
+    "mapName": "天街",
+    "aliases": [],
+    "audio": "/assets/audio/tianjie.wav"
+  },
+  {
+    "id": "fengxiang",
+    "name": "凤翔峰",
+    "category": "登高与望江",
+    "intro": "把江、山与远方留在同一个视野里。",
+    "story": "凤翔峰是栖霞山中峰，海拔二百八十六米，是主要登高点之一。栖霞山北临长江，峰顶、亭台与平台提供不同的远眺位置。江帆、桥梁、船只和对岸空间，让古人的题咏与今天的观看有了各自的风景。",
+    "tags": [
+      "自然",
+      "登高"
+    ],
+    "images": [],
+    "image": null,
+    "religious": false,
+    "mapName": "凤翔峰",
+    "aliases": [],
+    "audio": "/assets/audio/fengxiang.wav"
+  },
+  {
+    "id": "tiger-hill",
+    "name": "虎山",
+    "category": "三峰与山势",
+    "intro": "从山势开始，认识栖霞的空间。",
+    "story": "栖霞山有三峰两涧。西峰为虎山，中峰为凤翔峰，东峰为龙山；桃花涧与中峰涧分布其间。找出山峰与溪涧，再看亭、桥、泉、湖和古道，山中的方位关系就会更清楚。",
+    "tags": [
+      "自然",
+      "山势"
+    ],
+    "images": [],
+    "image": null,
+    "religious": false,
+    "mapName": "虎山",
+    "aliases": [],
+    "audio": "/assets/audio/tiger-hill.wav"
+  },
+  {
+    "id": "dragon-hill",
+    "name": "龙山",
+    "category": "三峰与山势",
+    "intro": "换个方向看山，了解三峰两涧的布局。",
+    "story": "龙山是栖霞山东峰，与西峰虎山、中峰凤翔峰共同构成三峰格局。山中的道路、溪涧与文化点位依地形展开。理解山势，也是在理解茶事、行宫与自然景观之间的联系。",
+    "tags": [
+      "自然",
+      "山势"
+    ],
+    "images": [],
+    "image": null,
+    "religious": false,
+    "mapName": "龙山",
+    "aliases": [],
+    "audio": "/assets/audio/dragon-hill.wav"
+  },
+  {
+    "id": "emperor-river",
+    "name": "始皇临江处",
+    "category": "长江与地方记忆",
+    "intro": "凭栏远望，把旅行的视线放得更远。",
+    "story": "始皇临江处承接着秦始皇东巡与栖霞的地方记忆。今天可见的亭、廊与观景平台是后来恢复的景观，可以远望长江。江乘、郑和与水陆通行等线索，也连接着这座山与更广阔的地域。",
+    "tags": [
+      "人文",
+      "观景"
+    ],
+    "images": [],
+    "image": null,
+    "religious": false,
+    "mapName": "始皇临江处",
+    "aliases": [],
+    "audio": "/assets/audio/emperor-river.wav"
+  },
+  {
+    "id": "qingfeng-rock",
+    "name": "青锋剑石",
+    "category": "山石与地质",
+    "intro": "同一块岩壁，可以从传说与科学读出两种故事。",
+    "story": "青锋剑石是岩壁中的黑色条纹景观。地方传说将它与乾隆佩剑联系起来；地质上，燧石与石灰岩风化速度不同，较耐风化的部分显露出来，形成条纹。传说记录命名，地质解释形态。两个人可以先各自描述看到的纹理，再交换观察。",
+    "tags": [
+      "自然",
+      "地质"
+    ],
+    "images": [
+      "/assets/places/156aa0d321f0ad.webp"
+    ],
+    "image": "/assets/places/156aa0d321f0ad.webp",
+    "religious": false,
+    "mapName": "青锋剑石",
+    "aliases": [
+      "青锋剑"
+    ],
+    "audio": "/assets/audio/qingfeng-rock.wav"
+  },
+  {
+    "id": "tiankai-rock",
+    "name": "天开岩",
+    "category": "山石与题刻",
+    "intro": "读一读题名，也看看岩壁本身的纹理。",
+    "story": "天开岩与叠浪岩是认识栖霞山石、题刻与地质的线索。栖霞组、栖霞灰岩等名称，使这座山与地质研究相连。岩石记录着远早于建筑和人物的时间；题刻则保留后来的人怎样观看它。",
+    "tags": [
+      "自然",
+      "地质"
+    ],
+    "images": [],
+    "image": null,
+    "religious": false,
+    "mapName": "天开岩",
+    "aliases": [],
+    "audio": "/assets/audio/tiankai-rock.wav"
+  },
+  {
+    "id": "dielang-rock",
+    "name": "叠浪岩",
+    "category": "地层与古海洋",
+    "intro": "在石头的层理里，想象更早的自然时间。",
+    "story": "叠浪岩的层理记录着自然变化。栖霞山的地层、岩石与化石，让人看到古海洋留下的线索。1932年，李四光等人在栖霞开展地质调查并绘制地质图，记录地层、断层、走向和化石信息。",
+    "tags": [
+      "自然",
+      "地质"
+    ],
+    "images": [],
+    "image": null,
+    "religious": false,
+    "mapName": "叠浪岩",
+    "aliases": [],
+    "audio": "/assets/audio/dielang-rock.wav"
+  },
+  {
+    "id": "waterfall",
+    "name": "中峰涧瀑布",
+    "category": "溪涧与山林",
+    "intro": "在绿荫和水声之间，慢一点走。",
+    "story": "中峰涧是栖霞两条重要溪涧之一，流经春雨桥一带。溪水、山石和植物构成夏季山林的清凉意象，也串联行宫周边的方位线索。水量与景观会随季节天气变化，现场可以留意水流、石阶和植物的细节。",
+    "tags": [
+      "自然",
+      "溪涧"
+    ],
+    "images": [
+      "/assets/places/265eba4acb193d.webp",
+      "/assets/places/fe4c06124112ed.webp"
+    ],
+    "image": "/assets/places/265eba4acb193d.webp",
+    "religious": false,
+    "mapName": "中峰涧瀑布",
+    "aliases": [],
+    "audio": "/assets/audio/waterfall.wav"
+  },
+  {
+    "id": "old-street",
+    "name": "栖霞老街与古镇",
+    "category": "街巷与地方生活",
+    "intro": "游山之后，再留一点时间给茶饮与街巷。",
+    "story": "宋元时期山前已有栖霞市的记载。明清游记中的栖霞街，与九乡河、栖霞桥和御龙桥的地方记忆相接。錾石、拓碑、向导与茶肆，曾是这里生活的一部分。徐十郎茶肆的记载，将山中茶事带回山前；今天的文创、餐食和街巷，也继续连接山与日常。",
+    "tags": [
+      "人文",
+      "街巷"
+    ],
+    "images": [],
+    "image": null,
+    "religious": false,
+    "mapName": "栖霞古镇",
+    "aliases": [
+      "栖霞老街"
+    ],
+    "audio": "/assets/audio/old-street.wav"
+  },
+  {
+    "id": "gaoqifeng",
+    "name": "高奇峰墓园",
+    "category": "近代艺术与纪念",
+    "intro": "从山中的纪念空间，认识一位画家。",
+    "story": "高奇峰是岭南画派的重要画家。山中的墓园、牌坊、雕像和题词保存着对他的纪念，也把栖霞与近代绘画联系起来。徐悲鸿、蔡元培的相关文字，将艺术家本人、同道评价与后来的纪念相接。",
+    "tags": [
+      "人文",
+      "艺术"
+    ],
+    "images": [],
+    "image": null,
+    "religious": false,
+    "mapName": "高奇峰墓园",
+    "aliases": [],
+    "audio": "/assets/audio/gaoqifeng.wav"
+  },
+  {
+    "id": "shoujiang-well",
+    "name": "受降井",
+    "category": "近代历史与和平记忆",
+    "intro": "从一处日常设施，读一段与和平有关的历史。",
+    "story": "受降井与1945年抗战胜利后的战俘安置和取水需要有关。井、纪念文字与周边环境，成为今天认识这段历史的实物线索。一处日常设施，也能保存时代的记忆。",
+    "tags": [
+      "人文",
+      "历史"
+    ],
+    "images": [],
+    "image": null,
+    "religious": false,
+    "mapName": "受降井",
+    "aliases": [],
+    "audio": "/assets/audio/shoujiang-well.wav"
+  },
+  {
+    "id": "jiangzong-stele",
+    "name": "江总碑",
+    "category": "诗文与人物",
+    "intro": "沿着游山文字，与过去的来客相遇。",
+    "story": "江总碑、历代题刻与游山诗文，让栖霞留下不同年代的声音。江总、李白、焦竑、孔尚任、袁枚和乾隆等人，各自与这座山发生联系。有的诗写山水，有的写心境，文字也为今天的观看留下线索。",
+    "tags": [
+      "人文",
+      "文学"
+    ],
+    "images": [],
+    "image": null,
+    "religious": false,
+    "mapName": "江总碑",
+    "aliases": [],
+    "audio": "/assets/audio/jiangzong-stele.wav"
+  },
+  {
+    "id": "gate",
+    "name": "栖霞山入口",
+    "category": "山门与游览入口",
+    "intro": "从山前出发，先和同行的人商量今天的节奏。",
+    "story": "山门、古道、峰顶与古镇之间，分布着不同的游览与服务空间。西门、南门、游客中心、观光车、天街和半馆，组成一天中的进出、行走与停留。出发前留意现场地图与开放信息，再按时间和体力选择路线。",
+    "tags": [
+      "服务",
+      "入口"
+    ],
+    "images": [
+      "/assets/places/17483f4afcae0b.webp",
+      "/assets/places/b7ed0ebc0bb67d.webp"
+    ],
+    "image": "/assets/places/17483f4afcae0b.webp",
+    "religious": false,
+    "mapName": "栖霞山风景名胜区",
+    "aliases": [],
+    "audio": "/assets/audio/gate.wav"
+  },
+  {
+    "id": "panorama",
+    "name": "栖霞山山水",
+    "category": "三峰两涧",
+    "intro": "先读懂山与水，再寻找你们感兴趣的故事。",
+    "story": "栖霞山位于南京东北、长江南岸。虎山、凤翔峰、龙山与桃花涧、中峰涧组成三峰两涧。山中古道、亭桥、茶泉和遗址依着地形展开。文伯仁、张宏、钱维城等画家也留下不同的栖霞图景。四季里的花、绿荫、红叶和枝干，让同一座山有再次相逢的理由。",
+    "tags": [
+      "自然",
+      "山势"
+    ],
+    "images": [
+      "/assets/places/f83fddc0416339.webp"
+    ],
+    "image": "/assets/places/f83fddc0416339.webp",
+    "religious": false,
+    "mapName": "栖霞山风景名胜区",
+    "aliases": [],
+    "audio": "/assets/audio/panorama.wav"
+  },
+  {
+    "id": "shamao",
+    "name": "纱帽峰",
+    "category": "山体与历史空间",
+    "intro": "把视线拉远，看看山体与遗存之间的关系。",
+    "story": "纱帽峰与千佛岩构成认识栖霞山体空间的重要线索，也与行宫、畅观亭等方位关系相接。近看题刻与岩壁，远看山形与路径，可以从不同尺度理解这片空间。",
+    "tags": [
+      "自然",
+      "山势"
+    ],
+    "images": [
+      "/assets/places/528f3bdf1324c3.webp",
+      "/assets/places/dd62ee76b3fd52.webp"
+    ],
+    "image": "/assets/places/528f3bdf1324c3.webp",
+    "religious": false,
+    "mapName": "纱帽峰",
+    "aliases": [],
+    "audio": "/assets/audio/shamao.wav"
+  },
+  {
+    "id": "mingzheng-stele",
+    "name": "明征君碑",
+    "category": "碑刻与书法",
+    "intro": "看碑文，也看看石材中的古老生命痕迹。",
+    "story": "明征君碑纪念明僧绍，于唐上元三年，即676年奉敕修建，唐高宗撰文，高正臣书写。碑文属于人的历史，石材中可见的海百合茎等化石则来自更早的自然时间。海百合是海洋动物，因形似植物而得名。",
+    "tags": [
+      "人文",
+      "书法"
+    ],
+    "images": [],
+    "image": null,
+    "religious": true,
+    "mapName": "明征君碑",
+    "aliases": [],
+    "audio": "/assets/audio/mingzheng-stele.wav"
+  },
+  {
+    "id": "pagoda",
+    "name": "舍利塔",
+    "category": "石构建筑与雕刻",
+    "intro": "看看石塔的层次，再一起寻找雕刻的细节。",
+    "story": "舍利塔有隋代始建、南唐重建的历史层次。石构、层次与雕刻，使它同时成为建筑与艺术的观察对象。山中文物经历过毁损、重修与保护；始建年代、重建年代和今天看到的实物，需要放在不同层次里理解。",
+    "tags": [
+      "人文",
+      "建筑"
+    ],
+    "images": [
+      "/assets/places/59990a17d64f87.webp",
+      "/assets/places/09cb809ec10e5a.webp"
+    ],
+    "image": "/assets/places/59990a17d64f87.webp",
+    "religious": true,
+    "mapName": "舍利塔",
+    "aliases": [],
+    "audio": "/assets/audio/pagoda.wav"
+  },
+  {
+    "id": "buddha",
+    "name": "千佛岩",
+    "category": "六朝石窟与山体",
+    "intro": "从岩壁、洞窟与造像之间，认识古代艺术。",
+    "story": "千佛岩依山开凿，是江南南朝石窟的重要遗存。洞窟、造像与山体融在一起，保留着六朝的文化印记；栖霞飞天也是其中的石窟艺术线索。与明征君碑、舍利塔合称栖霞三宝，可以从山体空间与雕刻形态开始观察。",
+    "tags": [
+      "人文",
+      "艺术"
+    ],
+    "images": [
+      "/assets/places/a7c179cd11b526.webp",
+      "/assets/places/0507568aa5638c.webp",
+      "/assets/places/917ca4c06199f3.webp"
+    ],
+    "image": "/assets/places/a7c179cd11b526.webp",
+    "religious": true,
+    "mapName": "千佛岩",
+    "aliases": [
+      "千佛崖"
+    ],
+    "audio": "/assets/audio/buddha.wav"
+  }
+]

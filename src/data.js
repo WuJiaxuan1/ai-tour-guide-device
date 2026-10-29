@@ -1,14 +1,4 @@
-export const places = [
- {id:'autumn',name:'红叶谷',category:'山林与四季',image:'/assets/autumn.jpg',intro:'找一片秋色，也看看红、黄、绿之间的细小差别。',story:'枫香、三角枫、鸡爪槭，都是栖霞山的红叶植物。红叶谷位于御花园与凤翔峰西南山腰相接的一带，谷内有“铺翠”“揽红”二池及夕佳亭长廊。赏枫也是南京人与秋天相认的一种方式。',tags:['自然观察','赏秋']},
- {id:'temple',name:'栖霞寺',category:'山门与人文',image:'/assets/temple.jpg',intro:'从山门开始，认识藏在山林与建筑之间的千年故事。',story:'栖霞山、栖霞寺与栖霞地名有着长久的历史联系。六朝遗存、帝王行迹、茶事与诗文，在这片山水间相互交织。可以结合舍利塔、千佛岩等点位，从建筑、石刻与山体开始观察。',tags:['人文漫步','建筑']},
- {id:'pagoda',name:'舍利塔',category:'建筑与石刻',image:'/assets/pagoda.jpg',intro:'停下来看看石塔的形体、层次与雕刻，读懂一处建筑。',story:'主办方点位资料将舍利塔与石构建筑、雕刻艺术联系起来。这里适合用“看形体—找细节—再追问”的方式观察。具体雕刻题材和年代，接入核验后的景点知识库后再作详细讲解。',tags:['细节观察','文化']},
- {id:'buddha',name:'千佛岩',category:'六朝与山体',image:'/assets/buddha.jpg',intro:'把视线拉远，看雕刻、岩壁与山体如何共同构成空间。',story:'千佛岩与纱帽峰是认识栖霞六朝石窟与山体空间的线索。可以从石壁上的层次、造像与周围地形开始观察。此处照片来自主办方“千佛崖、千佛岭”素材组，并非精确点位定位图。',tags:['石窟','历史']},
- {id:'tea',name:'白乳泉试茶亭题刻',category:'泉水与茶事',image:'/assets/tea.jpg',intro:'一起读读岩壁上的字，让一段茶事留住脚步。',story:'泉水与茶事是认识栖霞山的重要主题。“白乳泉试茶亭”是摩崖题刻上的文字；白鹿泉遗址则是另一处地点。这张照片展示的是题刻，适合停下来辨认字迹，听听泉水与茶事的地方记忆。',tags:['茶文化','慢游']},
-];
+import catalog from './content/places.json' with {type:'json'};
+export const places=catalog;
 export const byId=id=>places.find(p=>p.id===id);
-export const prompts=[
- {id:'autumn',text:'一起收集秋色',question:'两个人想一起赏秋，有哪些景点值得慢慢看？'},
- {id:'temple',text:'两个人，慢慢逛',question:'情侣来栖霞，想两个人慢慢走，推荐几个有故事的地方'},
- {id:'tea',text:'听一段茶与旧事',question:'我们想一起了解栖霞的茶事和题刻'},
- {id:'pagoda',text:'发现彼此没注意的',question:'给我们介绍舍利塔值得一起观察的细节'}
-];
+export const prompts=[{id:'autumn',text:'一起收集秋色',question:'两个人想一起赏秋，有哪些景点值得慢慢看？'},{id:'mirror-lake',text:'两个人，慢慢逛',question:'情侣来栖霞，想两个人慢慢走，推荐几个有故事的地方'},{id:'tea',text:'听一段茶与旧事',question:'我们想一起了解栖霞的茶事和题刻'},{id:'spring-bridge',text:'桥边停一停',question:'给我们讲讲春雨桥与行宫的故事'}];

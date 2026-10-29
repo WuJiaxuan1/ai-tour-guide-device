@@ -1,5 +1,5 @@
-export const routeEndpoint = import.meta.env?.VITE_ROUTE_PLAN_URL?.trim() || '';
-export const placesEndpoint = import.meta.env?.VITE_NAVIGATION_PLACES_URL?.trim() || '';
+export const routeEndpoint = import.meta.env?.VITE_ROUTE_PLAN_URL?.trim() || '/api/navigation/routes';
+export const placesEndpoint = import.meta.env?.VITE_NAVIGATION_PLACES_URL?.trim() || '/api/navigation/places';
 const finiteNonnegative = value => Number.isFinite(value) && value >= 0;
 export const validLocation = value => Array.isArray(value) && value.length === 2 &&
   Number.isFinite(value[0]) && Number.isFinite(value[1]) &&
@@ -34,15 +34,17 @@ export async function planWalkingRoute({stopIds, signal, endpoint = routeEndpoin
     body: JSON.stringify({schemaVersion: '1.0', travelMode: 'walking', stopIds,
       coordinateSystem: 'GCJ02', coordinateOrder: 'lng,lat'}),
   });
-  if (!response.ok) throw new Error(`暂时无法规划路线（${response.status}），请稍后重试。`);
+  if (!response.ok) {let problem;try{problem=await response.json();}catch{}throw new Error(typeof problem?.error==='string'?problem.error:`暂时无法规划路线（${response.status}），请稍后重试。`);}
   let data;
   try {data = await response.json();} catch {throw new Error('路线服务暂不可用，请稍后重试。');}
   return validateRoute(data?.route, stopIds);
 }
 
-export async function loadNavigationPlaces({signal, endpoint = placesEndpoint, fetcher = globalThis.fetch} = {}) {
+export async function loadNavigationPlaces({signal, stopIds, endpoint = placesEndpoint, fetcher = globalThis.fetch} = {}) {
   if (!endpoint) return [];
-  const response = await fetcher(endpoint, {signal, credentials: 'omit'});
+  if (Array.isArray(stopIds)&&!stopIds.length)return [];
+  const url=Array.isArray(stopIds)?`${endpoint}${endpoint.includes('?')?'&':'?'}ids=${encodeURIComponent(stopIds.join(','))}`:endpoint;
+  const response = await fetcher(url, {signal, credentials: 'omit'});
   if (!response.ok) throw new Error('景点位置暂不可用');
   const data = await response.json();
   if (data?.coordinateSystem !== 'GCJ02' || data.coordinateOrder !== 'lng,lat' || !Array.isArray(data.places) ||
