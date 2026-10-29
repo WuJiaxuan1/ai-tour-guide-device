@@ -1,0 +1,14 @@
+{
+  "mascot-cutout.png": {
+    "source": "modeling/concept-images/v1.0_front.png",
+    "operation": "ImageGen transparent-background extraction, resized for web",
+    "originalPreserved": true
+  },
+  "photos": {
+    "source": "project-files/organizer/栖霞山景区图片素材参考包.zip"
+  },
+  "park-map.png": {
+    "source": "project-files/organizer/栖霞山地图-智能体调研点位-示意.png",
+    "kind": "illustration, not live routing"
+  }
+}

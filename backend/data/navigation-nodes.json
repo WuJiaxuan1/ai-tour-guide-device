@@ -1,0 +1,912 @@
+{
+  "coordinateSystem": "GCJ02",
+  "updatedAt": "2026-10-29T13:02:39.276Z",
+  "nodes": {
+    "autumn": {
+      "id": "autumn",
+      "name": "红叶谷",
+      "poiId": "B001909CRH",
+      "poiName": "栖霞山名胜风景区-红叶谷",
+      "location": [
+        118.964226,
+        32.157522
+      ],
+      "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西北角)",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B001909CRH"
+      },
+      "photos": [
+        "/assets/amap/4b6827ffdcc11088e7f3.webp",
+        "/assets/amap/f6bbcd16bdd161107a6f.webp",
+        "/assets/amap/103dea865f87c6c04a30.webp"
+      ]
+    },
+    "mirror-lake": {
+      "id": "mirror-lake",
+      "name": "明镜湖",
+      "poiId": "B001912HV0",
+      "poiName": "栖霞山名胜风景区-明镜湖",
+      "location": [
+        118.95631,
+        32.151776
+      ],
+      "address": "栖霞街88号栖霞山风景区内",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B001912HV0"
+      },
+      "photos": [
+        "/assets/amap/0d9e537c92a9b600f9b0.webp",
+        "/assets/amap/b950c5c817326a4f7115.webp",
+        "/assets/amap/aab23402f5f1a0a32da0.webp"
+      ]
+    },
+    "temple": {
+      "id": "temple",
+      "name": "栖霞寺",
+      "poiId": "B00190D2L7",
+      "poiName": "栖霞山名胜风景区摄山栖霞寺",
+      "location": [
+        118.957983,
+        32.151807
+      ],
+      "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B00190D2L7"
+      },
+      "photos": [
+        "/assets/amap/3bb65da5ee8c089dda6f.webp",
+        "/assets/amap/d81dee9f5893130ea2e0.webp",
+        "/assets/amap/cca54783e4ef10512447.webp"
+      ]
+    },
+    "spring-bridge": {
+      "id": "spring-bridge",
+      "name": "春雨桥",
+      "poiId": "B0FFFFAOPQ",
+      "poiName": "栖霞山风景名胜区-春雨桥",
+      "location": [
+        118.961884,
+        32.151409
+      ],
+      "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西南角)",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0FFFFAOPQ"
+      },
+      "photos": [
+        "/assets/amap/eeea962af53b503ad290.webp",
+        "/assets/amap/ba2dd16308e5b355cbf7.webp",
+        "/assets/amap/897b27aca3c80a7b1412.webp"
+      ]
+    },
+    "peach-lake": {
+      "id": "peach-lake",
+      "name": "桃花湖",
+      "poiId": "B00190AK1Z",
+      "poiName": "南京栖霞山风景名胜区-桃花湖",
+      "location": [
+        118.962395,
+        32.15523
+      ],
+      "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B00190AK1Z"
+      },
+      "photos": [
+        "/assets/amap/13dd98ec8b691bc4afca.webp",
+        "/assets/amap/f0dd185d3cc80b74c15e.webp",
+        "/assets/amap/9ef080143954586dee27.webp"
+      ]
+    },
+    "tea": {
+      "id": "tea",
+      "name": "白乳泉试茶亭题刻",
+      "poiId": "B0FFFF662S",
+      "poiName": "栖霞山风景名胜区-试茶亭",
+      "location": [
+        118.964922,
+        32.152182
+      ],
+      "address": "栖霞街88号栖霞山风景名胜区",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0FFFF662S"
+      },
+      "photos": [
+        "/assets/amap/65b875030a5b203068c7.webp",
+        "/assets/amap/357bab3e85a6c6a348e5.webp",
+        "/assets/amap/418ded319a8b75565e5f.webp"
+      ]
+    },
+    "tea-house": {
+      "id": "tea-house",
+      "name": "陆羽茶庄",
+      "poiId": "B00190AK1Y",
+      "poiName": "陆羽茶庄",
+      "location": [
+        118.964477,
+        32.149745
+      ],
+      "address": "栖霞大道栖霞山风景区内(近栖霞街)",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B00190AK1Y"
+      },
+      "photos": [
+        "/assets/amap/c5926a2838669d6d6712.webp",
+        "/assets/amap/c3f885a1a1289258a96d.webp",
+        "/assets/amap/aec388f101427923e4af.webp"
+      ]
+    },
+    "palace": {
+      "id": "palace",
+      "name": "乾隆行宫遗址",
+      "poiId": "B0FFFFA5A4",
+      "poiName": "栖霞山风景名胜区-乾隆行宫遗址",
+      "location": [
+        118.961952,
+        32.151514
+      ],
+      "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西南角)",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0FFFFA5A4"
+      },
+      "photos": [
+        "/assets/amap/3fde179e27f73fbb6288.webp",
+        "/assets/amap/374a44216d10e5f8d411.webp",
+        "/assets/amap/b0111957d084a1e9a8cf.webp"
+      ]
+    },
+    "camp": {
+      "id": "camp",
+      "name": "小营盘遗址",
+      "poiId": "B001912HP8",
+      "poiName": "栖霞山名胜风景区-小营盘遗址",
+      "location": [
+        118.966781,
+        32.153355
+      ],
+      "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B001912HP8"
+      },
+      "photos": [
+        "/assets/amap/ba53604d0c465ca6d8b7.webp",
+        "/assets/amap/bb92e94b29cba4c70463.webp",
+        "/assets/amap/22a9b478413486caf98a.webp"
+      ]
+    },
+    "ban-guan": {
+      "id": "ban-guan",
+      "name": "半馆",
+      "poiId": "B00191552W",
+      "poiName": "栖霞山名胜风景区-半馆",
+      "location": [
+        118.967547,
+        32.152673
+      ],
+      "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B00191552W"
+      },
+      "photos": [
+        "/assets/amap/55be7e35074ce01698bd.webp",
+        "/assets/amap/3adb06a626afd20da30b.webp",
+        "/assets/amap/0016cdb278890c340592.webp"
+      ]
+    },
+    "horse-pond": {
+      "id": "horse-pond",
+      "name": "饮马池",
+      "poiId": "B0FFF05UMW",
+      "poiName": "栖霞山名胜风景区-饮马池",
+      "location": [
+        118.966308,
+        32.151199
+      ],
+      "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0FFF05UMW"
+      },
+      "photos": [
+        "/assets/amap/df67e3b38f39d1563158.webp",
+        "/assets/amap/d58db44c3207ecbb8a42.webp",
+        "/assets/amap/a98061f23ac24e6c9a2b.webp"
+      ]
+    },
+    "changguan": {
+      "id": "changguan",
+      "name": "畅观亭",
+      "poiId": "B0FFFF5YUS",
+      "poiName": "畅观亭",
+      "location": [
+        118.962821,
+        32.152494
+      ],
+      "address": "栖霞街88号",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0FFFF5YUS"
+      },
+      "photos": [
+        "/assets/amap/2f831cfc302ee7f5f681.webp",
+        "/assets/amap/5cc03a7d9b371e28fed5.webp",
+        "/assets/amap/2ec59cde37c93d5204ed.webp"
+      ]
+    },
+    "taixu": {
+      "id": "taixu",
+      "name": "太虚亭",
+      "poiId": "B00190AJZI",
+      "poiName": "栖霞山风景名胜区-太虚亭",
+      "location": [
+        118.969327,
+        32.156058
+      ],
+      "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B00190AJZI"
+      },
+      "photos": [
+        "/assets/amap/71075a17f98b7a17315c.webp",
+        "/assets/amap/b0da30596891864f2627.webp",
+        "/assets/amap/b57a8781424b1d255fa8.webp"
+      ]
+    },
+    "fengxiang": {
+      "id": "fengxiang",
+      "name": "凤翔峰",
+      "poiId": "B0FFF0FKGO",
+      "poiName": "栖霞山名胜风景区-凤翔峰",
+      "location": [
+        118.969851,
+        32.158487
+      ],
+      "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0FFF0FKGO"
+      },
+      "photos": [
+        "/assets/amap/7765f0490801d079a8fa.webp",
+        "/assets/amap/53b6fdaae6ee052b3a59.webp",
+        "/assets/amap/f9cc614f7a084b1eef36.webp"
+      ]
+    },
+    "tiger-hill": {
+      "id": "tiger-hill",
+      "name": "虎山",
+      "poiId": "B001912JDN",
+      "poiName": "栖霞山名胜风景区-虎山",
+      "location": [
+        118.959596,
+        32.156694
+      ],
+      "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B001912JDN"
+      },
+      "photos": [
+        "/assets/amap/62e3ce78efef9766b924.webp",
+        "/assets/amap/b4285108d5b27528d8da.webp",
+        "/assets/amap/47046d833f844a57d746.webp"
+      ]
+    },
+    "qingfeng-rock": {
+      "id": "qingfeng-rock",
+      "name": "青锋剑石",
+      "poiId": "B0FFF0FKH2",
+      "poiName": "栖霞山名胜风景区-青锋剑",
+      "location": [
+        118.966263,
+        32.152974
+      ],
+      "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0FFF0FKH2"
+      },
+      "photos": [
+        "/assets/amap/2d22fe2203bc15565e6a.webp",
+        "/assets/amap/19b416d33280b15726e7.webp",
+        "/assets/amap/8d4eb35bb308633010bd.webp"
+      ]
+    },
+    "tiankai-rock": {
+      "id": "tiankai-rock",
+      "name": "天开岩",
+      "poiId": "B001912IQ4",
+      "poiName": "栖霞山名胜风景区-天开岩",
+      "location": [
+        118.964308,
+        32.155238
+      ],
+      "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区天开岩",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B001912IQ4"
+      },
+      "photos": [
+        "/assets/amap/277b1d24752f6d803f50.webp",
+        "/assets/amap/04fb3b26c2d8986fa39c.webp",
+        "/assets/amap/e248065218b282541ec3.webp"
+      ]
+    },
+    "dielang-rock": {
+      "id": "dielang-rock",
+      "name": "叠浪岩",
+      "poiId": "B001912JNK",
+      "poiName": "栖霞山名胜风景区-叠浪岩",
+      "location": [
+        118.959544,
+        32.153237
+      ],
+      "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B001912JNK"
+      },
+      "photos": [
+        "/assets/amap/3a962f325234fb5dc80c.webp",
+        "/assets/amap/8d8f9df56ba4637c10ec.webp",
+        "/assets/amap/9495a54856581ce15c02.webp"
+      ]
+    },
+    "old-street": {
+      "id": "old-street",
+      "name": "栖霞老街与古镇",
+      "poiId": "B0L16SRJN5",
+      "poiName": "栖霞山江乘古邑牌坊(栖霞古镇)",
+      "location": [
+        118.954024,
+        32.148556
+      ],
+      "address": "20县道与栖霞街交叉口西20米",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0L16SRJN5"
+      },
+      "photos": [
+        "/assets/amap/4aedeaa1656d7f0ecefc.webp",
+        "/assets/amap/0cb381be9f87020066bd.webp",
+        "/assets/amap/fc37f0a844bd5bcb7896.webp"
+      ]
+    },
+    "shoujiang-well": {
+      "id": "shoujiang-well",
+      "name": "受降井",
+      "poiId": "B0FFHNLM4E",
+      "poiName": "栖霞山风景区-受降井",
+      "location": [
+        118.958284,
+        32.152156
+      ],
+      "address": "近郊栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0FFHNLM4E"
+      },
+      "photos": [
+        "/assets/amap/06ad83b80969a5575d2f.webp",
+        "/assets/amap/9c80a39af07dde15a234.webp",
+        "/assets/amap/0b85fae9f0635675b8cf.webp"
+      ]
+    },
+    "panorama": {
+      "id": "panorama",
+      "name": "栖霞山山水",
+      "poiId": "B00190BDDQ",
+      "poiName": "栖霞山风景名胜区",
+      "location": [
+        118.96776,
+        32.155446
+      ],
+      "address": "栖霞街88号",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B00190BDDQ"
+      },
+      "photos": [
+        "/assets/amap/3658c9c54a9404d09335.webp",
+        "/assets/amap/3bf6a1d5d09f8065d960.webp"
+      ]
+    },
+    "shamao": {
+      "id": "shamao",
+      "name": "纱帽峰",
+      "poiId": "B0FFFFLDXQ",
+      "poiName": "栖霞山风景名胜区-纱帽峰",
+      "location": [
+        118.961202,
+        32.151957
+      ],
+      "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西南角)",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0FFFFLDXQ"
+      },
+      "photos": [
+        "/assets/amap/9129e3cdb5cf4f1ed508.webp",
+        "/assets/amap/504c0a42163143b388b4.webp",
+        "/assets/amap/6313b73589a36a101095.webp"
+      ]
+    },
+    "mingzheng-stele": {
+      "id": "mingzheng-stele",
+      "name": "明征君碑",
+      "poiId": "B001912HOX",
+      "poiName": "栖霞山名胜风景区-明征君碑",
+      "location": [
+        118.958533,
+        32.152333
+      ],
+      "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内西侧",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B001912HOX"
+      },
+      "photos": [
+        "/assets/amap/41aaf7889110f9f3e111.webp",
+        "/assets/amap/ed5fc7b6a8ef336b0518.webp",
+        "/assets/amap/2fb91d87ed52b0f1cc2c.webp"
+      ]
+    },
+    "pagoda": {
+      "id": "pagoda",
+      "name": "舍利塔",
+      "poiId": "B001909CRJ",
+      "poiName": "栖霞古寺舍利塔",
+      "location": [
+        118.959868,
+        32.151791
+      ],
+      "address": "栖霞街84号栖霞山名胜风景区",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B001909CRJ"
+      },
+      "photos": [
+        "/assets/amap/6368048c9d5ab1b54d99.webp",
+        "/assets/amap/70848a54ffa0afa7b946.webp",
+        "/assets/amap/eb0f8fe4788d12f4f06d.webp"
+      ]
+    },
+    "buddha": {
+      "id": "buddha",
+      "name": "千佛岩",
+      "poiId": "B001912JE8",
+      "poiName": "栖霞山名胜风景区-千佛岩",
+      "location": [
+        118.960159,
+        32.151673
+      ],
+      "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区栖霞古寺内",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B001912JE8"
+      },
+      "photos": [
+        "/assets/amap/7f7b04072a66ac8c3802.webp",
+        "/assets/amap/8e3b56600c7f25e5e999.webp",
+        "/assets/amap/17ab0fb9bde2e6c13e20.webp"
+      ]
+    },
+    "facility-b0j3r72a3p": {
+      "id": "facility-b0j3r72a3p",
+      "name": "公共厕所(栖霞山虎山)",
+      "poiId": "B0J3R72A3P",
+      "poiName": "公共厕所(栖霞山虎山)",
+      "location": [
+        118.959769,
+        32.155878
+      ],
+      "address": "栖霞街88号虎山处",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0J3R72A3P"
+      },
+      "photos": [
+        "/assets/amap/e47a74728f7208dfce47.webp",
+        "/assets/amap/1f43700eff1f9b8c81a5.webp",
+        "/assets/amap/ecde0b1c9660602aa7fd.webp"
+      ]
+    },
+    "facility-b0ffg77c3p": {
+      "id": "facility-b0ffg77c3p",
+      "name": "栖霞山名胜风景区-公共厕所",
+      "poiId": "B0FFG77C3P",
+      "poiName": "栖霞山名胜风景区-公共厕所",
+      "location": [
+        118.955111,
+        32.151278
+      ],
+      "address": "栖霞街与栖石路交叉口东南120米",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0FFG77C3P"
+      },
+      "photos": [
+        "/assets/amap/b2e5712edc9dadab8ebc.webp"
+      ]
+    },
+    "facility-b0ffgxei9y": {
+      "id": "facility-b0ffgxei9y",
+      "name": "栖霞山名胜风景区-公共厕所",
+      "poiId": "B0FFGXEI9Y",
+      "poiName": "栖霞山名胜风景区-公共厕所",
+      "location": [
+        118.969182,
+        32.155877
+      ],
+      "address": "栖霞山名胜风景区-太虚亭西南侧",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0FFGXEI9Y"
+      },
+      "photos": [
+        "/assets/amap/93f6c3335de51a5c69e6.webp"
+      ]
+    },
+    "facility-b0fffvfdhv": {
+      "id": "facility-b0fffvfdhv",
+      "name": "栖霞山名胜风景区-公共厕所",
+      "poiId": "B0FFFVFDHV",
+      "poiName": "栖霞山名胜风景区-公共厕所",
+      "location": [
+        118.960575,
+        32.151246
+      ],
+      "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区栖霞古寺内",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0FFFVFDHV"
+      },
+      "photos": []
+    },
+    "facility-b0fffvhs03": {
+      "id": "facility-b0fffvhs03",
+      "name": "栖霞山名胜风景区-公共厕所",
+      "poiId": "B0FFFVHS03",
+      "poiName": "栖霞山名胜风景区-公共厕所",
+      "location": [
+        118.963909,
+        32.158429
+      ],
+      "address": "红叶谷北侧100米",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0FFFVHS03"
+      },
+      "photos": [
+        "/assets/amap/2461108f52ba78778d44.webp"
+      ]
+    },
+    "facility-b0fffvmvbs": {
+      "id": "facility-b0fffvmvbs",
+      "name": "栖霞山名胜风景区-公共厕所",
+      "poiId": "B0FFFVMVBS",
+      "poiName": "栖霞山名胜风景区-公共厕所",
+      "location": [
+        118.967951,
+        32.159269
+      ],
+      "address": "近郊栖霞街88号(近栖霞大道)栖霞山风景名胜区内",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0FFFVMVBS"
+      },
+      "photos": [
+        "/assets/amap/b80f876b63fd22a1bf8f.webp",
+        "/assets/amap/315f5ec0524fdc583187.webp",
+        "/assets/amap/206cd53a2c80c513221a.webp"
+      ]
+    },
+    "facility-b0hdghowfo": {
+      "id": "facility-b0hdghowfo",
+      "name": "公共厕所",
+      "poiId": "B0HDGHOWFO",
+      "poiName": "公共厕所",
+      "location": [
+        118.969429,
+        32.156015
+      ],
+      "address": "栖霞山名胜风景区-太虚亭东南侧",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0HDGHOWFO"
+      },
+      "photos": [
+        "/assets/amap/7ce115fea5d0a76033b3.webp"
+      ]
+    },
+    "facility-b0j0jctst5": {
+      "id": "facility-b0j0jctst5",
+      "name": "公共厕所",
+      "poiId": "B0J0JCTST5",
+      "poiName": "公共厕所",
+      "location": [
+        118.963926,
+        32.158675
+      ],
+      "address": "栖霞街88号",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0J0JCTST5"
+      },
+      "photos": []
+    },
+    "facility-b0ffm0lnsv": {
+      "id": "facility-b0ffm0lnsv",
+      "name": "公共厕所",
+      "poiId": "B0FFM0LNSV",
+      "poiName": "公共厕所",
+      "location": [
+        118.954089,
+        32.150655
+      ],
+      "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区栖霞古寺内",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0FFM0LNSV"
+      },
+      "photos": [
+        "/assets/amap/1f5690c87154e215c6bc.webp"
+      ]
+    },
+    "facility-b001913yx0": {
+      "id": "facility-b001913yx0",
+      "name": "栖霞山风景名胜区西门售票处",
+      "poiId": "B001913YX0",
+      "poiName": "栖霞山风景名胜区西门售票处",
+      "location": [
+        118.954566,
+        32.150215
+      ],
+      "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B001913YX0"
+      },
+      "photos": [
+        "/assets/amap/8eab48b026c23190d892.webp",
+        "/assets/amap/6167c427383dc4582335.webp",
+        "/assets/amap/98850cfc833cbac400dc.webp"
+      ]
+    },
+    "facility-b0i3ccqtcd": {
+      "id": "facility-b0i3ccqtcd",
+      "name": "栖霞山风景名胜区南门地面停车场(入口)",
+      "poiId": "B0I3CCQTCD",
+      "poiName": "栖霞山风景名胜区南门地面停车场(入口)",
+      "location": [
+        118.962199,
+        32.145348
+      ],
+      "address": "栖霞山风景名胜区南门地面停车场",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0I3CCQTCD"
+      },
+      "photos": [
+        "/assets/amap/f77bfdcbc1ee7fe36161.webp",
+        "/assets/amap/cacd0369ffb5af59938a.webp",
+        "/assets/amap/0eb2a084bc8a7654287f.webp"
+      ]
+    },
+    "facility-b0k6b5gtiv": {
+      "id": "facility-b0k6b5gtiv",
+      "name": "栖霞山风景名胜区南门地面停车场",
+      "poiId": "B0K6B5GTIV",
+      "poiName": "栖霞山风景名胜区南门地面停车场",
+      "location": [
+        118.960318,
+        32.146069
+      ],
+      "address": "栖霞街88号栖霞山风景名胜区",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0K6B5GTIV"
+      },
+      "photos": [
+        "/assets/amap/116b51791811151134a5.webp",
+        "/assets/amap/fc7ec0220e6cad12f760.webp",
+        "/assets/amap/dd00f6c682d02e630ec5.webp"
+      ]
+    },
+    "facility-b0g0m1mptg": {
+      "id": "facility-b0g0m1mptg",
+      "name": "栖霞山风景名胜区南门售票处",
+      "poiId": "B0G0M1MPTG",
+      "poiName": "栖霞山风景名胜区南门售票处",
+      "location": [
+        118.965153,
+        32.145722
+      ],
+      "address": "宁镇线与玻璃厂路交叉口东260米",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0G0M1MPTG"
+      },
+      "photos": [
+        "/assets/amap/c1b8eb3fab7808b598b0.webp",
+        "/assets/amap/5e66ebb95ffa5abdbd1a.webp",
+        "/assets/amap/0ddf2379b17dd3403f6d.webp"
+      ]
+    },
+    "facility-b0m60gm2tc": {
+      "id": "facility-b0m60gm2tc",
+      "name": "南京栖霞山风景名胜区-南门栖霞山地上停车场",
+      "poiId": "B0M60GM2TC",
+      "poiName": "南京栖霞山风景名胜区-南门栖霞山地上停车场",
+      "location": [
+        118.962075,
+        32.145592
+      ],
+      "address": "玻璃厂路与栖霞大道交叉口西南20米",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0M60GM2TC"
+      },
+      "photos": []
+    },
+    "facility-b0ffgu8c5c": {
+      "id": "facility-b0ffgu8c5c",
+      "name": "栖霞山风景名胜区西门停车场",
+      "poiId": "B0FFGU8C5C",
+      "poiName": "栖霞山风景名胜区西门停车场",
+      "location": [
+        118.950793,
+        32.15115
+      ],
+      "address": "栖霞街88号栖霞山风景名胜区",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0FFGU8C5C"
+      },
+      "photos": [
+        "/assets/amap/266ab086f408e4121145.webp",
+        "/assets/amap/4f921482f689c390c4d9.webp",
+        "/assets/amap/edd21c1d2895a95e8672.webp"
+      ]
+    },
+    "facility-b0iu95x33a": {
+      "id": "facility-b0iu95x33a",
+      "name": "南京栖霞山风景名胜区西门南侧地面停车场",
+      "poiId": "B0IU95X33A",
+      "poiName": "南京栖霞山风景名胜区西门南侧地面停车场",
+      "location": [
+        118.954158,
+        32.147944
+      ],
+      "address": "栖霞街与20县道交叉口南60米",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0IU95X33A"
+      },
+      "photos": [
+        "/assets/amap/7d206dc13812175c8b5c.webp",
+        "/assets/amap/93d3d66661ba15996194.webp",
+        "/assets/amap/b70c89a3ccc1272d390d.webp"
+      ]
+    },
+    "facility-b0hahkgs6k": {
+      "id": "facility-b0hahkgs6k",
+      "name": "南京栖霞山风景名胜区地面停车场",
+      "poiId": "B0HAHKGS6K",
+      "poiName": "南京栖霞山风景名胜区地面停车场",
+      "location": [
+        118.954907,
+        32.151006
+      ],
+      "address": "栖霞街88号",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0HAHKGS6K"
+      },
+      "photos": [
+        "/assets/amap/353c44bd579fba88134c.webp"
+      ]
+    },
+    "facility-b0mbt49eql": {
+      "id": "facility-b0mbt49eql",
+      "name": "南京栖霞山风景名胜区-P2地上停车场",
+      "poiId": "B0MBT49EQL",
+      "poiName": "南京栖霞山风景名胜区-P2地上停车场",
+      "location": [
+        118.950277,
+        32.150684
+      ],
+      "address": "红枫路与石江线交叉口西南300米",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0MBT49EQL"
+      },
+      "photos": []
+    },
+    "facility-b0l01ohlb7": {
+      "id": "facility-b0l01ohlb7",
+      "name": "南京栖霞山风景名胜区-P3地上停车场",
+      "poiId": "B0L01OHLB7",
+      "poiName": "南京栖霞山风景名胜区-P3地上停车场",
+      "location": [
+        118.954198,
+        32.147876
+      ],
+      "address": "栖霞街与20县道交叉口南60米",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0L01OHLB7"
+      },
+      "photos": []
+    },
+    "facility-b00190z2ds": {
+      "id": "facility-b00190z2ds",
+      "name": "栖霞山风景名胜区游客服务中心(栖霞大道店)",
+      "poiId": "B00190Z2DS",
+      "poiName": "栖霞山风景名胜区游客服务中心(栖霞大道店)",
+      "location": [
+        118.9547,
+        32.150235
+      ],
+      "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B00190Z2DS"
+      },
+      "photos": [
+        "/assets/amap/1c4acfe803c5a181edb7.webp",
+        "/assets/amap/6cd12a4e6daecbb6b25b.webp",
+        "/assets/amap/9599b43cbd3a23785c58.webp"
+      ]
+    },
+    "facility-b0m6dm67xq": {
+      "id": "facility-b0m6dm67xq",
+      "name": "摄山栖霞寺售票处",
+      "poiId": "B0M6DM67XQ",
+      "poiName": "摄山栖霞寺售票处",
+      "location": [
+        118.95849,
+        32.152465
+      ],
+      "address": "栖霞山名胜风景区摄山栖霞寺(东北角)",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0M6DM67XQ"
+      },
+      "photos": [
+        "/assets/amap/a75f5d8c755057eb05ba.webp",
+        "/assets/amap/5a6d6540df620f2af1b3.webp"
+      ]
+    },
+    "gate": {
+      "id": "gate",
+      "name": "栖霞山西门",
+      "poiId": "B001913YX0",
+      "poiName": "栖霞山风景名胜区西门售票处",
+      "location": [
+        118.954566,
+        32.150215
+      ],
+      "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B001913YX0"
+      },
+      "photos": [
+        "/assets/amap/8eab48b026c23190d892.webp",
+        "/assets/amap/6167c427383dc4582335.webp",
+        "/assets/amap/98850cfc833cbac400dc.webp"
+      ]
+    }
+  }
+}

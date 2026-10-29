@@ -1,0 +1,69 @@
+{
+  "updatedAt": "2026-10-29T13:02:39.276Z",
+  "scenicCount": 38,
+  "facilityCount": 21,
+  "navigableScenic": 26,
+  "amapImagesUsed": 109,
+  "photoLimitPerPoi": 5,
+  "facilityTypes": {
+    "厕所": 9,
+    "无障碍厕所": 0,
+    "出入口": 2,
+    "停车场": 8,
+    "游客服务": 4,
+    "休息饮水": 0,
+    "医疗母婴": 0
+  },
+  "unresolved": [
+    {
+      "id": "peach-fan",
+      "name": "桃花扇亭"
+    },
+    {
+      "id": "peach-stream",
+      "name": "桃花涧"
+    },
+    {
+      "id": "pearl-spring",
+      "name": "珍珠泉亭"
+    },
+    {
+      "id": "pinwai-spring",
+      "name": "品外泉"
+    },
+    {
+      "id": "white-deer-spring",
+      "name": "白鹿泉遗址"
+    },
+    {
+      "id": "taigu-hall",
+      "name": "太古堂"
+    },
+    {
+      "id": "tianjie",
+      "name": "天街"
+    },
+    {
+      "id": "dragon-hill",
+      "name": "龙山"
+    },
+    {
+      "id": "emperor-river",
+      "name": "始皇临江处"
+    },
+    {
+      "id": "waterfall",
+      "name": "中峰涧瀑布"
+    },
+    {
+      "id": "gaoqifeng",
+      "name": "高奇峰墓园"
+    },
+    {
+      "id": "jiangzong-stele",
+      "name": "江总碑"
+    }
+  ],
+  "voiceReplacement": "deferred until team discussion",
+  "entrancePolicy": "西门、南门以高德售票处POI作为入园导航点；不要求实地入口校准。"
+}

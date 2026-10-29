@@ -1,0 +1,86 @@
+/* Screen-bound welcome and map; Explore and conversations keep document scrolling. */
+.app-shell.view-route,.app-shell.view-chat.is-welcome{height:var(--app-height,100dvh);display:flex;flex-direction:column;overflow:hidden}
+.app-shell>.header{flex-shrink:0}
+.view-route .main-route{flex:1;min-height:0;width:100%;margin:0}
+.view-route .navigation{height:100%;min-height:0}
+.is-welcome .main-chat{flex:1;min-height:0;width:100%;display:flex;flex-direction:column;padding-bottom:env(safe-area-inset-bottom)}
+.is-welcome .chat-stage{flex:1;min-height:0;padding:clamp(16px,3dvh,32px) 0 8px;display:flex;align-items:flex-start}
+.is-welcome .welcome{max-width:800px;width:100%;margin:0 auto}
+.is-welcome .composer-wrap{position:static;transform:none;width:100%;max-width:848px;margin:0 auto;padding:8px 0 14px;flex-shrink:0}
+.is-welcome .welcome h1{font-size:clamp(32px,4.2vw,54px);margin:18px 0 14px}
+.is-welcome .suggestions{margin-top:24px}
+.is-welcome .explore-link{min-height:44px;margin-top:12px}
+.filters{scrollbar-width:none;-ms-overflow-style:none;padding-bottom:2px}
+.filters::-webkit-scrollbar,.stop-carousel::-webkit-scrollbar{display:none}
+.filters button{display:inline-flex;align-items:center;gap:6px;flex-shrink:0;min-height:44px}
+.explore-sections{display:flex;gap:5px;margin-top:28px;padding:4px;border-radius:24px;background:#f5f3f0;max-width:420px}
+.explore-sections>button{flex:1;min-height:44px;border-radius:21px;font-size:14px;color:#81776c;display:flex;gap:8px;align-items:center;justify-content:center}
+.explore-sections>button.active{background:white;color:#403d33;box-shadow:0 2px 12px #3b33200a}
+.explore-sections span{font-size:10px;background:#f4eee7;border-radius:10px;padding:2px 6px;color:#998773}
+.facility-caption{font-size:11px;line-height:1.8;color:#897b6d;margin:-5px 0 20px}
+.facility-card .place-photo>span{display:flex;gap:5px;align-items:center}
+.facility-card h3{font:19px/1.6 var(--serif)}
+.facility-actions{display:flex;gap:10px;align-items:center;margin-top:13px}
+.facility-actions a,.facility-actions button{display:flex;align-items:center;justify-content:center;gap:5px;min-height:44px;padding:8px 13px;border-radius:22px;font-size:12px;text-decoration:none}
+.facility-go{background:#f9e9ee;color:#a26076}.facility-actions button{color:#796c5c;border:1px solid #eee8df}
+.facility-detail-go{display:flex;align-items:center;justify-content:center;gap:7px;padding:12px;border-radius:22px;background:#f9e9ee;color:#a26076;text-decoration:none;margin-top:14px;font-size:13px}
+.illustration-tag{position:absolute;right:10px;bottom:10px;border:1px solid #ffffff80;background:#fffffff0;color:#867460;padding:4px 8px;border-radius:12px;font:10px/1.4 var(--sans);pointer-events:none}
+.placeholder-gallery{position:relative}.placeholder-gallery>img{width:100%;height:250px;object-fit:cover}
+.gallery-credit{position:absolute;left:16px;top:14px;color:white;background:#2825208c;border-radius:12px;padding:4px 8px;font-size:10px}
+.add-button:disabled,.primary:disabled{opacity:.6;cursor:default}
+.route-options{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:11px;color:#887460;min-height:32px;margin-bottom:5px}
+.route-options label{display:flex;align-items:center;gap:7px;min-height:32px;cursor:pointer}.route-options input{accent-color:#ac647c;width:15px;height:15px}
+.route-options button{display:flex;gap:4px;align-items:center;color:#a26076;min-height:32px}
+.route-plan-actions{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:8px}
+.route-plan-actions .plan-route{font-size:11px;padding:0 8px;height:44px;white-space:nowrap}
+.manual-plan{background:#f3eee8;color:#786653}.manual-plan:hover{background:#ebe4da}
+.manual-plan:disabled{background:#f5f1ee;color:#afa296}
+.optimization-result,.route-planning-status{font-size:10px;line-height:1.7;color:#9b6275;padding:0 0 6px}
+.route-planning-status{padding:6px 0 0}
+.route-thumbnail{height:75px;width:67px;position:relative;flex-shrink:0;border-radius:11px;overflow:hidden}.route-thumbnail img{width:100%;height:100%;object-fit:cover}.route-thumbnail .illustration-tag{right:2px;bottom:2px;padding:2px;font-size:8px;white-space:nowrap}
+.navigation-card-actions>button{min-height:36px;min-width:36px}.navigation-sheet-title h1{font-size:22px}.navigation-map-tools{z-index:2}
+@media(max-width:700px){
+ .app-shell>.header{height:108px}
+ .view-route .navigation{--sheet-height:min(270px,57%);height:100%;min-height:0}
+ .view-route .navigation.is-expanded{--sheet-height:80%}
+ .view-route .navigation-map{bottom:var(--sheet-height)}
+ .navigation-heading{top:10px;left:12px;right:12px}.navigation-heading>span{font-size:10px;padding:8px 11px}.navigation-heading>button{padding:8px}
+ .navigation-map-tools{bottom:37px;right:12px}
+ .navigation-sheet{height:var(--sheet-height);padding-bottom:max(8px,env(safe-area-inset-bottom));min-height:0}
+ .navigation-sheet-title{padding:0 18px;flex-shrink:0}.navigation-sheet-title h1{font-size:20px}
+ .navigation-summary{padding:5px 18px 8px;flex-shrink:0}
+ .stop-carousel{padding:0 18px 5px;scroll-padding:18px;overflow-x:auto;overflow-y:hidden;flex:1;min-height:0}
+ .stop-carousel.expanded{overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain}
+ .navigation-card{width:calc(100vw - 58px)}.navigation-card-main{padding:8px 10px;gap:9px}
+ .route-thumbnail{height:49px;width:48px}.navigation-card-copy>strong{font-size:16px}.navigation-card-copy>small{font-size:9px}.navigation-card-copy>span{font-size:10px}
+ .navigation-card-actions>button{min-height:32px;height:32px}.add-route-stop{height:98px}
+ .navigation-footer{padding:5px 18px 0;flex-shrink:0;max-height:55%;overflow-y:auto;overscroll-behavior:contain}
+ .route-options{margin-bottom:3px;min-height:28px}.route-options label,.route-options button{min-height:28px}.navigation-disclaimer{padding:5px 0 0}
+ .is-welcome .main-chat{padding-left:22px;padding-right:22px}
+ .is-welcome .chat-stage{padding-top:12px;padding-bottom:0}
+ .is-welcome .welcome .eyebrow{font-size:10px;line-height:1.6;letter-spacing:.1px}
+ .is-welcome .welcome h1{font-size:clamp(29px,8.2vw,36px);line-height:1.35;margin:12px 0 10px}
+ .is-welcome .intro{font-size:13px;line-height:1.8;margin:0}
+ .is-welcome .suggestions{gap:9px;margin-top:18px}
+ .is-welcome .suggestion{min-height:65px;padding:10px;gap:9px;font-size:13px;border-radius:18px}
+ .is-welcome .suggestion img{height:39px;width:39px;border-radius:10px}
+ .is-welcome .suggestion>svg{width:12px;flex-shrink:0}
+ .is-welcome .explore-link{margin-top:9px;font-size:11px;min-height:40px}
+ .is-welcome .composer-wrap{padding-top:5px;padding-bottom:8px}
+ .is-welcome .composer textarea{font-size:14px}.is-welcome .mode-caption{font-size:9px;margin-top:6px}
+ .explore{padding-top:28px}.section-title h1{font-size:29px}.explore-sections{margin-top:22px}
+ .placeholder-gallery>img{height:220px}
+}
+@media(max-height:650px) and (max-width:700px){
+ .is-welcome .chat-stage{padding-top:8px}.is-welcome .welcome h1{font-size:28px;margin:8px 0;line-height:1.25}
+ .is-welcome .suggestions{margin-top:10px;gap:7px}.is-welcome .suggestion{min-height:55px;padding:7px 9px}.is-welcome .suggestion img{height:34px;width:34px}
+ .is-welcome .explore-link{min-height:35px;margin-top:5px}.is-welcome .composer{padding:7px 8px 7px 14px}.is-welcome .composer textarea{min-height:25px}.is-welcome .send-button{width:32px;height:32px}
+}
+@media(max-height:470px){.app-shell.view-chat.is-welcome{height:auto;min-height:var(--app-height,100dvh);overflow:visible}.is-welcome .main-chat{min-height:330px}}
+
+@media(max-width:700px){
+ .view-route .navigation.has-stops{--sheet-height:min(300px,67%)}
+ .view-route .navigation.is-expanded{--sheet-height:80%}
+ .navigation:not(.is-expanded) .navigation-disclaimer{display:none}
+ .navigation-footer{max-height:none;overflow:visible}
+}
