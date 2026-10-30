@@ -1,12 +1,16 @@
 import http from 'node:http';
-import {readFileSync,existsSync,statSync,createReadStream,writeFileSync,mkdirSync,renameSync} from 'node:fs';
-import {resolve,dirname,extname,sep} from 'node:path';
+import {createPresetService} from './presets.mjs';
+import {createConversationService} from './conversation.mjs';
+import {serveStatic} from './static.mjs';
+import {readFileSync,existsSync,writeFileSync,mkdirSync,renameSync} from 'node:fs';
+import {resolve,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {randomUUID} from 'node:crypto';
 import {readConfig} from './config.mjs';
 import {ServiceError,amapRequest,mergeLegs} from './amap.mjs';
 import {createKnowledgeService} from './knowledge.mjs';
 import {shortestOrder} from './route-optimizer.mjs';
+import {createRoadPlanner} from './road-planner.mjs';
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'../..');
 const catalog=JSON.parse(readFileSync(resolve(root,'frontend/src/content/places.json'),'utf8'));
@@ -20,7 +24,7 @@ try{const saved=JSON.parse(readFileSync(roadCachePath,'utf8'));for(const[k,v]of 
 function saveRoadCache(){try{mkdirSync(dirname(roadCachePath),{recursive:true});const entries=[...legCache].filter(([,v])=>Date.now()-v.at<600000&&v.path).slice(-256);writeFileSync(roadCachePath+'.tmp',JSON.stringify(Object.fromEntries(entries)));renameSync(roadCachePath+'.tmp',roadCachePath);}catch{}}
 let routeQueue=Promise.resolve();
 const json=(res,status,data)=>{res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'});res.end(JSON.stringify(data));};
-async function body(req){let value='';for await(const part of req){value+=part;if(Buffer.byteLength(value)>16384)throw new ServiceError('请求内容过大。',413);}try{return JSON.parse(value);}catch{throw new ServiceError('请求格式不正确。',400);}}
+async function body(req){const chunks=[];let size=0;for await(const part of req){size+=part.length;if(size>131072)throw new ServiceError('请求内容过大。',413);chunks.push(part);}try{const parsed=JSON.parse(Buffer.concat(chunks).toString('utf8'));if(!parsed||typeof parsed!=='object'||Array.isArray(parsed))throw Error();return parsed;}catch{throw new ServiceError('请求格式不正确。',400);}}
 const normalized=s=>s.replace(/[\s·（）()、—\-]/g,'');
 function location(text){const p=String(text).split(',').map(Number);return p.length===2&&p.every(Number.isFinite)&&p[0]>118.93&&p[0]<119.01&&p[1]>32.12&&p[1]<32.19?p:null;}
 async function resolvePlace(id,key,signal){
@@ -44,18 +48,10 @@ async function weather(key,signal){
   if(!Number.isFinite(data.live.temperature)||data.forecasts.some(v=>!Number.isFinite(v.dayTemperature)||!Number.isFinite(v.nightTemperature)))throw new ServiceError('天气数据格式不完整。');
   weatherCache={at:Date.now(),data};return data;
 }
-const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8','.png':'image/png','.jpg':'image/jpeg','.webp':'image/webp','.woff2':'font/woff2','.wav':'audio/wav','.txt':'text/plain; charset=utf-8'};
-function staticFile(req,res,url){
-  const base=resolve(root,'frontend/dist/client');let file=resolve(base,'.'+decodeURIComponent(url.pathname));
-  if(file!==base&&!file.startsWith(base+sep))return json(res,404,{error:'页面不存在。'});
-  if(!existsSync(file)||!statSync(file).isFile()){if(extname(url.pathname))return json(res,404,{error:'文件不存在。'});file=resolve(base,'index.html');}
-  if(!existsSync(file))return json(res,404,{error:'请先构建前端。'});
-  const size=statSync(file).size,headers={'Content-Type':mime[extname(file)]||'application/octet-stream','Accept-Ranges':'bytes'};
-  const range=req.headers.range?.match(/^bytes=(\d+)-(\d*)$/);
-  if(range){const start=Number(range[1]),end=Math.min(range[2]?Number(range[2]):size-1,size-1);if(start>end||start>=size){res.writeHead(416,{'Content-Range':`bytes */${size}`});return res.end();}res.writeHead(206,{...headers,'Content-Range':`bytes ${start}-${end}/${size}`,'Content-Length':end-start+1});createReadStream(file,{start,end}).pipe(res);}
-  else{res.writeHead(200,{...headers,'Content-Length':size});createReadStream(file).pipe(res);}
-}
 const knowledge=createKnowledgeService(root,[...catalog,...facilities]);
+const presets=createPresetService(root,[...catalog,...facilities]);
+const planRoads=createRoadPlanner({catalog:[...catalog,...facilities],data:presets.data,walkingLeg});
+const converse=createConversationService(knowledge,presets,[...catalog,...facilities]);
 const rates=new Map();
 const server=http.createServer(async(req,res)=>{
   const c=new AbortController();res.on('close',()=>{if(!res.writableEnded)c.abort();});
@@ -65,6 +61,7 @@ const server=http.createServer(async(req,res)=>{
       const client=req.socket.remoteAddress,now=Date.now();let rate=rates.get(client);if(!rate||now-rate.at>60000){rate={at:now,n:0};rates.set(client,rate);}if(++rate.n>180)throw new ServiceError('请求较多，请稍后再试。',429);
     }
     if(req.method==='GET'&&url.pathname==='/api/health')return json(res,200,{ok:true,mapConfigured:Boolean(config.webKey&&config.jscode),servicesConfigured:Boolean(config.serverKey)});
+    if(req.method==='GET'&&url.pathname==='/api/capabilities')return json(res,200,{knowledge:{mode:'bounded-retrieval',multiTurn:'rules',version:knowledge.version,places:knowledge.catalog.length},textModel:{provider:'xiaozhi',connected:false},routes:{mode:'official-presets',count:presets.data.routes.length,verifiedRoadEdges:presets.data.matrix.edges.length,ready:presets.data.routes.filter(r=>r.navigationReady).map(r=>r.routeId)},watch:{requiresAndroid:true,routeSync:false,acknowledgement:null}});
     if(req.method==='GET'&&url.pathname==='/api/config')return json(res,200,{map:{webKey:config.webKey,serviceHost:'/_AMapService',configured:Boolean(config.webKey&&config.jscode)}});
     if(url.pathname.startsWith('/_AMapService/')){
       if(!config.webKey||!config.jscode)throw new ServiceError('地图服务尚未配置。',503);
@@ -76,7 +73,13 @@ const server=http.createServer(async(req,res)=>{
     }
     if(req.method==='GET'&&url.pathname==='/api/knowledge/catalog')return json(res,200,{version:knowledge.version,pois:knowledge.catalog});
     if(req.method==='GET'&&url.pathname.startsWith('/api/knowledge/pois/')){const poi=knowledge.publicPoi(decodeURIComponent(url.pathname.slice('/api/knowledge/pois/'.length)));return json(res,poi?200:404,poi||{error:'没有找到对应景点讲解。'});}
-    if(req.method==='POST'&&url.pathname==='/api/knowledge/chat'){const d=await body(req);const message=Array.isArray(d.messages)?d.messages.at(-1)?.content:undefined;if(typeof message!=='string'||message.length>2000)throw new ServiceError('请输入有效的问题。',400);return json(res,200,knowledge.chat(message,d.context||{}));}
+    if(req.method==='POST'&&url.pathname==='/api/knowledge/chat')return json(res,200,await converse(await body(req),{signal:c.signal}));
+    if(req.method==='GET'&&url.pathname==='/api/routes/presets')return json(res,200,presets.data);
+    if(req.method==='POST'&&url.pathname==='/api/routes/match')return json(res,200,presets.match(await body(req)));
+    if(req.method==='POST'&&url.pathname==='/api/routes/custom')return json(res,200,presets.custom(await body(req)));
+    if(req.method==='POST'&&url.pathname==='/api/routes/plan')return json(res,200,{route:await planRoads(await body(req),{key:config.serverKey,signal:c.signal})});
+    if(req.method==='GET'&&url.pathname==='/api/transport/shuttles')return json(res,200,presets.shuttles);
+    if(req.method==='GET'&&url.pathname==='/api/devices/capabilities')return json(res,200,{routeSync:false,requiresAndroid:true,positionSource:'android-phone',acknowledgement:null});
     if(req.method==='POST'&&url.pathname==='/api/recommendations'){const d=await body(req);return json(res,200,knowledge.recommend(d));}
     if(req.method==='GET'&&url.pathname==='/api/facilities/nearby'){const loc=url.searchParams.get('location');return json(res,200,{coordinateSystem:'GCJ02',places:knowledge.facilitiesNearby({location:loc?.split(',').map(Number),type:url.searchParams.get('type')||''})});}
     if(req.method==='POST'&&url.pathname==='/api/location/convert'){
@@ -103,7 +106,7 @@ const server=http.createServer(async(req,res)=>{
     }
     if(url.pathname.startsWith('/api/'))return json(res,404,{error:'接口尚未接通。'});
     if(req.method!=='GET'&&req.method!=='HEAD')throw new ServiceError('请求方式不支持。',405);
-    return staticFile(req,res,url);
+    return serveStatic(root,req,res,url);
   }catch(e){if(!res.headersSent)json(res,e.status||500,{error:e instanceof ServiceError?e.message:'服务暂时无法完成请求，请稍后重试。'});else res.end();}
 });
-server.listen(Number(process.env.PORT||8787),'127.0.0.1',()=>console.log('Qixia navigation service ready on 127.0.0.1:8787 (credentials are never logged).'));
+server.listen(Number(process.env.PORT||8787),'127.0.0.1',()=>console.log(`Qixia navigation service ready on 127.0.0.1:${server.address().port} (credentials are never logged).`));

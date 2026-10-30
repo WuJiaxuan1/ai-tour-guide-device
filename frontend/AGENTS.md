@@ -59,3 +59,10 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 - User's meeting strategy supersedes the earlier live shortest-path requirement: finalized presets/matrix are still pending. Candidate routes in the incoming knowledge pack are not finalized and must not be enabled silently.
 - New report uses fixed configuration metrics and exports a photo/text PNG. Keep old local visit/photo records accessible. Paid TTS, stickers, generative agent and watch sync remain unconnected.
 - Keep source files in place, write change descriptions, do not make Git commits/pushes for the user.
+
+## 0.5.0 implementation — 2026-10-30
+- My Route now has official presets, custom selections and directional shuttles. Eight source sequences are browseable, but navigation remains disabled without verified roads/exit data. Keep unknown filter combinations distinct from explicitly empty results.
+- Client and backend share pure preset/matrix rules in shared/routes.mjs. Preserve repeated stopId occurrences; only legacy records use place id for visits/photos.
+- Preserve white/serif/rose design. The new route workspace scrolls inside main-route; do not reintroduce old absolute bottom-sheet padding over it.
+- Keep image originals; predev/build generate ignored responsive derivatives. Font core subsets retain full on-demand fallback. Rebuild before deploying, and test actual currentSrc/cache behavior.
+- Xiaozhi is the chosen future text provider but its web transport is not connected. Current multi-turn support is bounded rules, not an LLM or cross-device memory. Handset/watch still require Android and lack route ACKs.

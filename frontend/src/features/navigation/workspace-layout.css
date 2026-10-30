@@ -1,0 +1,12 @@
+.app-shell.view-route .main-route:has(.route-workspace){overflow-y:auto;overscroll-behavior:contain;max-width:none;padding:0 24px;flex:1;min-height:0}
+.route-workspace{max-width:1200px;margin:0 auto}
+.route-workspace .map-connection{padding:24px;gap:8px}
+.route-workspace .map-connection h2{font-size:22px;margin:0}
+.route-workspace .navigation-map-tools{left:auto;right:12px;bottom:28px}
+.route-workspace .navigation-map-tools button{width:44px;height:44px}
+.route-workspace .route-section-heading{display:flex;align-items:flex-start;gap:12px}
+.route-workspace .route-section-heading>div{flex:1;min-width:0}
+.route-workspace .route-section-heading>svg{flex-shrink:0;margin-top:8px}
+.amap-stop-marker.is-active{background:#8f2f23;outline:3px solid #eadfce}
+@media(max-width:700px){.app-shell.view-route .main-route:has(.route-workspace){padding:0 18px}.route-workspace .route-view-tabs{top:0}}
+@media(prefers-reduced-motion:reduce){.route-workspace *{scroll-behavior:auto}}

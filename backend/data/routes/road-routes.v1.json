@@ -1,0 +1,963 @@
+{
+  "version": "amap-roads-20261030",
+  "routes": [
+    {
+      "schemaVersion": "1.0",
+      "routeId": "R02",
+      "revision": 1,
+      "travelMode": "walking",
+      "coordinateSystem": "GCJ02",
+      "coordinateOrder": "lng,lat",
+      "source": {
+        "provider": "amap",
+        "generatedAt": "2026-10-30T14:51:20.449Z"
+      },
+      "stops": [
+        {
+          "id": "facility-b00190z2ds",
+          "name": "西门游客中心",
+          "category": "游客服务",
+          "facilityType": "游客服务",
+          "kind": "facility",
+          "tags": [
+            "游客服务"
+          ],
+          "intro": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
+          "story": "位置：栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
+          "images": [
+            "/assets/amap/1c4acfe803c5a181edb7.webp",
+            "/assets/amap/6cd12a4e6daecbb6b25b.webp",
+            "/assets/amap/9599b43cbd3a23785c58.webp"
+          ],
+          "image": "/assets/amap/1c4acfe803c5a181edb7.webp",
+          "audio": null,
+          "amapPoiId": "B00190Z2DS",
+          "navigationAvailable": true,
+          "location": [
+            118.9547,
+            32.150235
+          ],
+          "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
+          "tel": null,
+          "openingHours": "07:00-17:30",
+          "placeId": "facility-b00190z2ds",
+          "stopId": "R02-01",
+          "nodeId": "official-8be685b4ea78",
+          "stayMinutes": 10,
+          "facility": {
+            "nodeId": "official-3d305d6e61ba",
+            "name": "西门游客中心卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "nodeId": "official-175363c1dce8",
+          "name": "哼哈殿",
+          "kind": "place",
+          "placeId": "official-175363c1dce8",
+          "nearPlaceId": null,
+          "location": [
+            118.956292,
+            32.150991
+          ],
+          "status": "unresolved",
+          "poiId": "B0FFHNMDN6",
+          "poiName": "哼哈殿",
+          "id": "official-175363c1dce8",
+          "stopId": "R02-02",
+          "stayMinutes": 5,
+          "facility": {
+            "nodeId": "official-e5f31f327375",
+            "name": "鼓楼卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "id": "mirror-lake",
+          "name": "彩虹明镜",
+          "category": "湖光与倒影",
+          "intro": "一起看看湖面的倒影，记录沿途的风景。",
+          "story": "湖面、亭桥、倒影与题名，让明镜湖成为认识栖霞山水的一处线索。看山可以从水开始：近处的树影、桥与亭，和远处的山色落在同一面湖里。季节、光线与风，也会让这里呈现不同的样子。",
+          "tags": [
+            "自然",
+            "湖景"
+          ],
+          "images": [
+            "/assets/places/7cfa779125af2b.webp",
+            "/assets/amap/0d9e537c92a9b600f9b0.webp",
+            "/assets/amap/b950c5c817326a4f7115.webp",
+            "/assets/amap/aab23402f5f1a0a32da0.webp"
+          ],
+          "image": "/assets/places/7cfa779125af2b.webp",
+          "religious": false,
+          "mapName": "明镜湖",
+          "aliases": [],
+          "audio": "/assets/audio/mirror-lake.wav",
+          "amapPoiId": "B001912HV0",
+          "navigationAvailable": true,
+          "location": [
+            118.95631,
+            32.151776
+          ],
+          "address": "栖霞街88号栖霞山风景区内",
+          "placeId": "mirror-lake",
+          "stopId": "R02-03",
+          "nodeId": "official-f4d94cfceb65",
+          "stayMinutes": 20,
+          "facility": {
+            "nodeId": "official-5d740941a5fb",
+            "name": "明镜湖卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "id": "temple",
+          "name": "栖霞古寺",
+          "category": "建筑与地方记忆",
+          "intro": "从山门、建筑和人物故事，认识栖霞的千年往来。",
+          "story": "栖霞寺与栖霞山的地名、六朝遗存及历代游山活动紧密相连。明僧绍隐居摄山、舍宅为寺，是这里的重要人物线索；陆羽采茶、诗人游山，也让建筑与山林有了不同的观看方式。近代，寂然法师等人在这里参与难民救护。今天看建筑时，可以留意始建、重建与现存实物所处的不同年代。",
+          "tags": [
+            "人文",
+            "建筑"
+          ],
+          "images": [
+            "/assets/places/2299a31d423f16.webp",
+            "/assets/amap/3bb65da5ee8c089dda6f.webp",
+            "/assets/amap/d81dee9f5893130ea2e0.webp",
+            "/assets/amap/cca54783e4ef10512447.webp"
+          ],
+          "image": "/assets/places/2299a31d423f16.webp",
+          "religious": false,
+          "mapName": "栖霞寺",
+          "aliases": [],
+          "audio": "/assets/audio/temple.wav",
+          "amapPoiId": "B00190D2L7",
+          "navigationAvailable": true,
+          "location": [
+            118.957983,
+            32.151807
+          ],
+          "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
+          "placeId": "temple",
+          "stopId": "R02-04",
+          "nodeId": "official-78b668f7cfeb",
+          "stayMinutes": 40,
+          "facility": {
+            "nodeId": "official-e5f31f327375",
+            "name": "鼓楼卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "id": "pagoda",
+          "name": "舍利塔",
+          "category": "石构建筑与雕刻",
+          "intro": "看看石塔的层次，再一起寻找雕刻的细节。",
+          "story": "舍利塔有隋代始建、南唐重建的历史层次。石构、层次与雕刻，使它同时成为建筑与艺术的观察对象。山中文物经历过毁损、重修与保护；始建年代、重建年代和今天看到的实物，需要放在不同层次里理解。",
+          "tags": [
+            "人文",
+            "建筑"
+          ],
+          "images": [
+            "/assets/places/59990a17d64f87.webp",
+            "/assets/places/09cb809ec10e5a.webp",
+            "/assets/amap/6368048c9d5ab1b54d99.webp",
+            "/assets/amap/70848a54ffa0afa7b946.webp",
+            "/assets/amap/eb0f8fe4788d12f4f06d.webp"
+          ],
+          "image": "/assets/places/59990a17d64f87.webp",
+          "religious": true,
+          "mapName": "舍利塔",
+          "aliases": [],
+          "audio": "/assets/audio/pagoda.wav",
+          "amapPoiId": "B001909CRJ",
+          "navigationAvailable": true,
+          "location": [
+            118.959868,
+            32.151791
+          ],
+          "address": "栖霞街84号栖霞山名胜风景区",
+          "placeId": "pagoda",
+          "stopId": "R02-05",
+          "nodeId": "official-febfcce899cb",
+          "stayMinutes": 25,
+          "facility": null
+        },
+        {
+          "id": "buddha",
+          "name": "千佛岩",
+          "category": "六朝石窟与山体",
+          "intro": "从岩壁、洞窟与造像之间，认识古代艺术。",
+          "story": "千佛岩依山开凿，是江南南朝石窟的重要遗存。洞窟、造像与山体融在一起，保留着六朝的文化印记；栖霞飞天也是其中的石窟艺术线索。与明征君碑、舍利塔合称栖霞三宝，可以从山体空间与雕刻形态开始观察。",
+          "tags": [
+            "人文",
+            "艺术"
+          ],
+          "images": [
+            "/assets/places/a7c179cd11b526.webp",
+            "/assets/places/0507568aa5638c.webp",
+            "/assets/places/917ca4c06199f3.webp",
+            "/assets/amap/7f7b04072a66ac8c3802.webp",
+            "/assets/amap/8e3b56600c7f25e5e999.webp",
+            "/assets/amap/17ab0fb9bde2e6c13e20.webp"
+          ],
+          "image": "/assets/places/a7c179cd11b526.webp",
+          "religious": true,
+          "mapName": "千佛岩",
+          "aliases": [
+            "千佛崖"
+          ],
+          "audio": "/assets/audio/buddha.wav",
+          "amapPoiId": "B001912JE8",
+          "navigationAvailable": true,
+          "location": [
+            118.960159,
+            32.151673
+          ],
+          "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区栖霞古寺内",
+          "placeId": "buddha",
+          "stopId": "R02-06",
+          "nodeId": "official-c6bddb88231d",
+          "stayMinutes": 30,
+          "facility": {
+            "nodeId": "official-4085d08a3e67",
+            "name": "千佛崖卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "id": "mirror-lake",
+          "name": "彩虹明镜",
+          "category": "湖光与倒影",
+          "intro": "一起看看湖面的倒影，记录沿途的风景。",
+          "story": "湖面、亭桥、倒影与题名，让明镜湖成为认识栖霞山水的一处线索。看山可以从水开始：近处的树影、桥与亭，和远处的山色落在同一面湖里。季节、光线与风，也会让这里呈现不同的样子。",
+          "tags": [
+            "自然",
+            "湖景"
+          ],
+          "images": [
+            "/assets/places/7cfa779125af2b.webp",
+            "/assets/amap/0d9e537c92a9b600f9b0.webp",
+            "/assets/amap/b950c5c817326a4f7115.webp",
+            "/assets/amap/aab23402f5f1a0a32da0.webp"
+          ],
+          "image": "/assets/places/7cfa779125af2b.webp",
+          "religious": false,
+          "mapName": "明镜湖",
+          "aliases": [],
+          "audio": "/assets/audio/mirror-lake.wav",
+          "amapPoiId": "B001912HV0",
+          "navigationAvailable": true,
+          "location": [
+            118.95631,
+            32.151776
+          ],
+          "address": "栖霞街88号栖霞山风景区内",
+          "placeId": "mirror-lake",
+          "stopId": "R02-07",
+          "nodeId": "official-f4d94cfceb65",
+          "stayMinutes": 20,
+          "facility": {
+            "nodeId": "official-5d740941a5fb",
+            "name": "明镜湖卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "id": "facility-b00190z2ds",
+          "name": "西门游客中心",
+          "category": "游客服务",
+          "facilityType": "游客服务",
+          "kind": "facility",
+          "tags": [
+            "游客服务"
+          ],
+          "intro": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
+          "story": "位置：栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
+          "images": [
+            "/assets/amap/1c4acfe803c5a181edb7.webp",
+            "/assets/amap/6cd12a4e6daecbb6b25b.webp",
+            "/assets/amap/9599b43cbd3a23785c58.webp"
+          ],
+          "image": "/assets/amap/1c4acfe803c5a181edb7.webp",
+          "audio": null,
+          "amapPoiId": "B00190Z2DS",
+          "navigationAvailable": true,
+          "location": [
+            118.9547,
+            32.150235
+          ],
+          "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
+          "tel": null,
+          "openingHours": "07:00-17:30",
+          "placeId": "facility-b00190z2ds",
+          "stopId": "R02-08",
+          "nodeId": "official-8be685b4ea78",
+          "stayMinutes": 10,
+          "facility": {
+            "nodeId": "official-3d305d6e61ba",
+            "name": "西门游客中心卫生间",
+            "placeId": null
+          }
+        }
+      ],
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            118.954657,
+            32.150417
+          ],
+          [
+            118.954896,
+            32.150451
+          ],
+          [
+            118.95533,
+            32.15049
+          ],
+          [
+            118.955642,
+            32.150525
+          ],
+          [
+            118.955868,
+            32.150599
+          ],
+          [
+            118.95592,
+            32.150625
+          ],
+          [
+            118.956198,
+            32.15082
+          ],
+          [
+            118.95638,
+            32.151072
+          ],
+          [
+            118.956359,
+            32.151133
+          ],
+          [
+            118.956354,
+            32.151133
+          ],
+          [
+            118.956272,
+            32.151003
+          ],
+          [
+            118.956267,
+            32.150998
+          ],
+          [
+            118.956354,
+            32.151133
+          ],
+          [
+            118.956267,
+            32.151215
+          ],
+          [
+            118.956194,
+            32.15128
+          ],
+          [
+            118.956189,
+            32.15128
+          ],
+          [
+            118.956359,
+            32.151354
+          ],
+          [
+            118.956476,
+            32.151398
+          ],
+          [
+            118.956359,
+            32.151602
+          ],
+          [
+            118.956259,
+            32.151749
+          ],
+          [
+            118.956254,
+            32.151749
+          ],
+          [
+            118.956354,
+            32.151606
+          ],
+          [
+            118.956476,
+            32.151402
+          ],
+          [
+            118.956476,
+            32.151398
+          ],
+          [
+            118.956619,
+            32.15145
+          ],
+          [
+            118.956697,
+            32.151484
+          ],
+          [
+            118.956697,
+            32.151489
+          ],
+          [
+            118.956879,
+            32.151558
+          ],
+          [
+            118.957218,
+            32.15158
+          ],
+          [
+            118.957609,
+            32.151589
+          ],
+          [
+            118.957591,
+            32.151806
+          ],
+          [
+            118.957587,
+            32.151806
+          ],
+          [
+            118.957791,
+            32.151736
+          ],
+          [
+            118.957938,
+            32.151723
+          ],
+          [
+            118.958038,
+            32.15174
+          ],
+          [
+            118.95803,
+            32.15181
+          ],
+          [
+            118.958025,
+            32.15181
+          ],
+          [
+            118.957995,
+            32.151992
+          ],
+          [
+            118.95799,
+            32.151992
+          ],
+          [
+            118.958134,
+            32.152044
+          ],
+          [
+            118.958134,
+            32.152049
+          ],
+          [
+            118.958568,
+            32.15201
+          ],
+          [
+            118.95918,
+            32.152023
+          ],
+          [
+            118.959197,
+            32.151879
+          ],
+          [
+            118.959223,
+            32.151853
+          ],
+          [
+            118.959579,
+            32.151858
+          ],
+          [
+            118.95977,
+            32.15181
+          ],
+          [
+            118.959848,
+            32.151771
+          ],
+          [
+            118.959848,
+            32.151766
+          ],
+          [
+            118.960122,
+            32.151628
+          ],
+          [
+            118.960122,
+            32.151623
+          ],
+          [
+            118.960169,
+            32.151602
+          ],
+          [
+            118.96023,
+            32.151545
+          ],
+          [
+            118.960247,
+            32.151506
+          ],
+          [
+            118.960247,
+            32.151389
+          ],
+          [
+            118.960247,
+            32.151385
+          ],
+          [
+            118.960095,
+            32.151393
+          ],
+          [
+            118.959766,
+            32.151432
+          ],
+          [
+            118.958898,
+            32.151428
+          ],
+          [
+            118.958385,
+            32.151489
+          ],
+          [
+            118.958264,
+            32.151515
+          ],
+          [
+            118.95806,
+            32.15158
+          ],
+          [
+            118.95793,
+            32.151597
+          ],
+          [
+            118.957613,
+            32.151593
+          ],
+          [
+            118.957222,
+            32.151584
+          ],
+          [
+            118.956884,
+            32.151562
+          ],
+          [
+            118.956701,
+            32.151493
+          ],
+          [
+            118.956697,
+            32.151484
+          ],
+          [
+            118.956623,
+            32.151454
+          ],
+          [
+            118.95648,
+            32.151402
+          ],
+          [
+            118.956476,
+            32.151398
+          ],
+          [
+            118.956359,
+            32.151602
+          ],
+          [
+            118.956259,
+            32.151749
+          ],
+          [
+            118.956254,
+            32.151749
+          ],
+          [
+            118.956354,
+            32.151606
+          ],
+          [
+            118.956476,
+            32.151402
+          ],
+          [
+            118.956476,
+            32.151398
+          ],
+          [
+            118.956363,
+            32.151359
+          ],
+          [
+            118.956194,
+            32.151285
+          ],
+          [
+            118.956189,
+            32.15128
+          ],
+          [
+            118.956263,
+            32.15122
+          ],
+          [
+            118.956354,
+            32.151137
+          ],
+          [
+            118.956354,
+            32.151133
+          ],
+          [
+            118.95638,
+            32.151076
+          ],
+          [
+            118.956202,
+            32.150825
+          ],
+          [
+            118.955924,
+            32.150629
+          ],
+          [
+            118.955872,
+            32.150603
+          ],
+          [
+            118.955647,
+            32.15053
+          ],
+          [
+            118.955334,
+            32.150495
+          ],
+          [
+            118.9549,
+            32.150456
+          ],
+          [
+            118.954661,
+            32.150421
+          ]
+        ]
+      },
+      "distanceMeters": 1522,
+      "walkingSeconds": 1219,
+      "steps": [
+        {
+          "instruction": "向东北步行194米向左后方行走",
+          "location": [
+            118.954657,
+            32.150417
+          ],
+          "distanceMeters": 194,
+          "walkingSeconds": 155
+        },
+        {
+          "instruction": "向西南步行16米到达目的地",
+          "location": [
+            118.956354,
+            32.151133
+          ],
+          "distanceMeters": 16,
+          "walkingSeconds": 13
+        },
+        {
+          "instruction": "向东北步行16米左转",
+          "location": [
+            118.956267,
+            32.150998
+          ],
+          "distanceMeters": 16,
+          "walkingSeconds": 13
+        },
+        {
+          "instruction": "向西北步行22米右转",
+          "location": [
+            118.956354,
+            32.151133
+          ],
+          "distanceMeters": 22,
+          "walkingSeconds": 18
+        },
+        {
+          "instruction": "向东北步行30米左转",
+          "location": [
+            118.956189,
+            32.15128
+          ],
+          "distanceMeters": 30,
+          "walkingSeconds": 24
+        },
+        {
+          "instruction": "向西北步行44米到达目的地",
+          "location": [
+            118.956476,
+            32.151398
+          ],
+          "distanceMeters": 44,
+          "walkingSeconds": 35
+        },
+        {
+          "instruction": "向东南步行44米左转",
+          "location": [
+            118.956254,
+            32.151749
+          ],
+          "distanceMeters": 44,
+          "walkingSeconds": 35
+        },
+        {
+          "instruction": "向东北步行41米向右前方行走",
+          "location": [
+            118.956476,
+            32.151398
+          ],
+          "distanceMeters": 41,
+          "walkingSeconds": 33
+        },
+        {
+          "instruction": "向东步行69米左转",
+          "location": [
+            118.956879,
+            32.151558
+          ],
+          "distanceMeters": 69,
+          "walkingSeconds": 55
+        },
+        {
+          "instruction": "向北步行24米右转",
+          "location": [
+            118.957609,
+            32.151589
+          ],
+          "distanceMeters": 24,
+          "walkingSeconds": 19
+        },
+        {
+          "instruction": "向东步行52米左转到达目的地",
+          "location": [
+            118.957587,
+            32.151806
+          ],
+          "distanceMeters": 52,
+          "walkingSeconds": 42
+        },
+        {
+          "instruction": "向北步行20米右转",
+          "location": [
+            118.958025,
+            32.15181
+          ],
+          "distanceMeters": 20,
+          "walkingSeconds": 16
+        },
+        {
+          "instruction": "向东北步行14米向右前方行走",
+          "location": [
+            118.95799,
+            32.151992
+          ],
+          "distanceMeters": 14,
+          "walkingSeconds": 11
+        },
+        {
+          "instruction": "向东步行98米右转",
+          "location": [
+            118.958134,
+            32.152049
+          ],
+          "distanceMeters": 98,
+          "walkingSeconds": 78
+        },
+        {
+          "instruction": "向东南步行80米到达目的地",
+          "location": [
+            118.95918,
+            32.152023
+          ],
+          "distanceMeters": 80,
+          "walkingSeconds": 64
+        },
+        {
+          "instruction": "向东南步行32米到达目的地",
+          "location": [
+            118.959848,
+            32.151766
+          ],
+          "distanceMeters": 32,
+          "walkingSeconds": 26
+        },
+        {
+          "instruction": "向东南步行31米右转",
+          "location": [
+            118.960122,
+            32.151623
+          ],
+          "distanceMeters": 31,
+          "walkingSeconds": 25
+        },
+        {
+          "instruction": "向西步行361米右转",
+          "location": [
+            118.960247,
+            32.151385
+          ],
+          "distanceMeters": 361,
+          "walkingSeconds": 289
+        },
+        {
+          "instruction": "向西北步行44米到达目的地",
+          "location": [
+            118.956476,
+            32.151398
+          ],
+          "distanceMeters": 44,
+          "walkingSeconds": 35
+        },
+        {
+          "instruction": "向东南步行44米右转",
+          "location": [
+            118.956254,
+            32.151749
+          ],
+          "distanceMeters": 44,
+          "walkingSeconds": 35
+        },
+        {
+          "instruction": "向西南步行30米左转",
+          "location": [
+            118.956476,
+            32.151398
+          ],
+          "distanceMeters": 30,
+          "walkingSeconds": 24
+        },
+        {
+          "instruction": "向东南步行22米向右前方行走",
+          "location": [
+            118.956189,
+            32.15128
+          ],
+          "distanceMeters": 22,
+          "walkingSeconds": 18
+        },
+        {
+          "instruction": "向西南步行194米到达目的地",
+          "location": [
+            118.956354,
+            32.151133
+          ],
+          "distanceMeters": 194,
+          "walkingSeconds": 155
+        }
+      ],
+      "legs": [
+        {
+          "fromId": "facility-b00190z2ds",
+          "toId": "official-175363c1dce8",
+          "distanceMeters": 210,
+          "walkingSeconds": 168,
+          "hasStairs": false,
+          "hasSlope": false,
+          "fromStopId": "R02-01",
+          "toStopId": "R02-02"
+        },
+        {
+          "fromId": "official-175363c1dce8",
+          "toId": "mirror-lake",
+          "distanceMeters": 112,
+          "walkingSeconds": 90,
+          "hasStairs": false,
+          "hasSlope": false,
+          "fromStopId": "R02-02",
+          "toStopId": "R02-03"
+        },
+        {
+          "fromId": "mirror-lake",
+          "toId": "temple",
+          "distanceMeters": 230,
+          "walkingSeconds": 184,
+          "hasStairs": false,
+          "hasSlope": false,
+          "fromStopId": "R02-03",
+          "toStopId": "R02-04"
+        },
+        {
+          "fromId": "temple",
+          "toId": "pagoda",
+          "distanceMeters": 212,
+          "walkingSeconds": 170,
+          "hasStairs": false,
+          "hasSlope": false,
+          "fromStopId": "R02-04",
+          "toStopId": "R02-05"
+        },
+        {
+          "fromId": "pagoda",
+          "toId": "buddha",
+          "distanceMeters": 32,
+          "walkingSeconds": 26,
+          "hasStairs": false,
+          "hasSlope": false,
+          "fromStopId": "R02-05",
+          "toStopId": "R02-06"
+        },
+        {
+          "fromId": "buddha",
+          "toId": "mirror-lake",
+          "distanceMeters": 436,
+          "walkingSeconds": 349,
+          "hasStairs": false,
+          "hasSlope": false,
+          "fromStopId": "R02-06",
+          "toStopId": "R02-07"
+        },
+        {
+          "fromId": "mirror-lake",
+          "toId": "facility-b00190z2ds",
+          "distanceMeters": 290,
+          "walkingSeconds": 232,
+          "hasStairs": false,
+          "hasSlope": false,
+          "fromStopId": "R02-07",
+          "toStopId": "R02-08"
+        }
+      ],
+      "name": "西门古刹人文游",
+      "navigationReady": true,
+      "optimization": {
+        "mode": "preset"
+      }
+    }
+  ]
+}

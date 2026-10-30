@@ -1,0 +1,606 @@
+{
+  "version": "official-v1",
+  "sourceDate": "2026-10-30",
+  "lines": [
+    {
+      "lineId": "internal-1",
+      "scope": "internal",
+      "name": "虎山线",
+      "direction": "上行",
+      "hours": "08:30–16:30",
+      "fareYuan": 20,
+      "fareUnit": "单程 / 人",
+      "phone": "025-83784726",
+      "stops": [
+        {
+          "nodeId": "official-932df773c63e",
+          "name": "药师殿",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-a8dba741612b",
+          "name": "虎山站",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-a6a0f2060bc0",
+          "name": "始皇临江",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        }
+      ]
+    },
+    {
+      "lineId": "internal-2",
+      "scope": "internal",
+      "name": "虎山线",
+      "direction": "下行",
+      "hours": "08:30–16:30",
+      "fareYuan": 20,
+      "fareUnit": "单程 / 人",
+      "phone": "025-83784726",
+      "stops": [
+        {
+          "nodeId": "official-5c296fcd977a",
+          "name": "天街",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-cc846adfe958",
+          "name": "天开岩",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": "tiankai-rock",
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-27adb32e1485",
+          "name": "虎爪岩",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        }
+      ]
+    },
+    {
+      "lineId": "internal-3",
+      "scope": "internal",
+      "name": "龙山线",
+      "direction": "上行",
+      "hours": "08:30–16:30",
+      "fareYuan": 20,
+      "fareUnit": "单程 / 人",
+      "phone": "025-83784726",
+      "stops": [
+        {
+          "nodeId": "official-01b229a69b53",
+          "name": "小营盘",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": "camp",
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-a8dba741612b",
+          "name": "虎山站",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-a6a0f2060bc0",
+          "name": "始皇临江",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        }
+      ]
+    },
+    {
+      "lineId": "internal-4",
+      "scope": "internal",
+      "name": "龙山线",
+      "direction": "下行",
+      "hours": "08:30–16:30",
+      "fareYuan": 20,
+      "fareUnit": "单程 / 人",
+      "phone": "025-83784726",
+      "stops": [
+        {
+          "nodeId": "official-5c296fcd977a",
+          "name": "天街",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-e7487dcb6a44",
+          "name": "饮马池",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": "horse-pond",
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-0979fdb3a50b",
+          "name": "蝴蝶谷",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        }
+      ]
+    },
+    {
+      "lineId": "internal-5",
+      "scope": "internal",
+      "name": "南山景区",
+      "direction": "上行",
+      "hours": "08:30–16:30",
+      "fareYuan": 20,
+      "fareUnit": "单程 / 人",
+      "phone": "025-83784726",
+      "stops": [
+        {
+          "nodeId": "official-0979fdb3a50b",
+          "name": "蝴蝶谷",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-85e520f30c35",
+          "name": "明镜湖",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": "mirror-lake",
+          "location": null,
+          "status": "unresolved"
+        }
+      ]
+    },
+    {
+      "lineId": "internal-6",
+      "scope": "internal",
+      "name": "南山景区",
+      "direction": "下行",
+      "hours": "08:30–16:30",
+      "fareYuan": 20,
+      "fareUnit": "单程 / 人",
+      "phone": "025-83784726",
+      "stops": [
+        {
+          "nodeId": "official-85e520f30c35",
+          "name": "明镜湖",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": "mirror-lake",
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-0979fdb3a50b",
+          "name": "蝴蝶谷",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        }
+      ]
+    },
+    {
+      "lineId": "external-1",
+      "scope": "external",
+      "name": "南大仙林校区 → 栖霞古镇",
+      "direction": "单程",
+      "hours": "08:00–20:00",
+      "fareYuan": 2,
+      "fareUnit": "单程 / 人",
+      "phone": "025-83784726",
+      "stops": [
+        {
+          "nodeId": "official-452f33aa9674",
+          "name": "南大仙林校区",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-307ad93c9a0a",
+          "name": "羊山公园地铁站",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-89af5cd96bca",
+          "name": "中医药大学",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-0df0f35d4359",
+          "name": "南京邮电大学",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-dded50803c7a",
+          "name": "南京财经大学",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-3cd6aebd9b4c",
+          "name": "文苑路",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-dd05f5eab3ac",
+          "name": "文澜路南",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-d8b2469309e8",
+          "name": "南京师范大学东门",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-40edce0ab123",
+          "name": "文澜路",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-a9ee551c9ddf",
+          "name": "文澜路北",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-62b636b25cec",
+          "name": "学海路",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-85c7450da880",
+          "name": "邮电大学北",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-cc9e0b820890",
+          "name": "文澜路·南工院西",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-2b85f479fd57",
+          "name": "紫金学院",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-7edbef209f95",
+          "name": "文澜路东",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-d15918ff3474",
+          "name": "信息学院",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-713b26ff6caa",
+          "name": "九乡河西路",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-aa29739d8779",
+          "name": "衡阳寺",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-195e03c1f4b1",
+          "name": "红枫新村",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-c3f4de64f45d",
+          "name": "栖霞古镇",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": "old-street",
+          "location": null,
+          "status": "unresolved"
+        }
+      ]
+    },
+    {
+      "lineId": "external-2",
+      "scope": "external",
+      "name": "栖霞古镇 → 南大仙林校区",
+      "direction": "单程",
+      "hours": "08:40–20:40",
+      "fareYuan": 2,
+      "fareUnit": "单程 / 人",
+      "phone": "025-83784726",
+      "stops": [
+        {
+          "nodeId": "official-c3f4de64f45d",
+          "name": "栖霞古镇",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": "old-street",
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-195e03c1f4b1",
+          "name": "红枫新村",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-aa29739d8779",
+          "name": "衡阳寺",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-713b26ff6caa",
+          "name": "九乡河西路",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-d15918ff3474",
+          "name": "信息学院",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-7edbef209f95",
+          "name": "文澜路东",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-2b85f479fd57",
+          "name": "紫金学院",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-cc9e0b820890",
+          "name": "文澜路·南工院西",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-85c7450da880",
+          "name": "邮电大学北",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-62b636b25cec",
+          "name": "学海路",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-a9ee551c9ddf",
+          "name": "文澜路北",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-40edce0ab123",
+          "name": "文澜路",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-d8b2469309e8",
+          "name": "南京师范大学东门",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-dd05f5eab3ac",
+          "name": "文澜路南",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-3cd6aebd9b4c",
+          "name": "文苑路",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-dded50803c7a",
+          "name": "南京财经大学",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-0df0f35d4359",
+          "name": "南京邮电大学",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-89af5cd96bca",
+          "name": "中医药大学",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-307ad93c9a0a",
+          "name": "羊山公园地铁站",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        },
+        {
+          "nodeId": "official-452f33aa9674",
+          "name": "南大仙林校区",
+          "kind": "shuttle_stop",
+          "placeId": null,
+          "nearPlaceId": null,
+          "location": null,
+          "status": "unresolved"
+        }
+      ]
+    }
+  ]
+}

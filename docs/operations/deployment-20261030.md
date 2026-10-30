@@ -1,5 +1,7 @@
 # Deployment — 2026-10-30
 
+Latest deployment: `0.5.0-20261031-r2` is active as of 2026-10-31 (Asia/Hong_Kong). See [deployment-20261031.md](deployment-20261031.md) for the latest frontend, road-service and public acceptance results. Release statements below describe the historical October 30 deployments.
+
 Public URL: https://43.160.252.245/
 
 Compatibility URL: https://43.160.252.245:2500/
@@ -29,3 +31,15 @@ The team supplied project-files/team/server/firewallRules_2026-10-30 14_09_29.cs
 Release `0.4.0-20261030T082053Z` is now active at the same public URL. The original wujiaxuan key was used, shared credentials remained in place, and the previous release is retained for rollback. Staging and active service checks passed before public browser acceptance. Knowledge chat/catalog, secure context, AMap, simulated GPS conversion/distance display, mobile header/route sizing, sticky map and PNG report saving passed. Actual phone GPS permissions still need a user check.
 
 Private audit receipt: `.local-work/operations/verification-v04.json`; operation captures were hash-checked. No Git commit/push was made.
+
+## Frontend and bounded multi-turn 0.5.0
+
+Active release: `0.5.0-20261030-r1`. Previous `0.4.0-20261030T082053Z` is retained. The package was checksum-verified, tested on staging port18788, then activated on the existing service port18787. Original wujiaxuan key only; no new SSH identity or Git commit/push.
+
+Nginx now accepts128KiB chat bodies (formerly16KiB), enables HTTP/2 and gzip for text/JSON. The application adds immutable hashed-asset caching, ETag validation and audio byte ranges. Existing TLS certificate, renewal configuration, original shared environment and compatible2500 listener remain unchanged. Backup Nginx config is in the new release as`nginx.before.conf`.
+
+Public Edge mobile-viewport verification:422,034 resource bytes/19 requests cold,300 resource bytes warm; HTTP/2; single-run load event about1.21s. This is not a guarantee for real mobile networks. Actual AMap and simulated GPS, eight presets, eight directional shuttles, bounded multi-turn knowledge and a chat body exceeding16KiB passed. No browser JavaScript errors. Route geometry, Xiaozhi web transport and watch delivery/ACK still await team integration.
+
+Audit and full limits: `docs/handoffs/project-handoff-20261030-v0.5.0.md`. Private deployment log:`.local-work/operations/logs/20261030T131254Z-0d3e47f9/operation.json`; public receipt:`.local-work/qa-public-v05.json`.
+
+Rollback, only if requested/needed after checking current target: switch the current symlink to the retained0.4 release, restore this release's`nginx.before.conf` with`sudo install`, validate with`sudo nginx -t`, then restart`qixia-guide.service` and reload Nginx. Record the whole operation using the project SSH logger; do not blindly rerun the activation script, which refuses an existing release.

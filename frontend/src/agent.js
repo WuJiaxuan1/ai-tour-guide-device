@@ -13,11 +13,11 @@ export function localResponse(message){
  placeIds=placeIds.filter(id=>places.some(p=>p.id===id));
  return{reply,placeIds,mode:'local',...(/路线|规划/.test(message)&&placeIds.length>1?{routeDraft:placeIds}: {})};
 }
-export async function askAgent({messages,sessionId,routeIds,location,signal,serviceUrl=endpoint,fetcher=globalThis.fetch}){
+export async function askAgent({messages,sessionId,routeIds,location,currentPlaceId,preferences,signal,serviceUrl=endpoint,fetcher=globalThis.fetch}){
  if(!serviceUrl){await new Promise((resolve,reject)=>{if(signal?.aborted){reject(new DOMException('Aborted','AbortError'));return}const t=setTimeout(resolve,500);signal?.addEventListener('abort',()=>{clearTimeout(t);reject(new DOMException('Aborted','AbortError'))},{once:true})});return localResponse(messages.at(-1).content);}
- const r=await fetcher(serviceUrl,{method:'POST',headers:{'Content-Type':'application/json'},credentials:'omit',signal,body:JSON.stringify({sessionId,messages:messages.map(({role,content})=>({role,content})),context:{parkId:'qixia-mountain',routeIds,...(location?{location}: {})}})});
+ const r=await fetcher(serviceUrl,{method:'POST',headers:{'Content-Type':'application/json'},credentials:'omit',signal,body:JSON.stringify({sessionId,messages:messages.map(({role,content})=>({role,content})),context:{parkId:'qixia-mountain',routeIds,...(location?{location}: {}),...(currentPlaceId?{currentPlaceId}:{}),...(preferences?{preferences}:{})}})});
  if(!r.ok)throw Error(`智能体服务暂不可用（${r.status}），请稍后重试。`);
  const d=await r.json();if(typeof d.reply!=='string'||!d.reply.trim())throw Error('智能体回复格式不符合接口约定。');
  const routeDraft=[...new Set(Array.isArray(d.routeDraft)?d.routeDraft:[])].filter(id=>allPlaces.some(p=>p.id===id&&p.navigationAvailable));
- return{...(routeDraft.length>1?{routeDraft}:{}),reply:d.reply,placeIds:Array.isArray(d.placeIds)?[...new Set(d.placeIds)].filter(id=>allPlaces.some(p=>p.id===id)):[],mode:d.mode==='knowledge'?'knowledge':'live'};
+ return{...(routeDraft.length>1?{routeDraft}:{}),reply:d.reply,placeIds:Array.isArray(d.placeIds)?[...new Set(d.placeIds)].filter(id=>allPlaces.some(p=>p.id===id)):[],mode:['knowledge','grounded-model'].includes(d.mode)?d.mode:'live',...(d.context?{context:d.context}:{}),...(Array.isArray(d.sourceIds)?{sourceIds:d.sourceIds}:{}),...(typeof d.unknown==='boolean'?{unknown:d.unknown}:{}),...(d.routeFilters?{routeFilters:d.routeFilters}:{})};
 }
