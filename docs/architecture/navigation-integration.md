@@ -9,7 +9,8 @@
 | 前端 | 地图、编号景点、卡片、路线选点和排序、加载/失败状态、绘制后端返回的折线 |
 | 高德服务 | 地图底图与道路数据、实际步行路线计算 |
 | 团队后端 | 核验景点坐标、鉴权与设备绑定、调用高德步行 API、保存路线版本、GPS 坐标转换、为手表提供地图资源 |
-| 手表固件 | GPS 采集、收图/显示/确认、导航界面切换；具体传输待源码确认 |
+| Android 伴随 App | GPS采集、GCJ02转换、高德底图与算路、路线进度匹配、热点HTTP发送 |
+| 手表固件 | 接收地图/位置/路线/进度、确认、绘制和导航页面切换；协议见 `stopwatch-nav/docs/` |
 | 小智/MCP | 经团队实现的工具查询/创建路线；不会自动替代地图或设备接口 |
 
 游客扫二维码打开的是 HTTPS 网站，安卓和 iOS 浏览器共用 **Web端（JS API）Key**。后端另用 **Web服务 Key** 调用步行等 HTTP 服务。原生 App 才使用对应的 Android/iOS SDK Key，队友现有 Android 调试 Key 不直接复用于本网页。
@@ -69,11 +70,11 @@ Vite 已将 /api 和 /_AMapService 同源代理到本机127.0.0.1:8787。建议�
 
 前端取消过期请求、清除旧路线，检查坐标系、经纬度顺序、点位顺序、几何形状及非负距离/时间。WGS84 数据不能直接叠在 GCJ02 地图上。现有测试只使用合成坐标校验协议，不作为真实路线示例。
 
-## Hardware integration pending
+## Hardware integration: P8-test02
 
-目前照片证明测试图发送、显示与序号确认，不能证明定位或真实高德地图已接通。请硬件同学提供当前发图测试页、手表收图与 GPS 相关代码，核对地图区域宽高、图片编码/字节序、单包限制、请求方式、确认/重试格式和 GPS 样例。
+P8-test02 已由硬件负责人完成真机验收：Android 手机提供 GPS 与高德底图/步行路线，HTTP 局域网传给 StopWatch；手表绘制地图块、位置、路线、终点和已走前缀颜色。具体实现和测试见 `stopwatch-nav/`。
 
-以新交接工程为准：当前位置来自 Android 手机 GPS，Android 已将 WGS84 转为 GCJ02；服务端和网页不得再次偏移。下一阶段按实际固件定义地图帧和设备会话，使网页和手表使用相同 routeId/revision。当前前端未向手表发送位置或图片。
+以新交接工程为准：当前位置来自 Android 手机 GPS，Android 已将 WGS84 转为 GCJ02；服务端和网页不得再次偏移。Android 伴随 App 已按 P8 协议向手表发送地图、位置、路线和 route_progress。浏览器/后端仍未直接连接手表，后续应由网页路线交给 App，或实现经过授权的服务端到设备会话。
 
 ## Project folders
 
@@ -96,7 +97,7 @@ ai-tour-guide-device/
     history/                   历史状态与迁移记录
 ```
 
-`dist/` 是自动构建产物，`node_modules/` 是可重装依赖，均不手工编号或提交为源代码。前端不采用建模式 v01/v02 复制，后续以 Git 提交和发布标签管理。收到后端可维护源工程后新增根目录 `backend/`；收到固件源工程后可新增 `firmware/`。原始交接包可留 `project-files/team/`。本次未移动已有模型、压缩包或组委会资料。
+`dist/` 是自动构建产物，`node_modules/` 是可重装依赖，均不手工编号或提交为源代码。前端不采用建模式 v01/v02 复制，后续以 Git 提交和发布标签管理。收到后端可维护源工程后新增根目录 `backend/`；固件源工程已位于 `stopwatch-nav/firmware/`，包含 StopWatch 板级代码和本地配网组件。原始交接包可留 `project-files/team/`。本次未移动已有模型、压缩包或组委会资料。
 
 ## Before public use
 
@@ -111,7 +112,7 @@ ai-tour-guide-device/
 
 路线按用户指定的2至8站逐段查询高德步行 API，保留实际折线、距离和耗时。未找到可确认位置或道路时返回明确错误，不生成直线假路线。上述接口是本项目实现，仍需与团队后端鉴权、存储和部署方式合并。
 
-当前硬件 P7-test07：Android 输出480×480 RGB565LE、QMAP v3/type3，总460896字节；手表显示240源像素窗口并铺满466圆屏。HTTP端口8765，状态/图像/位置分别为 `/api/v1/status`、`/api/v1/image`、`/api/v1/position`。地图和位置已是GCJ02，按会话、帧号和序号绑定。浏览器不能假定可直接从HTTPS访问手表HTTP私网接口；下一步应由现有Android伴随App接收服务器路线并沿用已验证的图像链路。此次没有修改、构建或烧录固件，没有宣称网页路线已经同步至手表。
+P7-test07 基础协议（P8继续兼容）：Android 输出480×480 RGB565LE、QMAP v3/type3，总460896字节；手表显示240源像素窗口并铺满466圆屏。HTTP端口8765，状态/图像/位置分别为 `/api/v1/status`、`/api/v1/image`、`/api/v1/position`。地图和位置已是GCJ02，按会话、帧号和序号绑定。浏览器不能假定可直接从HTTPS访问手表HTTP私网接口；下一步应由现有Android伴随App接收服务器路线并沿用已验证的图像链路。此次没有修改、构建或烧录固件，没有宣称网页路线已经同步至手表。
 
 ## Content and audio
 
@@ -120,3 +121,9 @@ ai-tour-guide-device/
 ## 2026-10-29 update
 
 Selected POIs now live in backend/data/navigation-nodes.json, with separate frontend facility catalog. Routes support optimize and returnToStart booleans; the first stop remains fixed and optimized responses include optimization metadata. Order optimization uses a directed AMap walking-distance matrix and Held–Karp, at most eight stops. Static narration is unchanged. Full node inventory: ../requirements/navigation-nodes-20261029.md.
+
+
+
+## 2026-10-30 硬件 P8-test02 已验收
+
+本次已交接完整 Android 和固件源码。P8 在地图块与定位链路上增加独立 QRTE 路线包（最多2048点）及位置消息中的 route_revision/route_progress，按路线前缀显示已走颜色。高德与设备均用 GCJ-02；QRTE 点为纬度、经度，与网页 GeoJSON 的经度、纬度顺序不同，对接时必须转换字段顺序。颜色和线宽可由手机保存调试，最新验收由用户确认全部通过。网页/后端路线导入 App 尚未实现。

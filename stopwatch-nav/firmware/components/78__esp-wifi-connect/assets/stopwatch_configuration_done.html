@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>开启手机热点 · 枫叶精灵</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f5f6f7; color: #202a33; font: 17px/1.65 system-ui, sans-serif; }
+    main { max-width: 520px; margin: 28px auto; padding: 24px; background: white; border-radius: 16px; }
+    h1 { font-size: 26px; line-height: 1.3; margin-top: 0; }
+    li { margin: 12px 0; }
+    ol { padding-left: 24px; }
+    button { width: 100%; padding: 15px; border: 0; border-radius: 10px; color: white; background: #1e664c; font: inherit; font-weight: 600; }
+    button:disabled { background: #6d8179; }
+    #status { min-height: 54px; margin-top: 18px; }
+    .note { color: #53616c; font-size: 15px; }
+    @media (max-width: 550px) { main { margin: 12px; padding: 22px; } }
+  </style>
+</head>
+<body>
+<main>
+  <h1>网络信息已保存</h1>
+  <p>手表还没有连接手机热点。请按下面的顺序继续：</p>
+  <ol>
+    <li>点击下方“开始连接”。</li>
+    <li>离开手表的 Wi-Fi 网络，在手机设置中开启刚才填写的热点。</li>
+    <li>保持手表开机，等待它显示小智界面和新的 IP 地址。</li>
+  </ol>
+  <p class="note">手表会等待约 2 分钟。此时不要重启手表，否则需要重新填写网络。若热点已经开启，点击后等待连接即可。</p>
+  <button id="start" type="button">开始连接</button>
+  <p id="status" role="status" aria-live="polite"></p>
+  <p class="note">如果超时仍未连接，手表会重新打开配网热点。请核对热点名称、密码和 2.4 GHz 设置后再试。</p>
+</main>
+<script>
+const startButton = document.getElementById('start');
+const statusText = document.getElementById('status');
+async function startConnection() {
+  if (startButton.disabled) return;
+  startButton.disabled = true;
+  statusText.textContent = '正在切换手表的网络连接…';
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 8000);
+  try {
+    const response = await fetch('/exit', { method: 'POST', signal: controller.signal });
+    if (!response.ok || !(await response.json()).success) throw new Error('Exit not confirmed');
+    statusText.textContent = '现在请离开手表 Wi-Fi，开启手机热点。保持手表开机，等待连接。';
+    startButton.textContent = '请开启手机热点';
+  } catch (error) {
+    statusText.textContent = '尚未收到切换确认。如果手表配网热点已经消失，请开启手机热点并观察手表；如果热点仍在，可保持连接后重试。';
+    startButton.disabled = false;
+    startButton.textContent = '重试开始连接';
+  } finally { clearTimeout(timer); }
+}
+startButton.addEventListener('click', startConnection);
+</script>
+</body>
+</html>

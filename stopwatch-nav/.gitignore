@@ -1,0 +1,15 @@
+# Local tools, signing material and distribution bundles
+.local/
+.kotlin/
+.venv*/
+*.apk
+*.aab
+*.elf
+*.map
+*.jks
+*.keystore
+personal.properties
+keystore/
+logs/
+releases/
+__pycache__/
