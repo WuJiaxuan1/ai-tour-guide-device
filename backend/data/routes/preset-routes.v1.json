@@ -1,0 +1,1198 @@
+{
+  "version": "official-v1",
+  "routes": [
+    {
+      "routeId": "R01",
+      "revision": 1,
+      "name": "西门亲子休闲游",
+      "description": "山林轻松遛娃，道路平缓不累脚",
+      "entryGateId": "west",
+      "exitGateId": "west",
+      "officialDurationMinutes": 150,
+      "officialNodeCount": 8,
+      "uniqueNodeCount": 8,
+      "countDiscrepancy": false,
+      "stops": [
+        {
+          "stopId": "R01-01",
+          "nodeId": "official-e41c054bf655",
+          "name": "西门入口广场",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 20,
+          "facility": {
+            "nodeId": "official-e191ab86bf61",
+            "name": "西门进入左侧卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R01-02",
+          "nodeId": "official-78b668f7cfeb",
+          "name": "栖霞古寺",
+          "placeId": "temple",
+          "location": [
+            118.957983,
+            32.151807
+          ],
+          "stayMinutes": 40,
+          "facility": {
+            "nodeId": "official-e5f31f327375",
+            "name": "鼓楼卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R01-03",
+          "nodeId": "official-8ef63ed5c6b0",
+          "name": "桃花扇亭",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 20,
+          "facility": null
+        },
+        {
+          "stopId": "R01-04",
+          "nodeId": "official-ab692851b916",
+          "name": "天开岩",
+          "placeId": "tiankai-rock",
+          "location": [
+            118.964308,
+            32.155238
+          ],
+          "stayMinutes": 20,
+          "facility": null
+        },
+        {
+          "stopId": "R01-05",
+          "nodeId": "official-82e42c38f51c",
+          "name": "了凡问道",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 15,
+          "facility": null
+        },
+        {
+          "stopId": "R01-06",
+          "nodeId": "official-1d002725d831",
+          "name": "陆羽茶庄",
+          "placeId": "tea-house",
+          "location": [
+            118.964477,
+            32.149745
+          ],
+          "stayMinutes": 40,
+          "facility": null
+        },
+        {
+          "stopId": "R01-07",
+          "nodeId": "official-b89454736f31",
+          "name": "九龙坡",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 20,
+          "facility": null
+        },
+        {
+          "stopId": "R01-08",
+          "nodeId": "official-f4d94cfceb65",
+          "name": "彩虹明镜",
+          "placeId": "mirror-lake",
+          "location": [
+            118.95631,
+            32.151776
+          ],
+          "stayMinutes": 20,
+          "facility": {
+            "nodeId": "official-5d740941a5fb",
+            "name": "明镜湖卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R01-09",
+          "nodeId": "official-e41c054bf655",
+          "name": "西门入口广场",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 20,
+          "facility": {
+            "nodeId": "official-e191ab86bf61",
+            "name": "西门进入左侧卫生间",
+            "placeId": null
+          }
+        }
+      ],
+      "source": {
+        "provider": "official",
+        "date": "2026-10-30"
+      },
+      "completeness": "listed",
+      "distanceMeters": null,
+      "walkingSeconds": null,
+      "totalMinutes": null,
+      "geometry": null,
+      "legs": [],
+      "navigationReady": false
+    },
+    {
+      "routeId": "R02",
+      "revision": 1,
+      "name": "西门古刹人文游",
+      "description": "古寺平地漫游，步道平缓无压力",
+      "entryGateId": "west",
+      "exitGateId": "west",
+      "officialDurationMinutes": 150,
+      "officialNodeCount": 6,
+      "uniqueNodeCount": 6,
+      "countDiscrepancy": false,
+      "stops": [
+        {
+          "stopId": "R02-01",
+          "nodeId": "official-8be685b4ea78",
+          "name": "西门游客中心",
+          "placeId": "facility-b00190z2ds",
+          "location": [
+            118.9547,
+            32.150235
+          ],
+          "stayMinutes": 10,
+          "facility": {
+            "nodeId": "official-3d305d6e61ba",
+            "name": "西门游客中心卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R02-02",
+          "nodeId": "official-175363c1dce8",
+          "name": "哼哈殿",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 5,
+          "facility": {
+            "nodeId": "official-e5f31f327375",
+            "name": "鼓楼卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R02-03",
+          "nodeId": "official-f4d94cfceb65",
+          "name": "彩虹明镜",
+          "placeId": "mirror-lake",
+          "location": [
+            118.95631,
+            32.151776
+          ],
+          "stayMinutes": 20,
+          "facility": {
+            "nodeId": "official-5d740941a5fb",
+            "name": "明镜湖卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R02-04",
+          "nodeId": "official-78b668f7cfeb",
+          "name": "栖霞古寺",
+          "placeId": "temple",
+          "location": [
+            118.957983,
+            32.151807
+          ],
+          "stayMinutes": 40,
+          "facility": {
+            "nodeId": "official-e5f31f327375",
+            "name": "鼓楼卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R02-05",
+          "nodeId": "official-febfcce899cb",
+          "name": "舍利塔",
+          "placeId": "pagoda",
+          "location": [
+            118.959868,
+            32.151791
+          ],
+          "stayMinutes": 25,
+          "facility": null
+        },
+        {
+          "stopId": "R02-06",
+          "nodeId": "official-c6bddb88231d",
+          "name": "千佛岩",
+          "placeId": "buddha",
+          "location": [
+            118.960159,
+            32.151673
+          ],
+          "stayMinutes": 30,
+          "facility": {
+            "nodeId": "official-4085d08a3e67",
+            "name": "千佛崖卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R02-07",
+          "nodeId": "official-f4d94cfceb65",
+          "name": "彩虹明镜",
+          "placeId": "mirror-lake",
+          "location": [
+            118.95631,
+            32.151776
+          ],
+          "stayMinutes": 20,
+          "facility": {
+            "nodeId": "official-5d740941a5fb",
+            "name": "明镜湖卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R02-08",
+          "nodeId": "official-8be685b4ea78",
+          "name": "西门游客中心",
+          "placeId": "facility-b00190z2ds",
+          "location": [
+            118.9547,
+            32.150235
+          ],
+          "stayMinutes": 10,
+          "facility": {
+            "nodeId": "official-3d305d6e61ba",
+            "name": "西门游客中心卫生间",
+            "placeId": null
+          }
+        }
+      ],
+      "source": {
+        "provider": "official",
+        "date": "2026-10-30"
+      },
+      "completeness": "listed",
+      "distanceMeters": null,
+      "walkingSeconds": null,
+      "totalMinutes": null,
+      "geometry": null,
+      "legs": [],
+      "navigationReady": false
+    },
+    {
+      "routeId": "R03",
+      "revision": 1,
+      "name": "西门赏枫登高游",
+      "description": "登山寻赏红叶，少量爬升适度耗力",
+      "entryGateId": "west",
+      "exitGateId": "west",
+      "officialDurationMinutes": 180,
+      "officialNodeCount": 8,
+      "uniqueNodeCount": 8,
+      "countDiscrepancy": false,
+      "stops": [
+        {
+          "stopId": "R03-01",
+          "nodeId": "official-8be685b4ea78",
+          "name": "西门游客中心",
+          "placeId": "facility-b00190z2ds",
+          "location": [
+            118.9547,
+            32.150235
+          ],
+          "stayMinutes": 10,
+          "facility": {
+            "nodeId": "official-3d305d6e61ba",
+            "name": "西门游客中心卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R03-02",
+          "nodeId": "official-175363c1dce8",
+          "name": "哼哈殿",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 5,
+          "facility": {
+            "nodeId": "official-e5f31f327375",
+            "name": "鼓楼卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R03-03",
+          "nodeId": "official-f4d94cfceb65",
+          "name": "彩虹明镜",
+          "placeId": "mirror-lake",
+          "location": [
+            118.95631,
+            32.151776
+          ],
+          "stayMinutes": 20,
+          "facility": {
+            "nodeId": "official-5d740941a5fb",
+            "name": "明镜湖卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R03-04",
+          "nodeId": "official-78b668f7cfeb",
+          "name": "栖霞古寺",
+          "placeId": "temple",
+          "location": [
+            118.957983,
+            32.151807
+          ],
+          "stayMinutes": 40,
+          "facility": {
+            "nodeId": "official-e5f31f327375",
+            "name": "鼓楼卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R03-05",
+          "nodeId": "official-8ef63ed5c6b0",
+          "name": "桃花扇亭",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 20,
+          "facility": null
+        },
+        {
+          "stopId": "R03-06",
+          "nodeId": "official-cc8d21df9511",
+          "name": "红叶谷",
+          "placeId": "autumn",
+          "location": [
+            118.964226,
+            32.157522
+          ],
+          "stayMinutes": 60,
+          "facility": null
+        },
+        {
+          "stopId": "R03-07",
+          "nodeId": "official-f57672534618",
+          "name": "凤翔峰",
+          "placeId": "fengxiang",
+          "location": [
+            118.969851,
+            32.158487
+          ],
+          "stayMinutes": 40,
+          "facility": null
+        },
+        {
+          "stopId": "R03-08",
+          "nodeId": "official-1fee1904ec0d",
+          "name": "太虚亭",
+          "placeId": "taixu",
+          "location": [
+            118.969327,
+            32.156058
+          ],
+          "stayMinutes": 20,
+          "facility": {
+            "nodeId": "official-4ac60e7c9848",
+            "name": "太虚亭卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R03-09",
+          "nodeId": "official-f4d94cfceb65",
+          "name": "彩虹明镜",
+          "placeId": "mirror-lake",
+          "location": [
+            118.95631,
+            32.151776
+          ],
+          "stayMinutes": 20,
+          "facility": {
+            "nodeId": "official-5d740941a5fb",
+            "name": "明镜湖卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R03-10",
+          "nodeId": "official-8be685b4ea78",
+          "name": "西门游客中心",
+          "placeId": "facility-b00190z2ds",
+          "location": [
+            118.9547,
+            32.150235
+          ],
+          "stayMinutes": 10,
+          "facility": {
+            "nodeId": "official-3d305d6e61ba",
+            "name": "西门游客中心卫生间",
+            "placeId": null
+          }
+        }
+      ],
+      "source": {
+        "provider": "official",
+        "date": "2026-10-30"
+      },
+      "completeness": "listed",
+      "distanceMeters": null,
+      "walkingSeconds": null,
+      "totalMinutes": null,
+      "geometry": null,
+      "legs": [],
+      "navigationReady": false
+    },
+    {
+      "routeId": "R04",
+      "revision": 1,
+      "name": "南门龙山寻幽游",
+      "description": "溪谷慢逛寻幽，步道平缓无负担",
+      "entryGateId": "south",
+      "exitGateId": "south",
+      "officialDurationMinutes": 150,
+      "officialNodeCount": 6,
+      "uniqueNodeCount": 6,
+      "countDiscrepancy": false,
+      "stops": [
+        {
+          "stopId": "R04-01",
+          "nodeId": "official-04fc121f526b",
+          "name": "南门游客中心",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 15,
+          "facility": {
+            "nodeId": "official-45fe9622f726",
+            "name": "南门游客中心卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R04-02",
+          "nodeId": "official-1d002725d831",
+          "name": "陆羽茶庄",
+          "placeId": "tea-house",
+          "location": [
+            118.964477,
+            32.149745
+          ],
+          "stayMinutes": 40,
+          "facility": null
+        },
+        {
+          "stopId": "R04-03",
+          "nodeId": "official-1e6ef38741ea",
+          "name": "半馆",
+          "placeId": "ban-guan",
+          "location": [
+            118.967547,
+            32.152673
+          ],
+          "stayMinutes": 20,
+          "facility": null
+        },
+        {
+          "stopId": "R04-04",
+          "nodeId": "official-6ca94b278c33",
+          "name": "青锋涧",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 40,
+          "facility": null
+        },
+        {
+          "stopId": "R04-05",
+          "nodeId": "official-a356c270ac3f",
+          "name": "乾隆行宫遗址",
+          "placeId": "palace",
+          "location": [
+            118.961952,
+            32.151514
+          ],
+          "stayMinutes": 25,
+          "facility": null
+        },
+        {
+          "stopId": "R04-06",
+          "nodeId": "official-78b668f7cfeb",
+          "name": "栖霞古寺",
+          "placeId": "temple",
+          "location": [
+            118.957983,
+            32.151807
+          ],
+          "stayMinutes": 40,
+          "facility": {
+            "nodeId": "official-e5f31f327375",
+            "name": "鼓楼卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R04-07",
+          "nodeId": "official-04fc121f526b",
+          "name": "南门游客中心",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 15,
+          "facility": {
+            "nodeId": "official-45fe9622f726",
+            "name": "南门游客中心卫生间",
+            "placeId": null
+          }
+        }
+      ],
+      "source": {
+        "provider": "official",
+        "date": "2026-10-30"
+      },
+      "completeness": "listed",
+      "distanceMeters": null,
+      "walkingSeconds": null,
+      "totalMinutes": null,
+      "geometry": null,
+      "legs": [],
+      "navigationReady": false
+    },
+    {
+      "routeId": "R05",
+      "revision": 1,
+      "name": "南门江枫怀古游",
+      "description": "江枫一路揽胜，爬升较多适度耗力",
+      "entryGateId": "south",
+      "exitGateId": "south",
+      "officialDurationMinutes": 300,
+      "officialNodeCount": 7,
+      "uniqueNodeCount": 6,
+      "countDiscrepancy": true,
+      "stops": [
+        {
+          "stopId": "R05-01",
+          "nodeId": "official-04fc121f526b",
+          "name": "南门游客中心",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 15,
+          "facility": {
+            "nodeId": "official-45fe9622f726",
+            "name": "南门游客中心卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R05-02",
+          "nodeId": "official-f0eea1d2e801",
+          "name": "始皇临江处",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 40,
+          "facility": {
+            "nodeId": "official-808108abe4b7",
+            "name": "始皇临江卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R05-03",
+          "nodeId": "official-cc8d21df9511",
+          "name": "红叶谷",
+          "placeId": "autumn",
+          "location": [
+            118.964226,
+            32.157522
+          ],
+          "stayMinutes": 60,
+          "facility": null
+        },
+        {
+          "stopId": "R05-04",
+          "nodeId": "official-53c46b5d8c01",
+          "name": "乾隆御花园",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 30,
+          "facility": null
+        },
+        {
+          "stopId": "R05-05",
+          "nodeId": "official-1b8d6b3f75eb",
+          "name": "桃花湖",
+          "placeId": "peach-lake",
+          "location": [
+            118.962395,
+            32.15523
+          ],
+          "stayMinutes": 25,
+          "facility": null
+        },
+        {
+          "stopId": "R05-06",
+          "nodeId": "official-78b668f7cfeb",
+          "name": "栖霞古寺",
+          "placeId": "temple",
+          "location": [
+            118.957983,
+            32.151807
+          ],
+          "stayMinutes": 40,
+          "facility": {
+            "nodeId": "official-e5f31f327375",
+            "name": "鼓楼卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R05-07",
+          "nodeId": "official-1b8d6b3f75eb",
+          "name": "桃花湖",
+          "placeId": "peach-lake",
+          "location": [
+            118.962395,
+            32.15523
+          ],
+          "stayMinutes": 15,
+          "facility": null
+        },
+        {
+          "stopId": "R05-08",
+          "nodeId": "official-53c46b5d8c01",
+          "name": "乾隆御花园",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 15,
+          "facility": null
+        },
+        {
+          "stopId": "R05-09",
+          "nodeId": "official-cc8d21df9511",
+          "name": "红叶谷",
+          "placeId": "autumn",
+          "location": [
+            118.964226,
+            32.157522
+          ],
+          "stayMinutes": 30,
+          "facility": null
+        },
+        {
+          "stopId": "R05-10",
+          "nodeId": "official-f0eea1d2e801",
+          "name": "始皇临江处",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 20,
+          "facility": {
+            "nodeId": "official-808108abe4b7",
+            "name": "始皇临江卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R05-11",
+          "nodeId": "official-04fc121f526b",
+          "name": "南门游客中心",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 15,
+          "facility": {
+            "nodeId": "official-45fe9622f726",
+            "name": "南门游客中心卫生间",
+            "placeId": null
+          }
+        }
+      ],
+      "source": {
+        "provider": "official",
+        "date": "2026-10-30"
+      },
+      "completeness": "listed",
+      "distanceMeters": null,
+      "walkingSeconds": null,
+      "totalMinutes": null,
+      "geometry": null,
+      "legs": [],
+      "navigationReady": false
+    },
+    {
+      "routeId": "R06",
+      "revision": 1,
+      "name": "南门登顶主峰游",
+      "description": "南路上山登顶，爬升较多适度耗力",
+      "entryGateId": "south",
+      "exitGateId": null,
+      "officialDurationMinutes": 240,
+      "officialNodeCount": 6,
+      "uniqueNodeCount": 6,
+      "countDiscrepancy": false,
+      "stops": [
+        {
+          "stopId": "R06-01",
+          "nodeId": "official-04fc121f526b",
+          "name": "南门游客中心",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 15,
+          "facility": {
+            "nodeId": "official-45fe9622f726",
+            "name": "南门游客中心卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R06-02",
+          "nodeId": "official-1e6ef38741ea",
+          "name": "半馆",
+          "placeId": "ban-guan",
+          "location": [
+            118.967547,
+            32.152673
+          ],
+          "stayMinutes": 20,
+          "facility": null
+        },
+        {
+          "stopId": "R06-03",
+          "nodeId": "official-ab692851b916",
+          "name": "天开岩",
+          "placeId": "tiankai-rock",
+          "location": [
+            118.964308,
+            32.155238
+          ],
+          "stayMinutes": 20,
+          "facility": null
+        },
+        {
+          "stopId": "R06-04",
+          "nodeId": "official-e4ae518afb58",
+          "name": "叠浪岩",
+          "placeId": "dielang-rock",
+          "location": [
+            118.959544,
+            32.153237
+          ],
+          "stayMinutes": 25,
+          "facility": null
+        },
+        {
+          "stopId": "R06-05",
+          "nodeId": "official-f0eea1d2e801",
+          "name": "始皇临江处",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 40,
+          "facility": {
+            "nodeId": "official-808108abe4b7",
+            "name": "始皇临江卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R06-06",
+          "nodeId": "official-1fee1904ec0d",
+          "name": "太虚亭",
+          "placeId": "taixu",
+          "location": [
+            118.969327,
+            32.156058
+          ],
+          "stayMinutes": 20,
+          "facility": {
+            "nodeId": "official-4ac60e7c9848",
+            "name": "太虚亭卫生间",
+            "placeId": null
+          }
+        }
+      ],
+      "source": {
+        "provider": "official",
+        "date": "2026-10-30"
+      },
+      "completeness": "missing_exit",
+      "distanceMeters": null,
+      "walkingSeconds": null,
+      "totalMinutes": null,
+      "geometry": null,
+      "legs": [],
+      "navigationReady": false
+    },
+    {
+      "routeId": "R07",
+      "revision": 1,
+      "name": "西门全景环线游",
+      "description": "全山景点一网打尽，全程耗费大量体力",
+      "entryGateId": "west",
+      "exitGateId": "west",
+      "officialDurationMinutes": 300,
+      "officialNodeCount": 11,
+      "uniqueNodeCount": 11,
+      "countDiscrepancy": false,
+      "stops": [
+        {
+          "stopId": "R07-01",
+          "nodeId": "official-8be685b4ea78",
+          "name": "西门游客中心",
+          "placeId": "facility-b00190z2ds",
+          "location": [
+            118.9547,
+            32.150235
+          ],
+          "stayMinutes": 10,
+          "facility": {
+            "nodeId": "official-3d305d6e61ba",
+            "name": "西门游客中心卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R07-02",
+          "nodeId": "official-175363c1dce8",
+          "name": "哼哈殿",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 5,
+          "facility": {
+            "nodeId": "official-e5f31f327375",
+            "name": "鼓楼卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R07-03",
+          "nodeId": "official-f4d94cfceb65",
+          "name": "彩虹明镜",
+          "placeId": "mirror-lake",
+          "location": [
+            118.95631,
+            32.151776
+          ],
+          "stayMinutes": 20,
+          "facility": {
+            "nodeId": "official-5d740941a5fb",
+            "name": "明镜湖卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R07-04",
+          "nodeId": "official-78b668f7cfeb",
+          "name": "栖霞古寺",
+          "placeId": "temple",
+          "location": [
+            118.957983,
+            32.151807
+          ],
+          "stayMinutes": 40,
+          "facility": {
+            "nodeId": "official-e5f31f327375",
+            "name": "鼓楼卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R07-05",
+          "nodeId": "official-c6bddb88231d",
+          "name": "千佛岩",
+          "placeId": "buddha",
+          "location": [
+            118.960159,
+            32.151673
+          ],
+          "stayMinutes": 30,
+          "facility": {
+            "nodeId": "official-4085d08a3e67",
+            "name": "千佛崖卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R07-06",
+          "nodeId": "official-febfcce899cb",
+          "name": "舍利塔",
+          "placeId": "pagoda",
+          "location": [
+            118.959868,
+            32.151791
+          ],
+          "stayMinutes": 25,
+          "facility": null
+        },
+        {
+          "stopId": "R07-07",
+          "nodeId": "official-8ef63ed5c6b0",
+          "name": "桃花扇亭",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 20,
+          "facility": null
+        },
+        {
+          "stopId": "R07-08",
+          "nodeId": "official-cc8d21df9511",
+          "name": "红叶谷",
+          "placeId": "autumn",
+          "location": [
+            118.964226,
+            32.157522
+          ],
+          "stayMinutes": 60,
+          "facility": null
+        },
+        {
+          "stopId": "R07-09",
+          "nodeId": "official-f57672534618",
+          "name": "凤翔峰",
+          "placeId": "fengxiang",
+          "location": [
+            118.969851,
+            32.158487
+          ],
+          "stayMinutes": 40,
+          "facility": null
+        },
+        {
+          "stopId": "R07-10",
+          "nodeId": "official-f0eea1d2e801",
+          "name": "始皇临江处",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 40,
+          "facility": {
+            "nodeId": "official-808108abe4b7",
+            "name": "始皇临江卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R07-11",
+          "nodeId": "official-1fee1904ec0d",
+          "name": "太虚亭",
+          "placeId": "taixu",
+          "location": [
+            118.969327,
+            32.156058
+          ],
+          "stayMinutes": 20,
+          "facility": {
+            "nodeId": "official-4ac60e7c9848",
+            "name": "太虚亭卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R07-12",
+          "nodeId": "official-f4d94cfceb65",
+          "name": "彩虹明镜",
+          "placeId": "mirror-lake",
+          "location": [
+            118.95631,
+            32.151776
+          ],
+          "stayMinutes": 20,
+          "facility": {
+            "nodeId": "official-5d740941a5fb",
+            "name": "明镜湖卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R07-13",
+          "nodeId": "official-8be685b4ea78",
+          "name": "西门游客中心",
+          "placeId": "facility-b00190z2ds",
+          "location": [
+            118.9547,
+            32.150235
+          ],
+          "stayMinutes": 10,
+          "facility": {
+            "nodeId": "official-3d305d6e61ba",
+            "name": "西门游客中心卫生间",
+            "placeId": null
+          }
+        }
+      ],
+      "source": {
+        "provider": "official",
+        "date": "2026-10-30"
+      },
+      "completeness": "listed",
+      "distanceMeters": null,
+      "walkingSeconds": null,
+      "totalMinutes": null,
+      "geometry": null,
+      "legs": [],
+      "navigationReady": false
+    },
+    {
+      "routeId": "R08",
+      "revision": 1,
+      "name": "西门虎山揽胜游",
+      "description": "山脊眺望长江，长距离爬坡很耗体力",
+      "entryGateId": "west",
+      "exitGateId": "west",
+      "officialDurationMinutes": 270,
+      "officialNodeCount": 8,
+      "uniqueNodeCount": 8,
+      "countDiscrepancy": false,
+      "stops": [
+        {
+          "stopId": "R08-01",
+          "nodeId": "official-8be685b4ea78",
+          "name": "西门游客中心",
+          "placeId": "facility-b00190z2ds",
+          "location": [
+            118.9547,
+            32.150235
+          ],
+          "stayMinutes": 10,
+          "facility": {
+            "nodeId": "official-3d305d6e61ba",
+            "name": "西门游客中心卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R08-02",
+          "nodeId": "official-175363c1dce8",
+          "name": "哼哈殿",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 5,
+          "facility": {
+            "nodeId": "official-e5f31f327375",
+            "name": "鼓楼卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R08-03",
+          "nodeId": "official-f4d94cfceb65",
+          "name": "彩虹明镜",
+          "placeId": "mirror-lake",
+          "location": [
+            118.95631,
+            32.151776
+          ],
+          "stayMinutes": 20,
+          "facility": {
+            "nodeId": "official-5d740941a5fb",
+            "name": "明镜湖卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R08-04",
+          "nodeId": "official-78b668f7cfeb",
+          "name": "栖霞古寺",
+          "placeId": "temple",
+          "location": [
+            118.957983,
+            32.151807
+          ],
+          "stayMinutes": 40,
+          "facility": {
+            "nodeId": "official-e5f31f327375",
+            "name": "鼓楼卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R08-05",
+          "nodeId": "official-1fb03ef8f503",
+          "name": "有凌云观景平台",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 40,
+          "facility": null
+        },
+        {
+          "stopId": "R08-06",
+          "nodeId": "official-344a26c11d40",
+          "name": "虎山",
+          "placeId": "tiger-hill",
+          "location": [
+            118.959596,
+            32.156694
+          ],
+          "stayMinutes": 30,
+          "facility": null
+        },
+        {
+          "stopId": "R08-07",
+          "nodeId": "official-f0eea1d2e801",
+          "name": "始皇临江处",
+          "placeId": null,
+          "location": null,
+          "stayMinutes": 40,
+          "facility": {
+            "nodeId": "official-808108abe4b7",
+            "name": "始皇临江卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R08-08",
+          "nodeId": "official-cc8d21df9511",
+          "name": "红叶谷",
+          "placeId": "autumn",
+          "location": [
+            118.964226,
+            32.157522
+          ],
+          "stayMinutes": 60,
+          "facility": null
+        },
+        {
+          "stopId": "R08-09",
+          "nodeId": "official-f4d94cfceb65",
+          "name": "彩虹明镜",
+          "placeId": "mirror-lake",
+          "location": [
+            118.95631,
+            32.151776
+          ],
+          "stayMinutes": 20,
+          "facility": {
+            "nodeId": "official-5d740941a5fb",
+            "name": "明镜湖卫生间",
+            "placeId": null
+          }
+        },
+        {
+          "stopId": "R08-10",
+          "nodeId": "official-8be685b4ea78",
+          "name": "西门游客中心",
+          "placeId": "facility-b00190z2ds",
+          "location": [
+            118.9547,
+            32.150235
+          ],
+          "stayMinutes": 10,
+          "facility": {
+            "nodeId": "official-3d305d6e61ba",
+            "name": "西门游客中心卫生间",
+            "placeId": null
+          }
+        }
+      ],
+      "source": {
+        "provider": "official",
+        "date": "2026-10-30"
+      },
+      "completeness": "listed",
+      "distanceMeters": null,
+      "walkingSeconds": null,
+      "totalMinutes": null,
+      "geometry": null,
+      "legs": [],
+      "navigationReady": false
+    }
+  ]
+}

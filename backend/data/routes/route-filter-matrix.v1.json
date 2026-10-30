@@ -1,0 +1,169 @@
+{
+  "version": "official-v1",
+  "options": {
+    "gate": [
+      {
+        "label": "西门（牌坊）",
+        "value": "west"
+      },
+      {
+        "label": "南门（蝴蝶谷）",
+        "value": "south"
+      }
+    ],
+    "duration": [
+      {
+        "label": "半日",
+        "value": "half"
+      },
+      {
+        "label": "全天",
+        "value": "full"
+      }
+    ],
+    "intensity": [
+      {
+        "label": "轻松休闲",
+        "value": "easy"
+      },
+      {
+        "label": "正常游览",
+        "value": "normal"
+      },
+      {
+        "label": "能量无限",
+        "value": "energetic"
+      }
+    ],
+    "companions": [
+      {
+        "label": "60岁以上老人",
+        "value": "senior"
+      },
+      {
+        "label": "3-12岁儿童",
+        "value": "child"
+      },
+      {
+        "label": "未选择",
+        "value": "none"
+      }
+    ]
+  },
+  "rules": [
+    {
+      "gate": "west",
+      "duration": "half",
+      "intensity": "easy",
+      "companions": "senior",
+      "status": "matched",
+      "routeIds": [
+        "R01",
+        "R02"
+      ]
+    },
+    {
+      "gate": "west",
+      "duration": "half",
+      "intensity": "normal",
+      "companions": "senior",
+      "status": "no_match",
+      "routeIds": []
+    },
+    {
+      "gate": "west",
+      "duration": "half",
+      "intensity": "easy",
+      "companions": "child",
+      "status": "matched",
+      "routeIds": [
+        "R01",
+        "R02"
+      ]
+    },
+    {
+      "gate": "west",
+      "duration": "half",
+      "intensity": "normal",
+      "companions": "child",
+      "status": "matched",
+      "routeIds": [
+        "R03"
+      ]
+    },
+    {
+      "gate": "south",
+      "duration": "half",
+      "intensity": "easy",
+      "companions": "senior",
+      "status": "matched",
+      "routeIds": [
+        "R04"
+      ]
+    },
+    {
+      "gate": "south",
+      "duration": "half",
+      "intensity": "easy",
+      "companions": "child",
+      "status": "matched",
+      "routeIds": [
+        "R04"
+      ]
+    },
+    {
+      "gate": "west",
+      "duration": "half",
+      "intensity": "easy",
+      "companions": "none",
+      "status": "matched",
+      "routeIds": [
+        "R01",
+        "R02"
+      ]
+    },
+    {
+      "gate": "west",
+      "duration": "half",
+      "intensity": "energetic",
+      "companions": "none",
+      "status": "matched",
+      "routeIds": [
+        "R07",
+        "R08"
+      ]
+    },
+    {
+      "gate": "south",
+      "duration": "half",
+      "intensity": "easy",
+      "companions": "none",
+      "status": "matched",
+      "routeIds": [
+        "R04"
+      ]
+    },
+    {
+      "gate": "south",
+      "duration": "full",
+      "intensity": "normal",
+      "companions": "child",
+      "status": "matched",
+      "routeIds": [
+        "R05",
+        "R06"
+      ]
+    },
+    {
+      "gate": "south",
+      "duration": "full",
+      "intensity": "normal",
+      "companions": "none",
+      "status": "matched",
+      "routeIds": [
+        "R05",
+        "R06"
+      ]
+    }
+  ]
+}

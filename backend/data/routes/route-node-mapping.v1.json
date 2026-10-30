@@ -1,0 +1,617 @@
+{
+  "version": "official-v1",
+  "nodes": [
+    {
+      "nodeId": "official-e41c054bf655",
+      "name": "西门入口广场",
+      "kind": "place",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-e191ab86bf61",
+      "name": "西门进入左侧卫生间",
+      "kind": "facility",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-78b668f7cfeb",
+      "name": "栖霞古寺",
+      "kind": "place",
+      "placeId": "temple",
+      "nearPlaceId": null,
+      "location": [
+        118.957983,
+        32.151807
+      ],
+      "status": "mapped"
+    },
+    {
+      "nodeId": "official-e5f31f327375",
+      "name": "鼓楼卫生间",
+      "kind": "facility",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-8ef63ed5c6b0",
+      "name": "桃花扇亭",
+      "kind": "place",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-ab692851b916",
+      "name": "天开岩",
+      "kind": "place",
+      "placeId": "tiankai-rock",
+      "nearPlaceId": null,
+      "location": [
+        118.964308,
+        32.155238
+      ],
+      "status": "mapped"
+    },
+    {
+      "nodeId": "official-82e42c38f51c",
+      "name": "了凡问道",
+      "kind": "place",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-1d002725d831",
+      "name": "陆羽茶庄",
+      "kind": "place",
+      "placeId": "tea-house",
+      "nearPlaceId": null,
+      "location": [
+        118.964477,
+        32.149745
+      ],
+      "status": "mapped"
+    },
+    {
+      "nodeId": "official-b89454736f31",
+      "name": "九龙坡",
+      "kind": "place",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-f4d94cfceb65",
+      "name": "彩虹明镜",
+      "kind": "place",
+      "placeId": "mirror-lake",
+      "nearPlaceId": null,
+      "location": [
+        118.95631,
+        32.151776
+      ],
+      "status": "mapped"
+    },
+    {
+      "nodeId": "official-5d740941a5fb",
+      "name": "明镜湖卫生间",
+      "kind": "facility",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-8be685b4ea78",
+      "name": "西门游客中心",
+      "kind": "place",
+      "placeId": "facility-b00190z2ds",
+      "nearPlaceId": null,
+      "location": [
+        118.9547,
+        32.150235
+      ],
+      "status": "mapped"
+    },
+    {
+      "nodeId": "official-3d305d6e61ba",
+      "name": "西门游客中心卫生间",
+      "kind": "facility",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-175363c1dce8",
+      "name": "哼哈殿",
+      "kind": "place",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-febfcce899cb",
+      "name": "舍利塔",
+      "kind": "place",
+      "placeId": "pagoda",
+      "nearPlaceId": null,
+      "location": [
+        118.959868,
+        32.151791
+      ],
+      "status": "mapped"
+    },
+    {
+      "nodeId": "official-c6bddb88231d",
+      "name": "千佛岩",
+      "kind": "place",
+      "placeId": "buddha",
+      "nearPlaceId": null,
+      "location": [
+        118.960159,
+        32.151673
+      ],
+      "status": "mapped"
+    },
+    {
+      "nodeId": "official-4085d08a3e67",
+      "name": "千佛崖卫生间",
+      "kind": "facility",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-cc8d21df9511",
+      "name": "红叶谷",
+      "kind": "place",
+      "placeId": "autumn",
+      "nearPlaceId": null,
+      "location": [
+        118.964226,
+        32.157522
+      ],
+      "status": "mapped"
+    },
+    {
+      "nodeId": "official-f57672534618",
+      "name": "凤翔峰",
+      "kind": "place",
+      "placeId": "fengxiang",
+      "nearPlaceId": null,
+      "location": [
+        118.969851,
+        32.158487
+      ],
+      "status": "mapped"
+    },
+    {
+      "nodeId": "official-1fee1904ec0d",
+      "name": "太虚亭",
+      "kind": "place",
+      "placeId": "taixu",
+      "nearPlaceId": null,
+      "location": [
+        118.969327,
+        32.156058
+      ],
+      "status": "mapped"
+    },
+    {
+      "nodeId": "official-4ac60e7c9848",
+      "name": "太虚亭卫生间",
+      "kind": "facility",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-04fc121f526b",
+      "name": "南门游客中心",
+      "kind": "place",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-45fe9622f726",
+      "name": "南门游客中心卫生间",
+      "kind": "facility",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-1e6ef38741ea",
+      "name": "半馆",
+      "kind": "place",
+      "placeId": "ban-guan",
+      "nearPlaceId": null,
+      "location": [
+        118.967547,
+        32.152673
+      ],
+      "status": "mapped"
+    },
+    {
+      "nodeId": "official-6ca94b278c33",
+      "name": "青锋涧",
+      "kind": "place",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-a356c270ac3f",
+      "name": "乾隆行宫遗址",
+      "kind": "place",
+      "placeId": "palace",
+      "nearPlaceId": null,
+      "location": [
+        118.961952,
+        32.151514
+      ],
+      "status": "mapped"
+    },
+    {
+      "nodeId": "official-f0eea1d2e801",
+      "name": "始皇临江处",
+      "kind": "place",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-808108abe4b7",
+      "name": "始皇临江卫生间",
+      "kind": "facility",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-53c46b5d8c01",
+      "name": "乾隆御花园",
+      "kind": "place",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-1b8d6b3f75eb",
+      "name": "桃花湖",
+      "kind": "place",
+      "placeId": "peach-lake",
+      "nearPlaceId": null,
+      "location": [
+        118.962395,
+        32.15523
+      ],
+      "status": "mapped"
+    },
+    {
+      "nodeId": "official-e4ae518afb58",
+      "name": "叠浪岩",
+      "kind": "place",
+      "placeId": "dielang-rock",
+      "nearPlaceId": null,
+      "location": [
+        118.959544,
+        32.153237
+      ],
+      "status": "mapped"
+    },
+    {
+      "nodeId": "official-1fb03ef8f503",
+      "name": "有凌云观景平台",
+      "kind": "place",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-344a26c11d40",
+      "name": "虎山",
+      "kind": "place",
+      "placeId": "tiger-hill",
+      "nearPlaceId": null,
+      "location": [
+        118.959596,
+        32.156694
+      ],
+      "status": "mapped"
+    },
+    {
+      "nodeId": "official-932df773c63e",
+      "name": "药师殿",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-a8dba741612b",
+      "name": "虎山站",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-a6a0f2060bc0",
+      "name": "始皇临江",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-5c296fcd977a",
+      "name": "天街",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-cc846adfe958",
+      "name": "天开岩",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": "tiankai-rock",
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-27adb32e1485",
+      "name": "虎爪岩",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-01b229a69b53",
+      "name": "小营盘",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": "camp",
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-e7487dcb6a44",
+      "name": "饮马池",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": "horse-pond",
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-0979fdb3a50b",
+      "name": "蝴蝶谷",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-85e520f30c35",
+      "name": "明镜湖",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": "mirror-lake",
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-452f33aa9674",
+      "name": "南大仙林校区",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-307ad93c9a0a",
+      "name": "羊山公园地铁站",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-89af5cd96bca",
+      "name": "中医药大学",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-0df0f35d4359",
+      "name": "南京邮电大学",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-dded50803c7a",
+      "name": "南京财经大学",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-3cd6aebd9b4c",
+      "name": "文苑路",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-dd05f5eab3ac",
+      "name": "文澜路南",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-d8b2469309e8",
+      "name": "南京师范大学东门",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-40edce0ab123",
+      "name": "文澜路",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-a9ee551c9ddf",
+      "name": "文澜路北",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-62b636b25cec",
+      "name": "学海路",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-85c7450da880",
+      "name": "邮电大学北",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-cc9e0b820890",
+      "name": "文澜路·南工院西",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-2b85f479fd57",
+      "name": "紫金学院",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-7edbef209f95",
+      "name": "文澜路东",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-d15918ff3474",
+      "name": "信息学院",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-713b26ff6caa",
+      "name": "九乡河西路",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-aa29739d8779",
+      "name": "衡阳寺",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-195e03c1f4b1",
+      "name": "红枫新村",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": null,
+      "location": null,
+      "status": "unresolved"
+    },
+    {
+      "nodeId": "official-c3f4de64f45d",
+      "name": "栖霞古镇",
+      "kind": "shuttle_stop",
+      "placeId": null,
+      "nearPlaceId": "old-street",
+      "location": null,
+      "status": "unresolved"
+    }
+  ]
+}

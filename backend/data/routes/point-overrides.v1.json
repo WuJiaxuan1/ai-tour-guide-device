@@ -1,0 +1,10 @@
+{
+  "version": "amap-audit-20261030",
+  "source": "AMap place/text, 南京 citylimit; names and scenic-area bounds checked",
+  "nodes": [
+    {"nodeId":"official-82e42c38f51c","poiId":"B0FFF0ANIL","poiName":"栖霞山名胜风景区-了凡问道","location":[118.964711,32.154484]},
+    {"nodeId":"official-175363c1dce8","poiId":"B0FFHNMDN6","poiName":"哼哈殿","location":[118.956292,32.150991]},
+    {"nodeId":"official-f0eea1d2e801","poiId":"B001912IAZ","poiName":"栖霞山名胜风景区-始皇临江","location":[118.968394,32.159612]},
+    {"nodeId":"official-53c46b5d8c01","poiId":"B00190AJZJ","poiName":"栖霞山名胜风景区-乾隆御花园","location":[118.964293,32.156408]}
+  ]
+}
