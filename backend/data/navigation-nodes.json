@@ -1,6 +1,6 @@
 {
   "coordinateSystem": "GCJ02",
-  "updatedAt": "2026-10-29T13:02:39.276Z",
+  "updatedAt": "2026-10-29T18:53:57.914Z",
   "nodes": {
     "autumn": {
       "id": "autumn",
@@ -906,6 +906,278 @@
         "/assets/amap/8eab48b026c23190d892.webp",
         "/assets/amap/6167c427383dc4582335.webp",
         "/assets/amap/98850cfc833cbac400dc.webp"
+      ]
+    },
+    "facility-b0jkkz8g0j": {
+      "id": "facility-b0jkkz8g0j",
+      "name": "古镇南停车场",
+      "poiId": "B0JKKZ8G0J",
+      "poiName": "古镇南停车场",
+      "location": [
+        118.955444,
+        32.146788
+      ],
+      "address": "栖霞街48号",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0JKKZ8G0J"
+      },
+      "photos": [
+        "/assets/amap/13be431b3469c5900f61.webp"
+      ]
+    },
+    "facility-b0m6nhf2dg": {
+      "id": "facility-b0m6nhf2dg",
+      "name": "栖霞古镇故事馆",
+      "poiId": "B0M6NHF2DG",
+      "poiName": "栖霞古镇故事馆",
+      "location": [
+        118.953996,
+        32.148679
+      ],
+      "address": "20县道与栖霞街交叉口西北40米",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0M6NHF2DG"
+      },
+      "photos": [
+        "/assets/amap/281b5a03790a0081ecb1.webp",
+        "/assets/amap/4d15d96dcc80b8ac3b2b.webp",
+        "/assets/amap/44e1d5b19d9814d8f3d6.webp"
+      ]
+    },
+    "facility-b001909cri": {
+      "id": "facility-b001909cri",
+      "name": "千佛斋素菜馆",
+      "poiId": "B001909CRI",
+      "poiName": "千佛斋素菜馆",
+      "location": [
+        118.958513,
+        32.152448
+      ],
+      "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B001909CRI"
+      },
+      "photos": [
+        "/assets/amap/3b8c365f1fb3c8a9c370.webp",
+        "/assets/amap/50fe6149998f44cd6339.webp",
+        "/assets/amap/ac088dbdd074fe168834.webp"
+      ]
+    },
+    "facility-b0l07z0y4h": {
+      "id": "facility-b0l07z0y4h",
+      "name": "拾间咖啡",
+      "poiId": "B0L07Z0Y4H",
+      "poiName": "拾间咖啡",
+      "location": [
+        118.959425,
+        32.152825
+      ],
+      "address": "栖霞街88号栖霞山风景名胜区内(西侧)",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0L07Z0Y4H"
+      },
+      "photos": [
+        "/assets/amap/819bfe75ffe2a1b5acbb.webp",
+        "/assets/amap/c9b5fe56bfc1eb32f9db.webp"
+      ]
+    },
+    "facility-b0lga5kqbu": {
+      "id": "facility-b0lga5kqbu",
+      "name": "南京大味在素(栖霞寺店)",
+      "poiId": "B0LGA5KQBU",
+      "poiName": "南京大味在素(栖霞寺店)",
+      "location": [
+        118.954123,
+        32.149252
+      ],
+      "address": "栖霞寺店",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0LGA5KQBU"
+      },
+      "photos": [
+        "/assets/amap/e3cda69000c780179b16.webp",
+        "/assets/amap/74a695b9804a4a51c16f.webp",
+        "/assets/amap/6e560df7ef499c06614c.webp"
+      ]
+    },
+    "facility-b0i0dhr2o3": {
+      "id": "facility-b0i0dhr2o3",
+      "name": "人间咖啡",
+      "poiId": "B0I0DHR2O3",
+      "poiName": "人间咖啡",
+      "location": [
+        118.954387,
+        32.148681
+      ],
+      "address": "栖霞街栖霞寺栖霞古镇D1",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0I0DHR2O3"
+      },
+      "photos": [
+        "/assets/amap/f2fdd3937ceb1311148b.webp",
+        "/assets/amap/602293b69ca40eec6667.webp",
+        "/assets/amap/66382e38fff705673d89.webp"
+      ]
+    },
+    "facility-b0k1t5uoz7": {
+      "id": "facility-b0k1t5uoz7",
+      "name": "晶舍精厨 (栖霞古镇店)",
+      "poiId": "B0K1T5UOZ7",
+      "poiName": "晶舍精厨 (栖霞古镇店)",
+      "location": [
+        118.95407,
+        32.149237
+      ],
+      "address": "栖霞街栖霞古镇牌坊进入直走50米",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0K1T5UOZ7"
+      },
+      "photos": [
+        "/assets/amap/b1e8f9b6542085756e4b.webp",
+        "/assets/amap/142ad5c289a9d3d4154b.webp",
+        "/assets/amap/5ebcfae3e68226616602.webp"
+      ]
+    },
+    "facility-b0l69r1y52": {
+      "id": "facility-b0l69r1y52",
+      "name": "一碗素面(栖霞寺店)",
+      "poiId": "B0L69R1Y52",
+      "poiName": "一碗素面(栖霞寺店)",
+      "location": [
+        118.954534,
+        32.148976
+      ],
+      "address": "栖霞街与茶圣路交叉口东北60米",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0L69R1Y52"
+      },
+      "photos": [
+        "/assets/amap/1f37dc5c6fd6c315a332.webp",
+        "/assets/amap/f49bcf61a51dc942ad93.webp",
+        "/assets/amap/2f878aba8c52ddfe5bf9.webp"
+      ]
+    },
+    "facility-b0ldpztd01": {
+      "id": "facility-b0ldpztd01",
+      "name": "邮局咖啡(栖霞山店)",
+      "poiId": "B0LDPZTD01",
+      "poiName": "邮局咖啡(栖霞山店)",
+      "location": [
+        118.954436,
+        32.150464
+      ],
+      "address": "栖霞街68-45号",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0LDPZTD01"
+      },
+      "photos": [
+        "/assets/amap/e60c37d5b3965c531c40.webp",
+        "/assets/amap/b1553cd88d1fa72ef66b.webp",
+        "/assets/amap/3cb4e3d038898385a56d.webp"
+      ]
+    },
+    "facility-b0mazzdigm": {
+      "id": "facility-b0mazzdigm",
+      "name": "盛檀素味",
+      "poiId": "B0MAZZDIGM",
+      "poiName": "盛檀素味",
+      "location": [
+        118.954041,
+        32.148565
+      ],
+      "address": "栖霞古镇81-3栋",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0MAZZDIGM"
+      },
+      "photos": [
+        "/assets/amap/8522117592150233f56c.webp"
+      ]
+    },
+    "facility-b0l0hnomm1": {
+      "id": "facility-b0l0hnomm1",
+      "name": "山胡里咖啡店",
+      "poiId": "B0L0HNOMM1",
+      "poiName": "山胡里咖啡店",
+      "location": [
+        118.961915,
+        32.154674
+      ],
+      "address": "栖霞街88号栖霞山风景名胜区内(西侧)",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0L0HNOMM1"
+      },
+      "photos": [
+        "/assets/amap/1d48eb0b71a265c80b73.webp",
+        "/assets/amap/e21a826177ecee36c009.webp"
+      ]
+    },
+    "facility-b0mbdhgcsv": {
+      "id": "facility-b0mbdhgcsv",
+      "name": "星巴克(南京栖霞古镇店)",
+      "poiId": "B0MBDHGCSV",
+      "poiName": "星巴克(南京栖霞古镇店)",
+      "location": [
+        118.953922,
+        32.150138
+      ],
+      "address": "栖霞街道栖霞古镇81-4栋1号商铺",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0MBDHGCSV"
+      },
+      "photos": [
+        "/assets/amap/4a26a588930319ba9453.webp",
+        "/assets/amap/72c09a1ba60d45368ce8.webp",
+        "/assets/amap/a7a562be6661242bb9c3.webp"
+      ]
+    },
+    "facility-b0mbmh79je": {
+      "id": "facility-b0mbmh79je",
+      "name": "肯德基(栖霞古镇店)",
+      "poiId": "B0MBMH79JE",
+      "poiName": "肯德基(栖霞古镇店)",
+      "location": [
+        118.953742,
+        32.150567
+      ],
+      "address": "NO.2024G14地块栖霞古镇北区A2号商业楼101室&103室",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0MBMH79JE"
+      },
+      "photos": [
+        "/assets/amap/4e5cc1890b465b81409d.webp"
+      ]
+    },
+    "facility-b0jd27r1za": {
+      "id": "facility-b0jd27r1za",
+      "name": "鸡鸣汤包(栖霞街店)",
+      "poiId": "B0JD27R1ZA",
+      "poiName": "鸡鸣汤包(栖霞街店)",
+      "location": [
+        118.954348,
+        32.149237
+      ],
+      "address": "栖霞街道栖霞古镇D3-4号",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B0JD27R1ZA"
+      },
+      "photos": [
+        "/assets/amap/0216f70c5e2eb7e9b009.webp",
+        "/assets/amap/cd1becf0944dc9418e26.webp",
+        "/assets/amap/04208d7c5d7c18029e90.webp"
       ]
     }
   }

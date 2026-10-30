@@ -14,11 +14,12 @@ export function decodePolyline(value){
   return points;
 }
 export function mergeLegs(paths,stops,routeId){
-  let distanceMeters=0,walkingSeconds=0;const coordinates=[],steps=[];
-  for(const path of paths){
+  let distanceMeters=0,walkingSeconds=0;const coordinates=[],steps=[],legs=[];
+  for(const [legIndex,path] of paths.entries()){
     const d=Number(path.distance),t=Number(path.duration);
     if(!Number.isFinite(d)||d<0||!Number.isFinite(t)||t<0||!Array.isArray(path.steps)||(!path.steps.length&&d!==0))throw new ServiceError('步行路线信息不完整。');
     distanceMeters+=d;walkingSeconds+=t;
+    legs.push({fromId:stops[legIndex % stops.length].id,toId:stops[(legIndex+1)%stops.length].id,distanceMeters:d,walkingSeconds:t,hasStairs:path.steps.some(v=>String(v.walk_type)==='20'),hasSlope:path.steps.some(v=>String(v.walk_type)==='21')});
     for(const step of path.steps){
       const points=decodePolyline(step.polyline);
       for(const p of points){const last=coordinates.at(-1);if(!last||last[0]!==p[0]||last[1]!==p[1])coordinates.push(p);}
@@ -28,5 +29,5 @@ export function mergeLegs(paths,stops,routeId){
     }
   }
   if(coordinates.length<2||coordinates.length>20000)throw new ServiceError('这条路线超出当前可显示范围。');
-  return {schemaVersion:'1.0',routeId,revision:1,travelMode:'walking',coordinateSystem:'GCJ02',coordinateOrder:'lng,lat',source:{provider:'amap',generatedAt:new Date().toISOString()},stops,geometry:{type:'LineString',coordinates},distanceMeters,walkingSeconds,steps};
+  return {schemaVersion:'1.0',routeId,revision:1,travelMode:'walking',coordinateSystem:'GCJ02',coordinateOrder:'lng,lat',source:{provider:'amap',generatedAt:new Date().toISOString()},stops,geometry:{type:'LineString',coordinates},distanceMeters,walkingSeconds,steps,legs};
 }

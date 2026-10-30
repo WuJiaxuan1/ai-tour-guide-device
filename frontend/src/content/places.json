@@ -3,7 +3,7 @@
     "id": "autumn",
     "name": "红叶谷",
     "category": "山林与四季",
-    "intro": "一起比较叶形与颜色，把秋天留在两个人的记忆里。",
+    "intro": "比较叶形与颜色，记录山里的秋天。",
     "story": "枫香、三角枫、鸡爪槭，都是栖霞山的红叶植物。红叶谷位于御花园与凤翔峰西南山腰相接的一带，有铺翠、揽红二池和夕佳亭长廊。红、黄、绿会随气温逐渐交错；古道、湖边与亭旁，也各有看秋色的角度。南京的赏枫习俗，让同一座山留在不同年份的生活记忆里。",
     "tags": [
       "自然",
@@ -22,7 +22,12 @@
     "aliases": [],
     "audio": "/assets/audio/autumn.wav",
     "amapPoiId": "B001909CRH",
-    "navigationAvailable": true
+    "navigationAvailable": true,
+    "location": [
+      118.964226,
+      32.157522
+    ],
+    "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西北角)"
   },
   {
     "id": "mirror-lake",
@@ -46,7 +51,12 @@
     "aliases": [],
     "audio": "/assets/audio/mirror-lake.wav",
     "amapPoiId": "B001912HV0",
-    "navigationAvailable": true
+    "navigationAvailable": true,
+    "location": [
+      118.95631,
+      32.151776
+    ],
+    "address": "栖霞街88号栖霞山风景区内"
   },
   {
     "id": "temple",
@@ -70,7 +80,12 @@
     "aliases": [],
     "audio": "/assets/audio/temple.wav",
     "amapPoiId": "B00190D2L7",
-    "navigationAvailable": true
+    "navigationAvailable": true,
+    "location": [
+      118.957983,
+      32.151807
+    ],
+    "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)"
   },
   {
     "id": "spring-bridge",
@@ -96,43 +111,12 @@
     "aliases": [],
     "audio": "/assets/audio/spring-bridge.wav",
     "amapPoiId": "B0FFFFAOPQ",
-    "navigationAvailable": true
-  },
-  {
-    "id": "peach-fan",
-    "name": "桃花扇亭",
-    "category": "文学与山水",
-    "intro": "在扇形窗洞与山林之间，找一段文学的回声。",
-    "story": "桃花扇亭的名字与孔尚任的《桃花扇》相连。李香君、侯方域的文学故事，与桃花涧、葆贞庵等地方空间相接。亭的形态和窗洞中可见扇形、桃花花瓣的意象。戏曲中的故事与后来的纪念景观，在这里与山林相遇。",
-    "tags": [
-      "人文",
-      "文学"
+    "navigationAvailable": true,
+    "location": [
+      118.961884,
+      32.151409
     ],
-    "images": [],
-    "image": null,
-    "religious": false,
-    "mapName": "桃花扇亭",
-    "aliases": [],
-    "audio": "/assets/audio/peach-fan.wav",
-    "navigationAvailable": false
-  },
-  {
-    "id": "peach-stream",
-    "name": "桃花涧",
-    "category": "溪涧与四季",
-    "intro": "沿着溪涧看山，也为下一次春天留下一个理由。",
-    "story": "桃花涧因旧时涧旁的桃树而得名，后来经过补植，恢复了春季景致。它与中峰涧共同组成栖霞的两条重要溪涧。桃花扇亭、桃花湖、诗文与山林，使这里的景观不只属于一个季节。",
-    "tags": [
-      "自然",
-      "溪涧"
-    ],
-    "images": [],
-    "image": null,
-    "religious": false,
-    "mapName": "桃花涧",
-    "aliases": [],
-    "audio": "/assets/audio/peach-stream.wav",
-    "navigationAvailable": false
+    "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西南角)"
   },
   {
     "id": "peach-lake",
@@ -155,25 +139,12 @@
     "aliases": [],
     "audio": "/assets/audio/peach-lake.wav",
     "amapPoiId": "B00190AK1Z",
-    "navigationAvailable": true
-  },
-  {
-    "id": "pearl-spring",
-    "name": "珍珠泉亭",
-    "category": "泉水与亭景",
-    "intro": "从一处泉名，认识水景背后的时间。",
-    "story": "珍珠泉连着旧泉眼、题字与桃花湖，后来又形成亭景。泉水与亭台是栖霞山水文化的一部分；观察眼前景观时，也可以想一想名字、旧水源和后来建设之间的关系。",
-    "tags": [
-      "茶事",
-      "泉水"
+    "navigationAvailable": true,
+    "location": [
+      118.962395,
+      32.15523
     ],
-    "images": [],
-    "image": null,
-    "religious": false,
-    "mapName": "珍珠泉",
-    "aliases": [],
-    "audio": "/assets/audio/pearl-spring.wav",
-    "navigationAvailable": false
+    "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)"
   },
   {
     "id": "tea",
@@ -206,7 +177,12 @@
     ],
     "audio": "/assets/audio/tea.wav",
     "amapPoiId": "B0FFFF662S",
-    "navigationAvailable": true
+    "navigationAvailable": true,
+    "location": [
+      118.964922,
+      32.152182
+    ],
+    "address": "栖霞街88号栖霞山风景名胜区"
   },
   {
     "id": "tea-house",
@@ -230,43 +206,12 @@
     "aliases": [],
     "audio": "/assets/audio/tea-house.wav",
     "amapPoiId": "B00190AK1Y",
-    "navigationAvailable": true
-  },
-  {
-    "id": "pinwai-spring",
-    "name": "品外泉",
-    "category": "泉水与地方故事",
-    "intro": "泉名里，也藏着人们讲述山水的方式。",
-    "story": "品外泉的名字来自后人讲述的陆羽品泉故事：泉水很好，却未列入品评，因此称作品外。它曾通过暗渠进入寺中，成为生活用水的一部分。传说、泉名和日常生活，为同一处水源留下不同的线索。",
-    "tags": [
-      "茶事",
-      "泉水"
+    "navigationAvailable": true,
+    "location": [
+      118.964477,
+      32.149745
     ],
-    "images": [],
-    "image": null,
-    "religious": false,
-    "mapName": "品外泉",
-    "aliases": [],
-    "audio": "/assets/audio/pinwai-spring.wav",
-    "navigationAvailable": false
-  },
-  {
-    "id": "white-deer-spring",
-    "name": "白鹿泉遗址",
-    "category": "泉水与行宫",
-    "intro": "沿着遗址，寻找山水与旧日建筑的联系。",
-    "story": "白鹿泉遗址与行宫空间相关。其上方又联系着话山亭、有凌云意、石梁精舍与畅观亭等景观。文伯仁的摄山白鹿泉庵图，也把这里带入绘画记忆。白鹿泉与白乳泉试茶亭题刻并不是同一处地点。",
-    "tags": [
-      "遗址",
-      "茶事"
-    ],
-    "images": [],
-    "image": null,
-    "religious": false,
-    "mapName": "白鹿泉",
-    "aliases": [],
-    "audio": "/assets/audio/white-deer-spring.wav",
-    "navigationAvailable": false
+    "address": "栖霞大道栖霞山风景区内(近栖霞街)"
   },
   {
     "id": "palace",
@@ -293,30 +238,12 @@
     ],
     "audio": "/assets/audio/palace.wav",
     "amapPoiId": "B0FFFFA5A4",
-    "navigationAvailable": true
-  },
-  {
-    "id": "taigu-hall",
-    "name": "太古堂",
-    "category": "行宫与题名",
-    "intro": "从一个旧日名称，读行宫与山林的关系。",
-    "story": "太古堂属于认识栖霞行宫的重要名称，与春雨山房、武夷一曲精庐等共同联系着行宫的政务空间。行宫在乾隆后几次南巡期间仍有增建。读山中的地名、题刻和遗迹，可以逐渐理解这片依山展开的历史空间。",
-    "tags": [
-      "遗址",
-      "人文"
+    "navigationAvailable": true,
+    "location": [
+      118.961952,
+      32.151514
     ],
-    "images": [
-      "/assets/places/0e66f4381d1f5e.webp",
-      "/assets/places/c7f342ff179cae.webp",
-      "/assets/places/830f714895dab7.webp",
-      "/assets/places/b4e6fb730cef51.webp"
-    ],
-    "image": "/assets/places/0e66f4381d1f5e.webp",
-    "religious": false,
-    "mapName": "太古堂",
-    "aliases": [],
-    "audio": "/assets/audio/taigu-hall.wav",
-    "navigationAvailable": false
+    "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西南角)"
   },
   {
     "id": "camp",
@@ -339,7 +266,12 @@
     "aliases": [],
     "audio": "/assets/audio/camp.wav",
     "amapPoiId": "B001912HP8",
-    "navigationAvailable": true
+    "navigationAvailable": true,
+    "location": [
+      118.966781,
+      32.153355
+    ],
+    "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内"
   },
   {
     "id": "ban-guan",
@@ -363,7 +295,12 @@
     "aliases": [],
     "audio": "/assets/audio/ban-guan.wav",
     "amapPoiId": "B00191552W",
-    "navigationAvailable": true
+    "navigationAvailable": true,
+    "location": [
+      118.967547,
+      32.152673
+    ],
+    "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内"
   },
   {
     "id": "horse-pond",
@@ -386,7 +323,12 @@
     "aliases": [],
     "audio": "/assets/audio/horse-pond.wav",
     "amapPoiId": "B0FFF05UMW",
-    "navigationAvailable": true
+    "navigationAvailable": true,
+    "location": [
+      118.966308,
+      32.151199
+    ],
+    "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内"
   },
   {
     "id": "changguan",
@@ -414,7 +356,12 @@
     "aliases": [],
     "audio": "/assets/audio/changguan.wav",
     "amapPoiId": "B0FFFF5YUS",
-    "navigationAvailable": true
+    "navigationAvailable": true,
+    "location": [
+      118.962821,
+      32.152494
+    ],
+    "address": "栖霞街88号"
   },
   {
     "id": "taixu",
@@ -437,25 +384,12 @@
     "aliases": [],
     "audio": "/assets/audio/taixu.wav",
     "amapPoiId": "B00190AJZI",
-    "navigationAvailable": true
-  },
-  {
-    "id": "tianjie",
-    "name": "天街",
-    "category": "山路与服务空间",
-    "intro": "途中留一点休息时间，再决定下一段怎么走。",
-    "story": "天街是登山途中的服务空间。游山除了景点与故事，也包括休息、饮水、餐饮和返程安排。和同行的人一起按时间与体力调整节奏，是认识这座山的一部分；具体服务和营业情况请查看现场信息。",
-    "tags": [
-      "服务",
-      "慢游"
+    "navigationAvailable": true,
+    "location": [
+      118.969327,
+      32.156058
     ],
-    "images": [],
-    "image": null,
-    "religious": false,
-    "mapName": "天街",
-    "aliases": [],
-    "audio": "/assets/audio/tianjie.wav",
-    "navigationAvailable": false
+    "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内"
   },
   {
     "id": "fengxiang",
@@ -478,7 +412,12 @@
     "aliases": [],
     "audio": "/assets/audio/fengxiang.wav",
     "amapPoiId": "B0FFF0FKGO",
-    "navigationAvailable": true
+    "navigationAvailable": true,
+    "location": [
+      118.969851,
+      32.158487
+    ],
+    "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内"
   },
   {
     "id": "tiger-hill",
@@ -501,50 +440,19 @@
     "aliases": [],
     "audio": "/assets/audio/tiger-hill.wav",
     "amapPoiId": "B001912JDN",
-    "navigationAvailable": true
-  },
-  {
-    "id": "dragon-hill",
-    "name": "龙山",
-    "category": "三峰与山势",
-    "intro": "换个方向看山，了解三峰两涧的布局。",
-    "story": "龙山是栖霞山东峰，与西峰虎山、中峰凤翔峰共同构成三峰格局。山中的道路、溪涧与文化点位依地形展开。理解山势，也是在理解茶事、行宫与自然景观之间的联系。",
-    "tags": [
-      "自然",
-      "山势"
+    "navigationAvailable": true,
+    "location": [
+      118.959596,
+      32.156694
     ],
-    "images": [],
-    "image": null,
-    "religious": false,
-    "mapName": "龙山",
-    "aliases": [],
-    "audio": "/assets/audio/dragon-hill.wav",
-    "navigationAvailable": false
-  },
-  {
-    "id": "emperor-river",
-    "name": "始皇临江处",
-    "category": "长江与地方记忆",
-    "intro": "凭栏远望，把旅行的视线放得更远。",
-    "story": "始皇临江处承接着秦始皇东巡与栖霞的地方记忆。今天可见的亭、廊与观景平台是后来恢复的景观，可以远望长江。江乘、郑和与水陆通行等线索，也连接着这座山与更广阔的地域。",
-    "tags": [
-      "人文",
-      "观景"
-    ],
-    "images": [],
-    "image": null,
-    "religious": false,
-    "mapName": "始皇临江处",
-    "aliases": [],
-    "audio": "/assets/audio/emperor-river.wav",
-    "navigationAvailable": false
+    "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)"
   },
   {
     "id": "qingfeng-rock",
     "name": "青锋剑石",
     "category": "山石与地质",
     "intro": "同一块岩壁，可以从传说与科学读出两种故事。",
-    "story": "青锋剑石是岩壁中的黑色条纹景观。地方传说将它与乾隆佩剑联系起来；地质上，燧石与石灰岩风化速度不同，较耐风化的部分显露出来，形成条纹。传说记录命名，地质解释形态。两个人可以先各自描述看到的纹理，再交换观察。",
+    "story": "青锋剑石是岩壁中的黑色条纹景观。地方传说将它与乾隆佩剑联系起来；地质上，燧石与石灰岩风化速度不同，较耐风化的部分显露出来，形成条纹。传说记录命名，地质解释形态。可以先观察岩壁纹理，再对照这些故事。",
     "tags": [
       "自然",
       "地质"
@@ -563,7 +471,12 @@
     ],
     "audio": "/assets/audio/qingfeng-rock.wav",
     "amapPoiId": "B0FFF0FKH2",
-    "navigationAvailable": true
+    "navigationAvailable": true,
+    "location": [
+      118.966263,
+      32.152974
+    ],
+    "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内"
   },
   {
     "id": "tiankai-rock",
@@ -586,7 +499,12 @@
     "aliases": [],
     "audio": "/assets/audio/tiankai-rock.wav",
     "amapPoiId": "B001912IQ4",
-    "navigationAvailable": true
+    "navigationAvailable": true,
+    "location": [
+      118.964308,
+      32.155238
+    ],
+    "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区天开岩"
   },
   {
     "id": "dielang-rock",
@@ -609,28 +527,12 @@
     "aliases": [],
     "audio": "/assets/audio/dielang-rock.wav",
     "amapPoiId": "B001912JNK",
-    "navigationAvailable": true
-  },
-  {
-    "id": "waterfall",
-    "name": "中峰涧瀑布",
-    "category": "溪涧与山林",
-    "intro": "在绿荫和水声之间，慢一点走。",
-    "story": "中峰涧是栖霞两条重要溪涧之一，流经春雨桥一带。溪水、山石和植物构成夏季山林的清凉意象，也串联行宫周边的方位线索。水量与景观会随季节天气变化，现场可以留意水流、石阶和植物的细节。",
-    "tags": [
-      "自然",
-      "溪涧"
+    "navigationAvailable": true,
+    "location": [
+      118.959544,
+      32.153237
     ],
-    "images": [
-      "/assets/places/265eba4acb193d.webp",
-      "/assets/places/fe4c06124112ed.webp"
-    ],
-    "image": "/assets/places/265eba4acb193d.webp",
-    "religious": false,
-    "mapName": "中峰涧瀑布",
-    "aliases": [],
-    "audio": "/assets/audio/waterfall.wav",
-    "navigationAvailable": false
+    "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)"
   },
   {
     "id": "old-street",
@@ -655,25 +557,12 @@
     ],
     "audio": "/assets/audio/old-street.wav",
     "amapPoiId": "B0L16SRJN5",
-    "navigationAvailable": true
-  },
-  {
-    "id": "gaoqifeng",
-    "name": "高奇峰墓园",
-    "category": "近代艺术与纪念",
-    "intro": "从山中的纪念空间，认识一位画家。",
-    "story": "高奇峰是岭南画派的重要画家。山中的墓园、牌坊、雕像和题词保存着对他的纪念，也把栖霞与近代绘画联系起来。徐悲鸿、蔡元培的相关文字，将艺术家本人、同道评价与后来的纪念相接。",
-    "tags": [
-      "人文",
-      "艺术"
+    "navigationAvailable": true,
+    "location": [
+      118.954024,
+      32.148556
     ],
-    "images": [],
-    "image": null,
-    "religious": false,
-    "mapName": "高奇峰墓园",
-    "aliases": [],
-    "audio": "/assets/audio/gaoqifeng.wav",
-    "navigationAvailable": false
+    "address": "20县道与栖霞街交叉口西20米"
   },
   {
     "id": "shoujiang-well",
@@ -696,35 +585,24 @@
     "aliases": [],
     "audio": "/assets/audio/shoujiang-well.wav",
     "amapPoiId": "B0FFHNLM4E",
-    "navigationAvailable": true
-  },
-  {
-    "id": "jiangzong-stele",
-    "name": "江总碑",
-    "category": "诗文与人物",
-    "intro": "沿着游山文字，与过去的来客相遇。",
-    "story": "江总碑、历代题刻与游山诗文，让栖霞留下不同年代的声音。江总、李白、焦竑、孔尚任、袁枚和乾隆等人，各自与这座山发生联系。有的诗写山水，有的写心境，文字也为今天的观看留下线索。",
-    "tags": [
-      "人文",
-      "文学"
+    "navigationAvailable": true,
+    "location": [
+      118.958284,
+      32.152156
     ],
-    "images": [],
-    "image": null,
-    "religious": false,
-    "mapName": "江总碑",
-    "aliases": [],
-    "audio": "/assets/audio/jiangzong-stele.wav",
-    "navigationAvailable": false
+    "address": "近郊栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)"
   },
   {
     "id": "gate",
     "name": "栖霞山西门",
     "category": "山门与游览入口",
-    "intro": "从山前出发，先和同行的人商量今天的节奏。",
+    "intro": "从西门入园，开始探索栖霞山。",
     "story": "山门、古道、峰顶与古镇之间，分布着不同的游览与服务空间。西门、南门、游客中心、观光车、天街和半馆，组成一天中的进出、行走与停留。出发前留意现场地图与开放信息，再按时间和体力选择路线。",
     "tags": [
       "服务",
-      "入口"
+      "入口",
+      "出入口",
+      "游客服务"
     ],
     "images": [
       "/assets/places/17483f4afcae0b.webp",
@@ -736,30 +614,12 @@
     "aliases": [],
     "audio": "/assets/audio/gate.wav",
     "navigationAvailable": true,
-    "amapPoiId": "B001913YX0"
-  },
-  {
-    "id": "panorama",
-    "name": "栖霞山山水",
-    "category": "三峰两涧",
-    "intro": "先读懂山与水，再寻找你们感兴趣的故事。",
-    "story": "栖霞山位于南京东北、长江南岸。虎山、凤翔峰、龙山与桃花涧、中峰涧组成三峰两涧。山中古道、亭桥、茶泉和遗址依着地形展开。文伯仁、张宏、钱维城等画家也留下不同的栖霞图景。四季里的花、绿荫、红叶和枝干，让同一座山有再次相逢的理由。",
-    "tags": [
-      "自然",
-      "山势"
+    "amapPoiId": "B001913YX0",
+    "location": [
+      118.954566,
+      32.150215
     ],
-    "images": [
-      "/assets/places/f83fddc0416339.webp",
-      "/assets/amap/3658c9c54a9404d09335.webp",
-      "/assets/amap/3bf6a1d5d09f8065d960.webp"
-    ],
-    "image": "/assets/places/f83fddc0416339.webp",
-    "religious": false,
-    "mapName": "栖霞山风景名胜区",
-    "aliases": [],
-    "audio": "/assets/audio/panorama.wav",
-    "amapPoiId": "B00190BDDQ",
-    "navigationAvailable": true
+    "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)"
   },
   {
     "id": "shamao",
@@ -784,7 +644,12 @@
     "aliases": [],
     "audio": "/assets/audio/shamao.wav",
     "amapPoiId": "B0FFFFLDXQ",
-    "navigationAvailable": true
+    "navigationAvailable": true,
+    "location": [
+      118.961202,
+      32.151957
+    ],
+    "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西南角)"
   },
   {
     "id": "mingzheng-stele",
@@ -807,7 +672,12 @@
     "aliases": [],
     "audio": "/assets/audio/mingzheng-stele.wav",
     "amapPoiId": "B001912HOX",
-    "navigationAvailable": true
+    "navigationAvailable": true,
+    "location": [
+      118.958533,
+      32.152333
+    ],
+    "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内西侧"
   },
   {
     "id": "pagoda",
@@ -832,7 +702,12 @@
     "aliases": [],
     "audio": "/assets/audio/pagoda.wav",
     "amapPoiId": "B001909CRJ",
-    "navigationAvailable": true
+    "navigationAvailable": true,
+    "location": [
+      118.959868,
+      32.151791
+    ],
+    "address": "栖霞街84号栖霞山名胜风景区"
   },
   {
     "id": "buddha",
@@ -860,6 +735,11 @@
     ],
     "audio": "/assets/audio/buddha.wav",
     "amapPoiId": "B001912JE8",
-    "navigationAvailable": true
+    "navigationAvailable": true,
+    "location": [
+      118.960159,
+      32.151673
+    ],
+    "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区栖霞古寺内"
   }
 ]

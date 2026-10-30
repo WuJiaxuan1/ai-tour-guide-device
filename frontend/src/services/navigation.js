@@ -21,6 +21,10 @@ export function validateRoute(route, stopIds, {optimize=false}={}) {
   if (route.steps !== undefined && (!Array.isArray(route.steps) || route.steps.some(step =>
     typeof step?.instruction !== 'string' || !validLocation(step?.location) ||
     !finiteNonnegative(step.distanceMeters) || !finiteNonnegative(step.walkingSeconds)))) invalid();
+  if(route.legs!==undefined){
+    if(!Array.isArray(route.legs)||route.legs.length!==stopIds.length-1+(route.optimization?.returnToStart?1:0))invalid();
+    route.legs.forEach((leg,i)=>{if(leg.fromId!==route.stops[i%stopIds.length].id||leg.toId!==route.stops[(i+1)%stopIds.length].id||!finiteNonnegative(leg.distanceMeters)||!finiteNonnegative(leg.walkingSeconds))invalid();});
+  }
   return route;
 }
 

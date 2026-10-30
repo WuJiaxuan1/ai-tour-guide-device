@@ -1,0 +1,311 @@
+{
+  "source": "栖霞山旅游度假区微信小程序 / 地图导览",
+  "checkedAt": "2026-10-29T18:45:28.189Z",
+  "removed": [
+    {
+      "id": "peach-fan",
+      "name": "桃花扇亭"
+    },
+    {
+      "id": "peach-stream",
+      "name": "桃花涧"
+    },
+    {
+      "id": "pearl-spring",
+      "name": "珍珠泉亭"
+    },
+    {
+      "id": "pinwai-spring",
+      "name": "品外泉"
+    },
+    {
+      "id": "white-deer-spring",
+      "name": "白鹿泉遗址"
+    },
+    {
+      "id": "taigu-hall",
+      "name": "太古堂"
+    },
+    {
+      "id": "tianjie",
+      "name": "天街"
+    },
+    {
+      "id": "dragon-hill",
+      "name": "龙山"
+    },
+    {
+      "id": "emperor-river",
+      "name": "始皇临江处"
+    },
+    {
+      "id": "waterfall",
+      "name": "中峰涧瀑布"
+    },
+    {
+      "id": "gaoqifeng",
+      "name": "高奇峰墓园"
+    },
+    {
+      "id": "jiangzong-stele",
+      "name": "江总碑"
+    },
+    {
+      "id": "panorama",
+      "name": "栖霞山山水"
+    }
+  ],
+  "matched": [
+    {
+      "category": "停车场",
+      "name": "栖霞山风景名胜区-P3地上停车场",
+      "address": "栖霞街与20县道交叉口南60米",
+      "id": "facility-b0l01ohlb7",
+      "poiId": "B0L01OHLB7",
+      "action": "reuse"
+    },
+    {
+      "category": "停车场",
+      "name": "古镇南停车场",
+      "address": "栖霞街48号",
+      "id": "facility-b0jkkz8g0j",
+      "poiId": "B0JKKZ8G0J",
+      "action": "added"
+    },
+    {
+      "category": "游客服务",
+      "name": "栖霞古镇故事馆",
+      "address": "20县道与栖霞街交叉口西北40米",
+      "id": "facility-b0m6nhf2dg",
+      "poiId": "B0M6NHF2DG",
+      "action": "added"
+    },
+    {
+      "category": "餐饮",
+      "name": "千佛斋",
+      "address": "栖霞街88号栖霞山西侧",
+      "id": "facility-b001909cri",
+      "poiId": "B001909CRI",
+      "action": "added"
+    },
+    {
+      "category": "餐饮",
+      "name": "拾间咖啡",
+      "address": "栖霞街88号",
+      "id": "facility-b0l07z0y4h",
+      "poiId": "B0L07Z0Y4H",
+      "action": "added"
+    },
+    {
+      "category": "餐饮",
+      "name": "大味在素",
+      "address": "栖霞寺店",
+      "id": "facility-b0lga5kqbu",
+      "poiId": "B0LGA5KQBU",
+      "action": "added"
+    },
+    {
+      "category": "餐饮",
+      "name": "人间咖啡",
+      "address": "栖霞古镇D1",
+      "id": "facility-b0i0dhr2o3",
+      "poiId": "B0I0DHR2O3",
+      "action": "added"
+    },
+    {
+      "category": "餐饮",
+      "name": "晶舍精厨",
+      "address": "栖霞古镇牌坊进入直走50米",
+      "id": "facility-b0k1t5uoz7",
+      "poiId": "B0K1T5UOZ7",
+      "action": "added"
+    },
+    {
+      "category": "餐饮",
+      "name": "一碗素面",
+      "address": "栖霞街与茶圣路交叉口东北60米",
+      "id": "facility-b0l69r1y52",
+      "poiId": "B0L69R1Y52",
+      "action": "added"
+    },
+    {
+      "category": "餐饮",
+      "name": "邮局咖啡",
+      "address": "栖霞街68-45号",
+      "id": "facility-b0ldpztd01",
+      "poiId": "B0LDPZTD01",
+      "action": "added"
+    },
+    {
+      "category": "餐饮",
+      "name": "盛檀素味",
+      "address": "栖霞古镇81-3号",
+      "id": "facility-b0mazzdigm",
+      "poiId": "B0MAZZDIGM",
+      "action": "added"
+    },
+    {
+      "category": "餐饮",
+      "name": "山胡里咖啡",
+      "address": "栖霞街88号",
+      "id": "facility-b0l0hnomm1",
+      "poiId": "B0L0HNOMM1",
+      "action": "added"
+    },
+    {
+      "category": "餐饮",
+      "name": "星巴克",
+      "address": "栖霞古镇81-4栋1号",
+      "reason": "No unique local POI",
+      "id": "facility-b0mbdhgcsv",
+      "poiId": "B0MBDHGCSV",
+      "action": "added"
+    },
+    {
+      "category": "餐饮",
+      "name": "肯德基",
+      "address": "栖霞古镇北区A2号商业楼101室及103室",
+      "reason": "No unique local POI",
+      "id": "facility-b0mbmh79je",
+      "poiId": "B0MBMH79JE",
+      "action": "added"
+    },
+    {
+      "category": "餐饮",
+      "name": "鸡鸣汤包",
+      "address": "栖霞古镇D3-4号",
+      "reason": "No unique local POI",
+      "id": "facility-b0jd27r1za",
+      "poiId": "B0JD27R1ZA",
+      "action": "added"
+    },
+    {
+      "category": "停车场",
+      "name": "栖霞山景区南门停车场",
+      "address": "栖霞山风景名胜区南门地面停车场",
+      "id": "facility-b0k6b5gtiv",
+      "poiId": "B0K6B5GTIV",
+      "action": "reuse-address-match",
+      "evidence": "Official address and existing AMap POI address refer to the same west visitor center / south surface parking lot."
+    },
+    {
+      "category": "游客服务",
+      "name": "西门游客服务中心",
+      "address": "栖霞街88号栖霞山内西侧",
+      "id": "facility-b00190z2ds",
+      "poiId": "B00190Z2DS",
+      "action": "reuse-address-match",
+      "evidence": "Official address and existing AMap POI address refer to the same west visitor center / south surface parking lot."
+    }
+  ],
+  "unresolved": [
+    {
+      "category": "停车场",
+      "name": "栖霞山西门P2停车场",
+      "address": "栖霞山风景名胜区西门停车场(出入口)",
+      "reason": "No unique local POI"
+    },
+    {
+      "category": "停车场",
+      "name": "栖霞山风景区P1大客车停车场",
+      "address": "栖霞大道与红枫路交叉口西北240米",
+      "reason": "No unique local POI"
+    },
+    {
+      "category": "停车场",
+      "name": "栖霞山风景区管委会东停车场",
+      "address": "南水新村98号",
+      "reason": "No unique local POI"
+    },
+    {
+      "category": "游客服务",
+      "name": "南门游客服务中心",
+      "address": "栖霞大道与栖霞南街交汇处东1000米",
+      "reason": "No unique local POI"
+    },
+    {
+      "category": "游客服务",
+      "name": "栖霞山旅游服务度假区综合服务中心",
+      "address": "栖霞街60号",
+      "reason": "No unique local POI"
+    },
+    {
+      "category": "餐饮",
+      "name": "沪上阿姨",
+      "address": "栖霞街81-29栋1号",
+      "reason": "More than one matching POI"
+    },
+    {
+      "category": "厕所",
+      "name": "鼓楼卫生间",
+      "address": "鼓楼附近",
+      "reason": "No unique local POI"
+    },
+    {
+      "category": "厕所",
+      "name": "明镜湖卫生间",
+      "address": "明镜湖附近",
+      "reason": "No unique local POI"
+    },
+    {
+      "category": "厕所",
+      "name": "卫生间",
+      "address": "西门进入左侧",
+      "reason": "Generic label; need a distinct toilet POI"
+    },
+    {
+      "category": "厕所",
+      "name": "西门游客中心",
+      "address": "西门游客中心",
+      "reason": "Generic label; need a distinct toilet POI"
+    },
+    {
+      "category": "厕所",
+      "name": "南门游客中心卫生间",
+      "address": "南门游客中心",
+      "reason": "No unique local POI"
+    },
+    {
+      "category": "厕所",
+      "name": "太虚亭卫生间",
+      "address": "太虚亭附近",
+      "reason": "No unique local POI"
+    },
+    {
+      "category": "厕所",
+      "name": "夕亭卫生间",
+      "address": "夕亭附近",
+      "reason": "No unique local POI"
+    },
+    {
+      "category": "厕所",
+      "name": "德云亭卫生间",
+      "address": "德云亭附近",
+      "reason": "No unique local POI"
+    },
+    {
+      "category": "厕所",
+      "name": "桃花坞卫生间",
+      "address": "桃花坞附近",
+      "reason": "No unique local POI"
+    },
+    {
+      "category": "厕所",
+      "name": "始皇临江卫生间",
+      "address": "始皇临江附近",
+      "reason": "No unique local POI"
+    },
+    {
+      "category": "厕所",
+      "name": "集云亭卫生间",
+      "address": "集云亭附近",
+      "reason": "No unique local POI"
+    },
+    {
+      "category": "厕所",
+      "name": "千佛崖卫生间",
+      "address": "千佛崖附近",
+      "reason": "No unique local POI"
+    }
+  ]
+}
