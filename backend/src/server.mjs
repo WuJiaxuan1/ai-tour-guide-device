@@ -1,5 +1,5 @@
 import http from 'node:http';
-import {readFileSync,existsSync,statSync,createReadStream} from 'node:fs';
+import {readFileSync,existsSync,statSync,createReadStream,writeFileSync,mkdirSync,renameSync} from 'node:fs';
 import {resolve,dirname,extname,sep} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {randomUUID} from 'node:crypto';
@@ -14,6 +14,9 @@ const facilities=existsSync(facilitiesPath)?JSON.parse(readFileSync(facilitiesPa
 const nodesPath=resolve(root,'backend/data/navigation-nodes.json');
 const navigationNodes=existsSync(nodesPath)?JSON.parse(readFileSync(nodesPath,'utf8')).nodes:{};
 const known=new Map([...catalog,...facilities].map(p=>[p.id,p])),poiCache=new Map(),routeCache=new Map(),legCache=new Map();let weatherCache,lastRouteRequest=0;
+const roadCachePath=resolve(root,'.local-work/road-cache.json');
+try{const saved=JSON.parse(readFileSync(roadCachePath,'utf8'));for(const[k,v]of Object.entries(saved)){if(v&&Date.now()-v.at<600000&&v.path)legCache.set(k,v);}}catch{}
+function saveRoadCache(){try{mkdirSync(dirname(roadCachePath),{recursive:true});const entries=[...legCache].filter(([,v])=>Date.now()-v.at<600000&&v.path).slice(-256);writeFileSync(roadCachePath+'.tmp',JSON.stringify(Object.fromEntries(entries)));renameSync(roadCachePath+'.tmp',roadCachePath);}catch{}}
 let routeQueue=Promise.resolve();
 const json=(res,status,data)=>{res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'});res.end(JSON.stringify(data));};
 async function body(req){let value='';for await(const part of req){value+=part;if(Buffer.byteLength(value)>16384)throw new ServiceError('请求内容过大。',413);}try{return JSON.parse(value);}catch{throw new ServiceError('请求格式不正确。',400);}}
@@ -29,7 +32,7 @@ async function resolvePlace(id,key,signal){
 async function walkingLeg(from,to,key,signal){
  const signature=from.location.join(',')+'>'+to.location.join(',');const cached=legCache.get(signature);if(cached&&Date.now()-cached.at<600000)return cached.path;
  if(from.location.every((v,i)=>v===to.location[i]))return{distance:'0',duration:'0',steps:[]};
- const task=routeQueue.then(async()=>{if(signal.aborted)throw new ServiceError('规划已取消。',499);const delay=Math.max(0,700-(Date.now()-lastRouteRequest));if(delay)await new Promise(r=>setTimeout(r,delay));lastRouteRequest=Date.now();const data=await amapRequest('/v3/direction/walking',{origin:from.location.join(','),destination:to.location.join(',')},key,{signal});const path=data.route?.paths?.[0]||null;legCache.set(signature,{at:Date.now(),path});return path;});routeQueue=task.catch(()=>{});return task;
+ const task=routeQueue.then(async()=>{if(signal.aborted)throw new ServiceError('规划已取消。',499);const delay=Math.max(0,700-(Date.now()-lastRouteRequest));if(delay)await new Promise(r=>setTimeout(r,delay));lastRouteRequest=Date.now();const data=await amapRequest('/v3/direction/walking',{origin:from.location.join(','),destination:to.location.join(',')},key,{signal});const path=data.route?.paths?.[0]||null;if(path){legCache.set(signature,{at:Date.now(),path});saveRoadCache();}return path;});routeQueue=task.catch(()=>{});return task;
 }
 async function weather(key,signal){
   if(weatherCache&&Date.now()-weatherCache.at<20*60000)return weatherCache.data;
@@ -43,7 +46,7 @@ async function weather(key,signal){
 const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8','.png':'image/png','.jpg':'image/jpeg','.webp':'image/webp','.woff2':'font/woff2','.wav':'audio/wav','.txt':'text/plain; charset=utf-8'};
 function staticFile(req,res,url){
   const base=resolve(root,'frontend/dist/client');let file=resolve(base,'.'+decodeURIComponent(url.pathname));
-  if(!file.startsWith(base+sep))return json(res,404,{error:'页面不存在。'});
+  if(file!==base&&!file.startsWith(base+sep))return json(res,404,{error:'页面不存在。'});
   if(!existsSync(file)||!statSync(file).isFile()){if(extname(url.pathname))return json(res,404,{error:'文件不存在。'});file=resolve(base,'index.html');}
   if(!existsSync(file))return json(res,404,{error:'请先构建前端。'});
   const size=statSync(file).size,headers={'Content-Type':mime[extname(file)]||'application/octet-stream','Accept-Ranges':'bytes'};

@@ -234,35 +234,6 @@
     "openingHours": null
   },
   {
-    "id": "facility-b001913yx0",
-    "name": "栖霞山风景名胜区西门售票处",
-    "category": "入园与售票",
-    "facilityType": "出入口",
-    "kind": "facility",
-    "tags": [
-      "出入口",
-      "游客服务"
-    ],
-    "intro": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
-    "story": "位置：栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
-    "images": [
-      "/assets/amap/8eab48b026c23190d892.webp",
-      "/assets/amap/6167c427383dc4582335.webp",
-      "/assets/amap/98850cfc833cbac400dc.webp"
-    ],
-    "image": "/assets/amap/8eab48b026c23190d892.webp",
-    "audio": null,
-    "amapPoiId": "B001913YX0",
-    "navigationAvailable": true,
-    "location": [
-      118.954566,
-      32.150215
-    ],
-    "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
-    "tel": null,
-    "openingHours": "08:30-17:30"
-  },
-  {
     "id": "facility-b0i3ccqtcd",
     "name": "栖霞山风景名胜区南门地面停车场(入口)",
     "category": "停车场",
@@ -555,5 +526,361 @@
     "address": "栖霞山名胜风景区摄山栖霞寺(东北角)",
     "tel": null,
     "openingHours": "08:00-17:30"
+  },
+  {
+    "id": "facility-b0jkkz8g0j",
+    "name": "古镇南停车场",
+    "kind": "facility",
+    "category": "停车场",
+    "facilityType": "停车场",
+    "tags": [
+      "停车场"
+    ],
+    "intro": "栖霞街48号",
+    "story": "位置：栖霞街48号。请按地图步行指引前往，营业和服务情况以现场为准。",
+    "images": [
+      "/assets/amap/13be431b3469c5900f61.webp"
+    ],
+    "image": "/assets/amap/13be431b3469c5900f61.webp",
+    "audio": null,
+    "amapPoiId": "B0JKKZ8G0J",
+    "navigationAvailable": true,
+    "location": [
+      118.955444,
+      32.146788
+    ],
+    "address": "栖霞街48号"
+  },
+  {
+    "id": "facility-b0m6nhf2dg",
+    "name": "栖霞古镇故事馆",
+    "kind": "facility",
+    "category": "游客服务",
+    "facilityType": "游客服务",
+    "tags": [
+      "游客服务"
+    ],
+    "intro": "20县道与栖霞街交叉口西北40米",
+    "story": "位置：20县道与栖霞街交叉口西北40米。请按地图步行指引前往，营业和服务情况以现场为准。",
+    "images": [
+      "/assets/amap/281b5a03790a0081ecb1.webp",
+      "/assets/amap/4d15d96dcc80b8ac3b2b.webp",
+      "/assets/amap/44e1d5b19d9814d8f3d6.webp"
+    ],
+    "image": "/assets/amap/281b5a03790a0081ecb1.webp",
+    "audio": null,
+    "amapPoiId": "B0M6NHF2DG",
+    "navigationAvailable": true,
+    "location": [
+      118.953996,
+      32.148679
+    ],
+    "address": "20县道与栖霞街交叉口西北40米"
+  },
+  {
+    "id": "facility-b001909cri",
+    "name": "千佛斋素菜馆",
+    "kind": "facility",
+    "category": "餐饮",
+    "facilityType": "餐饮",
+    "tags": [
+      "餐饮"
+    ],
+    "intro": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
+    "story": "位置：栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)。请按地图步行指引前往，营业和服务情况以现场为准。",
+    "images": [
+      "/assets/amap/3b8c365f1fb3c8a9c370.webp",
+      "/assets/amap/50fe6149998f44cd6339.webp",
+      "/assets/amap/ac088dbdd074fe168834.webp"
+    ],
+    "image": "/assets/amap/3b8c365f1fb3c8a9c370.webp",
+    "audio": null,
+    "amapPoiId": "B001909CRI",
+    "navigationAvailable": true,
+    "location": [
+      118.958513,
+      32.152448
+    ],
+    "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)"
+  },
+  {
+    "id": "facility-b0l07z0y4h",
+    "name": "拾间咖啡",
+    "kind": "facility",
+    "category": "餐饮",
+    "facilityType": "餐饮",
+    "tags": [
+      "餐饮"
+    ],
+    "intro": "栖霞街88号栖霞山风景名胜区内(西侧)",
+    "story": "位置：栖霞街88号栖霞山风景名胜区内(西侧)。请按地图步行指引前往，营业和服务情况以现场为准。",
+    "images": [
+      "/assets/amap/819bfe75ffe2a1b5acbb.webp",
+      "/assets/amap/c9b5fe56bfc1eb32f9db.webp"
+    ],
+    "image": "/assets/amap/819bfe75ffe2a1b5acbb.webp",
+    "audio": null,
+    "amapPoiId": "B0L07Z0Y4H",
+    "navigationAvailable": true,
+    "location": [
+      118.959425,
+      32.152825
+    ],
+    "address": "栖霞街88号栖霞山风景名胜区内(西侧)"
+  },
+  {
+    "id": "facility-b0lga5kqbu",
+    "name": "南京大味在素(栖霞寺店)",
+    "kind": "facility",
+    "category": "餐饮",
+    "facilityType": "餐饮",
+    "tags": [
+      "餐饮"
+    ],
+    "intro": "栖霞寺店",
+    "story": "位置：栖霞寺店。请按地图步行指引前往，营业和服务情况以现场为准。",
+    "images": [
+      "/assets/amap/e3cda69000c780179b16.webp",
+      "/assets/amap/74a695b9804a4a51c16f.webp",
+      "/assets/amap/6e560df7ef499c06614c.webp"
+    ],
+    "image": "/assets/amap/e3cda69000c780179b16.webp",
+    "audio": null,
+    "amapPoiId": "B0LGA5KQBU",
+    "navigationAvailable": true,
+    "location": [
+      118.954123,
+      32.149252
+    ],
+    "address": "栖霞寺店"
+  },
+  {
+    "id": "facility-b0i0dhr2o3",
+    "name": "人间咖啡",
+    "kind": "facility",
+    "category": "餐饮",
+    "facilityType": "餐饮",
+    "tags": [
+      "餐饮"
+    ],
+    "intro": "栖霞街栖霞寺栖霞古镇D1",
+    "story": "位置：栖霞街栖霞寺栖霞古镇D1。请按地图步行指引前往，营业和服务情况以现场为准。",
+    "images": [
+      "/assets/amap/f2fdd3937ceb1311148b.webp",
+      "/assets/amap/602293b69ca40eec6667.webp",
+      "/assets/amap/66382e38fff705673d89.webp"
+    ],
+    "image": "/assets/amap/f2fdd3937ceb1311148b.webp",
+    "audio": null,
+    "amapPoiId": "B0I0DHR2O3",
+    "navigationAvailable": true,
+    "location": [
+      118.954387,
+      32.148681
+    ],
+    "address": "栖霞街栖霞寺栖霞古镇D1"
+  },
+  {
+    "id": "facility-b0k1t5uoz7",
+    "name": "晶舍精厨 (栖霞古镇店)",
+    "kind": "facility",
+    "category": "餐饮",
+    "facilityType": "餐饮",
+    "tags": [
+      "餐饮"
+    ],
+    "intro": "栖霞街栖霞古镇牌坊进入直走50米",
+    "story": "位置：栖霞街栖霞古镇牌坊进入直走50米。请按地图步行指引前往，营业和服务情况以现场为准。",
+    "images": [
+      "/assets/amap/b1e8f9b6542085756e4b.webp",
+      "/assets/amap/142ad5c289a9d3d4154b.webp",
+      "/assets/amap/5ebcfae3e68226616602.webp"
+    ],
+    "image": "/assets/amap/b1e8f9b6542085756e4b.webp",
+    "audio": null,
+    "amapPoiId": "B0K1T5UOZ7",
+    "navigationAvailable": true,
+    "location": [
+      118.95407,
+      32.149237
+    ],
+    "address": "栖霞街栖霞古镇牌坊进入直走50米"
+  },
+  {
+    "id": "facility-b0l69r1y52",
+    "name": "一碗素面(栖霞寺店)",
+    "kind": "facility",
+    "category": "餐饮",
+    "facilityType": "餐饮",
+    "tags": [
+      "餐饮"
+    ],
+    "intro": "栖霞街与茶圣路交叉口东北60米",
+    "story": "位置：栖霞街与茶圣路交叉口东北60米。请按地图步行指引前往，营业和服务情况以现场为准。",
+    "images": [
+      "/assets/amap/1f37dc5c6fd6c315a332.webp",
+      "/assets/amap/f49bcf61a51dc942ad93.webp",
+      "/assets/amap/2f878aba8c52ddfe5bf9.webp"
+    ],
+    "image": "/assets/amap/1f37dc5c6fd6c315a332.webp",
+    "audio": null,
+    "amapPoiId": "B0L69R1Y52",
+    "navigationAvailable": true,
+    "location": [
+      118.954534,
+      32.148976
+    ],
+    "address": "栖霞街与茶圣路交叉口东北60米"
+  },
+  {
+    "id": "facility-b0ldpztd01",
+    "name": "邮局咖啡(栖霞山店)",
+    "kind": "facility",
+    "category": "餐饮",
+    "facilityType": "餐饮",
+    "tags": [
+      "餐饮"
+    ],
+    "intro": "栖霞街68-45号",
+    "story": "位置：栖霞街68-45号。请按地图步行指引前往，营业和服务情况以现场为准。",
+    "images": [
+      "/assets/amap/e60c37d5b3965c531c40.webp",
+      "/assets/amap/b1553cd88d1fa72ef66b.webp",
+      "/assets/amap/3cb4e3d038898385a56d.webp"
+    ],
+    "image": "/assets/amap/e60c37d5b3965c531c40.webp",
+    "audio": null,
+    "amapPoiId": "B0LDPZTD01",
+    "navigationAvailable": true,
+    "location": [
+      118.954436,
+      32.150464
+    ],
+    "address": "栖霞街68-45号"
+  },
+  {
+    "id": "facility-b0mazzdigm",
+    "name": "盛檀素味",
+    "kind": "facility",
+    "category": "餐饮",
+    "facilityType": "餐饮",
+    "tags": [
+      "餐饮"
+    ],
+    "intro": "栖霞古镇81-3栋",
+    "story": "位置：栖霞古镇81-3栋。请按地图步行指引前往，营业和服务情况以现场为准。",
+    "images": [
+      "/assets/amap/8522117592150233f56c.webp"
+    ],
+    "image": "/assets/amap/8522117592150233f56c.webp",
+    "audio": null,
+    "amapPoiId": "B0MAZZDIGM",
+    "navigationAvailable": true,
+    "location": [
+      118.954041,
+      32.148565
+    ],
+    "address": "栖霞古镇81-3栋"
+  },
+  {
+    "id": "facility-b0l0hnomm1",
+    "name": "山胡里咖啡店",
+    "kind": "facility",
+    "category": "餐饮",
+    "facilityType": "餐饮",
+    "tags": [
+      "餐饮"
+    ],
+    "intro": "栖霞街88号栖霞山风景名胜区内(西侧)",
+    "story": "位置：栖霞街88号栖霞山风景名胜区内(西侧)。请按地图步行指引前往，营业和服务情况以现场为准。",
+    "images": [
+      "/assets/amap/1d48eb0b71a265c80b73.webp",
+      "/assets/amap/e21a826177ecee36c009.webp"
+    ],
+    "image": "/assets/amap/1d48eb0b71a265c80b73.webp",
+    "audio": null,
+    "amapPoiId": "B0L0HNOMM1",
+    "navigationAvailable": true,
+    "location": [
+      118.961915,
+      32.154674
+    ],
+    "address": "栖霞街88号栖霞山风景名胜区内(西侧)"
+  },
+  {
+    "id": "facility-b0mbdhgcsv",
+    "name": "星巴克(南京栖霞古镇店)",
+    "kind": "facility",
+    "category": "餐饮",
+    "facilityType": "餐饮",
+    "tags": [
+      "餐饮"
+    ],
+    "intro": "栖霞街道栖霞古镇81-4栋1号商铺",
+    "story": "位置：栖霞街道栖霞古镇81-4栋1号商铺。请按地图步行指引前往，营业和服务情况以现场为准。",
+    "images": [
+      "/assets/amap/4a26a588930319ba9453.webp",
+      "/assets/amap/72c09a1ba60d45368ce8.webp",
+      "/assets/amap/a7a562be6661242bb9c3.webp"
+    ],
+    "image": "/assets/amap/4a26a588930319ba9453.webp",
+    "audio": null,
+    "amapPoiId": "B0MBDHGCSV",
+    "navigationAvailable": true,
+    "location": [
+      118.953922,
+      32.150138
+    ],
+    "address": "栖霞街道栖霞古镇81-4栋1号商铺"
+  },
+  {
+    "id": "facility-b0mbmh79je",
+    "name": "肯德基(栖霞古镇店)",
+    "kind": "facility",
+    "category": "餐饮",
+    "facilityType": "餐饮",
+    "tags": [
+      "餐饮"
+    ],
+    "intro": "NO.2024G14地块栖霞古镇北区A2号商业楼101室&103室",
+    "story": "位置：NO.2024G14地块栖霞古镇北区A2号商业楼101室&103室。请按地图步行指引前往，营业和服务情况以现场为准。",
+    "images": [
+      "/assets/amap/4e5cc1890b465b81409d.webp"
+    ],
+    "image": "/assets/amap/4e5cc1890b465b81409d.webp",
+    "audio": null,
+    "amapPoiId": "B0MBMH79JE",
+    "navigationAvailable": true,
+    "location": [
+      118.953742,
+      32.150567
+    ],
+    "address": "NO.2024G14地块栖霞古镇北区A2号商业楼101室&103室"
+  },
+  {
+    "id": "facility-b0jd27r1za",
+    "name": "鸡鸣汤包(栖霞街店)",
+    "kind": "facility",
+    "category": "餐饮",
+    "facilityType": "餐饮",
+    "tags": [
+      "餐饮"
+    ],
+    "intro": "栖霞街道栖霞古镇D3-4号",
+    "story": "位置：栖霞街道栖霞古镇D3-4号。请按地图步行指引前往，营业和服务情况以现场为准。",
+    "images": [
+      "/assets/amap/0216f70c5e2eb7e9b009.webp",
+      "/assets/amap/cd1becf0944dc9418e26.webp",
+      "/assets/amap/04208d7c5d7c18029e90.webp"
+    ],
+    "image": "/assets/amap/0216f70c5e2eb7e9b009.webp",
+    "audio": null,
+    "amapPoiId": "B0JD27R1ZA",
+    "navigationAvailable": true,
+    "location": [
+      118.954348,
+      32.149237
+    ],
+    "address": "栖霞街道栖霞古镇D3-4号"
   }
 ]

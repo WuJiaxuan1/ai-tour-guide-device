@@ -4,12 +4,12 @@ import {readFileSync,existsSync} from 'node:fs';
 import {places} from '../src/data.js';
 const publicRoot=new URL('../public/',import.meta.url);
 test('all selected catalog entries have readable content and a real generated wave narration',()=>{
-  assert.equal(places.length,38);assert.equal(new Set(places.map(p=>p.id)).size,38);
+  assert.ok(places.length>0);assert.equal(new Set(places.map(p=>p.id)).size,places.length);assert.ok(places.every(p=>p.navigationAvailable&&Array.isArray(p.location)));assert.ok(!places.some(p=>p.id==='panorama'));
   for(const p of places){assert.ok(p.story.length>30);assert.equal(/主办方|静态导览|演示/.test(p.story),false);const wave=readFileSync(new URL(p.audio.slice(1),publicRoot));assert.equal(wave.subarray(0,4).toString(),'RIFF');assert.ok(wave.length>32000);}
 });
-test('all 41 unique supplied photographs are used, while religious cards stay last and temple is third',()=>{
+test('all supplied photographs remain archived, while religious cards stay last and temple is third',()=>{
   const sources=JSON.parse(readFileSync(new URL('assets/photo-sources.json',publicRoot),'utf8'));
-  const used=new Set(places.flatMap(p=>p.images));for(const original of Object.keys(sources))assert.ok(used.has(original),`Organizer photo retained: ${original}`);
+  const used=new Set(places.flatMap(p=>p.images));for(const original of Object.keys(sources))assert.ok(existsSync(new URL(original.slice(1),publicRoot)),`Organizer photo archived: ${original}`);
   for(const u of used)assert.ok(existsSync(new URL(u.slice(1),publicRoot)));
   assert.equal(places[2].id,'temple');let religious=false;for(const p of places){if(p.religious)religious=true;if(religious)assert.equal(p.religious,true);}
 });

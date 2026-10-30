@@ -22,11 +22,11 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 - Use the generated transparent mascot asset; preserve the original concept image.
 - Bundle Noto Serif SC Variable for display text and Noto Sans SC Variable for body text so phones and computers use the same font files.
 - The user requested removing all Chinese demo wording from the visitor UI. Do not imply live AI is connected when it is not; disclose the local content boundary in About.
-- Focus suggestions on couples. Use organizer-provided photos and factual stories; do not invent romantic folklore.
+- Use neutral visitor wording without specifying party size. Use organizer-provided photos and factual stories; do not invent romantic folklore.
 - The requested navigation direction is a real map with numbered markers and a bottom place sheet, inspired by Promptrip and styled consistently with the current app. The user selected AMap (Web JS API 2.0), with team-backend walking route calculation; do not treat the static illustration as routed navigation.
 
 ## Full guide update — 2026-10-29
-- Maintain all organizer point groups and theme coverage in src/content/places.json; preserve photo provenance outside visitor UI. Gallery contains all 41 unique ZIP photos; keep source archive unchanged.
+- Show only concrete destinations with a matched Qixia AMap POI; preserve all original organizer photos and source archives even when their old destination card is removed. Keep photo provenance outside visitor UI.
 - Temple is third in the default list; other religious entries remain at the end. Do not distort physical walking routes to enforce content-list order.
 - Use actual bundled audio files and media events for narration. Keep action widths stable through play/pause/loading/error states.
 - Weather is a compact expandable strip on Explore, using real district data and report times, never fabricated conditions.
@@ -41,3 +41,12 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 - Offer manual ordering and exact shortest walking-distance ordering with the first stop fixed and optional return. Use real road distances, never straight-line substitutes.
 - Use neutral visitor copy without assumptions about their pace.
 - TTS replacement is deferred until the user's team meeting; keep all current narration audio unchanged.
+
+## Approved implementation — 2026-10-30
+- Keep TripTrace-inspired vertical itinerary structure within our existing white/serif/rose style. Do not introduce its branding or multi-day travel-account features.
+- Hide empty facility categories; deduplicate destination identity by POI ID while keeping category tags.
+- Phone location is opt-in; convert browser WGS84 to GCJ02 before displaying on AMap or comparing distances. Say straight-line distance; never substitute it for road routes.
+- Route page has local list scrolling, short-screen controls collapse after planning. Arrival times are estimates, checked visits are manual, planned route distance is not actual tracked mileage.
+- Official miniapp visible names/addresses were transcribed; ambiguous matches remain in maintainer audit, not visitor cards. Per-node AMap imports remain limited to five photos.
+- Tour reports/photos are browser-local. Team upload/device adapters are inactive until authenticated backend services are supplied. Do not claim cloud upload, device ACK, photo stickers or public deployment are available.
+- Preserve audio unchanged while the team chooses its voice provider. No automated commits or pushes.
