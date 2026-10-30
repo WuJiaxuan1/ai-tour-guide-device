@@ -5,6 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {randomUUID} from 'node:crypto';
 import {readConfig} from './config.mjs';
 import {ServiceError,amapRequest,mergeLegs} from './amap.mjs';
+import {createKnowledgeService} from './knowledge.mjs';
 import {shortestOrder} from './route-optimizer.mjs';
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'../..');
@@ -54,6 +55,7 @@ function staticFile(req,res,url){
   if(range){const start=Number(range[1]),end=Math.min(range[2]?Number(range[2]):size-1,size-1);if(start>end||start>=size){res.writeHead(416,{'Content-Range':`bytes */${size}`});return res.end();}res.writeHead(206,{...headers,'Content-Range':`bytes ${start}-${end}/${size}`,'Content-Length':end-start+1});createReadStream(file,{start,end}).pipe(res);}
   else{res.writeHead(200,{...headers,'Content-Length':size});createReadStream(file).pipe(res);}
 }
+const knowledge=createKnowledgeService(root,[...catalog,...facilities]);
 const rates=new Map();
 const server=http.createServer(async(req,res)=>{
   const c=new AbortController();res.on('close',()=>{if(!res.writableEnded)c.abort();});
@@ -71,6 +73,16 @@ const server=http.createServer(async(req,res)=>{
       const upstream=new URL(path,path.startsWith('/v4/map/styles')?'https://webapi.amap.com':'https://restapi.amap.com');upstream.search=url.search;upstream.searchParams.set('key',config.webKey);upstream.searchParams.set('jscode',config.jscode);
       let response;try{response=await fetch(upstream,{signal:AbortSignal.any([c.signal,AbortSignal.timeout(15000)])});}catch{throw new ServiceError('地图服务暂时无法连接。',504);}
       res.writeHead(response.status,{'Content-Type':response.headers.get('content-type')||'application/json','Cache-Control':'no-store'});return res.end(Buffer.from(await response.arrayBuffer()));
+    }
+    if(req.method==='GET'&&url.pathname==='/api/knowledge/catalog')return json(res,200,{version:knowledge.version,pois:knowledge.catalog});
+    if(req.method==='GET'&&url.pathname.startsWith('/api/knowledge/pois/')){const poi=knowledge.publicPoi(decodeURIComponent(url.pathname.slice('/api/knowledge/pois/'.length)));return json(res,poi?200:404,poi||{error:'没有找到对应景点讲解。'});}
+    if(req.method==='POST'&&url.pathname==='/api/knowledge/chat'){const d=await body(req);const message=Array.isArray(d.messages)?d.messages.at(-1)?.content:undefined;if(typeof message!=='string'||message.length>2000)throw new ServiceError('请输入有效的问题。',400);return json(res,200,knowledge.chat(message,d.context||{}));}
+    if(req.method==='POST'&&url.pathname==='/api/recommendations'){const d=await body(req);return json(res,200,knowledge.recommend(d));}
+    if(req.method==='GET'&&url.pathname==='/api/facilities/nearby'){const loc=url.searchParams.get('location');return json(res,200,{coordinateSystem:'GCJ02',places:knowledge.facilitiesNearby({location:loc?.split(',').map(Number),type:url.searchParams.get('type')||''})});}
+    if(req.method==='POST'&&url.pathname==='/api/location/convert'){
+      const d=await body(req),p=d.location;if(d.coordinateSystem!=='WGS84'||!Array.isArray(p)||p.length!==2||!p.every(Number.isFinite)||Math.abs(p[0])>180||Math.abs(p[1])>90)throw new ServiceError('手机位置格式不正确。',400);
+      const converted=await amapRequest('/v3/assistant/coordinate/convert',{locations:p.map(x=>x.toFixed(6)).join(','),coordsys:'gps'},config.serverKey,{signal:c.signal});const out=String(converted.locations).split(',').map(Number);
+      if(out.length!==2||!out.every(Number.isFinite))throw new ServiceError('位置转换暂时不可用，请重试。');return json(res,200,{coordinateSystem:'GCJ02',location:out});
     }
     if(req.method==='GET'&&url.pathname==='/api/weather')return json(res,200,await weather(config.serverKey,c.signal));
     if(req.method==='GET'&&url.pathname==='/api/navigation/places'){

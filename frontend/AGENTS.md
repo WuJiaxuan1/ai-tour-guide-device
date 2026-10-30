@@ -50,3 +50,12 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 - Official miniapp visible names/addresses were transcribed; ambiguous matches remain in maintainer audit, not visitor cards. Per-node AMap imports remain limited to five photos.
 - Tour reports/photos are browser-local. Team upload/device adapters are inactive until authenticated backend services are supplied. Do not claim cloud upload, device ACK, photo stickers or public deployment are available.
 - Preserve audio unchanged while the team chooses its voice provider. No automated commits or pushes.
+
+## 0.4.0 implementation decisions — 2026-10-30
+- User authorized the approved refinements and prioritized knowledge ingestion. Default chat is bounded `/api/knowledge/chat`, sourced from backend/knowledge/qixia-kb-mvp-v1; no free-generation model is claimed.
+- Mobile header is one row; Explore header scrolls away while its collapsible category map sticks at top. Initial dots have no numbering; close points group without falsifying coordinates; visible cards highlight the matching POI.
+- Auto-request GPS on Explore/Route entry with explicit permission handling. Convert browser WGS84 via same-origin backend before AMap/distance use. Keep a single route locate action and stable sorted lists.
+- Place selection toggles both ways, facilities share state, gates belong at itinerary endpoints, and selection has no eight-item cap. Retain legacy endpoint capacity honestly pending formal preset data.
+- User's meeting strategy supersedes the earlier live shortest-path requirement: finalized presets/matrix are still pending. Candidate routes in the incoming knowledge pack are not finalized and must not be enabled silently.
+- New report uses fixed configuration metrics and exports a photo/text PNG. Keep old local visit/photo records accessible. Paid TTS, stickers, generative agent and watch sync remain unconnected.
+- Keep source files in place, write change descriptions, do not make Git commits/pushes for the user.

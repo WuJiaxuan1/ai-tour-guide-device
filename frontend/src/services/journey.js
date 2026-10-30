@@ -1,4 +1,4 @@
-export function cleanIds(ids,known){return [...new Set(Array.isArray(ids)?ids:[])].filter(id=>known(id)?.navigationAvailable).slice(0,8);}
+export function cleanIds(ids,known){return [...new Set(Array.isArray(ids)?ids:[])].filter(id=>known(id)?.navigationAvailable);}
 export function timeline(stops,legs=[],minutes={},start=''){
  let clock=start&&/^\d{2}:\d{2}$/.test(start)?Number(start.slice(0,2))*60+Number(start.slice(3)):null;
  return stops.map((p,i)=>{const leg=i?legs.find(l=>l.fromId===stops[i-1].id&&l.toId===p.id):null;if(i&&(!leg||clock===null))clock=null;else if(leg)clock+=Math.ceil(leg.walkingSeconds/60);const arrival=clock===null?null:`${Math.floor(clock/60)%24}`.padStart(2,'0')+':'+`${clock%60}`.padStart(2,'0');const stay=Math.max(0,Math.min(180,Number(minutes[p.id])||0));if(clock!==null)clock+=stay;return {place:p,leg,arrival,stay};});

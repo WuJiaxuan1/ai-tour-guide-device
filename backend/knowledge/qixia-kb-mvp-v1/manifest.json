@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-10-30T05:41:40.642Z",
+  "packageName": "栖霞山智能体知识库MVP",
+  "scope": {
+    "defaultEntrance": "west-gate",
+    "candidatePoiCount": 12,
+    "facilityDiningCount": 13
+  },
+  "boundaries": [
+    "本包负责讲解、推荐理由、偏好与回答规则。",
+    "高德步行折线和距离保存在outputs/amap-routing，不作为RAG讲解文本上传。",
+    "动态信息和UGC经验不得改写为稳定官方事实。"
+  ],
+  "files": [
+    "01_pois_12.jsonl",
+    "02_facilities_food.json",
+    "03_persona_preferences.json",
+    "04_faq_rules.jsonl",
+    "05_verification_backlog.md",
+    "06_人工审阅清单.md",
+    "07_id_registry.json",
+    "08_backend_facilities.json",
+    "09_time_budget_rules.json",
+    "10_route_time_presets.json",
+    "11_后端接入说明.md"
+  ],
+  "sourceRefs": {
+    "organizerCulture": "/Users/yjp/Documents/南客松/01_栖霞山文化故事资料(1).docx",
+    "organizerService": "/Users/yjp/Documents/南客松/02_游客场景与服务资料(2).docx",
+    "officialMiniProgram": "/Users/yjp/Documents/南客松/栖霞山知识库_v1.0/03_服务设施/服务设施.md",
+    "existingPoiKb": "/Users/yjp/Documents/南客松/栖霞山知识库_v1.0/02_景点POI与讲解/景点POI与讲解.md",
+    "ugcCouple": "/Users/yjp/.codex/attachments/6df8c3f5-1b76-4501-9c95-102c127f645a/已粘贴的文本.txt"
+  }
+}

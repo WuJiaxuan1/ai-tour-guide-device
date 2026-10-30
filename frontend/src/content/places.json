@@ -88,6 +88,28 @@
     "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)"
   },
   {
+    "id": "bell-drum-tower",
+    "name": "钟鼓楼",
+    "category": "建筑与人文",
+    "tags": [
+      "人文",
+      "建筑"
+    ],
+    "intro": "观察钟楼与鼓楼的建筑关系。",
+    "story": "钟楼与鼓楼是两个相邻建筑点位，地图导航到钟楼。可结合现场标识了解周边建筑。",
+    "images": [],
+    "image": null,
+    "audio": null,
+    "navigationAvailable": true,
+    "amapPoiId": "B001912JBJ",
+    "location": [
+      118.957481,
+      32.151692
+    ],
+    "address": "栖霞山风景名胜区内",
+    "religious": false
+  },
+  {
     "id": "spring-bridge",
     "name": "春雨桥",
     "category": "溪涧与古桥",
