@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "1.0",
+  "formula": "total = walking + dwell + meal + plannedRest + contingency",
+  "fields": {
+    "walking": "使用高德walkingSeconds，不使用直线距离估算。",
+    "dwell": "使用景点recommendedStayMinutes；默认取区间中位数，赶时间取下限，深度游取上限。",
+    "meal": "咖啡/茶歇20-35分钟；简餐30-45分钟；正餐45-75分钟。",
+    "plannedRest": "连续步行45分钟或中高体力节点后增加10-15分钟。",
+    "contingency": "基础10分钟；总时长超过120分钟取已用时间的10%；红叶季周末建议15%-20%。",
+    "exitReserve": "计划离园前预留15分钟；需要用餐、停车或公共交通换乘时预留25-40分钟。"
+  },
+  "selection": [
+    {
+      "availableMinutes": [
+        0,
+        75
+      ],
+      "recommendedPoiCount": [
+        2,
+        3
+      ],
+      "rule": "只选西门附近低体力点，不加入红叶谷或太虚亭。"
+    },
+    {
+      "availableMinutes": [
+        76,
+        135
+      ],
+      "recommendedPoiCount": [
+        3,
+        5
+      ],
+      "rule": "选择一个主题簇，避免跨山大范围跳点。"
+    },
+    {
+      "availableMinutes": [
+        136,
+        210
+      ],
+      "recommendedPoiCount": [
+        4,
+        6
+      ],
+      "rule": "可加入桃花湖、红叶谷、陆羽茶庄或太虚亭中的1-2个。"
+    },
+    {
+      "availableMinutes": [
+        211,
+        360
+      ],
+      "recommendedPoiCount": [
+        5,
+        8
+      ],
+      "rule": "可形成半日路线，但仍需保留休息、用餐和离园时间。"
+    }
+  ],
+  "hardConstraints": [
+    "后端现有路线接口一次只支持2至8个不同地点。",
+    "若估算总时间超过游客可用时间减去exitReserve，必须删点或缩短停留。",
+    "高德时间不包含拍照、排队、讲解、爬升体感和临时封路。"
+  ]
+}

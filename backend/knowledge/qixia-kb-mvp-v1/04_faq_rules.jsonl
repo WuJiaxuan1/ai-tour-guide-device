@@ -1,0 +1,13 @@
+{"id":"rule-route-intake","question":"推荐路线前需要问什么？","answer":"至少确认到达时间、可游览时长、体力、兴趣、是否需要用餐和计划离园时间。","action":["collect_preferences"]}
+{"id":"rule-default-gate","question":"默认从哪个门开始？","answer":"默认推荐西门；高德结果显示其到当前12个候选景点平均约799米、11分钟。游客已在南门时不得强行要求换门。","action":["use_west_gate_unless_user_location_overrides"]}
+{"id":"rule-core-not-mandatory","question":"六个核心景点必须都选吗？","answer":"不必须。它们是赛方核心景点圈和路线骨架，智能体按游客时间、体力和兴趣选取其中若干点，再加入扩展点。","action":["select_subset"]}
+{"id":"rule-poi-count","question":"一次推荐多少景点？","answer":"比赛版通常推荐3至6个景点；先满足时间与体力，再考虑主题完整度。","action":["limit_stops_3_to_6"]}
+{"id":"rule-photo","question":"游客想拍照怎么推荐？","answer":"优先考虑彩虹明镜、桃花湖和红叶谷；先确认日期和当年枫情，并将机位、光线、人流说明为经验建议。","action":["query_dynamic_maple","apply_photo_preferences"]}
+{"id":"rule-culture","question":"游客喜欢历史文化怎么推荐？","answer":"优先组合明征君碑、栖霞古寺、舍利塔、千佛岩和乾隆行宫遗址。","action":["apply_culture_preferences"]}
+{"id":"rule-low-effort","question":"游客不想太累怎么推荐？","answer":"优先西门、彩虹明镜、钟鼓楼、栖霞古寺和古镇，不默认加入红叶谷、太虚亭。","action":["apply_low_effort_filter"]}
+{"id":"rule-food","question":"如何安排吃饭？","answer":"正餐优先安排在古镇或经核验的景区西侧餐饮点；根据营业时间判断放在入园前、途中还是游后。","action":["check_dining_freshness","insert_meal_stop"]}
+{"id":"rule-restroom","question":"如何回答最近卫生间？","answer":"只有坐标完成实体匹配后才能说“最近”；目前可按官方位置文字回答“某景点附近有卫生间”，并提示现场标识为准。","action":["require_facility_coordinates_for_nearest_claim"]}
+{"id":"rule-red-leaf","question":"现在能看到红叶吗？","answer":"查询当年官方枫情和近期实景；没有动态数据时只说明季节规律，不能保证。","action":["query_dynamic_maple"]}
+{"id":"rule-replan","question":"游客临时改变想法怎么办？","answer":"保留当前位置和离园时间，删除不再需要的点，再由后端使用高德路段重新排序。","action":["call_route_service"]}
+{"id":"rule-amap-boundary","question":"高德数据能说明什么？","answer":"高德可提供步行距离、时间和折线；坡度、台阶、临时封路和真实可达入口仍需现场核验。","action":["attach_fieldwork_warning"]}
+{"id":"rule-unknown","question":"资料没有的问题怎么回答？","answer":"明确说当前未确认，提供游客中心或现场工作人员的核验方式，并记录到待核验清单。","action":["log_verification_backlog"]}

@@ -1,0 +1,200 @@
+{
+  "schemaVersion": "1.0",
+  "policy": "前端、后端、知识库和MCP全部使用canonicalId；旧ID只作为aliases输入兼容。",
+  "places": [
+    {
+      "canonicalId": "gate",
+      "displayName": "栖霞山西门",
+      "aliases": [
+        "west-gate",
+        "facility-b001913yx0"
+      ],
+      "status": "existing_backend_id"
+    },
+    {
+      "canonicalId": "mirror-lake",
+      "displayName": "彩虹明镜",
+      "aliases": [
+        "明镜湖"
+      ],
+      "status": "existing_backend_id"
+    },
+    {
+      "canonicalId": "bell-drum-tower",
+      "displayName": "钟鼓楼",
+      "aliases": [
+        "bell-tower",
+        "drum-tower",
+        "钟楼",
+        "鼓楼"
+      ],
+      "status": "new_backend_node_required"
+    },
+    {
+      "canonicalId": "mingzheng-stele",
+      "displayName": "明征君碑",
+      "aliases": [],
+      "status": "existing_backend_id"
+    },
+    {
+      "canonicalId": "temple",
+      "displayName": "栖霞古寺",
+      "aliases": [
+        "栖霞寺"
+      ],
+      "status": "existing_backend_id"
+    },
+    {
+      "canonicalId": "pagoda",
+      "displayName": "舍利塔",
+      "aliases": [],
+      "status": "existing_backend_id"
+    },
+    {
+      "canonicalId": "buddha",
+      "displayName": "千佛岩",
+      "aliases": [
+        "千佛崖"
+      ],
+      "status": "existing_backend_id"
+    },
+    {
+      "canonicalId": "palace",
+      "displayName": "乾隆行宫遗址",
+      "aliases": [],
+      "status": "existing_backend_id"
+    },
+    {
+      "canonicalId": "peach-lake",
+      "displayName": "桃花湖",
+      "aliases": [],
+      "status": "existing_backend_id"
+    },
+    {
+      "canonicalId": "autumn",
+      "displayName": "红叶谷",
+      "aliases": [],
+      "status": "existing_backend_id"
+    },
+    {
+      "canonicalId": "tea-house",
+      "displayName": "陆羽茶庄",
+      "aliases": [],
+      "status": "existing_backend_id"
+    },
+    {
+      "canonicalId": "taixu",
+      "displayName": "太虚亭",
+      "aliases": [],
+      "status": "existing_backend_id"
+    },
+    {
+      "canonicalId": "old-street",
+      "displayName": "栖霞老街与古镇",
+      "aliases": [
+        "栖霞古镇",
+        "栖霞老街"
+      ],
+      "status": "existing_backend_id"
+    }
+  ],
+  "facilities": [
+    {
+      "canonicalId": "facility-b00190z2ds",
+      "displayName": "西门游客服务中心",
+      "aliases": [
+        "west-gate-visitor-center"
+      ],
+      "sourceId": "west-gate-visitor-center"
+    },
+    {
+      "canonicalId": "facility-b0ffm0lnsv",
+      "displayName": "西门入口左侧卫生间",
+      "aliases": [
+        "west-gate-left-restroom"
+      ],
+      "sourceId": "west-gate-left-restroom"
+    },
+    {
+      "canonicalId": "facility-b0ffg77c3p",
+      "displayName": "明镜湖卫生间",
+      "aliases": [
+        "mirror-lake-restroom"
+      ],
+      "sourceId": "mirror-lake-restroom"
+    },
+    {
+      "canonicalId": null,
+      "displayName": "鼓楼卫生间",
+      "aliases": [
+        "drum-tower-restroom"
+      ],
+      "sourceId": "drum-tower-restroom",
+      "status": "pending_amap_entity_match"
+    },
+    {
+      "canonicalId": "facility-b0fffvfdhv",
+      "displayName": "千佛崖卫生间",
+      "aliases": [
+        "thousand-buddha-cliff-restroom"
+      ],
+      "sourceId": "thousand-buddha-cliff-restroom"
+    },
+    {
+      "canonicalId": "facility-b0hdghowfo",
+      "displayName": "太虚亭卫生间",
+      "aliases": [
+        "taixu-pavilion-restroom"
+      ],
+      "sourceId": "taixu-pavilion-restroom"
+    },
+    {
+      "canonicalId": "facility-b0i0dhr2o3",
+      "displayName": "人间咖啡",
+      "aliases": [
+        "dining-human-coffee"
+      ],
+      "sourceId": "dining-human-coffee"
+    },
+    {
+      "canonicalId": "facility-b0jd27r1za",
+      "displayName": "鸡鸣汤包",
+      "aliases": [
+        "dining-jiming-bao"
+      ],
+      "sourceId": "dining-jiming-bao"
+    },
+    {
+      "canonicalId": "facility-b0k1t5uoz7",
+      "displayName": "晶舍精厨",
+      "aliases": [
+        "dining-jingshe"
+      ],
+      "sourceId": "dining-jingshe"
+    },
+    {
+      "canonicalId": "facility-b0l69r1y52",
+      "displayName": "一碗素面",
+      "aliases": [
+        "dining-sumian"
+      ],
+      "sourceId": "dining-sumian"
+    },
+    {
+      "canonicalId": "facility-b001909cri",
+      "displayName": "千佛斋",
+      "aliases": [
+        "dining-qianfozhai"
+      ],
+      "sourceId": "dining-qianfozhai"
+    },
+    {
+      "canonicalId": "facility-b0l07z0y4h",
+      "displayName": "拾间咖啡",
+      "aliases": [
+        "dining-shijian-coffee"
+      ],
+      "sourceId": "dining-shijian-coffee"
+    }
+  ]
+}

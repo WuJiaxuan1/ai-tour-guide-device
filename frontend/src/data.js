@@ -1,8 +1,11 @@
 import catalog from './content/places.json' with {type:'json'};
 import facilityCatalog from './content/facilities.json' with {type:'json'};
-export const places=catalog;
+import knowledge from './content/knowledge.json' with {type:'json'};
+export const knowledgeById=Object.fromEntries(knowledge.pois.map(p=>[p.id,p]));
+const enriched=catalog.map(p=>{const k=knowledgeById[p.id];return k?{...p,intro:k.intro||p.intro,story:k.narration+(k.explanation?'\n\n'+k.explanation:''),knowledge:k}:p;});
+export const places=enriched.filter(p=>!p.tags.includes('服务'));
 export const facilities=facilityCatalog;
-export const allPlaces=[...places,...facilities];
+export const allPlaces=[...enriched,...facilities];
 export const byId=id=>allPlaces.find(p=>p.id===id);
 export const placeholderImage='/assets/qixia-illustration.png';
 export const mapLink=p=>p.location?`https://uri.amap.com/navigation?to=${p.location.join(',')},${encodeURIComponent(p.name)}&mode=walk&coordinate=gaode&src=qixia-guide&callnative=1`:`https://uri.amap.com/search?keyword=${encodeURIComponent('南京栖霞山 '+p.name)}`;

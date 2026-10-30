@@ -1,6 +1,6 @@
-import {places} from './data.js';
-export const endpoint=import.meta.env?.VITE_AGENT_CHAT_URL?.trim()||'';
-export const agentMode=endpoint?'live':'local';
+import {places,allPlaces} from './data.js';
+export const endpoint=import.meta.env?.VITE_AGENT_CHAT_URL?.trim()||'/api/knowledge/chat';
+export const agentMode=endpoint==='/api/knowledge/chat'?'knowledge':endpoint?'live':'local';
 export function localResponse(message){
  const exact=places.filter(p=>message.includes(p.name));
  if(exact.length&&/讲|介绍|故事/.test(message))return{reply:exact.map(p=>`${p.name}：${p.story}`).join('\n\n'),placeIds:exact.map(p=>p.id),mode:'local'};
@@ -13,11 +13,11 @@ export function localResponse(message){
  placeIds=placeIds.filter(id=>places.some(p=>p.id===id));
  return{reply,placeIds,mode:'local',...(/路线|规划/.test(message)&&placeIds.length>1?{routeDraft:placeIds}: {})};
 }
-export async function askAgent({messages,sessionId,routeIds,signal,serviceUrl=endpoint,fetcher=globalThis.fetch}){
+export async function askAgent({messages,sessionId,routeIds,location,signal,serviceUrl=endpoint,fetcher=globalThis.fetch}){
  if(!serviceUrl){await new Promise((resolve,reject)=>{if(signal?.aborted){reject(new DOMException('Aborted','AbortError'));return}const t=setTimeout(resolve,500);signal?.addEventListener('abort',()=>{clearTimeout(t);reject(new DOMException('Aborted','AbortError'))},{once:true})});return localResponse(messages.at(-1).content);}
- const r=await fetcher(serviceUrl,{method:'POST',headers:{'Content-Type':'application/json'},credentials:'omit',signal,body:JSON.stringify({sessionId,messages:messages.map(({role,content})=>({role,content})),context:{parkId:'qixia-mountain',routeIds}})});
+ const r=await fetcher(serviceUrl,{method:'POST',headers:{'Content-Type':'application/json'},credentials:'omit',signal,body:JSON.stringify({sessionId,messages:messages.map(({role,content})=>({role,content})),context:{parkId:'qixia-mountain',routeIds,...(location?{location}: {})}})});
  if(!r.ok)throw Error(`智能体服务暂不可用（${r.status}），请稍后重试。`);
  const d=await r.json();if(typeof d.reply!=='string'||!d.reply.trim())throw Error('智能体回复格式不符合接口约定。');
- const routeDraft=[...new Set(Array.isArray(d.routeDraft)?d.routeDraft:[])].filter(id=>places.some(p=>p.id===id&&p.navigationAvailable)).slice(0,8);
- return{...(routeDraft.length>1?{routeDraft}:{}),reply:d.reply,placeIds:Array.isArray(d.placeIds)?d.placeIds.filter(id=>places.some(p=>p.id===id)):[],mode:'live'};
+ const routeDraft=[...new Set(Array.isArray(d.routeDraft)?d.routeDraft:[])].filter(id=>allPlaces.some(p=>p.id===id&&p.navigationAvailable));
+ return{...(routeDraft.length>1?{routeDraft}:{}),reply:d.reply,placeIds:Array.isArray(d.placeIds)?[...new Set(d.placeIds)].filter(id=>allPlaces.some(p=>p.id===id)):[],mode:d.mode==='knowledge'?'knowledge':'live'};
 }

@@ -23,3 +23,9 @@ On 2026-10-30, after the team updated the Lighthouse firewall, external requests
 ## Updated firewall export
 
 The team supplied project-files/team/server/firewallRules_2026-10-30 14_09_29.csv. Compared with the October 28 export, it adds exactly one rule: IPv4 0.0.0.0/0, TCP 443, allow. No previous rules were removed. This confirms the rule needed for the externally verified standard HTTPS URL. Both original exports are preserved unchanged.
+
+## Frontend and knowledge 0.4.0
+
+Release `0.4.0-20261030T082053Z` is now active at the same public URL. The original wujiaxuan key was used, shared credentials remained in place, and the previous release is retained for rollback. Staging and active service checks passed before public browser acceptance. Knowledge chat/catalog, secure context, AMap, simulated GPS conversion/distance display, mobile header/route sizing, sticky map and PNG report saving passed. Actual phone GPS permissions still need a user check.
+
+Private audit receipt: `.local-work/operations/verification-v04.json`; operation captures were hash-checked. No Git commit/push was made.

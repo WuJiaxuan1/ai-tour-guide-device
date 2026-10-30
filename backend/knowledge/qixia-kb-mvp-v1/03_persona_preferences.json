@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "1.0",
+  "positioning": "偏好叠加层，不是官方情侣路线",
+  "personas": [
+    {
+      "id": "couple-photo",
+      "name": "情侣拍照",
+      "preferredThemes": [
+        "湖景",
+        "倒影",
+        "红叶",
+        "古寺建筑"
+      ],
+      "preferredPoiIds": [
+        "mirror-lake",
+        "peach-lake",
+        "autumn",
+        "temple"
+      ],
+      "interactionPrompts": [
+        "并肩走一段",
+        "一起回头",
+        "帮对方整理衣服",
+        "利用湖面拍双人倒影"
+      ],
+      "constraints": [
+        "不承诺空镜",
+        "寺院拍摄遵守现场规定",
+        "红叶状态必须动态查询"
+      ]
+    },
+    {
+      "id": "besties-photo",
+      "name": "闺蜜拍照",
+      "preferredThemes": [
+        "湖景",
+        "红叶",
+        "建筑",
+        "茶歇"
+      ],
+      "preferredPoiIds": [
+        "mirror-lake",
+        "peach-lake",
+        "autumn",
+        "tea-house"
+      ],
+      "interactionPrompts": [
+        "边走边聊抓拍",
+        "使用同色系穿搭",
+        "互相拍摄与共同选片"
+      ],
+      "constraints": [
+        "机位和光线属于经验建议"
+      ]
+    },
+    {
+      "id": "solo-culture",
+      "name": "独自文化游",
+      "preferredThemes": [
+        "碑刻",
+        "石窟",
+        "遗址",
+        "古寺"
+      ],
+      "preferredPoiIds": [
+        "mingzheng-stele",
+        "temple",
+        "pagoda",
+        "buddha",
+        "palace"
+      ],
+      "interactionPrompts": [
+        "每到一处听30秒讲解",
+        "记录一个最想继续追问的问题"
+      ],
+      "constraints": [
+        "优先主游线和明确出口",
+        "避免把偏僻支线作为默认"
+      ]
+    },
+    {
+      "id": "easy-visit",
+      "name": "轻松少走",
+      "preferredThemes": [
+        "湖景",
+        "古寺",
+        "餐饮"
+      ],
+      "preferredPoiIds": [
+        "mirror-lake",
+        "bell-drum-tower",
+        "temple",
+        "old-street"
+      ],
+      "interactionPrompts": [
+        "在入口先确认厕所和返程"
+      ],
+      "constraints": [
+        "优先低体力节点",
+        "不默认加入红叶谷和太虚亭"
+      ]
+    },
+    {
+      "id": "maple-photo",
+      "name": "赏枫摄影",
+      "preferredThemes": [
+        "红叶",
+        "湖景",
+        "山林"
+      ],
+      "preferredPoiIds": [
+        "autumn",
+        "peach-lake",
+        "mirror-lake"
+      ],
+      "interactionPrompts": [
+        "先查询当年枫情",
+        "根据人流提供替代点"
+      ],
+      "constraints": [
+        "不以往年日期保证今年效果",
+        "不承诺固定光线和空镜"
+      ]
+    },
+    {
+      "id": "tea-leisure",
+      "name": "茶文化休闲",
+      "preferredThemes": [
+        "陆羽",
+        "泉水",
+        "茶事",
+        "古镇"
+      ],
+      "preferredPoiIds": [
+        "tea-house",
+        "old-street"
+      ],
+      "interactionPrompts": [
+        "听陆羽采茶故事",
+        "将茶歇放在行程中后段"
+      ],
+      "constraints": [
+        "营业与消费信息需实时确认"
+      ]
+    }
+  ],
+  "source": "/Users/yjp/.codex/attachments/6df8c3f5-1b76-4501-9c95-102c127f645a/已粘贴的文本.txt",
+  "sourceType": "ugc_research_and_editorial_rules",
+  "verificationStatus": "preference_only_not_fact_authority"
+}

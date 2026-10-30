@@ -1,0 +1,318 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-10-30T05:50:04.718Z",
+  "presets": [
+    {
+      "id": "quick-west",
+      "name": "约1小时西门轻松线",
+      "stopIds": [
+        "gate",
+        "mirror-lake",
+        "bell-drum-tower",
+        "temple"
+      ],
+      "dwell": {
+        "mirror-lake": 10,
+        "bell-drum-tower": 5,
+        "temple": 20
+      },
+      "plannedRestMinutes": 0,
+      "mealMinutes": 0,
+      "source": "amap-walking-v5",
+      "legs": [
+        {
+          "fromId": "gate",
+          "toId": "mirror-lake",
+          "distanceMeters": 303,
+          "walkingSeconds": 242
+        },
+        {
+          "fromId": "mirror-lake",
+          "toId": "bell-drum-tower",
+          "distanceMeters": 166,
+          "walkingSeconds": 133
+        },
+        {
+          "fromId": "bell-drum-tower",
+          "toId": "temple",
+          "distanceMeters": 64,
+          "walkingSeconds": 51
+        }
+      ],
+      "walkingDistanceMeters": 533,
+      "walkingMinutes": 8,
+      "dwellMinutes": 35,
+      "contingencyMinutes": 10,
+      "estimatedTotalMinutes": 53,
+      "estimatedRangeMinutes": [
+        43,
+        73
+      ],
+      "warning": "高德时间不包含排队、临时封路和个人爬升体感；红叶季周末需额外增加15%-20%。"
+    },
+    {
+      "id": "culture-core",
+      "name": "约2小时文化核心线",
+      "stopIds": [
+        "gate",
+        "mirror-lake",
+        "bell-drum-tower",
+        "temple",
+        "mingzheng-stele",
+        "pagoda",
+        "buddha"
+      ],
+      "dwell": {
+        "mirror-lake": 10,
+        "bell-drum-tower": 5,
+        "temple": 20,
+        "mingzheng-stele": 10,
+        "pagoda": 10,
+        "buddha": 15
+      },
+      "plannedRestMinutes": 10,
+      "mealMinutes": 0,
+      "source": "amap-walking-v5",
+      "legs": [
+        {
+          "fromId": "gate",
+          "toId": "mirror-lake",
+          "distanceMeters": 303,
+          "walkingSeconds": 242
+        },
+        {
+          "fromId": "mirror-lake",
+          "toId": "bell-drum-tower",
+          "distanceMeters": 166,
+          "walkingSeconds": 133
+        },
+        {
+          "fromId": "bell-drum-tower",
+          "toId": "temple",
+          "distanceMeters": 64,
+          "walkingSeconds": 51
+        },
+        {
+          "fromId": "temple",
+          "toId": "mingzheng-stele",
+          "distanceMeters": 83,
+          "walkingSeconds": 66
+        },
+        {
+          "fromId": "mingzheng-stele",
+          "toId": "pagoda",
+          "distanceMeters": 227,
+          "walkingSeconds": 182
+        },
+        {
+          "fromId": "pagoda",
+          "toId": "buddha",
+          "distanceMeters": 32,
+          "walkingSeconds": 26
+        }
+      ],
+      "walkingDistanceMeters": 875,
+      "walkingMinutes": 12,
+      "dwellMinutes": 70,
+      "contingencyMinutes": 10,
+      "estimatedTotalMinutes": 102,
+      "estimatedRangeMinutes": [
+        92,
+        122
+      ],
+      "warning": "高德时间不包含排队、临时封路和个人爬升体感；红叶季周末需额外增加15%-20%。"
+    },
+    {
+      "id": "couple-maple",
+      "name": "约3小时情侣湖景赏枫线",
+      "stopIds": [
+        "gate",
+        "mirror-lake",
+        "temple",
+        "peach-lake",
+        "autumn",
+        "old-street"
+      ],
+      "dwell": {
+        "mirror-lake": 15,
+        "temple": 20,
+        "peach-lake": 20,
+        "autumn": 25,
+        "old-street": 30
+      },
+      "plannedRestMinutes": 10,
+      "mealMinutes": 0,
+      "source": "amap-walking-v5",
+      "legs": [
+        {
+          "fromId": "gate",
+          "toId": "mirror-lake",
+          "distanceMeters": 303,
+          "walkingSeconds": 242
+        },
+        {
+          "fromId": "mirror-lake",
+          "toId": "temple",
+          "distanceMeters": 230,
+          "walkingSeconds": 184
+        },
+        {
+          "fromId": "temple",
+          "toId": "peach-lake",
+          "distanceMeters": 608,
+          "walkingSeconds": 486
+        },
+        {
+          "fromId": "peach-lake",
+          "toId": "autumn",
+          "distanceMeters": 395,
+          "walkingSeconds": 316
+        },
+        {
+          "fromId": "autumn",
+          "toId": "old-street",
+          "distanceMeters": 1627,
+          "walkingSeconds": 1302
+        }
+      ],
+      "walkingDistanceMeters": 3163,
+      "walkingMinutes": 43,
+      "dwellMinutes": 110,
+      "contingencyMinutes": 17,
+      "estimatedTotalMinutes": 180,
+      "estimatedRangeMinutes": [
+        170,
+        200
+      ],
+      "warning": "高德时间不包含排队、临时封路和个人爬升体感；红叶季周末需额外增加15%-20%。"
+    },
+    {
+      "id": "tea-culture",
+      "name": "约2.5小时茶文化休闲线",
+      "stopIds": [
+        "gate",
+        "mirror-lake",
+        "temple",
+        "palace",
+        "tea-house",
+        "old-street"
+      ],
+      "dwell": {
+        "mirror-lake": 10,
+        "temple": 20,
+        "palace": 15,
+        "tea-house": 25,
+        "old-street": 20
+      },
+      "plannedRestMinutes": 10,
+      "mealMinutes": 0,
+      "source": "amap-walking-v5",
+      "legs": [
+        {
+          "fromId": "gate",
+          "toId": "mirror-lake",
+          "distanceMeters": 303,
+          "walkingSeconds": 242
+        },
+        {
+          "fromId": "mirror-lake",
+          "toId": "temple",
+          "distanceMeters": 230,
+          "walkingSeconds": 184
+        },
+        {
+          "fromId": "temple",
+          "toId": "palace",
+          "distanceMeters": 435,
+          "walkingSeconds": 348
+        },
+        {
+          "fromId": "palace",
+          "toId": "tea-house",
+          "distanceMeters": 672,
+          "walkingSeconds": 538
+        },
+        {
+          "fromId": "tea-house",
+          "toId": "old-street",
+          "distanceMeters": 1710,
+          "walkingSeconds": 1368
+        }
+      ],
+      "walkingDistanceMeters": 3350,
+      "walkingMinutes": 45,
+      "dwellMinutes": 90,
+      "contingencyMinutes": 15,
+      "estimatedTotalMinutes": 160,
+      "estimatedRangeMinutes": [
+        150,
+        180
+      ],
+      "warning": "高德时间不包含排队、临时封路和个人爬升体感；红叶季周末需额外增加15%-20%。"
+    },
+    {
+      "id": "high-view",
+      "name": "约3小时登高观景线",
+      "stopIds": [
+        "gate",
+        "mirror-lake",
+        "temple",
+        "buddha",
+        "taixu",
+        "old-street"
+      ],
+      "dwell": {
+        "mirror-lake": 10,
+        "temple": 20,
+        "buddha": 15,
+        "taixu": 20,
+        "old-street": 25
+      },
+      "plannedRestMinutes": 20,
+      "mealMinutes": 0,
+      "source": "amap-walking-v5",
+      "legs": [
+        {
+          "fromId": "gate",
+          "toId": "mirror-lake",
+          "distanceMeters": 303,
+          "walkingSeconds": 242
+        },
+        {
+          "fromId": "mirror-lake",
+          "toId": "temple",
+          "distanceMeters": 230,
+          "walkingSeconds": 184
+        },
+        {
+          "fromId": "temple",
+          "toId": "buddha",
+          "distanceMeters": 242,
+          "walkingSeconds": 194
+        },
+        {
+          "fromId": "buddha",
+          "toId": "taixu",
+          "distanceMeters": 1154,
+          "walkingSeconds": 923
+        },
+        {
+          "fromId": "taixu",
+          "toId": "old-street",
+          "distanceMeters": 1999,
+          "walkingSeconds": 1599
+        }
+      ],
+      "walkingDistanceMeters": 3928,
+      "walkingMinutes": 53,
+      "dwellMinutes": 90,
+      "contingencyMinutes": 17,
+      "estimatedTotalMinutes": 180,
+      "estimatedRangeMinutes": [
+        170,
+        200
+      ],
+      "warning": "高德时间不包含排队、临时封路和个人爬升体感；红叶季周末需额外增加15%-20%。"
+    }
+  ]
+}

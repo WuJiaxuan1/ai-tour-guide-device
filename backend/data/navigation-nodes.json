@@ -1179,6 +1179,22 @@
         "/assets/amap/cd1becf0944dc9418e26.webp",
         "/assets/amap/04208d7c5d7c18029e90.webp"
       ]
+    },
+    "bell-drum-tower": {
+      "id": "bell-drum-tower",
+      "name": "钟鼓楼",
+      "poiId": "B001912JBJ",
+      "poiName": "栖霞山风景名胜区-钟楼",
+      "location": [
+        118.957481,
+        32.151692
+      ],
+      "address": "栖霞山风景名胜区内",
+      "positionSource": {
+        "provider": "amap-poi",
+        "poiId": "B001912JBJ"
+      },
+      "photos": []
     }
   }
 }

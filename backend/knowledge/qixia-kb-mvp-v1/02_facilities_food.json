@@ -1,0 +1,257 @@
+{
+  "schemaVersion": "1.0",
+  "facilities": [
+    {
+      "id": "west-gate",
+      "name": "栖霞山西门售票处",
+      "category": "entrance",
+      "location": [
+        118.954566,
+        32.150215
+      ],
+      "coordinateSystem": "GCJ02",
+      "amapPoiId": "B001913YX0",
+      "relatedPois": [
+        "mirror-lake",
+        "old-street",
+        "bell-drum-tower"
+      ],
+      "verificationStatus": "amap_resolved",
+      "note": "默认出发入口；高德计算到12个候选景点平均约799米、11分钟。",
+      "source": "/Users/yjp/Documents/南客松/栖霞山知识库_v1.0/03_服务设施/服务设施.md",
+      "capturedAt": "2026-10-27"
+    },
+    {
+      "id": "west-gate-visitor-center",
+      "name": "西门游客服务中心",
+      "category": "visitor_center",
+      "location": [
+        118.9547,
+        32.150235
+      ],
+      "coordinateSystem": "GCJ02",
+      "relatedPois": [
+        "west-gate"
+      ],
+      "hours": "09:00-17:00",
+      "verificationStatus": "official_snapshot_plus_amap_location",
+      "dynamicWarning": "营业时间为2026-10-27快照，出行前复核。",
+      "source": "/Users/yjp/Documents/南客松/栖霞山知识库_v1.0/03_服务设施/服务设施.md",
+      "capturedAt": "2026-10-27"
+    },
+    {
+      "id": "west-gate-left-restroom",
+      "name": "西门入口左侧卫生间",
+      "category": "restroom",
+      "location": [
+        118.954089,
+        32.150655
+      ],
+      "coordinateSystem": "GCJ02",
+      "amapPoiId": "B0FFM0LNSV",
+      "relatedPois": [
+        "west-gate"
+      ],
+      "hours": "09:00-17:00",
+      "verificationStatus": "official_text_plus_probable_amap_spatial_match",
+      "dynamicWarning": "高德名称仅为“公共厕所”，与官方小程序实体关系仍需现场确认。",
+      "source": "/Users/yjp/Documents/南客松/栖霞山知识库_v1.0/03_服务设施/服务设施.md",
+      "capturedAt": "2026-10-27"
+    },
+    {
+      "id": "mirror-lake-restroom",
+      "name": "明镜湖卫生间",
+      "category": "restroom",
+      "location": [
+        118.955111,
+        32.151278
+      ],
+      "coordinateSystem": "GCJ02",
+      "amapPoiId": "B0FFG77C3P",
+      "relatedPois": [
+        "mirror-lake"
+      ],
+      "hours": "09:00-17:00",
+      "verificationStatus": "official_text_plus_probable_amap_spatial_match",
+      "dynamicWarning": "高德名称为通用公共厕所，需现场确认是否即官方小程序所指设施。",
+      "source": "/Users/yjp/Documents/南客松/栖霞山知识库_v1.0/03_服务设施/服务设施.md",
+      "capturedAt": "2026-10-27"
+    },
+    {
+      "id": "drum-tower-restroom",
+      "name": "鼓楼卫生间",
+      "category": "restroom",
+      "location": null,
+      "relatedPois": [
+        "bell-drum-tower",
+        "temple"
+      ],
+      "hours": "09:00-17:00",
+      "verificationStatus": "official_text_pending_map_match",
+      "dynamicWarning": "坐标待匹配；钟楼与鼓楼为相邻实体。",
+      "source": "/Users/yjp/Documents/南客松/栖霞山知识库_v1.0/03_服务设施/服务设施.md",
+      "capturedAt": "2026-10-27"
+    },
+    {
+      "id": "thousand-buddha-cliff-restroom",
+      "name": "千佛崖卫生间",
+      "category": "restroom",
+      "location": [
+        118.960575,
+        32.151246
+      ],
+      "coordinateSystem": "GCJ02",
+      "amapPoiId": "B0FFFVFDHV",
+      "relatedPois": [
+        "buddha",
+        "pagoda",
+        "palace"
+      ],
+      "hours": "09:00-17:00",
+      "verificationStatus": "official_text_plus_high_confidence_amap_match",
+      "dynamicWarning": "“千佛崖卫生间”与“千佛岩景点”是不同实体。",
+      "source": "/Users/yjp/Documents/南客松/栖霞山知识库_v1.0/03_服务设施/服务设施.md",
+      "capturedAt": "2026-10-27"
+    },
+    {
+      "id": "taixu-pavilion-restroom",
+      "name": "太虚亭卫生间",
+      "category": "restroom",
+      "location": [
+        118.969429,
+        32.156015
+      ],
+      "coordinateSystem": "GCJ02",
+      "amapPoiId": "B0HDGHOWFO",
+      "relatedPois": [
+        "taixu"
+      ],
+      "hours": "09:00-17:00",
+      "verificationStatus": "official_text_plus_probable_amap_spatial_match",
+      "dynamicWarning": "高德名称为通用公共厕所，营业时间和实体关系需现场确认。",
+      "source": "/Users/yjp/Documents/南客松/栖霞山知识库_v1.0/03_服务设施/服务设施.md",
+      "capturedAt": "2026-10-27"
+    },
+    {
+      "id": "dining-human-coffee",
+      "name": "人间咖啡",
+      "category": "dining_cafe",
+      "location": [
+        118.954387,
+        32.148681
+      ],
+      "coordinateSystem": "GCJ02",
+      "amapPoiId": "B0I0DHR2O3",
+      "locationText": "栖霞古镇D1",
+      "relatedPois": [
+        "old-street",
+        "west-gate"
+      ],
+      "hours": "10:30-18:00",
+      "verificationStatus": "official_snapshot_plus_amap_name_address_match",
+      "source": "/Users/yjp/Documents/南客松/栖霞山知识库_v1.0/03_服务设施/服务设施.md",
+      "capturedAt": "2026-10-27"
+    },
+    {
+      "id": "dining-jiming-bao",
+      "name": "鸡鸣汤包",
+      "category": "dining_meal",
+      "location": [
+        118.954348,
+        32.149237
+      ],
+      "coordinateSystem": "GCJ02",
+      "amapPoiId": "B0JD27R1ZA",
+      "locationText": "栖霞古镇D3-4号",
+      "relatedPois": [
+        "old-street",
+        "west-gate"
+      ],
+      "hours": "06:30-18:30",
+      "verificationStatus": "official_snapshot_plus_amap_name_address_match",
+      "source": "/Users/yjp/Documents/南客松/栖霞山知识库_v1.0/03_服务设施/服务设施.md",
+      "capturedAt": "2026-10-27"
+    },
+    {
+      "id": "dining-jingshe",
+      "name": "晶舍精厨",
+      "category": "dining_meal",
+      "location": [
+        118.95407,
+        32.149237
+      ],
+      "coordinateSystem": "GCJ02",
+      "amapPoiId": "B0K1T5UOZ7",
+      "locationText": "栖霞古镇牌坊进入直走50米",
+      "relatedPois": [
+        "old-street",
+        "west-gate"
+      ],
+      "hours": "10:30-20:30",
+      "verificationStatus": "official_snapshot_plus_amap_name_address_match",
+      "source": "/Users/yjp/Documents/南客松/栖霞山知识库_v1.0/03_服务设施/服务设施.md",
+      "capturedAt": "2026-10-27"
+    },
+    {
+      "id": "dining-sumian",
+      "name": "一碗素面",
+      "category": "dining_light_meal",
+      "location": [
+        118.954534,
+        32.148976
+      ],
+      "coordinateSystem": "GCJ02",
+      "amapPoiId": "B0L69R1Y52",
+      "locationText": "栖霞街与茶圣路交叉口东北60米",
+      "relatedPois": [
+        "old-street",
+        "west-gate"
+      ],
+      "hours": "07:00-16:00",
+      "verificationStatus": "official_snapshot_plus_amap_name_address_match",
+      "source": "/Users/yjp/Documents/南客松/栖霞山知识库_v1.0/03_服务设施/服务设施.md",
+      "capturedAt": "2026-10-27"
+    },
+    {
+      "id": "dining-qianfozhai",
+      "name": "千佛斋",
+      "category": "dining_vegetarian",
+      "location": [
+        118.958513,
+        32.152448
+      ],
+      "coordinateSystem": "GCJ02",
+      "amapPoiId": "B001909CRI",
+      "locationText": "栖霞山风景名胜区内西侧",
+      "relatedPois": [
+        "temple",
+        "buddha",
+        "pagoda"
+      ],
+      "hours": "09:00-16:00",
+      "verificationStatus": "official_snapshot_plus_amap_name_address_match",
+      "source": "/Users/yjp/Documents/南客松/栖霞山知识库_v1.0/03_服务设施/服务设施.md",
+      "capturedAt": "2026-10-27"
+    },
+    {
+      "id": "dining-shijian-coffee",
+      "name": "拾间咖啡",
+      "category": "dining_cafe",
+      "location": [
+        118.959425,
+        32.152825
+      ],
+      "coordinateSystem": "GCJ02",
+      "amapPoiId": "B0L07Z0Y4H",
+      "locationText": "栖霞山风景名胜区内西侧",
+      "relatedPois": [
+        "temple",
+        "mirror-lake"
+      ],
+      "hours": "07:00-18:00",
+      "verificationStatus": "official_snapshot_plus_amap_name_address_match",
+      "source": "/Users/yjp/Documents/南客松/栖霞山知识库_v1.0/03_服务设施/服务设施.md",
+      "capturedAt": "2026-10-27"
+    }
+  ]
+}
