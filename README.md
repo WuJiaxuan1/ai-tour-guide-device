@@ -4,6 +4,14 @@
 
 本次完整实现位于 **`codex/full-implementation-photo-r12`** 分支；`main` 保留上传前版本。
 
+## 团队 UI 调整与演示交接
+
+本分支已包含当前前后端完整实现，团队继续调整视觉时请从本分支新建自己的 UI 分支。
+
+- [前端接手说明与保留的数据契约](docs/handoffs/team-ui-handoff-kb-r14.md)
+- [真实网页 + 小智逐项功能测试清单](docs/testing/web-xiaozhi-kb-r14.md)
+- [约 3 分钟路演视频展示脚本](docs/demo/video-script-kb-r14.md)
+
 ## 当前功能与边界
 
 | 模块 | 当前实现 |
