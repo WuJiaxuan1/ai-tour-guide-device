@@ -1,7 +1,0 @@
-import {definitions as tripDefinitions} from './trip-tools.mjs';
-export const definitions=[{name:'qixia_pairing_code',description:'游客要求连接网页、绑定行程或提供配对码时调用。朗读8位码，提示在网页我的路线的连接我的小智中填写。配对码5分钟有效。',inputSchema:{type:'object',properties:{},additionalProperties:false}},...tripDefinitions];
-export function validateTool(name,args){const d=definitions.find(d=>d.name===name);if(!d)throw Error('未知旅行工具。');if(!args||typeof args!=='object'||Array.isArray(args)||Object.keys(args).some(k=>!Object.hasOwn(d.inputSchema.properties,k)))throw Error('工具参数无效。');for(const key of d.inputSchema.required||[])if(typeof args[key]!=='string'||!args[key].trim())throw Error('缺少工具参数。');for(const [k,v] of Object.entries(args))if(typeof v!=='string'||!v.trim()||v.length>d.inputSchema.properties[k].maxLength)throw Error('工具参数无效。');}
-export function createBridgeTools({baseUrl,secret,fetcher=fetch}){
- const url=new URL('/api/v1/bridge/tools',baseUrl);if(!secret||!(url.protocol==='https:'||url.protocol==='http:'&&['localhost','127.0.0.1','[::1]'].includes(url.hostname))||url.username||url.password)throw Error('桥接身份或地址未配置。');
- return {definitions,async call(name,args={}){validateTool(name,args);let r;try{r=await fetcher(url,{method:'POST',headers:{Authorization:'Bearer '+secret,'Content-Type':'application/json'},body:JSON.stringify({name,arguments:args}),signal:AbortSignal.timeout(45000)});}catch{throw Error('旅行服务暂不可连接。');}const value=await r.json();if(!r.ok)throw Error(value.error?.message||'旅行工具暂不可用。');return value;}};
-}

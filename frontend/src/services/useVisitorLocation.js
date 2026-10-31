@@ -13,7 +13,7 @@ export default function useVisitorLocation(enabled=false){
    try{
     const r=await fetch('/api/location/convert',{method:'POST',headers:{'Content-Type':'application/json'},signal:controller.signal,body:JSON.stringify({coordinateSystem:'WGS84',location:[p.coords.longitude,p.coords.latitude]})});
     const data=await r.json();if(!r.ok||data.coordinateSystem!=='GCJ02'||!Array.isArray(data.location)||data.location.length!==2||!data.location.every(Number.isFinite))throw Error('已获取手机位置，但地图坐标转换失败，请重试。');
-    if(token!==generation.current)return;setPosition({location:data.location,rawLocation:[p.coords.longitude,p.coords.latitude],accuracy:p.coords.accuracy,at:p.timestamp,coordinateSystem:'GCJ02'});setStatus('ready');setError('');
+    if(token!==generation.current)return;setPosition({location:data.location,accuracy:p.coords.accuracy,at:p.timestamp,coordinateSystem:'GCJ02'});setStatus('ready');setError('');
    }catch(e){if(token===generation.current&&conversion.current===controller){setStatus('error');setError(e.name==='AbortError'?'位置转换等待超时，请重试。':e instanceof TypeError?'暂时无法连接位置服务，请检查网络后重试。':e.message);}}finally{clearTimeout(timeout);}
   },e=>{if(token!==generation.current)return;setStatus('error');setError(e.code===1?'定位权限未开启，请在浏览器的网站设置中允许访问位置。':e.code===3?'获取手机位置超时，请到信号较好的地方重试。':'暂时无法获取手机位置，请检查系统定位设置。');},{enableHighAccuracy:true,maximumAge:15000,timeout:15000});
  },[stop]);

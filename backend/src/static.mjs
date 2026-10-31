@@ -9,7 +9,7 @@ export function serveStatic(root,req,res,url){
  if(!existsSync(file)||!statSync(file).isFile()){if(extname(url.pathname)){res.writeHead(404);res.end();return;}file=resolve(base,'index.html');}
  if(!existsSync(file)){res.writeHead(404);res.end('请先构建前端。');return;}
  const info=statSync(file),extension=extname(file),etag=`W/"${info.size.toString(16)}-${Math.floor(info.mtimeMs).toString(16)}"`;
- const immutable=/\/assets\/(?:responsive\/[a-f0-9]{16}-\d+\.webp|[^/]+-[A-Za-z0-9_-]{8,}\.(?:js|css|woff2|webp))$/.test(url.pathname);
+ const immutable=/\/assets\/(?:responsive\/[a-f0-9]{16}-\d+\.webp|[^/]+-[A-Za-z0-9_-]{8,}\.(?:js|css|woff2))$/.test(url.pathname);
  const headers={'Content-Type':mime[extension]||'application/octet-stream','Cache-Control':immutable?'public, max-age=31536000, immutable':'no-cache',ETag:etag,'Last-Modified':info.mtime.toUTCString(),'Accept-Ranges':'bytes','Vary':'Accept-Encoding'};
  if(req.headers['if-none-match']?.split(/,\s*/).includes(etag)||(!req.headers['if-none-match']&&Date.parse(req.headers['if-modified-since'])>=Math.floor(info.mtimeMs/1000)*1000)){res.writeHead(304,headers);res.end();return;}
  let start=0,end=info.size-1,status=200;
