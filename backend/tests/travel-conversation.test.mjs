@@ -24,3 +24,23 @@ test('web and bound device use the same trip; original questions persist and dup
  await assert.rejects(service(d,{client_event_id:'d3',conversation_id:'voice',question:'下一站',trip_id:'foreign'}),{code:'FORBIDDEN'});
  }finally{store.close();}
 });
+
+test('full knowledge and application instructions use a stable prefix; summaries never receive the pack',async()=>{
+ const bodies=[];const model=createTextModel({config:()=>({provider:'deepseek',model:'deepseek-flash',apiKey:'test'}),fetcher:async(url,options)=>{bodies.push(JSON.parse(options.body));return {ok:true,json:async()=>({choices:[{message:{content:'答复'}}]})};}});
+ await model.generate({purpose:'answer',question:'舍利塔',knowledgeInstructions:'应用规则',context:{knowledge:'石构塔参考资料',knowledge_version:'2.1'},history:[{role:'user',content:'你好'}]});
+ const a=bodies[0];assert.ok(a.messages[0].content.includes('应用规则'));assert.ok(a.messages[1].content.includes('石构塔参考资料'));assert.equal(a.messages[2].content,'你好');assert.equal(a.messages.filter(m=>m.content.includes('石构塔参考资料')).length,1);assert.equal(a.max_tokens,1200);
+ await model.generate({purpose:'summary',question:'总结',context:{facts:{}},knowledgeInstructions:'不应加入'});
+ assert.match(bodies[1].messages[0].content,/旅行回忆编辑/);assert.doesNotMatch(bodies[1].messages[0].content,/不应加入/);assert.equal(bodies[1].messages.length,2);
+});
+test('web and device share v2.1 evidence; science avoids dynamic fallback and live navigation bypasses model',async()=>{
+ const store=new TravelStore(':memory:');try{
+ const s=store.authenticate(store.createSession().token),trip=store.createTrip(s,{client_event_id:'trip'},()=>({status:'active',route:{route_id:'r'}}));const d=store.authenticate(store.createSession({ownerId:s.owner_id,tripId:trip.id,kind:'device'}).token);
+ const received=[];let dynamicCalls=0;
+ const knowledge={version:'qixia-deepseek-v2.1',publicPoi:()=>null,modelEvidence:()=>({instructions:'规则',context:'完整新版知识',sourceIds:['knowledge-pack:qixia-deepseek-v2.1'],placeIds:[]}),chat:()=>({reply:'资料',sourceIds:[]})};
+ const service=createTravelConversation({store,knowledge,navigation:{context:()=>({status:'active',next_stop:{name:'明镜湖'},location:{freshness:'stale'},current_place:{}})},converse:()=>assert.fail('retired knowledge must not run'),dynamic:{query:()=>{dynamicCalls++;return {items:[]};}},model:{configured:()=>true,generate:async input=>{received.push(input);return {text:'资料支持的科普',model:'test'};}}});
+ for(const [session,id]of [[s,'web'],[d,'device']]){const a=await service(session,{client_event_id:id,conversation_id:id,question:'现在给我讲讲红叶为什么红'});assert.equal(a.knowledgeVersion,knowledge.version);assert.equal(a.mode,'grounded-model');}
+ assert.equal(dynamicCalls,0);assert.equal(received.length,2);assert.ok(received.every(x=>x.context.knowledge==='完整新版知识'));
+ const live=await service(d,{client_event_id:'live',conversation_id:'device',question:'下一站去哪'});assert.match(live.reply,/明镜湖/);assert.equal(received.length,2);
+ const today=await service(s,{client_event_id:'today',conversation_id:'web',question:'今天红叶红了吗'});assert.equal(today.unknown,true);assert.equal(dynamicCalls,1);assert.equal(received.length,2);
+ }finally{store.close();}
+});

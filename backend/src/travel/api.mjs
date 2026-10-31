@@ -77,7 +77,7 @@ export function createTravelApi({root, presets, planRoads, convertLocation, walk
           }else check(false,'NOT_FOUND','接口不存在。',404);
         }return true;
       }
-      if (path === '/capabilities' && method === 'GET') sendJSON(res,200,{schema_version:'1.0',persistent_trips:true,text_model_configured:model.configured(),proactive_device_speech:false,full_voice_transcript_capture:false,sticker_generation_configured:Boolean(modelConfig(root).imageEndpoint),photo_craft_available:false,photo_craft_independent:true,photo_craft_mode:'local_demo'});
+      if (path === '/capabilities' && method === 'GET') sendJSON(res,200,{schema_version:'1.0',knowledge:{version:knowledge?.version,mode:'full-context',...knowledge?.counts},persistent_trips:true,text_model_configured:model.configured(),proactive_device_speech:false,full_voice_transcript_capture:false,sticker_generation_configured:Boolean(modelConfig(root).imageEndpoint),photo_craft_available:false,photo_craft_independent:true,photo_craft_mode:'local_demo'});
       else if (path === '/chat' && method === 'POST') sendJSON(res,200,await answer(session,await readJSON(req)));
       else if (path === '/conditions/maple' && method === 'GET') sendJSON(res,200,dynamic.query('maple'));
       else if (path === '/activities' && method === 'GET') sendJSON(res,200,dynamic.query('activities'));

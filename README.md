@@ -1,6 +1,6 @@
 # 栖霞山随身文旅智能体 · AI Tour Guide Device
 
-线上应用版本：**0.5.2-20261101-ui-r13**。用户已验收选择性恢复的前端，网页与后端兼容接口均已上线，详见[发布记录](docs/operations/deployment-20261101-ui-r13.md)和[模块保留与恢复说明](docs/operations/frontend-selective-restoration.md)。React 网页、Node.js 行程后端、小智 MCP 工具共用同一份行程状态。仓库同时保留原有设备工程和外壳建模资料。
+线上应用版本：**0.5.2-20261101-kb-r14**。用户已验收选择性恢复的前端，网页与后端兼容接口均已上线，问枫枫与小智旅行工具已切换到知识包 v2.1，详见[发布记录](docs/operations/deployment-20261101-kb-r14.md)和[模块保留与恢复说明](docs/operations/frontend-selective-restoration.md)。React 网页、Node.js 行程后端、小智 MCP 工具共用同一份行程状态。仓库同时保留原有设备工程和外壳建模资料。
 
 本次完整实现位于 **`codex/full-implementation-photo-r12`** 分支；`main` 保留上传前版本。
 
@@ -14,6 +14,7 @@
 | 沉浸体验 | 栖霞寺和包含它的路线显示标签；靠近时网页提示；问位置/下一站时小智可附带体验提示。未接独立主动播报。 |
 | 游览报告与历史 | 报告恢复原固定模板和 PNG 下载；保留服务器历史行程/沉浸存档与删除。新版模型回忆/TXT 前端入口停用，已有服务器记录与接口保留。 |
 | 专属手账 | 按用户决定恢复初始演示：本地照片预览并输出固定纪念卡。**没有 AI 照片转贴纸功能**。新服务器照片创作停用，旧记录读取/下载/删除保留。 |
+| 知识问答 | 网页与小智旅行工具共用 v2.1 完整上下文（213 条记录、29 个景点、53 条设施）；实时行程状态优先，不将历史快照当作当天事实。 |
 | 动态资讯 | 今日红叶与近期活动资料接入暂缓，不把常识或空资料当作实时信息。 |
 
 ## 交互架构
@@ -85,4 +86,4 @@ node --env-file=.env.local backend/integrations/xiaozhi/mcp_pipe.mjs -- node bac
 
 运行数据写入 `.local-work/`，包括 SQLite、旅行媒体与历史照片作品。发布应持久化并备份，不能随代码替换而丢弃。源码仓库不含私人数据、密钥、依赖目录或可重新生成的构建产物。
 
-分支当前状态以[模块保留与恢复说明](docs/operations/frontend-selective-restoration.md)和[ui-r13 发布记录](docs/operations/deployment-20261101-ui-r13.md)为准；[安装部署说明](docs/operations/current-release-setup.md)提供环境搭建方法。部署本分支必须同时包含新增后端路线兼容接口。旧文档中的 FastAPI、主动语音、照片生成或“未推送”等是当时设计/状态；不把自动测试等同于景区实测。原有硬件文档和工程继续保留，官方手册不随仓库复制。
+分支当前状态以[模块保留与恢复说明](docs/operations/frontend-selective-restoration.md)和[kb-r14 发布记录](docs/operations/deployment-20261101-kb-r14.md)为准；[安装部署说明](docs/operations/current-release-setup.md)提供环境搭建方法。部署本分支必须同时包含新增后端路线兼容接口。旧文档中的 FastAPI、主动语音、照片生成或“未推送”等是当时设计/状态；不把自动测试等同于景区实测。原有硬件文档和工程继续保留，官方手册不随仓库复制。

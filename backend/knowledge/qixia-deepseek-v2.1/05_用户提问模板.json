@@ -1,0 +1,23 @@
+{
+  "usage": "可把user_message直接作为用户消息；context仅按实际已知情况填写，不要求每次全部填写。也可以直接使用自然语言问题。",
+  "user_message": "我们带长者同行，有两小时，想看看古寺和湖景，怎么安排比较轻松？",
+  "context": {
+    "current_date": null,
+    "visit_date": null,
+    "current_place": null,
+    "entrance": null,
+    "available_minutes": 120,
+    "exit_deadline": null,
+    "interests": [
+      "古寺",
+      "湖景"
+    ],
+    "companions": [
+      "长者同行"
+    ],
+    "walking_ability": null,
+    "stairs_tolerance": null,
+    "meal_needed": null
+  },
+  "unknowns_policy": "不知道的保持null；不要用知识包整理日期补造。模型优先追问实际位置与台阶接受度。"
+}

@@ -33,12 +33,8 @@ export function createConversationService(knowledge,presets,catalog){
   if(/轻松|少走|不想太累|少台阶/.test(text))prefs.effort='low';
   if(/正常游览|能量无限/.test(text))prefs.effort='normal';
   const out=(reply,placeIds=[],sourceIds=[],unknown=false,extra={})=>({reply,placeIds,sourceIds,unknown,mode:'knowledge',knowledgeVersion:knowledge.version,context:{currentPlaceId:current?.id||null,preferences:prefs},...extra});
-  if(/小智/.test(text))return out('计划复用小智，但网页文字接口尚未打通。目前这里使用知识库规则检索，可承接景点追问和路线筛选条件，不是大模型自由对话。');
+  if(/小智/.test(text))return out('网页和小智的旅行工具已连接同一服务器。开始行程后，可在“我的路线”连接小智；是否已配对以该行程页面为准。');
   if(/手表|同步|Android|安卓/.test(text))return out('可以在“我的路线”规划行程，开始游览后按站点打开导航。');
-  if(/接驳|观光车|班车/.test(text)){
-   const lines=presets.shuttles.lines.filter(l=>text.includes('景区外')?l.scope==='external':text.includes('虎山')?l.name==='虎山线':text.includes('龙山')?l.name==='龙山线':text.includes('南山')?l.name==='南山景区':l.scope==='internal');
-   return out(lines.map(l=>`${l.name}（${l.direction}）：${l.stops.map(s=>s.name).join(' → ')}。资料列示 ${l.hours}，${l.fareYuan} 元/人/单程。`).join('\n')+'\n以上依据 2026-10-30 整理资料，班次与当日运营请咨询 025-83784726；可在“我的路线 → 接驳车”查看。',[],lines.map(l=>l.lineId));
-  }
   const previous=messages.slice(0,-1).findLast(m=>m.role==='assistant');
   const routeFollowup=(supplied.routePending===true||/请补充从西门|符合这组条件的官方路线|这组条件/.test(previous?.content||''))&&/西门|南门|半日|全天|轻松|正常|能量|老人|儿童|孩子|未选择|不带|没有/.test(text);
   if(/路线|怎么逛|规划|半日|全天/.test(text)||routeFollowup){
@@ -56,17 +52,7 @@ export function createConversationService(knowledge,presets,catalog){
    if(Object.values(filters).some(v=>v===null))return out('可以按官方路线筛选。请补充从西门还是南门进入、半日还是全天，以及轻松休闲／正常游览／能量无限；也可以直接打开“我的路线”选择。已记录你提供的时间与偏好。',[],[],false,{routeFilters:filters});
    const result=presets.match(filters);return out(result.status==='matched'?`符合这组条件的官方路线：${result.routes.map(r=>r.name).join('、')}。可在“我的路线”查看顺序和接驳信息；道路与返程资料未齐全的路线暂不能开始导航。`:result.status==='no_match'?'这组条件在已整理的官方资料中没有匹配路线。可以调整筛选条件。':'这组条件还没有核对到官方推荐结果。可以在“我的路线”调整或跳过部分条件。',[],result.routes.map(r=>r.routeId),result.status!=='matched',{routeFilters:filters,routeIds:result.routes.map(r=>r.routeId)});
   }
-  if(hits.length&&!/厕所|卫生间|吃饭|餐饮|停车|游客中心|票价|开放|几点|今天|现在|封路/.test(text)){
-   const selected=hits.slice(0,2);const evidence=selected.map(p=>({id:p.id,name:p.name,text:/特点|特色/.test(text)?p.explanation||p.narration:p.narration+'\n'+p.explanation}));
-   const fallback=evidence.map(p=>`${p.name}\n${p.text}`).join('\n\n');
-   // Xiaozhi web transport is pending; this endpoint stays explicit, bounded retrieval.
-   return out(fallback,selected.map(p=>p.id),selected.map(p=>p.id));
-  }
-  if(/推荐|拍照|茶|历史|文化|轻松/.test(text)&&!hits.length&&!/票价|开放|几点|今天|现在|封路/.test(text)){const r=knowledge.recommend({interests:prefs.interests||text,availableMinutes:prefs.availableMinutes||120,effort:prefs.effort});return out(r.reason+'这些是候选地点；正式行程请在“我的路线”按官方条件筛选。',r.placeIds,r.placeIds);}
-  // Existing curated stories are a bounded fallback for places outside the 12-POI knowledge pack.
-  const place=catalog.find(p=>text.includes(p.name));
-  if(place?.story&&/讲|故事|介绍/.test(text)&&!/票价|开放|几点|今天|现在|封路/.test(text))return out(place.name+'\n'+place.story,[place.id],['catalog:'+place.id]);
   const result=knowledge.chat(current?current.name+' '+text:text,context);
-  return {...out(result.reply,result.placeIds,result.placeIds,/没有.*确认|没有找到/.test(result.reply)),knowledgeVersion:result.knowledgeVersion};
+  return {...out(result.reply,result.placeIds,result.sourceIds||[],result.unknown===true),knowledgeVersion:result.knowledgeVersion};
  };
 }

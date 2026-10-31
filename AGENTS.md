@@ -1,5 +1,11 @@
 # Project workflow
 
+## Production knowledge update — 2026-11-01 kb-r14
+- User requested replacing the old project KB with 问枫枫_DeepSeek知识包_v2.1. Production now 0.5.2-20261101-kb-r14, rollback ui-r13; see docs/operations/deployment-20261101-kb-r14.md.
+- Web chat and Xiaozhi qixia_trip_ask share qixia-deepseek-v2.1 (213 records, 29 POIs, 53 facilities), full-context 01+02 once. Runtime no longer loads v1; old folder is historical. Real navigation still overrides KB estimates; current_data_required remains unconfirmed.
+- Frontend only regenerated knowledge text (JS index-uzWgNhEn.js), no UI/route/photo changes. Linux69 + frontend38, staging12/public11 passed, including actual DeepSeek questions. No new physical voice test claimed.
+- Shared data preserved (16 trips/17 chats/5 jobs), MCP PID and global binding unchanged; actual bridge read authorized, established socket observed. Bound trip is completed. Runtime baseline manifest is kb-runtime-manifest.json. Continue branch-only; never push main.
+
 ## Production deployment — 2026-11-01 ui-r13
 - User accepted the selective frontend restoration and explicitly authorized public deployment. Production is now 0.5.2-20261101-ui-r13, rollback photo-r12; see docs/operations/deployment-20261101-ui-r13.md.
 - Web and backend deployed together, including /api/v1/trips/from-selection. JS index-CMHjK11e.js, CSS index-CoXqW1vl.css. Linux65 backend tests and staging/public17 checks each passed; local103 tests and13 browser flows were already accepted.

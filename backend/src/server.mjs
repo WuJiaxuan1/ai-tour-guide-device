@@ -70,7 +70,7 @@ const server=http.createServer(async(req,res)=>{
     }
     if(await travel.handle(req,res,url))return;
     if(req.method==='GET'&&url.pathname==='/api/health')return json(res,200,{ok:true,mapConfigured:Boolean(config.webKey&&config.jscode),servicesConfigured:Boolean(config.serverKey)});
-    if(req.method==='GET'&&url.pathname==='/api/capabilities')return json(res,200,{knowledge:{mode:'bounded-retrieval',multiTurn:'rules',version:knowledge.version,places:knowledge.catalog.length},textModel:{provider:'xiaozhi',connected:false},routes:{mode:'official-presets',count:presets.data.routes.length,verifiedRoadEdges:presets.data.matrix.edges.length,ready:presets.data.routes.filter(r=>r.navigationReady).map(r=>r.routeId)},watch:{requiresAndroid:true,routeSync:false,acknowledgement:null}});
+    if(req.method==='GET'&&url.pathname==='/api/capabilities')return json(res,200,{knowledge:{mode:'full-context',version:knowledge.version,places:knowledge.catalog.length,...knowledge.counts},textModel:{api:'/api/v1/capabilities'},routes:{mode:'official-presets',count:presets.data.routes.length,verifiedRoadEdges:presets.data.matrix.edges.length,ready:presets.data.routes.filter(r=>r.navigationReady).map(r=>r.routeId)},watch:{requiresAndroid:true,routeSync:false,acknowledgement:null}});
     if(req.method==='GET'&&url.pathname==='/api/config')return json(res,200,{map:{webKey:config.webKey,serviceHost:'/_AMapService',configured:Boolean(config.webKey&&config.jscode)}});
     if(url.pathname.startsWith('/_AMapService/')){
       if(!config.webKey||!config.jscode)throw new ServiceError('地图服务尚未配置。',503);

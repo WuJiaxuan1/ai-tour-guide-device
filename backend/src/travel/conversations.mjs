@@ -21,21 +21,27 @@ export function createTravelConversation({store,navigation,knowledge,converse,mo
           if(target&&!/下一站|下个景点/.test(target)&&target!==nav.next_stop?.name)reply=`当前仅估算下一站${nav.next_stop?.name||'（暂无）'}，没有计算到${target}的道路时间。请询问“到下一站还有多远”，或查看网页地图。`;
         }
       }
-      else if(/现在|今天|近期|本周/.test(input.question)&&/枫|红叶|活动/.test(input.question)){
+      else if(/现在|今天|近期|本周/.test(input.question)&&/枫|红叶|活动/.test(input.question)&&!/为什么|为何|原理|机制|由来|历史/.test(input.question)){
         const info=dynamic?.query(/活动/.test(input.question)?'activities':'maple');extra.dynamic=info;unknown=!info?.items.length;reply=unknown?'暂时没有有效期内、已核验的近期资料，请查看景区公告。':info.items.map(i=>i.report_text||i.title).join('\n');sourceIds=info?.items.map(i=>i.source_ref)||[];
       } else {
         let place=input.place_id;
         if(!place&&/这里|此处|现在的景点/.test(input.question))place=nav?.current_place?.attraction_id;
         if(!place&&/这里|此处|现在的景点/.test(input.question)){reply='暂不能确认你指的是哪个景点。请告诉我景点名称，或在网页中选择景点。';unknown=true;}
         else {
-          const evidence=await converse({messages:[...history.slice(-18),{role:'user',content:input.question}],context:{currentPlaceId:place,location:nav?.location.freshness==='fresh'?[nav.location.longitude,nav.location.latitude]:undefined}});
+          const pack=knowledge?.modelEvidence?.({question:input.question,placeId:place});
+          const evidence=pack?knowledge.chat(place?`${knowledge.publicPoi(place)?.name} ${input.question}`:input.question):await converse({messages:[...history.slice(-18),{role:'user',content:input.question}],context:{currentPlaceId:place,location:nav?.location.freshness==='fresh'?[nav.location.longitude,nav.location.latitude]:undefined}});
           const poi=place?knowledge.publicPoi(place):null;
-          reply=poi?`${poi.name}\n${poi.narration}\n${poi.explanation||''}`:evidence.reply;sourceIds=poi?[poi.id]:evidence.sourceIds||[];placeIds=poi?[poi.id]:evidence.placeIds||[];unknown=evidence.unknown===true;
-          if(model.configured()&&sourceIds.length){const generated=await model.generate({purpose:'answer',question:input.question,context:{knowledge:reply,source_ids:sourceIds,trip_status:nav?{status:nav.status,next_stop:nav.next_stop?.name,location_freshness:nav.location.freshness}:null},history});reply=generated.text;mode='grounded-model';extra.model=generated.model;}
+          reply=evidence.reply;sourceIds=evidence.sourceIds||[];placeIds=evidence.placeIds||[];unknown=evidence.unknown===true;
+          if(!pack&&poi){reply=`${poi.name}\n${poi.narration}\n${poi.explanation||''}`;sourceIds=[poi.id];placeIds=[poi.id];}
+          if(model.configured()&&(pack||sourceIds.length)){
+            sourceIds=pack?.sourceIds||sourceIds;placeIds=pack?.placeIds||placeIds;
+            const generated=await model.generate({purpose:'answer',question:input.question,knowledgeInstructions:pack?.instructions,context:{knowledge:pack?.context||reply,knowledge_version:knowledge?.version,source_ids:sourceIds,selected_place:pack?.selectedPlace||null,trip_status:nav?{status:nav.status,next_stop:nav.next_stop?.name,location_freshness:nav.location.freshness,current_place:nav.current_place}:null},history});reply=generated.text;mode='grounded-model';unknown=false;extra.model=generated.model;
+          }
+
         }
       }
       if(['location','next_stop','next_leg'].includes(intent)&&nav?.immersive_hint&&!/沉浸|人物视角|互动体验/.test(input.question))reply+=' '+nav.immersive_hint;
-      const result={reply,placeIds,sourceIds,unknown,mode,model_status:model.configured()?'configured':'unconfigured',...extra};
+      const result={reply,placeIds,sourceIds,unknown,mode,knowledgeVersion:knowledge?.version||null,model_status:model.configured()?'configured':'unconfigured',...extra};
       store.finishChat(session,input,result);return result;
     } catch(error){store.finishChat(session,input,{error_code:error.code||'UPSTREAM_UNAVAILABLE'},'failed');throw error;}
   };

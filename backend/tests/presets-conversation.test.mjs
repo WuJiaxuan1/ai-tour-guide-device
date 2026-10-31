@@ -50,7 +50,7 @@ test('time and preferences survive history; dynamic facts and Xiaozhi remain bou
  assert.equal(parseMinutes('二十五分钟'),25);assert.equal(parseMinutes('一小时三十分钟'),90);assert.equal(parseMinutes('0分钟'),0);
  const a=await answer({messages:[user('只有两小时，想轻松拍照'),user('推荐几个地方')]});assert.equal(a.context.preferences.availableMinutes,120);assert.equal(a.context.preferences.effort,'low');assert.match(a.context.preferences.interests,/拍照/);
  assert.match((await answer({messages:[user('今天红叶红了吗')]})).reply,/没有已确认/);
- assert.match((await answer({messages:[user('小智接通了吗')]})).reply,/尚未打通/);
+ assert.match((await answer({messages:[user('小智接通了吗')]})).reply,/已连接同一服务器/);
  assert.match((await answer({messages:[user('同步到手表')]})).reply,/我的路线/);
  for(const input of [null,{}, {messages:[null]},{messages:[{role:'system',content:'x'}]},{messages:[user(' ')]}])await assert.rejects(answer(input),{status:400});
 });

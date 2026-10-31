@@ -5,7 +5,7 @@ import {places} from '../src/data.js';
 const publicRoot=new URL('../public/',import.meta.url);
 test('all selected catalog entries have readable content; existing audio remains a valid WAV',()=>{
   assert.ok(places.length>0);assert.equal(new Set(places.map(p=>p.id)).size,places.length);assert.ok(places.every(p=>p.navigationAvailable&&Array.isArray(p.location)));assert.ok(!places.some(p=>p.id==='panorama'));
-  for(const p of places){assert.ok(p.story.length>30);assert.equal(/主办方|静态导览|演示/.test(p.story),false);if(!p.audio){assert.ok(p.knowledge,`Text-only addition is knowledge-backed: ${p.id}`);continue;}const wave=readFileSync(new URL(p.audio.slice(1),publicRoot));assert.equal(wave.subarray(0,4).toString(),'RIFF');assert.ok(wave.length>32000);}
+  for(const p of places){assert.ok(p.story.trim());if(p.knowledge)assert.equal(p.story,p.knowledge.narration+(p.knowledge.explanation?'\n\n'+p.knowledge.explanation:''));else assert.ok(p.story.length>30);assert.equal(/主办方|静态导览|演示/.test(p.story),false);if(!p.audio){assert.ok(p.knowledge,`Text-only addition is knowledge-backed: ${p.id}`);continue;}const wave=readFileSync(new URL(p.audio.slice(1),publicRoot));assert.equal(wave.subarray(0,4).toString(),'RIFF');assert.ok(wave.length>32000);}
 });
 test('all supplied photographs remain archived, while religious cards stay last and temple is third',()=>{
   const sources=JSON.parse(readFileSync(new URL('assets/photo-sources.json',publicRoot),'utf8'));
