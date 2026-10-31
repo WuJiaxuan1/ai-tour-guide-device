@@ -1,6 +1,6 @@
 # 栖霞山随身文旅智能体 · AI Tour Guide Device
 
-线上应用版本：**0.5.2-20261031-photo-r12**。本分支已按用户清单恢复部分原版前端操作，尚未发布公网，详见[模块保留与恢复说明](docs/operations/frontend-selective-restoration.md)。React 网页、Node.js 行程后端、小智 MCP 工具共用同一份行程状态。仓库同时保留原有设备工程和外壳建模资料。
+线上应用版本：**0.5.2-20261101-ui-r13**。用户已验收选择性恢复的前端，网页与后端兼容接口均已上线，详见[发布记录](docs/operations/deployment-20261101-ui-r13.md)和[模块保留与恢复说明](docs/operations/frontend-selective-restoration.md)。React 网页、Node.js 行程后端、小智 MCP 工具共用同一份行程状态。仓库同时保留原有设备工程和外壳建模资料。
 
 本次完整实现位于 **`codex/full-implementation-photo-r12`** 分支；`main` 保留上传前版本。
 
@@ -85,4 +85,4 @@ node --env-file=.env.local backend/integrations/xiaozhi/mcp_pipe.mjs -- node bac
 
 运行数据写入 `.local-work/`，包括 SQLite、旅行媒体与历史照片作品。发布应持久化并备份，不能随代码替换而丢弃。源码仓库不含私人数据、密钥、依赖目录或可重新生成的构建产物。
 
-分支当前状态以[模块保留与恢复说明](docs/operations/frontend-selective-restoration.md)为准；[安装部署说明](docs/operations/current-release-setup.md)提供环境搭建方法，[photo-r12 发布记录](docs/operations/deployment-20261031-photo-r12.md)记录当前线上版本。未来部署本分支必须同时包含新增后端路线兼容接口。旧文档中的 FastAPI、主动语音、照片生成或“未推送”等是当时设计/状态；不把自动测试等同于景区实测。原有硬件文档和工程继续保留，官方手册不随仓库复制。
+分支当前状态以[模块保留与恢复说明](docs/operations/frontend-selective-restoration.md)和[ui-r13 发布记录](docs/operations/deployment-20261101-ui-r13.md)为准；[安装部署说明](docs/operations/current-release-setup.md)提供环境搭建方法。部署本分支必须同时包含新增后端路线兼容接口。旧文档中的 FastAPI、主动语音、照片生成或“未推送”等是当时设计/状态；不把自动测试等同于景区实测。原有硬件文档和工程继续保留，官方手册不随仓库复制。

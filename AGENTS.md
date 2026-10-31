@@ -1,5 +1,11 @@
 # Project workflow
 
+## Production deployment — 2026-11-01 ui-r13
+- User accepted the selective frontend restoration and explicitly authorized public deployment. Production is now 0.5.2-20261101-ui-r13, rollback photo-r12; see docs/operations/deployment-20261101-ui-r13.md.
+- Web and backend deployed together, including /api/v1/trips/from-selection. JS index-CMHjK11e.js, CSS index-CoXqW1vl.css. Linux65 backend tests and staging/public17 checks each passed; local103 tests and13 browser flows were already accepted.
+- Existing shared/travel-data preserved and backed up. qixia-mcp.service stayed running on mcp-r2; bridge authorization/read succeeded, established socket observed, global binding unchanged. Existing bound trip was completed; a new trip needs pairing. Do not claim new physical voice verification.
+- Branch-only policy remains. Never push/merge implementation changes to main without explicit new authorization. Keep original fixed report/PNG and local JournalPage; do not reenable the rejected photo module.
+
 ## Selective frontend restoration — 2026-10-31
 - Latest user whitelist keeps server chat/about/history notice, temple immersive tags/experience/archive/mobile optimizations, active tour controls/map/location/navigation text/sync/recovery/pairing, server trip history/deletion, engineering/styles/assets. Restore all other frontend behavior to baseline 05398bb, including card add/remove, chat draft adoption, original preset wizard/filtering, personal route editing/planning, fixed ReportPage and PNG export. Keep JournalPage unchanged.
 - Active entry is RoutePage with shared ServerTourControls, not ServerRoutePage/ServerPresetRoutePanel. ServerMemoryPage/PhotoStudioPage remain inactive history; no new photo development. Historical trip details use ServerTripRecord without model-summary/TXT controls.
