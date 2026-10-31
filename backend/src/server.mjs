@@ -11,6 +11,8 @@ import {ServiceError,amapRequest,mergeLegs} from './amap.mjs';
 import {createKnowledgeService} from './knowledge.mjs';
 import {shortestOrder} from './route-optimizer.mjs';
 import {createRoadPlanner} from './road-planner.mjs';
+import {createTravelApi} from './travel/api.mjs';
+import {createReverseGeocoder} from './travel/location-address.mjs';
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'../..');
 const catalog=JSON.parse(readFileSync(resolve(root,'frontend/src/content/places.json'),'utf8'));
@@ -52,6 +54,11 @@ const knowledge=createKnowledgeService(root,[...catalog,...facilities]);
 const presets=createPresetService(root,[...catalog,...facilities]);
 const planRoads=createRoadPlanner({catalog:[...catalog,...facilities],data:presets.data,walkingLeg});
 const converse=createConversationService(knowledge,presets,[...catalog,...facilities]);
+const travel=createTravelApi({root,presets,knowledge,converse,catalog:[...catalog,...facilities],
+ reverseGeocode:createReverseGeocoder({key:()=>readConfig(root).serverKey}),
+ convertLocation:async location=>{const d=await amapRequest('/v3/assistant/coordinate/convert',{locations:location.map(n=>n.toFixed(6)).join(','),coordsys:'gps'},readConfig(root).serverKey,{});return String(d.locations).split(',').map(Number);},
+ walkingLeg:async (from,to)=>{const p=await walkingLeg({location:from},{location:to},readConfig(root).serverKey,AbortSignal.timeout(12000));return p?{distance_m:Number(p.distance),walk_seconds:Number(p.duration)}:null;}
+});
 const rates=new Map();
 const server=http.createServer(async(req,res)=>{
   const c=new AbortController();res.on('close',()=>{if(!res.writableEnded)c.abort();});
@@ -60,6 +67,7 @@ const server=http.createServer(async(req,res)=>{
     if(url.pathname.startsWith('/api/')||url.pathname.startsWith('/_AMapService/')){
       const client=req.socket.remoteAddress,now=Date.now();let rate=rates.get(client);if(!rate||now-rate.at>60000){rate={at:now,n:0};rates.set(client,rate);}if(++rate.n>180)throw new ServiceError('请求较多，请稍后再试。',429);
     }
+    if(await travel.handle(req,res,url))return;
     if(req.method==='GET'&&url.pathname==='/api/health')return json(res,200,{ok:true,mapConfigured:Boolean(config.webKey&&config.jscode),servicesConfigured:Boolean(config.serverKey)});
     if(req.method==='GET'&&url.pathname==='/api/capabilities')return json(res,200,{knowledge:{mode:'bounded-retrieval',multiTurn:'rules',version:knowledge.version,places:knowledge.catalog.length},textModel:{provider:'xiaozhi',connected:false},routes:{mode:'official-presets',count:presets.data.routes.length,verifiedRoadEdges:presets.data.matrix.edges.length,ready:presets.data.routes.filter(r=>r.navigationReady).map(r=>r.routeId)},watch:{requiresAndroid:true,routeSync:false,acknowledgement:null}});
     if(req.method==='GET'&&url.pathname==='/api/config')return json(res,200,{map:{webKey:config.webKey,serviceHost:'/_AMapService',configured:Boolean(config.webKey&&config.jscode)}});

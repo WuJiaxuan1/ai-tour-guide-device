@@ -1,28 +1,88 @@
-# AI Tour Guide Device
+# 栖霞山随身文旅智能体 · AI Tour Guide Device
 
-文旅导览设备项目：实体外壳建模、前端界面，以及与团队后端和硬件的集成。
+当前应用版本：**0.5.2-20261031-photo-r12**。React 网页、Node.js 行程后端、小智 MCP 工具共用同一份行程状态。仓库同时保留原有设备工程和外壳建模资料。
 
-## Directory layout
+本次完整实现位于 **`codex/full-implementation-photo-r12`** 分支；`main` 保留上传前版本。
 
-- `modeling/`：外观意向图、设备参考、v00–v05 工程、模型交付及机器切片。详见 [modeling/README.md](modeling/README.md)。
-- `stopwatch-nav/`：StopWatch 设备子系统：Android 配套 App、固件、通信协议、测试和交接说明。
-- `backend/`：本地与正式部署可复用的高德安全代理、天气和步行路线服务。
-- `frontend/`：手机网页源码、图片与本地字体、问答/导航适配、测试和构建配置。
-- `project-files/organizer/`：主办方原始资料；`project-files/team/server/`：队友提供的服务器配置文件。
-- `docs/`：项目需求、架构、会议纪要及历史状态与交接。
+## 当前功能与边界
 
-## Notes
+| 模块 | 当前实现 |
+| --- | --- |
+| 路线 | 按进出门、时长、体力、老人/儿童偏好筛选预设，最多 3 条；不临时编造路线。导航可用性取决于道路资料完整度。 |
+| 导航 | 高德地图、浏览器定位、地点/下一站/剩余时间、到访/跳过、暂停/恢复、结束与历史。手机后台或锁屏可能停止定位。 |
+| 网页与小智 | 8 位配对码绑定行程；工具共用位置、路线、知识讲解和旅行笔记。小智云负责 ASR、模型工具选择和 TTS。 |
+| 沉浸体验 | 栖霞寺和包含它的路线显示标签；靠近时网页提示；问位置/下一站时小智可附带体验提示。未接独立主动播报。 |
+| 旅行回忆 | 到访、交互、笔记、沉浸选择记录，事实统计与模型摘要，历史、TXT 导出和删除。 |
+| 专属手账 | 按用户决定恢复初始演示：本地照片预览并输出固定纪念卡。**没有 AI 照片转贴纸功能**。新服务器照片创作停用，旧记录读取/下载/删除保留。 |
+| 动态资讯 | 今日红叶与近期活动资料接入暂缓，不把常识或空资料当作实时信息。 |
 
-目录按版本编号排列；编号不代表实物制造已验证。G-code 绑定机器及参数，使用前阅读同目录说明。
+## 交互架构
 
-本地生成的 APK、固件 bin、日志、构建缓存和密钥不纳入 Git；真机安装包与刷机文件按版本在本机 `D:\Study\yiqifen\stopwatch-nav\releases\` 保存，源码仓库只保留可审阅、可复现的工程和验收说明。
+```mermaid
+flowchart LR
+  W[网页 React / 高德地图] -->|HTTPS：偏好、GPS、问答、操作| S[Node.js API /api/v1]
+  S -->|SSE + 查询：行程与回忆| W
+  D[小智实物] <-->|语音| X[小智云：ASR / 模型 / TTS]
+  X <-->|WSS MCP| M[MCP 桥接与行程工具]
+  M <-->|本地 HTTP + 私密桥接凭证| S
+  S <--> DB[(SQLite 与本地媒体)]
+  S --> K[预设路线 / 景点知识库]
+  S --> T[DeepSeek 或京东云文本模型]
+  S --> A[高德服务端 API]
+```
 
-历史文档保留当时内容及旧路径；目录迁移对照位于 [docs/history/reorganization-20261029/migration-map.json](docs/history/reorganization-20261029/migration-map.json)。历史要求可能已被后续讨论替代。
+## 目录
 
-前端与高德导航接入、Key 类型、跨前后端/手表分工见 [docs/architecture/navigation-integration.md](docs/architecture/navigation-integration.md)。
+- `frontend/`：网页、素材、集成后的栖霞寺体验、测试与构建。
+- `backend/`：HTTP API、SQLite、业务模块、小智 MCP、知识库与测试。
+- `shared/`：前后端共用规则。
+- `docs/architecture/backend/`：设计与实现契约，历史设计不代表全部已上线。
+- `docs/operations/`：发布记录与[当前安装部署说明](docs/operations/current-release-setup.md)。
+- `stopwatch-nav/`：原有 Android App、固件、协议与测试；该通路不等于小智 MCP 功能，详见其硬件状态文档。
+- `modeling/`：外观、模型工程和交付，见 [modeling/README.md](modeling/README.md)。
 
-## Local development
+## 本地运行
 
-根目录 `.env.local` 保存地图配置，模板为 `.env.example`，不提交 Git。运行 `backend/` 中的 `npm start`（127.0.0.1:8787），再启动 `frontend/` 的开发服务；Vite 同源代理负责连接。构建后，后端也可托管 `frontend/dist/client/`。正式公开仍需团队配置域名、HTTPS、平台使用范围及发布环境。
+使用 **Node.js 22.22+ 或 24**（内置 SQLite、WebSocket）、npm。模型大文件使用 Git LFS，应用开发不依赖建模素材。
 
-硬件状态见 [stopwatch-nav/docs/硬件端-当前功能介绍.md](stopwatch-nav/docs/硬件端-当前功能介绍.md)。当前 P8-test02 已完成路线叠加和已走路线变色的真机验收；定位来自 Android 手机，不是手表独立 GPS。网页与 Android/手表仍需后续统一路线接口。官方手册不随本仓库复制。
+```sh
+git clone --branch codex/full-implementation-photo-r12 https://github.com/WuJiaxuan1/ai-tour-guide-device.git
+cd ai-tour-guide-device
+npm --prefix backend ci
+npm --prefix frontend ci
+```
+
+将根目录 `.env.example` 复制为 `.env.local`，填写自己的高德和文本模型配置。密钥只存服务端，不放入 `VITE_*` 或 Git。缺少配置时相关外部服务不可用。
+
+分别在两个终端启动：
+
+```sh
+npm --prefix backend start
+npm --prefix frontend run dev
+```
+
+后端默认 `127.0.0.1:8787`，网页地址以 Vite 输出为准；Vite 代理 `/api` 和 `/_AMapService`。手机定位需要有效 HTTPS 和用户授权。
+
+```sh
+npm --prefix backend test
+npm --prefix frontend test
+npm --prefix frontend run build
+```
+
+构建输出 `frontend/dist/client/`，运行后端即可托管。须保留完整 `backend/`、`shared/` 与 `frontend/src/`（后端读取景点目录），不能只上传 dist。
+
+## 小智连接
+
+私有 `.env.local` 配置 `MCP_ENDPOINT`、`QIXIA_MCP_SECRET` 和 `QIXIA_API_BASE`，从仓库根目录运行：
+
+```sh
+node --env-file=.env.local backend/integrations/xiaozhi/mcp_pipe.mjs -- node backend/integrations/xiaozhi/trip-stdio.mjs
+```
+
+同一 MCP 接入点只运行一个桥接实例。网页开始行程 → 向小智索取配对码 → 网页输入 8 位码 → 询问“下一站去哪”。设备固件、云端账号、模型和语音配置须在自己的环境准备，仓库不含账号凭证。
+
+## 数据与版本记录
+
+运行数据写入 `.local-work/`，包括 SQLite、旅行媒体与历史照片作品。发布应持久化并备份，不能随代码替换而丢弃。源码仓库不含私人数据、密钥、依赖目录或可重新生成的构建产物。
+
+当前状态以本 README、[安装部署说明](docs/operations/current-release-setup.md) 和 [photo-r12 发布记录](docs/operations/deployment-20261031-photo-r12.md) 为准。旧文档中的 FastAPI、主动语音、照片生成或“未推送”等是当时设计/状态；不把自动测试等同于景区实测。原有硬件文档和工程继续保留，官方手册不随仓库复制。
