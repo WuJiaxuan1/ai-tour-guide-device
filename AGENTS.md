@@ -1,3 +1,10 @@
+## Production cloud navigation — 2026-11-01 cloud02-r15
+- User explicitly authorized deploying this branch's frontend/backend/MCP for testing. Production now 0.5.2-20261101-cloud02-r15, rollback kb-r14; see docs/operations/deployment-20261101-cloud02-r15.md. Do not confuse server deployment with firmware flashing.
+- Preserve shared/travel-data and private config. Original 16 trips/19 chats/5 jobs and binding digest unchanged. Two consistent SQLite backups and private rollback.sh retained. Native physical watch pairing requires P9-cloud02; old overview02 cannot obtain the new code.
+- Google official Chrome installed, sandbox enabled; production map rendering verified. Local/Linux backend80, frontend44/Sites4/build, staging12/public12 and public map/route/ACK/pause passed. Browser route page and map checked; phone GPS/device voice/TLS/physical display pending.
+- MCP main-entry guard must realpath argv to support current symlink. Do not regress to string equality against unresolved argv. Actual WSS/initialize/tools_list(4) observed; real bridge context read passed; no new physical voice test claimed.
+- Push deployment fix/record only to release/web-watch-cloud02-20261101, never main. Existing encrypted Codex SSH identity and pinned host remain the authorized connection on this machine.
+
 ## Current branch publication — 2026-11-01 cloud02
 - User authorized publishing all current frontend/backend/hardware work to a repository branch and requested deployment/testing handoff. Use release/web-watch-cloud02-20261101; never push main or deploy/flash by inference.
 - Branch includes latest autumn UI/timeline/history changes, native unified pairing, backend maps, actual latest firmware source imported from D:/Study/yiqifen/stopwatch-nav, optional overview01 Android sources, and only the verified P9-cloud02 binary distribution with overview02 rollback (distributions/, not historical releases/).

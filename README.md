@@ -1,6 +1,6 @@
 # 栖霞山随身文旅智能体
 
-当前交接分支：**`release/web-watch-cloud02-20261101`**。包含最新秋色主题前端、路线时间线与历史报告、Node.js 后端、小智 MCP、`2.2.6-p9-cloud02` 手表源码和可烧录包，以及最新 Android 测试 App 源码。**上传代码不代表已部署公网；cloud02 尚待真机联合验收。** `main` 不随本次发布改变。
+当前交接分支：**`release/web-watch-cloud02-20261101`**。包含最新秋色主题前端、路线时间线与历史报告、Node.js 后端、小智 MCP、`2.2.6-p9-cloud02` 手表源码和可烧录包，以及最新 Android 测试 App 源码。**前后端与 MCP 已于2026-11-01部署为 cloud02-r15；手表尚未烧录，仍待真机联合验收。** `main` 不随本次发布改变。
 
 先阅读 **[从 GitHub 到部署与验收](docs/handoffs/web-watch-cloud02-20261101.md)**。其中有配置清单、服务器启动与回滚、MCP 工具刷新、烧录和分角色验收步骤。
 
@@ -14,6 +14,8 @@
 | `deployment/` | systemd、Nginx 示例，需按实际服务器调整 |
 | `scripts/check-deployment.mjs` | 不改用户数据的 HTTP 部署检查 |
 | `modeling/` | 原有外壳建模资料，保留历史；大文件使用 Git LFS |
+
+当前线上：[打开新版网站](https://43.160.252.245/?v=cloud02-r15)，详见[本次部署记录](docs/operations/deployment-20261101-cloud02-r15.md)。
 
 ## 运行方式
 
@@ -53,7 +55,7 @@ node --env-file=.env.local backend/integrations/xiaozhi/mcp_pipe.mjs -- node bac
 
 ## 当前边界
 
-- cloud02 的代码/构建/本地联调通过，仍需验证真机 TLS、语音工具发现和实际 GPS；不是已上线宣告。
+- cloud02 前后端与 MCP 已上线、服务器联调通过；手表仍需升级，真机 TLS、语音原生工具发现与实际 GPS 待验收。
 - 当前为单智能体、单演示设备绑定，12 小时有效；手表没有独立 GPS。手机锁屏或后台可能停止定位。
 - 手表显示到下一站的路线总览和已走进度；不承诺转向播报、自动到达或偏航重算。
 - 语音页保留全屏表情及互动，地图页暂停语音；开机重新配网，当前默认音量100。

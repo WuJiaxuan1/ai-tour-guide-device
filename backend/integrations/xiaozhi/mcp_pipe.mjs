@@ -1,6 +1,6 @@
 import {spawn} from 'node:child_process';
 import readline from 'node:readline';
-import {readFileSync} from 'node:fs';
+import {readFileSync,realpathSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {fileURLToPath,pathToFileURL} from 'node:url';
 
@@ -56,7 +56,7 @@ export function runBridge({env=loadBridgeEnv(),command,WebSocketClass=WebSocket,
   socket.addEventListener('close',event=>{console.error(JSON.stringify({event:'wss_close',code:event.code,clean:event.wasClean,reason:safeMessage(event.reason)}));shutdown(1);});
   return {stop:()=>shutdown(0)};
 }
-if(process.argv[1]&&fileURLToPath(import.meta.url)===resolve(process.argv[1])){
+if(process.argv[1]&&fileURLToPath(import.meta.url)===realpathSync(resolve(process.argv[1]))){
   const separator=process.argv.indexOf('--');
   const bridge=runBridge({command:separator>=0?process.argv.slice(separator+1):process.argv.slice(2)});
   for(const signal of ['SIGINT','SIGTERM'])process.on(signal,()=>bridge?.stop());
