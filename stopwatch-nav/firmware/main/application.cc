@@ -73,7 +73,7 @@ void Application::Initialize() {
     audio_service_.Initialize(codec);
 #if CONFIG_BOARD_TYPE_M5STACK_STOPWATCH
     // Start() has read the saved value; override it once per boot, before sound.
-    codec->SetOutputVolume(85);
+    codec->SetOutputVolume(100);
 #endif
     audio_service_.Start();
 
@@ -750,6 +750,8 @@ void Application::ContinueOpenAudioChannel(ListeningMode mode) {
 
     if (!protocol_->IsAudioChannelOpened()) {
         if (!protocol_->OpenAudioChannel()) {
+            ESP_LOGW(TAG, "WakeRecovery: button channel open failed; return to idle");
+            SetDeviceState(kDeviceStateIdle);
             return;
         }
     }
@@ -819,18 +821,13 @@ void Application::HandleWakeWordDetectedEvent() {
     if (state == kDeviceStateIdle) {
         audio_service_.EncodeWakeWord();
         auto wake_word = audio_service_.GetLastWakeWord();
-
-        if (!protocol_->IsAudioChannelOpened()) {
-            SetDeviceState(kDeviceStateConnecting);
-            // Schedule to let the state change be processed first (UI update),
-            // then continue with OpenAudioChannel which may block for ~1 second
-            Schedule([this, wake_word]() {
-                ContinueWakeWordInvoke(wake_word);
-            });
-            return;
-        }
-        // Channel already opened, continue directly
-        ContinueWakeWordInvoke(wake_word);
+        // The continuation requires Connecting even when a previous channel
+        // is still open. Otherwise detection stops itself but never listens.
+        SetDeviceState(kDeviceStateConnecting);
+        const auto ticket = voice_gate_.Capture();
+        Schedule([this, wake_word, ticket]() {
+            if (voice_gate_.Allows(ticket)) ContinueWakeWordInvoke(wake_word);
+        });
     } else if (state == kDeviceStateSpeaking || state == kDeviceStateListening) {
         AbortSpeaking(kAbortReasonWakeWordDetected);
         // Clear send queue to avoid sending residues to server
@@ -866,7 +863,10 @@ void Application::ContinueWakeWordInvoke(const std::string& wake_word) {
 
     if (!protocol_->IsAudioChannelOpened()) {
         if (!protocol_->OpenAudioChannel()) {
-            audio_service_.EnableWakeWordDetection(true);
+            // Retry from Idle: a detector running in Connecting would report
+            // a wake that HandleWakeWordDetectedEvent intentionally ignores.
+            ESP_LOGW(TAG, "WakeRecovery: channel open failed; return to idle");
+            SetDeviceState(kDeviceStateIdle);
             return;
         }
     }
@@ -913,6 +913,9 @@ void Application::HandleStateChangedEvent() {
             audio_service_.EnableWakeWordDetection(true);
             break;
         case kDeviceStateConnecting:
+            // Also covers left-button starts, where the detector was still
+            // running. It must not consume a wake while connection is pending.
+            audio_service_.EnableWakeWordDetection(false);
             display->SetStatus(Lang::Strings::CONNECTING);
             display->SetEmotion("neutral");
             display->SetChatMessage("system", "");
@@ -1103,17 +1106,11 @@ void Application::WakeWordInvoke(const std::string& wake_word) {
     
     if (state == kDeviceStateIdle) {
         audio_service_.EncodeWakeWord();
-
-        if (!protocol_->IsAudioChannelOpened()) {
-            SetDeviceState(kDeviceStateConnecting);
-            // Schedule to let the state change be processed first (UI update)
-            Schedule([this, wake_word]() {
-                ContinueWakeWordInvoke(wake_word);
-            });
-            return;
-        }
-        // Channel already opened, continue directly
-        ContinueWakeWordInvoke(wake_word);
+        SetDeviceState(kDeviceStateConnecting);
+        const auto ticket = voice_gate_.Capture();
+        Schedule([this, wake_word, ticket]() {
+            if (voice_gate_.Allows(ticket)) ContinueWakeWordInvoke(wake_word);
+        });
     } else if (state == kDeviceStateSpeaking) {
         Schedule([this]() {
             AbortSpeaking(kAbortReasonNone);

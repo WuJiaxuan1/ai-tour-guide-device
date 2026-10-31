@@ -1,15 +1,16 @@
 // Pure preset rules shared by browser and HTTP service. Roads are a separate service.
+import {routeWithGates} from './route-gates.mjs';
 export function effectivePreferences(filters={}){
  const companions=Array.isArray(filters.companions)?filters.companions:[filters.companions];
  const lowEffort=companions.some(v=>v==='senior'||v==='child');
  return {...filters,intensity:lowEffort?'easy':filters.intensity||'normal',companions:lowEffort?'low-effort':companions.includes('none')?'none':null,lowEffort};
 }
-export function matchPresets(filters,{rules,routes}){
+export function matchPresets(filters,{rules,routes,gates=[]}){
  if(!filters||typeof filters!=='object'||Array.isArray(filters))return {status:'invalid',routes:[]};
  const effective=effectivePreferences(filters);
  const matching=rules.filter(r=>['gate','duration','intensity'].every(k=>!effective[k]||r[k]===effective[k])&&(!effective.companions||effective.companions==='low-effort'&&['senior','child'].includes(r.companions)||r.companions===effective.companions));
  const ids=new Set(matching.filter(r=>r.status==='matched').flatMap(r=>r.routeIds));
- return {status:ids.size?'matched':matching.some(r=>r.status==='no_match')?'no_match':'unverified',routes:routes.filter(r=>ids.has(r.routeId)),effective};
+ return {status:ids.size?'matched':matching.some(r=>r.status==='no_match')?'no_match':'unverified',routes:routes.filter(r=>ids.has(r.routeId)).map(r=>gates.length&&filters.exitGate?routeWithGates(r,gates,filters.gate||r.entryGateId,filters.exitGate):r),effective};
 }
 export function visitKey(stop){return stop.stopId||stop.id;}
 export function closestPreset(stopIds,routes,entryGateId){

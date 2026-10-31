@@ -66,6 +66,8 @@ class SurroundingMapActivity : AppCompatActivity(), LocationListener {
     private var positionsSent=0
     private var previewBitmap: Bitmap?=null
     private lateinit var routeControls:WalkingRouteControls
+    private var overviewMode=true
+    private lateinit var overviewState:TextView
     private var routeRevision=1
     private var uploadedRouteRevision=0
     private val routeProgress=RouteProgressTracker()
@@ -86,6 +88,7 @@ class SurroundingMapActivity : AppCompatActivity(), LocationListener {
         supportActionBar?.hide()
         location=getSystemService(LOCATION_SERVICE) as LocationManager
         val mapPrefs=getSharedPreferences("p7_map",MODE_PRIVATE)
+        overviewMode=mapPrefs.getBoolean("route_overview",true)
         selectedZoom=MapZoom.normalize(mapPrefs.getFloat("map_zoom",MapZoom.DEFAULT))
         mapDetail=MapDetail.restore(mapPrefs.getString("map_detail",MapDetail.CLEAN.name))
         val padding=dp(16)
@@ -94,8 +97,8 @@ class SurroundingMapActivity : AppCompatActivity(), LocationListener {
             text=value; textSize=size; setTextColor(Color.WHITE); setPadding(0,dp(6),0,dp(6))
         }.also { content.addView(it) }
         fun button(label:String,action:()->Unit)=Button(this).apply { text=label; setOnClickListener {action()} }.also {content.addView(it)}
-        text("枫叶精灵 · 周边地图",24f)
-        text("P8-test02｜已走路线实时变色\n需要 P8-test02 手表固件。保持本页在前台，手表切到地图页。")
+        text("枫叶精灵 · 路线地图",24f)
+        text("全程路线总览｜规划路线后自动看全程\n搭配 overview01 手表固件。保持本页前台，手表切到地图页。")
         address=EditText(this).apply {
             hint="手表 IP"; inputType=InputType.TYPE_CLASS_PHONE; setSingleLine(true)
             setText(getSharedPreferences("local_link",MODE_PRIVATE).getString("ip",""))
@@ -104,7 +107,7 @@ class SurroundingMapActivity : AppCompatActivity(), LocationListener {
         keyState=text(if(Keys.hasAmap(this)) "高德 Key：${Keys.mask(Keys.userAmap(this))}（手机已保存）" else "高德 Key：未保存")
         button("开始定位和地图同步") { begin() }
         button("停止同步") { stop("已停止；手表最迟 15 秒后隐藏旧定位点") }
-        button("重新获取周边底图") { forceMap=true; lastCapture=0; detail.text="已请求刷新；请保持手表在地图页" }
+        button("重新获取当前模式底图") { forceMap=true; lastCapture=0; detail.text="已请求刷新；请保持手表在地图页" }
         button("打开手机定位设置") { startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)) }
         state=text("尚未开始")
         gps=text("GPS：等待开始。首次定位请到室外开阔处。")
@@ -148,16 +151,20 @@ class SurroundingMapActivity : AppCompatActivity(), LocationListener {
         showDetail()
         routeControls=WalkingRouteControls(this,content,
             currentFix={fix?.takeIf {running && it.usable(now())}},enabled={running && foreground}) {route,_->
-            if(routeProgress.setRoute(route)) ++routeGeneration
+            if(routeProgress.setRoute(route)) {++routeGeneration;if(overviewMode) invalidateMap()}
             routeProgress.update(fix,now())
             ++routeRevision;renderPreview()
             detail.text="路线/配色已修改；同步且地图就绪时自动发送"
         }
+        overviewState=text("")
+        button("显示全程路线（自动缩放、无文字）") {selectOverview(true)}
+        button("跟随当前位置（周边地图）") {selectOverview(false)}
+        showOverview()
         progressState=text("已走进度：等待路线与定位")
-        text("手机正在准备的地图块（可提前移向前方）；下方为当前手表窗口")
+        text("手机地图来源预览；下方圆形图为手表全程效果，规划路线后自动适配范围")
         mapHost=FrameLayout(this)
         content.addView(mapHost,LinearLayout.LayoutParams(-1,dp(240)))
-        text("手表窗口预览：底图已确认；路线和配色预览当前选择，设备是否收到请看同步状态。圆点为定位，方块为终点。")
+        text("手表窗口预览：底图已确认；路线和配色预览当前选择，设备是否收到请看同步状态。全程模式：绿色圆点为起点，另一端为终点，蓝色为当前位置（可调色）。")
         preview=ImageView(this).apply { adjustViewBounds=true; contentDescription="已确认地图与手机当前有效位置预览" }
         content.addView(preview,LinearLayout.LayoutParams(-1,dp(240)))
         button("P6 测试图 / 链路诊断") { startActivity(Intent(this,LocalLinkActivity::class.java)) }
@@ -176,8 +183,36 @@ class SurroundingMapActivity : AppCompatActivity(), LocationListener {
     }
     private fun dp(n:Int)=(n*resources.displayMetrics.density).toInt()
     private fun now()=SystemClock.elapsedRealtime()
+    private fun desiredOverview():WalkingRoute? = if(overviewMode && ::routeControls.isInitialized) routeControls.route else null
+    private fun matches(image:MapPixels):Boolean {
+        val route=desiredOverview()
+        return RouteOverview.matches(image,route,route!=null) &&
+            (route!=null || (image.zoom==selectedZoom && image.detail==mapDetail))
+    }
+    private fun usableImage(image:MapPixels,current:PhoneFix?):Boolean = matches(image) &&
+        (image.overviewRoute!=null || (current!=null && MapChunkPolicy.covers(image,current)))
+    private fun invalidateMap() {
+        ++captureEpoch;source?.cancel();capturing=false;ready=null;forceMap=true;lastCapture=0
+    }
+    private fun selectOverview(value:Boolean) {
+        if(overviewMode!=value) {overviewMode=value;getSharedPreferences("p7_map",MODE_PRIVATE).edit().putBoolean("route_overview",value).apply();invalidateMap()}
+        showOverview();showZoom();showDetail()
+    }
+    private fun showOverview() {
+        if(!::overviewState.isInitialized) return
+        overviewState.text=if(overviewMode) {
+            if(desiredOverview()==null) "已选择全程路线：先规划目的地；当前显示周边地图"
+            else "全程路线：自动缩放，底图固定，定位点与已走进度更新"
+        } else "跟随定位：保留原来的周边地图与窗口移动"
+    }
     private fun showZoom() {
         if(!::zoomSlider.isInitialized) return
+        showOverview()
+        zoomSlider.isEnabled=desiredOverview()==null
+        if(desiredOverview()!=null) {
+            zoomState.text=if(cached?.let {matches(it)}==true && installedId!=0 && mapActive) "全程路线：手表已应用自动范围" else "全程路线：自动适配整条路线，等待地图更新"
+            return
+        }
         val value=if(draggingZoom) MapZoom.fromProgress(zoomSlider.progress) else selectedZoom
         val confirmed=cached?.takeIf {running && mapActive && installedId!=0}?.zoom
         val hint=when {
@@ -191,6 +226,7 @@ class SurroundingMapActivity : AppCompatActivity(), LocationListener {
         zoomState.text=String.format(Locale.US,"缩放 %.1f（13.0 最远 ↔ 18.0 最近）\n%s",value,hint)
     }
     private fun selectZoom(value:Float) {
+        if(desiredOverview()!=null) {detail.text="全程路线自动缩放；要手动调范围，请切到跟随定位";return}
         val next=MapZoom.normalize(value)
         if(next!=selectedZoom) {
             selectedZoom=next
@@ -206,6 +242,7 @@ class SurroundingMapActivity : AppCompatActivity(), LocationListener {
     }
     private fun showDetail() {
         if(!::detailState.isInitialized) return
+        if(desiredOverview()!=null) {detailState.text="全程路线：隐藏地图文字与标注";return}
         val applied=cached?.takeIf {running && mapActive && installedId!=0}?.detail
         val status=when {
             !running->"点击开始后应用"
@@ -218,6 +255,7 @@ class SurroundingMapActivity : AppCompatActivity(), LocationListener {
         showZoom()
     }
     private fun selectDetail(value: MapDetail) {
+        if(desiredOverview()!=null) {detail.text="全程路线固定隐藏地图文字";return}
         if(value==mapDetail) return
         mapDetail=value
         getSharedPreferences("p7_map",MODE_PRIVATE).edit().putString("map_detail",value.name).apply()
@@ -365,6 +403,7 @@ class SurroundingMapActivity : AppCompatActivity(), LocationListener {
                     if(boot.isNotEmpty() && boot!=status.bootId) {installedId=0;uploadedRouteRevision=0;ready=null}
                     boot=status.bootId
                     if(status.geoProtocol!=1 || status.chunkProtocol!=1 || status.routeProtocol!=1 || status.progressProtocol!=1) {state.text="请先更新 P8-test02 已走路线固件；当前 ${status.firmware}";return@publish}
+                    if(desiredOverview()!=null && status.overviewProtocol!=1) {state.text="全程路线需要 overview01 或更新固件；也可切到跟随定位继续使用";return@publish}
                     if(status.routeSession!=session || status.routeRevision!=uploadedRouteRevision.toLong()) uploadedRouteRevision=0
                     if(!status.mapActive) {
                         if(mapActive || capturing) {++captureEpoch;source?.cancel();capturing=false;ready=null}
@@ -383,24 +422,25 @@ class SurroundingMapActivity : AppCompatActivity(), LocationListener {
     }
     private fun nextAction(local:LocalLinkClient,token:Int) {
         val current=fix?.takeIf {it.usable(now())}
-        val base=cached
-        if(current!=null && !capturing && ready==null && (forceMap || base==null || base.zoom!=selectedZoom || base.detail!=mapDetail || MapChunkPolicy.needsRefresh(base,current)) && now()-lastCapture>=5000) {
+        val base=cached;val route=desiredOverview()
+        val needs=forceMap || base==null || !matches(base) || (route==null && current!=null && MapChunkPolicy.needsRefresh(base,current))
+        if((route!=null || current!=null) && !capturing && ready==null && needs && now()-lastCapture>=5000) {
             capturing=true;lastCapture=now();val captureToken=++captureEpoch
-            detail.text="正在预取 480×480 地图块；旧地图继续显示…"
-            source?.capture(MapChunkPolicy.target(current,base),selectedZoom,mapDetail) {image,error ->
+            detail.text=if(route!=null) "正在生成整条路线的总览底图…" else "正在预取周边地图块…"
+            val done:(MapPixels?,String?)->Unit={image,error ->
                 if(running && epoch==token && captureEpoch==captureToken && mapActive) {
                     capturing=false
-                    if(image!=null) {ready=image;forceMap=false;detail.text="底图就绪，等待发送"}
+                    if(image!=null && matches(image)) {ready=image;forceMap=false;detail.text="底图就绪，等待发送"}
                     else detail.text=error ?: "地图暂不可用，稍后重试"
                 }
             }
+            if(route!=null) source?.captureOverview(route,done)
+            else source?.capture(MapChunkPolicy.target(current!!,base?.takeIf {it.overviewRoute==null && matches(it)}),selectedZoom,mapDetail,done)
         }
-        val upload=ready ?: base?.takeIf {installedId==0 && it.zoom==selectedZoom && it.detail==mapDetail && current!=null && MapChunkPolicy.covers(it,current) && !forceMap}
+        val upload=ready ?: base?.takeIf {installedId==0 && usableImage(it,current) && !forceMap}
         if(installedId!=0 && uploadedRouteRevision!=routeRevision) {sendRoute(local,token);return}
-        if(upload!=null && current!=null && MapChunkPolicy.covers(upload,current)) {
-            ready=null;sendMap(local,token,upload);return
-        }
-        if(ready!=null && current!=null && !MapChunkPolicy.covers(ready!!,current)) {ready=null;forceMap=true}
+        if(upload!=null && usableImage(upload,current)) {ready=null;sendMap(local,token,upload);return}
+        if(ready!=null && !usableImage(ready!!,current)) {ready=null;forceMap=true}
         if(installedId!=0) sendPosition(local,token,current)
     }
     private fun sendMap(local:LocalLinkClient,token:Int,image:MapPixels) {
@@ -408,7 +448,7 @@ class SurroundingMapActivity : AppCompatActivity(), LocationListener {
         detail.text="发送底图 #$id，完整显示后再更新定位点"
         worker.execute {
             try {
-                val frame=MapFrameEncoder.encode(image.pixels,id,localSession,image.bounds,image.size)
+                val frame=MapFrameEncoder.encode(image.pixels,id,localSession,image.bounds,image.size,image.overviewRoute)
                 val ack=local.uploadImage(frame)
                 check(ack.bootId==expectedBoot) {"手表已重启"}
                 var shown=false
@@ -421,7 +461,7 @@ class SurroundingMapActivity : AppCompatActivity(), LocationListener {
                 check(shown) {"底图显示未确认"}
                 publish(token) {
                     busy=false;cached=image;installedId=id;mapsSent++
-                    if(image.zoom!=selectedZoom || image.detail!=mapDetail) forceMap=true
+                    if(!matches(image)) forceMap=true
                     showZoom()
                     detail.text="底图 #$id 已装载（接收 ${ack.elapsedMs}ms），正在发送当前位置"
                     renderPreview()

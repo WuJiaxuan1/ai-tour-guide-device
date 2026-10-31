@@ -1,3 +1,9 @@
+## Current branch publication — 2026-11-01 cloud02
+- User authorized publishing all current frontend/backend/hardware work to a repository branch and requested deployment/testing handoff. Use release/web-watch-cloud02-20261101; never push main or deploy/flash by inference.
+- Branch includes latest autumn UI/timeline/history changes, native unified pairing, backend maps, actual latest firmware source imported from D:/Study/yiqifen/stopwatch-nav, optional overview01 Android sources, and only the verified P9-cloud02 binary distribution with overview02 rollback (distributions/, not historical releases/).
+- Team handoff: docs/handoffs/web-watch-cloud02-20261101.md. Secrets, .local-work data, signing keys, dependencies and caches remain excluded. Source publication does not mean production or real-device acceptance.
+- Old source folders and their local edits stay intact. Imported current hardware is now intentionally updated in this branch; older prohibition against overwriting the historical copy is superseded by this explicit whole-project publication request.
+
 # Project workflow
 
 ## Production knowledge update — 2026-11-01 kb-r14
@@ -132,3 +138,15 @@
 ## Current update — 2026-10-31 17:12 CST
 - Website/backend now 0.5.2-20261031-navigation-r5. Read docs/operations/deployment-20261031-navigation-r5.md; r4 was rolled back after clock-skew failure, do not use r4 as rollback target. Stable fallback is location-r3.
 - Navigation guidance is shared by web/chat/MCP context. Pause/resume/new-fix lifecycle, completed next_stop=null, off-route streak and remaining metrics are implemented. 79 local checks; 51 server checks and 10 staging/public checks passed. Device navigation acceptance pending.
+
+## Local StopWatch cloud navigation — 2026-11-01
+- User requested migrating Android navigation work to the project backend, based on confirmed firmware 2.2.6-p8-overview02. First local release is 2.2.6-p9-cloud01; see docs/operations/watch-navigation-p9-cloud01.md.
+- Frontend browser remains GPS source. Backend renders official AMap SDK overview maps and next-stop roads, QRTE/QMAP v4 plus position/progress. Watch polls outbound using a trip-scoped 12-hour device session; do not claim public servers can directly reach hotspot IPs.
+- Latest hardware source is D:/Study/yiqifen/stopwatch-nav, release P9-cloud01 with overview02 rollback. Do not overwrite canonical repo's historical hardware copy or claim it already contains the new source.
+- Local backend/HTTP/real-map/production-parser/firmware build checks passed; physical flash, device networking/GPS and production deployment remain pending. No push or deployment authorization is implied by this local implementation.
+- Preserve existing unrelated in-progress frontend history/report/services changes in this shared worktree. Xiaozhi voice pairing and watch-map credentials remain distinct in this first version.
+
+## Unified voice/watch pairing — 2026-11-01 P9-cloud02
+- User rejected stopwatch-navigation.json downloads and the separate 同步到手表地图 section. Keep only DevicePairing; a native self.qixia.get_pairing_code issues a watch-associated code, and the existing web pairing action binds voice context and watch navigation together.
+- P9-cloud02 supersedes cloud01 daily setup. Remove qixia_pairing_code from bridge tool discovery; deployment needs bridge refresh plus new firmware, not just frontend changes. Default server origin requires valid trusted TLS. See docs/operations/watch-navigation-p9-cloud02.md.
+- Still single-agent/single-demo-device global binding; 12-hour validity, one-time 5-minute code, hashed private claim tokens, watch-only API scope. No multi-user support implied. Preserve other local edits and production data. Local implementation only; no push/deploy/flash performed.

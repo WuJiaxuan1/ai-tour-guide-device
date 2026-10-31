@@ -16,7 +16,7 @@ test('official data preserves eight routes, eleven observed filter cases and eig
  assert.equal(presets.shuttles.lines.filter(l=>l.scope==='internal').length,6);assert.equal(presets.shuttles.lines.filter(l=>l.scope==='external').length,2);
  for(const r of presets.data.routes){if(r.navigationReady)assert.ok(r.geometry.coordinates.length>2);assert.equal(new Set(r.stops.map(s=>s.stopId)).size,r.stops.length);}
  const r5=presets.data.routes.find(r=>r.routeId==='R05'),r6=presets.data.routes.find(r=>r.routeId==='R06');
- assert.equal(r5.officialNodeCount,7);assert.equal(r5.uniqueNodeCount,6);assert.equal(r5.countDiscrepancy,true);assert.equal(r6.completeness,'missing_exit');
+ assert.equal(r5.officialNodeCount,7);assert.equal(r5.uniqueNodeCount,6);assert.equal(r5.countDiscrepancy,false);assert.equal(r5.sourceCountDiscrepancy,true);assert.equal(r6.completeness,'missing_exit');
 });
 test('companion effort override uses approved easy rules while unknown combinations stay unknown',()=>{
  assert.deepEqual(presets.match({gate:'west',duration:'half',intensity:'normal',companions:'senior'}).routes.map(r=>r.routeId),['R01','R02']);

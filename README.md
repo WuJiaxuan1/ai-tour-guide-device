@@ -1,97 +1,64 @@
-# 栖霞山随身文旅智能体 · AI Tour Guide Device
+# 栖霞山随身文旅智能体
 
-线上应用版本：**0.5.2-20261101-kb-r14**。用户已验收选择性恢复的前端，网页与后端兼容接口均已上线，问枫枫与小智旅行工具已切换到知识包 v2.1，详见[发布记录](docs/operations/deployment-20261101-kb-r14.md)和[模块保留与恢复说明](docs/operations/frontend-selective-restoration.md)。React 网页、Node.js 行程后端、小智 MCP 工具共用同一份行程状态。仓库同时保留原有设备工程和外壳建模资料。
+当前交接分支：**`release/web-watch-cloud02-20261101`**。包含最新秋色主题前端、路线时间线与历史报告、Node.js 后端、小智 MCP、`2.2.6-p9-cloud02` 手表源码和可烧录包，以及最新 Android 测试 App 源码。**上传代码不代表已部署公网；cloud02 尚待真机联合验收。** `main` 不随本次发布改变。
 
-本次完整实现位于 **`codex/full-implementation-photo-r12`** 分支；`main` 保留上传前版本。
+先阅读 **[从 GitHub 到部署与验收](docs/handoffs/web-watch-cloud02-20261101.md)**。其中有配置清单、服务器启动与回滚、MCP 工具刷新、烧录和分角色验收步骤。
 
-## 团队 UI 调整与演示交接
-
-本分支已包含当前前后端完整实现，团队继续调整视觉时请从本分支新建自己的 UI 分支。
-
-- [前端接手说明与保留的数据契约](docs/handoffs/team-ui-handoff-kb-r14.md)
-- [真实网页 + 小智逐项功能测试清单](docs/testing/web-xiaozhi-kb-r14.md)
-- [约 3 分钟路演视频展示脚本](docs/demo/video-script-kb-r14.md)
-
-## 当前功能与边界
-
-| 模块 | 当前实现 |
+| 目录 | 内容 |
 | --- | --- |
-| 路线 | 恢复原四步可跳过向导与前端预设筛选、专属路线增删/合并、停留设置、进出口和步行道路优化。开始时由服务器重建并保存行程，接入原同步与小智工具。 |
-| 导航 | 高德地图、浏览器定位、地点/下一站/剩余时间、到访/跳过、暂停/恢复、结束与历史。手机后台或锁屏可能停止定位。 |
-| 网页与小智 | 8 位配对码绑定行程；工具共用位置、路线、知识讲解和旅行笔记。小智云负责 ASR、模型工具选择和 TTS。 |
-| 沉浸体验 | 栖霞寺和包含它的路线显示标签；靠近时网页提示；问位置/下一站时小智可附带体验提示。未接独立主动播报。 |
-| 游览报告与历史 | 报告恢复原固定模板和 PNG 下载；保留服务器历史行程/沉浸存档与删除。新版模型回忆/TXT 前端入口停用，已有服务器记录与接口保留。 |
-| 专属手账 | 按用户决定恢复初始演示：本地照片预览并输出固定纪念卡。**没有 AI 照片转贴纸功能**。新服务器照片创作停用，旧记录读取/下载/删除保留。 |
-| 知识问答 | 网页与小智旅行工具共用 v2.1 完整上下文（213 条记录、29 个景点、53 条设施）；实时行程状态优先，不将历史快照当作当天事实。 |
-| 动态资讯 | 今日红叶与近期活动资料接入暂缓，不把常识或空资料当作实时信息。 |
+| `frontend/` | React 网页、最新主题和路线界面、素材与测试 |
+| `backend/`、`shared/` | 行程/定位/知识问答、地图生成、小智工具、公共规则 |
+| `stopwatch-nav/firmware/` | 完整小智＋表情＋导航固件，cloud02 |
+| `stopwatch-nav/distributions/P9-cloud02/` | 应用与资源 bin、overview02 回滚 bin、校验/烧录脚本和来源许可 |
+| `stopwatch-nav/android/` | 最新测试 App `8.3.26-p8-overview01` 源码；网页＋服务器方案不依赖它 |
+| `deployment/` | systemd、Nginx 示例，需按实际服务器调整 |
+| `scripts/check-deployment.mjs` | 不改用户数据的 HTTP 部署检查 |
+| `modeling/` | 原有外壳建模资料，保留历史；大文件使用 Git LFS |
 
-## 交互架构
+## 运行方式
 
-```mermaid
-flowchart LR
-  W[网页 React / 高德地图] -->|HTTPS：偏好、GPS、问答、操作| S[Node.js API /api/v1]
-  S -->|SSE + 查询：行程与回忆| W
-  D[小智实物] <-->|语音| X[小智云：ASR / 模型 / TTS]
-  X <-->|WSS MCP| M[MCP 桥接与行程工具]
-  M <-->|本地 HTTP + 私密桥接凭证| S
-  S <--> DB[(SQLite 与本地媒体)]
-  S --> K[预设路线 / 景点知识库]
-  S --> T[DeepSeek 或京东云文本模型]
-  S --> A[高德服务端 API]
-```
-
-## 目录
-
-- `frontend/`：网页、素材、集成后的栖霞寺体验、测试与构建。
-- `backend/`：HTTP API、SQLite、业务模块、小智 MCP、知识库与测试。
-- `shared/`：前后端共用规则。
-- `docs/architecture/backend/`：设计与实现契约，历史设计不代表全部已上线。
-- `docs/operations/`：发布记录与[当前安装部署说明](docs/operations/current-release-setup.md)。
-- `stopwatch-nav/`：原有 Android App、固件、协议与测试；该通路不等于小智 MCP 功能，详见其硬件状态文档。
-- `modeling/`：外观、模型工程和交付，见 [modeling/README.md](modeling/README.md)。
-
-## 本地运行
-
-使用 **Node.js 22.22+ 或 24**（内置 SQLite、WebSocket）、npm。模型大文件使用 Git LFS，应用开发不依赖建模素材。
+使用 Node.js **24 LTS**（或已验证的 22.22+）、npm、Git。只开发网页/设备时，可跳过建模 LFS 大文件下载：
 
 ```sh
-git clone --branch codex/full-implementation-photo-r12 https://github.com/WuJiaxuan1/ai-tour-guide-device.git
+git clone --branch release/web-watch-cloud02-20261101 https://github.com/WuJiaxuan1/ai-tour-guide-device.git
 cd ai-tour-guide-device
 npm --prefix backend ci
 npm --prefix frontend ci
 ```
 
-将根目录 `.env.example` 复制为 `.env.local`，填写自己的高德和文本模型配置。密钥只存服务端，不放入 `VITE_*` 或 Git。缺少配置时相关外部服务不可用。
-
-分别在两个终端启动：
-
-```sh
-npm --prefix backend start
-npm --prefix frontend run dev
-```
-
-后端默认 `127.0.0.1:8787`，网页地址以 Vite 输出为准；Vite 代理 `/api` 和 `/_AMapService`。手机定位需要有效 HTTPS 和用户授权。
+复制根目录 `.env.example` 为 `.env.local`，填写自己的配置。高德需要 JS API Key、JS 安全码、Web 服务 Key；模型与 MCP 配置由负责同学私下交接，不能提交 Git。
 
 ```sh
 npm --prefix backend test
 npm --prefix frontend test
 npm --prefix frontend run build
+node --env-file=.env.local backend/src/server.mjs
 ```
 
-构建输出 `frontend/dist/client/`，运行后端即可托管。须保留完整 `backend/`、`shared/` 与 `frontend/src/`（后端读取景点目录），不能只上传 dist。
+打开 `http://127.0.0.1:8787/` 查看构建后的完整网站。开发时另开终端运行 `npm --prefix frontend run dev`，地址以 Vite 输出为准。构建后的后端必须保留完整 checkout，不能只上传前端 dist。
 
-## 小智连接
+## 网页、语音与地图的合作
 
-私有 `.env.local` 配置 `MCP_ENDPOINT`、`QIXIA_MCP_SECRET` 和 `QIXIA_API_BASE`，从仓库根目录运行：
+手机网页提供 GPS 和当前行程 → 后端转换坐标、规划到下一站、渲染高德底图 → 手表地图页主动下载地图/路线并更新位置。
+
+说“请给我网页行程的配对码” → 手表原生工具申请 8 位码 → 网页填写一次 → 语音问答和地图使用同一行程。网页只保留“连接我的枫叶精灵”，不下载连接 JSON。手表需 cloud02，服务器和 MCP 也需本分支版本；不能只更新前端。
+
+小智云负责 ASR、模型和 TTS；本项目 MCP 提供景点、位置、行程及笔记工具。私下配置后运行：
 
 ```sh
 node --env-file=.env.local backend/integrations/xiaozhi/mcp_pipe.mjs -- node backend/integrations/xiaozhi/trip-stdio.mjs
 ```
 
-同一 MCP 接入点只运行一个桥接实例。网页开始行程 → 向小智索取配对码 → 网页输入 8 位码 → 询问“下一站去哪”。设备固件、云端账号、模型和语音配置须在自己的环境准备，仓库不含账号凭证。
+同一 MCP 接入点只运行一个桥接实例。测试环境使用单独的测试智能体/接入点和数据库，避免抢占正式语音连接。
 
-## 数据与版本记录
+## 当前边界
 
-运行数据写入 `.local-work/`，包括 SQLite、旅行媒体与历史照片作品。发布应持久化并备份，不能随代码替换而丢弃。源码仓库不含私人数据、密钥、依赖目录或可重新生成的构建产物。
+- cloud02 的代码/构建/本地联调通过，仍需验证真机 TLS、语音工具发现和实际 GPS；不是已上线宣告。
+- 当前为单智能体、单演示设备绑定，12 小时有效；手表没有独立 GPS。手机锁屏或后台可能停止定位。
+- 手表显示到下一站的路线总览和已走进度；不承诺转向播报、自动到达或偏航重算。
+- 语音页保留全屏表情及互动，地图页暂停语音；开机重新配网，当前默认音量100。
+- 网页/小智共用知识包 v2.1。景点事实与实时行程分开；没有当天实时红叶/活动数据承诺。
+- 历史报告读取对应行程；手账仍是本地照片与固定卡演示，没有 AI 照片转贴纸或独立主动播报。
+- `.env.local`、用户数据、SQLite、私钥/签名、缓存和依赖不在 Git 中。运行数据在 `.local-work/`，服务器升级必须保留。
 
-分支当前状态以[模块保留与恢复说明](docs/operations/frontend-selective-restoration.md)和[kb-r14 发布记录](docs/operations/deployment-20261101-kb-r14.md)为准；[安装部署说明](docs/operations/current-release-setup.md)提供环境搭建方法。部署本分支必须同时包含新增后端路线兼容接口。旧文档中的 FastAPI、主动语音、照片生成或“未推送”等是当时设计/状态；不把自动测试等同于景区实测。原有硬件文档和工程继续保留，官方手册不随仓库复制。
+上一公网记录为 [kb-r14](docs/operations/deployment-20261101-kb-r14.md)；此前的 [UI 交接](docs/handoffs/team-ui-handoff-kb-r14.md)、[旧验收](docs/testing/web-xiaozhi-kb-r14.md)、[演示脚本](docs/demo/video-script-kb-r14.md)作为历史保留。当前部署与配对方式以本分支交接说明为准。

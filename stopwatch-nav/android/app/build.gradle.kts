@@ -38,8 +38,8 @@ android {
         applicationId = "com.qixia.stopwatchnav"
         minSdk = 26
         targetSdk = 35
-        versionCode = 142
-        versionName = "8.3.26-p8-test02"
+        versionCode = 143
+        versionName = "8.3.26-p8-overview01"
         ndk { abiFilters += setOf("arm64-v8a") }
     }
 

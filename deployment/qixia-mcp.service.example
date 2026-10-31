@@ -1,0 +1,17 @@
+[Unit]
+Description=Qixia Xiaozhi MCP bridge
+After=network-online.target qixia-web.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=qixia
+WorkingDirectory=/srv/qixia/current
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/node --env-file=/srv/qixia/shared/.env.local /srv/qixia/current/backend/integrations/xiaozhi/mcp_pipe.mjs -- /usr/bin/node /srv/qixia/current/backend/integrations/xiaozhi/trip-stdio.mjs
+Restart=on-failure
+RestartSec=10
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

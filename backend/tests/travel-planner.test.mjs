@@ -17,7 +17,7 @@ test('recommendation preserves official stops, filters exit, and never fills mis
  const out=recommend(data,preferences);assert.equal(out.count,2);
  assert.deepEqual(out.routes.map(r=>r.route_id),['R02','R01']);
  assert.deepEqual(out.routes[0].stops.map(s=>s.stop_id),data.routes.find(r=>r.routeId==='R02').stops.map(s=>s.stopId));
- assert.equal(recommend(data,{...preferences,exit_id:'south'}).count,0);
+ const cross=recommend(data,{...preferences,exit_id:'south'});assert.equal(cross.count,2);assert.ok(cross.routes.every(r=>r.entrance_id==='west'&&r.exit_id==='south'&&!r.navigation_ready));
  assert.equal(recommend(data,{...preferences,entrance_id:'south',exit_id:'south'}).count,1);
  assert.throws(()=>recommend(data,{...preferences,limit:4}));
 });
@@ -31,7 +31,7 @@ test('trip snapshot survives restart; ownership, versions, repeats, and incomple
  const dir=mkdtempSync(join(tmpdir(),'qixia-travel-')),path=join(dir,'db.sqlite');let store=new TravelStore(path);
  try {
  const credential=store.createSession(),session=store.authenticate(credential.token),trips=createTripService(store,data);
- const input={client_event_id:'create-1',preferences,route_id:'R02',revision:1};
+ const input={client_event_id:'create-1',preferences,route_id:'R02',revision:data.routes.find(r=>r.routeId==='R02').revision};
  let trip=trips.create(session,input);assert.equal(trips.create(session,input).id,trip.id);
  assert.throws(()=>trips.create(session,{...input,route_id:'R01'}),/同一请求/);
  assert.throws(()=>store.getTrip(store.authenticate(store.createSession().token),trip.id),/没有找到/);

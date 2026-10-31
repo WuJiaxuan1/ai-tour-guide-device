@@ -19,7 +19,7 @@ test('HTTP session → recommendation → save → start, with ownership protect
  const token=(await req('/sessions','POST')).data.token;
  const preferences={entrance_id:'west',exit_id:'west',duration:'half_day',intensity:'easy',has_elderly:true,has_children:true};
  const result=await req('/planner/recommend','POST',preferences,token);assert.equal(result.data.count,2);
- const trip=(await req('/trips','POST',{client_event_id:'create',preferences,route_id:'R02',revision:1},token)).data;
+ const trip=(await req('/trips','POST',{client_event_id:'create',preferences,route_id:'R02',revision:result.data.routes.find(r=>r.route_id==='R02').revision},token)).data;
  assert.equal((await req(`/trips/${trip.id}/commands`,'POST',{client_event_id:'start',expected_version:1,action:'start'},token)).data.status,'active');
  const foreign=(await req('/sessions','POST')).data.token;
  assert.equal((await req(`/trips/${trip.id}`,'GET',undefined,foreign)).status,404);

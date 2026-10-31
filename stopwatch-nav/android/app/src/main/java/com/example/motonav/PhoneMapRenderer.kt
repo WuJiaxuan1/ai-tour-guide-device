@@ -23,6 +23,7 @@ class PhoneMapRenderer(private val view: TextureMapView) : SurroundingMapSource 
     private var serial=0
     private var pending: ((MapPixels?,String?)->Unit)?=null
     private var deadline=0L
+    private var overview:WalkingRoute?=null
     init {
         map.uiSettings.setAllGesturesEnabled(false)
         map.uiSettings.isZoomControlsEnabled=false
@@ -40,8 +41,16 @@ class PhoneMapRenderer(private val view: TextureMapView) : SurroundingMapSource 
         map.showMapText(detail.showText)
     }
     override fun capture(fix: PhoneFix, zoom: Float, requestedDetail: MapDetail, done: (MapPixels?,String?)->Unit) {
+        begin(fix,zoom,requestedDetail,null,done)
+    }
+    override fun captureOverview(route:WalkingRoute,done:(MapPixels?,String?)->Unit) {
+        val camera=try {RouteOverview.camera(route)} catch(e:IllegalArgumentException) {done(null,e.message);return}
+        begin(PhoneFix(camera.lat,camera.lng,1.0,SystemClock.elapsedRealtime()),camera.zoom,MapDetail.CLEAN,route,done)
+    }
+    private fun begin(fix:PhoneFix,zoom:Float,requestedDetail:MapDetail,route:WalkingRoute?,done:(MapPixels?,String?)->Unit) {
         check(Looper.myLooper()==Looper.getMainLooper())
         cancel()
+        overview=route
         pending=done; val id=serial; deadline=SystemClock.elapsedRealtime()+25_000
         detail=requestedDetail; applyDetail()
         val camera=CameraPosition(LatLng(fix.lat,fix.lng),zoom,0f,0f)
@@ -64,7 +73,21 @@ class PhoneMapRenderer(private val view: TextureMapView) : SurroundingMapSource 
         val nw=projection.fromScreenLocation(Point(MapViewport.LEFT,MapViewport.TOP))
         val se=projection.fromScreenLocation(Point(MapViewport.RIGHT,MapViewport.BOTTOM))
         val bounds=GeoBounds(nw.latitude,nw.longitude,se.latitude,se.longitude)
-        if(!bounds.valid()) { finish(null,"地图投影范围无效"); return }
+        if(!bounds.valid(overview!=null)) { finish(null,"地图投影范围过大或无效"); return }
+        overview?.let {route ->
+            // Use actual SDK projection, not an assumed density or map tile size.
+            val radius=RouteOverview.radius(bounds,route)
+            if(radius>RouteOverview.SAFE_RADIUS+1 || (radius<170 && zoom<17.99f)) {
+                val adjusted=RouteOverview.adjustedZoom(zoom,radius)
+                if(abs(adjusted-zoom)<.01f) {
+                    if(radius>RouteOverview.SAFE_RADIUS+1) {finish(null,"路线无法完整放入圆屏，请选择较近目的地");return}
+                } else {
+                    map.moveCamera(CameraUpdateFactory.newCameraPosition(CameraPosition(LatLng(fix.lat,fix.lng),adjusted,0f,0f)))
+                    ui.postDelayed({request(id,fix,adjusted,requestedDetail)},1000)
+                    return
+                }
+            }
+        }
         try {
             map.getMapScreenShot(object: AMap.OnMapScreenShotListener {
                 override fun onMapScreenShot(bitmap: Bitmap?) {}
@@ -81,7 +104,7 @@ class PhoneMapRenderer(private val view: TextureMapView) : SurroundingMapSource 
                             bitmap.getPixels(pixels,0,MapViewport.SIZE,MapViewport.LEFT,MapViewport.TOP,MapViewport.SIZE,MapViewport.SIZE)
                             // Crop image and projection together; do not erase pixels or shift the GPS point.
                             if(pixels.indices.step(7).all { pixels[it]==pixels[0] }) { retry(); return@post }
-                            finish(MapPixels(pixels,bounds,zoom,requestedDetail,MapViewport.SIZE),null)
+                            finish(MapPixels(pixels,bounds,zoom,requestedDetail,MapViewport.SIZE,overview),null)
                         } catch(e: Exception) { finish(null,"地图截图失败：${e.javaClass.simpleName}") }
                         // The SDK owns its callback bitmap; let GC release it after we copy the pixels.
                     }

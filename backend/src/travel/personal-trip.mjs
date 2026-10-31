@@ -12,7 +12,9 @@ export function createPersonalTripService({store,data,planRoads}) {
     idempotency(input.client_event_id);
     object(input.selection,['presetId','stopIds','entryId','exitId']);
     const selection=input.selection;
-    if(selection.presetId) check(typeof selection.presetId==='string'&&Object.keys(selection).length===1,'INVALID_INPUT','预设路线不能混入自选参数。');
+    if(selection.presetId) check(typeof selection.presetId==='string'&&!selection.stopIds&&
+      ((selection.entryId===undefined&&selection.exitId===undefined)||(data.gateIds.includes(selection.entryId)&&data.gateIds.includes(selection.exitId))),
+      'INVALID_INPUT','预设路线需要有效的入口和出口，不能混入自选地点。');
     else check(Array.isArray(selection.stopIds)&&selection.stopIds.length>0&&selection.stopIds.length<=100&&selection.stopIds.every(id=>typeof id==='string'&&id.length<100)&&typeof selection.entryId==='string'&&typeof selection.exitId==='string','INVALID_INPUT','请选择出入口和途经地点。');
     const minutes=input.stay_minutes||{};
     check(minutes&&typeof minutes==='object'&&!Array.isArray(minutes)&&Object.keys(minutes).length<=100&&Object.values(minutes).every(v=>Number.isInteger(v)&&v>=0&&v<=360),'INVALID_INPUT','停留时间应为0到360分钟。');

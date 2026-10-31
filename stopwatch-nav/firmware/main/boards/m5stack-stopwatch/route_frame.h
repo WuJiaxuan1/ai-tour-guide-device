@@ -14,7 +14,7 @@ struct Point {
 };
 struct Palette {uint32_t route=0xff4fb4,position=0x008cff,destination=0xffb547,outline=0xffffff,traveled=0x888888;uint16_t width=8;};
 struct Frame {
-    uint32_t revision=0,crc=0;std::string session;bool active=false,reset_progress=false;Palette palette;Point destination;
+    uint32_t revision=0,crc=0,geometry_crc=0;std::string session;bool active=false,reset_progress=false;Palette palette;Point destination;
     std::vector<Point> points;
 };
 inline uint32_t Read32(const uint8_t* p) {return uint32_t(p[0])|(uint32_t(p[1])<<8)|(uint32_t(p[2])<<16)|(uint32_t(p[3])<<24);}
@@ -40,6 +40,12 @@ inline bool Parse(const uint8_t* b,size_t length,Frame& out) {
     if(!destination.Valid() || (!b[5] && (destination.lat!=0 || destination.lng!=0))) return false;
     for(uint32_t i=0;i<count;++i) if(!Point{Real(b+kHeader+i*16),Real(b+kHeader+i*16+8)}.Valid()) return false;
     out.revision=revision;out.crc=Read32(b+20);out.active=b[5];out.destination=destination;
+    uint32_t geometry=0xffffffff;
+    for(size_t i=64;i<length;++i) {
+        geometry^=b[i];
+        for(int bit=0;bit<8;++bit) geometry=(geometry>>1)^(0xedb88320u&(0u-(geometry&1u)));
+    }
+    out.geometry_crc=~geometry;
     out.reset_progress=b[62]==1;
     out.palette={Read32(b+40),Read32(b+44),Read32(b+48),Read32(b+52),Read32(b+56),uint16_t(width)};
     static constexpr char hex[]="0123456789abcdef";out.session.clear();

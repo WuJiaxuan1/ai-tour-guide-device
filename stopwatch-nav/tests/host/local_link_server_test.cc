@@ -268,6 +268,28 @@ int main(int argc, char** argv) {
         puts("PASS: P8-test01 real Kotlin route/clear, bounded parser, metadata/payload CRC, retries/revision/session, rejected upload preserves route, page cancellation and map-session lifecycle");
         puts("PASS: P8-test02 position carries acknowledged progress, revision/bounds/finite validation and cancelled-route rejection");
     }
+    if(argc>=8) {
+        auto read=[](const char* path){std::ifstream f(path,std::ios::binary);assert(f);return std::string((std::istreambuf_iterator<char>(f)),std::istreambuf_iterator<char>());};
+        const auto wire=read(argv[6]),routeWire=read(argv[7]);
+        assert(Number(Request("/api/v1/status").response,"overview_protocol")==1);
+        assert(imageRequest(wire).status=="200 OK");
+        auto frame=server.Images().Take();assert(frame && frame->header.overview && !frame->header.chunk && frame->header.size==480);
+        server.Images().Displayed(*frame);
+        assert(Request("/api/v1/route",routeWire,"application/octet-stream").status=="200 OK");
+        assert(server.Images().Route()->geometry_crc==frame->header.route_geometry_crc);
+        assert(frame->header.route_geometry_crc!=0);
+        for(size_t at:{size_t(4),size_t(8),size_t(80),size_t(81),size_t(88)}) {
+            auto bad=wire;bad[at]^=8;assert(imageRequest(bad).status.find("400")==0);
+        }
+        auto broad=wire;double north=33,south=31,west=117.8,east=119.8;
+        memcpy(broad.data()+48,&north,8);memcpy(broad.data()+56,&west,8);
+        memcpy(broad.data()+64,&south,8);memcpy(broad.data()+72,&east,8);
+        assert(imageRequest(broad).status=="200 OK");server.Images().Take();
+        broad[4]=broad[5]=3;memset(broad.data()+84,0,4);
+        assert(imageRequest(broad).status.find("400")==0); // broad span is overview-only
+        auto bad=wire;bad.back()^=1;assert(imageRequest(bad).status.find("400")==0);
+        puts("PASS: overview Kotlin/firmware v4 HTTP, route geometry CRC parity, reserved fields, broad bounds and pixel corruption");
+    }
     std::cout << "PASS: P6 real HTTP image receive/CRC, fragmented upload, voice-page rejection, pending-slot bound, invalid headers, corruption, truncation, page epoch and reconnect recovery; old displayed frame preserved\n";
     std::cout << "PASS: real firmware handlers, fragmented valid echo, " << rejected
               << " rejection cases, unchanged counters on rejection, and restart lifecycle\n";

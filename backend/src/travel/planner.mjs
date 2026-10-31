@@ -1,5 +1,6 @@
 import {check, object} from './errors.mjs';
 import {TEMPLE_EXPERIENCE,hasTempleExperience} from '../../../shared/immersive.mjs';
+import {routeWithGates} from '../../../shared/route-gates.mjs';
 
 export function recommend(data, input) {
   object(input, ['entrance_id', 'exit_id', 'duration', 'intensity', 'has_elderly', 'has_children', 'limit']);
@@ -14,7 +15,9 @@ export function recommend(data, input) {
   const matches = groups.map(companions => data.rules.filter(r => r.gate === input.entrance_id && r.duration === (input.duration === 'half_day' ? 'half' : 'full') && r.intensity === effective.intensity && r.companions === companions));
   // Both groups must have evidence. A union would falsely claim suitability for both.
   const pools = matches.map(rules => new Set(rules.filter(r => r.status === 'matched').flatMap(r => r.routeIds)));
-  const candidates = data.routes.filter(r => pools.every(p => p.has(r.routeId)) && r.entryGateId === input.entrance_id && r.exitGateId === input.exit_id && r.completeness !== 'missing_exit');
+  const candidates = data.routes.filter(r => pools.every(p => p.has(r.routeId)) && r.entryGateId === input.entrance_id)
+    .map(r=>data.gates?.length?routeWithGates(r,data.gates,input.entrance_id,input.exit_id):r)
+    .filter(r=>r.exitGateId===input.exit_id&&r.completeness!=='missing_exit');
   candidates.sort((a, b) => Number(b.navigationReady) - Number(a.navigationReady) || a.routeId.localeCompare(b.routeId));
   return {catalog_version: data.version, effective_preferences: effective, count: Math.min(candidates.length, limit), status: candidates.length ? 'matched' : matches.some(m => !m.length) ? 'unverified' : 'no_match', routes: candidates.slice(0, limit).map(route => snapshot(route)), warnings: effective.intensity !== input.intensity ? ['有老人或儿童同行，已按轻松强度匹配。'] : []};
 }

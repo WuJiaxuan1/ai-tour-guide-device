@@ -1,6 +1,6 @@
 # P1 基线来源与修改
 
-2026-10-30 P8-test02（versionCode142）：在 P8-test01 的 RouteWire 独立路线层上增加 RouteProgressTracker；手机把有效 GPS 匹配到路线并通过 `/position` 发送单调不回退的 route_progress，固件按路线段分界绘制 traveled/route 两种颜色。低精度、偏离、跳变和旧 revision 被冻结或拒绝；地图移动、换块和配色变化保留进度。新增 Android、C++ HTTP、LVGL 进度测试；P8-test02用户于2026-10-30确认全部验收通过。详见 `../docs/P8-路线与配色协议.md`。
+2026-10-30 P8-test02（versionCode142）：在 P8-test01 的 RouteWire 独立路线层上增加 RouteProgressTracker；手机把有效 GPS 匹配到路线并通过 `/position` 发送单调不回退的 route_progress，固件按路线段分界绘制 traveled/route 两种颜色。低精度、偏离、跳变和旧 revision 被冻结或拒绝；地图移动、换块和配色变化保留进度。新增 Android、C++ HTTP、LVGL 进度测试；P8待真机验收。详见 `../docs/P8-路线与配色协议.md`。
 
 最新 P7-test07（versionCode140）：参考MotoNav MapFeeder已确认覆盖与提前偏移的策略，独立实现MapChunkPolicy；720 SDK视图中央导出480地图块，原缩放下显示240移动窗口。HTTP能力协商、编码新增v3块，保留v1/v2；默认14.0和隐藏地图文字。手机预览同步裁切已确认块。37项JVM测试及两端离线集成检查通过，需test07固件和真机复测。详见 `../docs/P7-test07-地图块与窗口.md`。
 
@@ -31,3 +31,8 @@ P7 启动页改为 SurroundingMapActivity，使用 Android GPS 的真实 WGS-84 
 P7-test02（versionCode 134）修复 Key 异步保存后立即退出可能丢失：新增 AmapKeyStore 以 commit() 等待落盘并读取校验，在工作线程执行；设置页改为“保存并应用”，销毁旧地图后应用新 Key，启动地图前再次应用。新增 4 项存储回归测试，沿用既有包名、签名及 P7-test01 固件。
 
 P7-test03（versionCode 135）修复首次发图后向不可修改 Bitmap 创建 Canvas 的异常：MapPreviewPixels 在独立像素数组画点，移除可能仍被渲染器持有的位图的手动回收。地图确认后立即排队发送有效位置；增加上次闪退记录入口并记录实际版本。PhoneMapRenderer 改为 480×480 SDK 视图，中央裁切 240×240 并按裁切角点获取地理范围，手表导出区域避开 SDK 底部标识；手机原始 SDK 视图保留默认标识。新增 3 项像素与裁切回归测试，总 27 项 JVM 测试通过。配套固件把真实地图放大至全屏并同步变换定位坐标；尚待真机复测。
+
+
+## 2026-10-31 P8-overview-test01
+
+基于P8-test02新增全程路线模式，默认规划后自动启用；保留原跟随定位。RouteOverview按墨卡托范围及圆屏安全半径计算相机，并由PhoneMapRenderer用实际SDK投影复核后截图。480全图以QMAP v4发送，携带路线几何CRC；路线与位置继续独立更新。总览隐藏标注，预览为完整圆形范围；不为位置变化重新取图。新固件能力检测、取消旧截图、换路线及模式恢复与配色兼容均保留。版本143/8.3.26-p8-overview01，签名沿用原本机开发签名。真机验收待进行。

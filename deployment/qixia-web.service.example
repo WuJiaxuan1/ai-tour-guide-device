@@ -1,0 +1,17 @@
+[Unit]
+Description=Qixia web and navigation API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=qixia
+WorkingDirectory=/srv/qixia/current
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/node --env-file=/srv/qixia/shared/.env.local /srv/qixia/current/backend/src/server.mjs
+Restart=on-failure
+RestartSec=5
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

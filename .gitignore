@@ -53,3 +53,8 @@ local.properties
 *.npz
 *.npy
 *.log
+
+# Per-device readbacks and credentials never belong in published firmware packages.
+**/device-preflight/
+
+.venv-*/

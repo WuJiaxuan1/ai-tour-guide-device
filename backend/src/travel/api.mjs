@@ -1,3 +1,4 @@
+import {createWatchNavigation} from '../watch/navigation.mjs';
 import {resolve} from 'node:path';
 import {TravelStore} from './store.mjs';
 import {createTripService} from './trips.mjs';
@@ -27,9 +28,10 @@ export function sendJSON(res, status, value) {
   res.writeHead(status, {'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff'});
   res.end(JSON.stringify(value));
 }
-export function createTravelApi({root, presets, planRoads, convertLocation, walkingLeg, reverseGeocode, knowledge, converse, catalog = [], model = createTextModel({config:()=>modelConfig(root)}), store = new TravelStore(resolve(root, '.local-work/travel.sqlite'))}) {
+export function createTravelApi({root, presets, planRoads, renderWatchMap, walkingGeometry, convertLocation, walkingLeg, reverseGeocode, knowledge, converse, catalog = [], model = createTextModel({config:()=>modelConfig(root)}), store = new TravelStore(resolve(root, '.local-work/travel.sqlite'))}) {
   const trips = createTripService(store, presets.data || presets);
   const data = presets.data || presets;
+  const watch=createWatchNavigation({store,renderMap:renderWatchMap,walkingGeometry});
   const personalTrip=createPersonalTripService({store,data,planRoads});
   const immersive = createImmersiveService({root,store});
   const navigation = createNavigationService({store, convertLocation, walkingLeg,reverseGeocode,onProximity:immersive.onProximity});
@@ -46,11 +48,12 @@ export function createTravelApi({root, presets, planRoads, convertLocation, walk
       const path = url.pathname.slice('/api/v1'.length), method = req.method;
       if (path === '/sessions' && method === 'POST') { sendJSON(res, 201, store.createSession()); return true; }
       const token = /^Bearer ([A-Za-z0-9_-]+)$/.exec(req.headers.authorization || '')?.[1];
+      if(path==='/watch/pairings'&&method==='POST'){object(await readJSON(req,1024),[]);sendJSON(res,200,pairing.beginWatch());return true;}
+      if(path==='/watch/pairing'&&method==='GET'){sendJSON(res,200,pairing.watchStatus(token));return true;}
       if(path==='/bridge/tools'&&method==='POST'){
         pairing.authorize(token);const input=await readJSON(req);object(input,['name','arguments']);const args=input.arguments||{};try{validateTool(input.name,args);}catch{throw new TravelError('INVALID_TOOL_INPUT','工具名称或参数无效。');}
         let result;
-        if(input.name==='qixia_pairing_code')result=pairing.issue();
-        else {const device=pairing.session(),id=device.trip_id;
+        {const device=pairing.session(),id=device.trip_id;
           if(input.name==='qixia_trip_context')result=navigation.context(device,id);
           else if(input.name==='qixia_trip_ask')result=await answer(device,{...args,trip_id:id,conversation_id:'xiaozhi:'+id,client_event_id:randomUUID()});
           else if(input.name==='qixia_trip_note'){check(!args.attraction_id||knowledge?.publicPoi(args.attraction_id),'UNKNOWN_PLACE','景点不存在。',404);result=store.mutate(device,id,{client_event_id:randomUUID()},t=>{const note={id:randomUUID(),text:args.text,attraction_id:args.attraction_id||null,source:'device',created_at:new Date(store.clock()).toISOString()};t.notes.push(note);return[{type:'note_saved',payload:{note_id:note.id}}];});result={saved:true};}
@@ -58,7 +61,11 @@ export function createTravelApi({root, presets, planRoads, convertLocation, walk
         }
         sendJSON(res,200,result);return true;
       }
-      const session = store.authenticate(token);
+      let session;
+      try{session=store.authenticate(token);}catch(error){
+        if(!/^\/trips\/[a-f0-9-]{36}\/watch\//.test(path))throw error;
+        session=pairing.watchSession(token);
+      }
       if(path==='/photos'||path.startsWith('/photos/')){
         check(method!=='POST','PHOTO_CREATION_DISABLED','照片创作已恢复为本地手账演示，服务器制作已停用。',410);
         if(path==='/photos'&&method==='GET')sendJSON(res,200,{photos:photos.list(session)});
@@ -98,7 +105,14 @@ export function createTravelApi({root, presets, planRoads, convertLocation, walk
         store.getTrip(session, id);
         if (!action && method === 'GET') sendJSON(res, 200, store.getTrip(session, id));
         else if(!action&&method==='DELETE')sendJSON(res,200,deletion.remove(session,id,await readJSON(req)));
-        else if(action==='pair-device'&&method==='POST')sendJSON(res,200,pairing.bind(session,id,await readJSON(req)));
+        else if(action==='watch/navigation'&&method==='GET')sendJSON(res,200,watch.manifest(session,id));
+        else if(action==='watch/ack'&&method==='POST')sendJSON(res,200,watch.acknowledge(session,id,await readJSON(req)));
+        else if(/^watch\/assets\/[a-f0-9]{32}\/(map|route)$/.test(action)&&method==='GET'){
+          const parts=action.split('/'),bytes=watch.asset(session,id,parts[2],parts[3]);
+          res.writeHead(200,{'Content-Type':'application/octet-stream','Content-Length':bytes.length,'Cache-Control':'no-store'});res.end(bytes);
+        }
+        else if(action==='pair-device'&&method==='GET')sendJSON(res,200,pairing.status(session,id));
+        else if(action==='pair-device'&&method==='POST'){const binding=pairing.bind(session,id,await readJSON(req));watch.forget(id);sendJSON(res,200,binding);}
         else if (action === 'commands' && method === 'POST') sendJSON(res, 200, trips.command(session, id, await readJSON(req)));
         else if (action === 'location' && method === 'POST') sendJSON(res, 200, await navigation.update(session, id, await readJSON(req)));
         else if (action === 'navigation-context' && method === 'GET') sendJSON(res, 200, navigation.context(session, id));

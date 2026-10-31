@@ -25,11 +25,13 @@ if ($Target -eq 'firmware') {
     $toolRoot=Join-Path $workspaceRoot 'MotoNav-main\.tools'
     $env:JAVA_HOME=Join-Path $toolRoot 'jdk\jdk-21.0.12.1+1'
     $env:ANDROID_HOME=Join-Path $toolRoot 'android-sdk'
+    $env:ANDROID_USER_HOME=Join-Path $projectRoot 'android\.local\android-user'
+    New-Item -ItemType Directory -Force -Path $env:ANDROID_USER_HOME | Out-Null
     $env:GRADLE_USER_HOME=Join-Path $toolRoot 'gradle-cache'
     $env:PATH=(Join-Path $env:JAVA_HOME 'bin')+';'+$env:PATH
     Push-Location (Join-Path $projectRoot 'android')
     try {
-        $gradleArgs=@('--no-daemon','--console=plain',':app:assembleDebug')
+        $gradleArgs=@('--no-daemon','--console=plain','-Pkotlin.compiler.execution.strategy=in-process',':app:assembleDebug')
         if ($Test) { $gradleArgs+= ':app:testDebugUnitTest' }
         if ($Offline) { $gradleArgs+= '--offline' }
         & .\gradlew.bat @gradleArgs

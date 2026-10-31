@@ -1,0 +1,157 @@
+/* Autumn Preview v2 palette and paper treatment; existing flows own layout and behavior. */
+:root{--autumn-paper:#fffaf0;--autumn-card:#fffdf7;--autumn-ink:#40362d;--autumn-muted:#786855;--autumn-red:#a84333;--autumn-red-dark:#88372b;--autumn-line:#dfd2b8;--autumn-gold:#f5e4bc;--autumn-rose:#f7e7dc;--autumn-shadow:0 3px 0 #cbb58020;--maple:var(--autumn-red);--maple-dark:var(--autumn-red-dark);--gold:#9c702e;--pale:var(--autumn-gold);--paper:var(--autumn-paper);--ink:var(--autumn-ink);--muted:var(--autumn-muted);--line:var(--autumn-line);--sans:'Noto Sans SC Variable','Microsoft YaHei',sans-serif;--serif:var(--sans);background:var(--autumn-paper);color:var(--autumn-ink)}
+body,.app-shell{background:var(--autumn-paper);color:var(--autumn-ink)}
+.app-shell{font-weight:450}
+.app-shell :is(h1,h2,h3){font-weight:600;letter-spacing:-.025em}
+.app-shell :is(p,small){color:inherit}
+.app-shell :is(.eyebrow,.intro,.mode-caption,.distance-label,.distance-caption,.location-message,.facility-caption){color:var(--autumn-muted)}
+.app-shell>.header{background:var(--autumn-paper);border-bottom:1px dashed var(--autumn-line)}
+.header .brand{color:var(--autumn-red)}
+.header .brand>span{font-weight:650;letter-spacing:0}
+.header .brand small{color:var(--autumn-muted)}
+.header .tabs{background:transparent;border-color:transparent;box-shadow:none;border-radius:0}
+.header .tabs button{border-radius:0;color:var(--autumn-muted);font-weight:550;border-bottom:2px solid transparent}
+.header .tabs .selected{background:transparent;color:var(--autumn-red);border-bottom-color:var(--autumn-red);box-shadow:none}
+.header .tabs b{background:var(--autumn-gold);color:var(--autumn-red);border-radius:10px}
+.header-actions{border-color:var(--autumn-line);background:var(--autumn-card);box-shadow:none}
+.icon-button{color:var(--autumn-muted)}
+.mobile-menu-panel{background:var(--autumn-card);border-color:var(--autumn-line);box-shadow:0 8px 24px #40362d15}
+.app-shell :is(.primary,.route-primary,.send-button,.stay-confirm,.report-download){background:var(--autumn-red);color:#fffdf7;border-radius:24px;font-weight:550}
+.app-shell :is(.primary,.route-primary,.send-button,.stay-confirm):not(:disabled):hover{background:var(--autumn-red-dark)}
+.app-shell :is(.primary,.route-primary,.send-button):disabled{background:#e9ddc7;color:#79674c;opacity:1}
+.app-shell :is(.route-text-button,.route-card-open,.route-back,.route-match-note,.route-report-links button,.ask-detail){color:var(--autumn-red)}
+.app-shell :is(button,a,input,textarea,summary):focus-visible{outline-color:var(--autumn-red)}
+
+/* A scrapbook illustration adds seasonal atmosphere without changing chat controls. */
+.is-welcome .chat-stage{overflow-y:auto;overflow-x:hidden}
+.is-welcome .welcome{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:38px;max-width:1000px;align-items:start}
+.is-welcome .welcome>.eyebrow{grid-column:1/-1;margin-bottom:8px}
+.is-welcome .welcome h1{grid-column:1;grid-row:2;margin:10px 0 12px;color:var(--autumn-red);font-size:clamp(30px,3.4vw,46px);font-weight:650;line-height:1.4}
+.is-welcome .welcome .mobile-break{display:block}
+.is-welcome .welcome .intro{grid-column:1;grid-row:3;font-size:14px;line-height:1.9;margin:0}
+.autumn-keepsake{grid-column:2;grid-row:2/6;position:relative;margin:12px 8px 18px 0;padding:9px 9px 12px;border:1px solid var(--autumn-line);border-radius:18px;background:var(--autumn-card);box-shadow:3px 5px 0 #ccb88b30;transform:rotate(-1deg);pointer-events:none}
+.autumn-keepsake:before{content:'';position:absolute;top:-10px;left:40%;width:65px;height:20px;background:#ddbf7b99;transform:rotate(5deg);z-index:1}
+.autumn-keepsake>img{display:block;width:100%;height:clamp(210px,33dvh,330px);object-fit:cover;object-position:center 54%;border-radius:10px}
+.autumn-keepsake figcaption{font-size:12px;line-height:1.7;color:var(--autumn-muted);margin-top:8px}
+.autumn-keepsake>.autumn-mascot{position:absolute;right:-10px;bottom:32px;width:63px;height:77px;object-fit:contain;border-radius:0;filter:drop-shadow(2px 2px 0 #fffdf7)}
+.is-welcome .welcome .suggestions{grid-column:1;grid-row:4;display:flex;flex-direction:column;gap:0;margin-top:20px;border-top:1px dashed var(--autumn-line)}
+.is-welcome .welcome .suggestion{display:flex;flex-direction:row;justify-content:flex-start;gap:10px;min-height:48px;padding:7px 0;background:transparent;box-shadow:none;border:0;border-bottom:1px dashed var(--autumn-line);border-radius:0;font-size:14px;font-weight:550;transform:none;text-align:left}
+.is-welcome .welcome .suggestion img{width:32px;height:32px;object-fit:cover;border-radius:6px}
+.is-welcome .welcome .suggestion>span{flex:1;max-width:none}
+.is-welcome .welcome .suggestion>svg{position:static;display:block;opacity:1;color:var(--autumn-red);flex-shrink:0;margin-right:4px}
+.is-welcome .welcome .suggestion:hover{background:var(--autumn-gold)}
+.is-welcome .welcome .explore-link{grid-column:1;grid-row:5;color:var(--autumn-muted);margin-top:8px;font-size:12px}
+.composer-wrap{background:var(--autumn-paper)}
+.app-shell .composer{border:1px solid #c5af86;background:var(--autumn-card);box-shadow:var(--autumn-shadow)}
+.app-shell .composer:focus-within{border-color:var(--autumn-red);box-shadow:0 0 0 3px #a8433310}
+.composer textarea,.composer textarea::placeholder{color:var(--autumn-muted)}
+.composer textarea{color:var(--autumn-ink)}
+.message.user{background:var(--autumn-gold);border:1px solid var(--autumn-line);color:var(--autumn-ink)}
+.message.assistant .assistant-label{color:var(--autumn-red);font-weight:550}
+.chat-route-draft,.route-ask{background:var(--autumn-gold);border-color:var(--autumn-line);color:var(--autumn-red)}
+
+/* Underlined section tabs and cream photo cards retain all existing filters. */
+.app-shell .explore-sections,.route-workspace .route-view-tabs{background:transparent;border-bottom:1px solid var(--autumn-line);border-radius:0;padding:0;gap:20px}
+.app-shell .explore-sections>button,.route-workspace .route-view-tabs>button{border-radius:0;background:transparent;box-shadow:none;border-bottom:2px solid transparent;color:var(--autumn-muted);font-weight:550;padding:10px 6px}
+.app-shell .explore-sections>button.active,.route-workspace .route-view-tabs>button[aria-pressed=true]{background:transparent;box-shadow:none;color:var(--autumn-red);border-bottom-color:var(--autumn-red)}
+.explore-sections span,.route-view-tabs small{background:var(--autumn-gold);color:var(--autumn-red)}
+.app-shell .filters button{background:transparent;border-color:transparent;color:var(--autumn-muted)}
+.app-shell .filters button.active{background:var(--autumn-gold);border-color:transparent;color:var(--autumn-red);font-weight:550}
+.app-shell .explore-search input{background:var(--autumn-card);border-color:#c8b694;color:var(--autumn-ink)}
+.app-shell .explore-search button{color:var(--autumn-red)}
+.app-shell .place-card{padding:8px;background:var(--autumn-card);border-color:var(--autumn-line);border-radius:16px;box-shadow:var(--autumn-shadow)}
+.app-shell .place-photo{border-radius:9px;overflow:hidden}
+.app-shell .place-copy{padding:12px 7px 10px}
+.app-shell .place-copy p{color:var(--autumn-muted);font-size:13px;line-height:1.8}
+.app-shell .place-copy h3{font-weight:600;color:var(--autumn-ink)}
+.app-shell .place-photo>span,.app-shell .bookmark{background:var(--autumn-card);color:var(--autumn-ink)}
+.app-shell .bookmark.active{color:var(--autumn-red);background:var(--autumn-gold)}
+.app-shell .add-button{background:var(--autumn-card);border-color:var(--autumn-line);color:var(--autumn-red)}
+.app-shell .add-button[aria-pressed=true]{background:var(--autumn-red);color:var(--autumn-card);border-color:var(--autumn-red)}
+.app-shell :is(.facility-go,.facility-detail-go){background:var(--autumn-gold);color:var(--autumn-red)}
+.app-shell .facility-actions button{border-color:var(--autumn-line)}
+.app-shell :is(.weather-strip,.weather-detail){background:#f6eddb;border-color:var(--autumn-line);color:var(--autumn-muted)}
+.app-shell .weather-strip>strong{color:var(--autumn-muted)}
+.app-shell .explore-map-anchor{background:var(--autumn-paper)}
+.app-shell :is(.map-preview,.map-preview-heading,.map-preview-toggle){background:var(--autumn-card);border-color:var(--autumn-line)}
+
+/* Routes, shuttle tickets and pairing share the same paper surfaces. */
+.route-workspace{color:var(--autumn-ink)}
+.route-workspace .route-map-panel{background:var(--autumn-paper);border-bottom-color:var(--autumn-line)}
+.route-workspace .route-map-panel .navigation-map{border:1px solid var(--autumn-line);border-radius:16px}
+.route-workspace :is(.preset-wizard,.preset-detail,.custom-route,.active-route){padding:22px;background:var(--autumn-card);border:1px solid var(--autumn-line);border-top:3px solid var(--autumn-red);border-radius:18px;box-shadow:var(--autumn-shadow)}
+.route-workspace :is(.preset-route-card,.shuttle-card){background:var(--autumn-card);border-color:var(--autumn-line);box-shadow:var(--autumn-shadow)}
+.route-workspace .preset-route-card{border-radius:14px}
+.route-workspace :is(.preset-metrics,.route-plan-overview){border-bottom:1px dashed var(--autumn-line)}
+.route-workspace :is(.custom-stop-list article,.route-editor,.route-plan-notes){border-color:var(--autumn-line);border-style:dashed}
+.route-workspace .route-editor,.route-workspace .route-plan-notes{border-width:1px 0 0}
+.route-workspace .custom-stop-list article{border-width:0 0 1px}
+.route-workspace .preference-pills button{background:var(--autumn-card);border-color:var(--autumn-line);font-weight:550;box-shadow:none}
+.route-workspace .preference-pills button[aria-pressed=true]{background:var(--autumn-gold);border-color:var(--autumn-red);color:var(--autumn-red);box-shadow:none}
+.wizard-progress>span{background:var(--autumn-paper);color:var(--autumn-muted)}
+.wizard-progress>span.reached{background:var(--autumn-gold);color:var(--autumn-red);box-shadow:inset 0 0 0 1px #cfad70}
+.app-shell .route-data-note{background:#f6eddb;color:var(--autumn-muted);border-radius:10px}
+.route-timeline-node{background:var(--autumn-card)}
+.route-timeline-stop:not(:last-child) .route-timeline-rail:after{background:#d4ab91}
+.route-timeline .route-timeline-rail{color:var(--autumn-red)}
+.route-timeline .is-selected .route-timeline-body,.route-timeline .is-next .route-timeline-body{background:var(--autumn-rose)}
+.route-workspace .route-timeline-name{color:var(--autumn-ink);font-weight:550}
+.route-timeline-meta,.route-timeline-labels{color:var(--autumn-muted)}
+.route-workspace .route-timeline-tools button{color:var(--autumn-red)}
+.route-timeline.is-active-tour .route-timeline-rail:after{background:var(--autumn-line)}
+.route-timeline .is-visited .route-timeline-rail:after{background:#9db8a4}
+.route-timeline .is-next .route-timeline-node{background:var(--autumn-red);border-color:var(--autumn-red);box-shadow:0 0 0 5px var(--autumn-rose)}
+.route-timeline .is-next .route-timeline-node.has-icon{background:var(--autumn-rose);color:var(--autumn-red);box-shadow:none}
+.app-shell .tour-next-card{background:var(--autumn-paper);border-color:var(--autumn-line)}
+.app-shell .tour-card-icon{background:var(--autumn-rose);color:var(--autumn-red)}
+.app-shell .tour-secondary{background:var(--autumn-card);border-color:var(--autumn-line);color:var(--autumn-muted);border-radius:24px}
+.app-shell .xiaozhi-pairing{background:var(--autumn-card);border-color:var(--autumn-line);box-shadow:var(--autumn-shadow)}
+.app-shell .pairing-body{border-top:1px dashed var(--autumn-line)}
+.app-shell .pairing-steps li>span,.app-shell .pairing-badge{background:var(--autumn-gold);color:var(--autumn-red)}
+.app-shell .pairing-steps blockquote{background:var(--autumn-paper);border-color:var(--autumn-line);color:var(--autumn-red)}
+.app-shell .pairing-input-row input{background:var(--autumn-paper);border-color:#c5af86;color:var(--autumn-ink)}
+.app-shell .pairing-badge.is-bound{background:#edf2e5;color:#47765b}
+.app-shell .shuttle-card{background:var(--autumn-card);border-color:var(--autumn-line);box-shadow:var(--autumn-shadow);border-radius:15px}
+.app-shell .shuttle-summary strong{font-weight:600;color:var(--autumn-ink)}
+.app-shell .shuttle-summary small{color:var(--autumn-muted)}
+.app-shell .shuttle-card .shuttle-meta{border-top:1px dashed var(--autumn-line)}
+.app-shell .shuttle-tabs button{background:var(--autumn-card);border-color:var(--autumn-line);border-radius:24px}
+.app-shell .shuttle-tabs .selected{background:var(--autumn-gold);border-color:var(--autumn-red);color:var(--autumn-red)}
+
+/* Theme dialogs without changing generated report or journal image content. */
+.app-shell :is(.modal,.journal-dialog,.adopt-dialog,.stay-picker,.fixed-report){background:var(--autumn-card);color:var(--autumn-ink);border-color:var(--autumn-line)}
+.app-shell .history-trip-card{background:var(--autumn-paper);border-color:var(--autumn-line);box-shadow:var(--autumn-shadow)}
+.app-shell .history-trip-card>header>span{background:var(--autumn-gold);color:var(--autumn-muted)}
+.app-shell .history-feature-grid button{background:var(--autumn-rose);border-color:var(--autumn-line);color:var(--autumn-red)}
+.app-shell .history-feature-grid button:nth-child(2){background:#edf2e5;border-color:#d9dfc6;color:#596c40}
+.app-shell .history-feature-grid small{color:var(--autumn-muted)}
+.app-shell .stay-picker input{background:var(--autumn-paper);border-color:var(--autumn-line)}
+.app-shell .stay-options button[aria-pressed=true]{background:var(--autumn-gold);border-color:var(--autumn-red);color:var(--autumn-red)}
+.app-shell .journal-picker{background:var(--autumn-paper);border-color:#b79558}
+.app-shell .toast{background:var(--autumn-ink);color:var(--autumn-paper)}
+
+@media(max-width:700px){
+ .header .tabs{gap:2px}
+ .header .tabs button{font-size:12px}
+ .is-welcome .welcome{display:flex;flex-direction:column;gap:0}
+ .is-welcome .welcome>.eyebrow{margin-bottom:0}
+ .is-welcome .welcome h1{font-size:28px;line-height:1.35;margin:10px 0 8px}
+ .is-welcome .welcome .intro{font-size:13px}
+ .autumn-keepsake{align-self:stretch;margin:20px 5px 12px;padding:7px 7px 9px;border-radius:12px}
+ .autumn-keepsake>img{height:clamp(95px,17dvh,154px);border-radius:7px}
+ .autumn-keepsake>.autumn-mascot{width:47px;height:58px;bottom:30px}
+ .autumn-keepsake figcaption{font-size:11px;margin-top:5px}
+ .is-welcome .welcome .suggestions{align-self:stretch;margin-top:8px}
+ .is-welcome .welcome .suggestion{min-height:44px;padding:5px 0;font-size:13px;gap:8px}
+ .is-welcome .welcome .suggestion img{width:28px;height:28px}
+ .is-welcome .welcome .explore-link{min-height:36px;margin-top:4px;font-size:11px}
+ .is-welcome .composer-wrap{padding-top:6px;padding-bottom:8px}
+ .route-workspace :is(.preset-wizard,.preset-detail,.custom-route,.active-route){padding:16px 12px;border-radius:15px}
+ .route-workspace .route-timeline-stop{grid-template-columns:25px minmax(0,1fr);gap:4px}
+ .route-workspace .route-timeline-body{padding-left:8px;padding-right:8px}
+ .route-workspace .route-timeline-name{font-size:17px}
+ .route-workspace .tour-next-card{padding:13px}
+ .route-workspace .preference-pills{gap:8px}
+ .route-workspace .preference-pills button{padding:9px 15px}
+}
+@media(max-height:650px){.autumn-keepsake>img{height:105px}.is-welcome .welcome h1{font-size:27px;margin:6px 0}.is-welcome .welcome .suggestions{margin-top:10px}}

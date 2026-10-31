@@ -151,8 +151,8 @@ int main() {
     output.unlock(); stopping.get();
     audio.SetSuspended(false);
     SavedVolumeCodec codec;
-    BootVolume(&codec); assert(codec.value==85);
+    BootVolume(&codec); assert(codec.value==100);
     codec.SetOutputVolume(30); assert(codec.value==30);
-    BootVolume(&codec); assert(codec.value==85);
-    puts("PASS: production application pause/resume, setup guards, stale callback rejection, fresh-session gate, 20 cycles; production audio queue flush/block/resume and output barrier; boot overrides saved volume to 85");
+    BootVolume(&codec); assert(codec.value==100);
+    puts("PASS: production application pause/resume, setup guards, stale callback rejection, fresh-session gate, 20 cycles; production audio queue flush/block/resume and output barrier; boot overrides saved volume to 100");
 }

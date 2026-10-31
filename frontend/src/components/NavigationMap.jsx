@@ -1,6 +1,8 @@
 import {useEffect,useRef,useState} from 'react';
 import {MapPin,LocateFixed,Plus,Minus,RotateCcw} from 'lucide-react';
 import {loadAMap} from '../services/amap';
+import {endpointOffset,addEndpointIcon} from '../services/map-markers.mjs';
+import './map-markers.css';
 const overview=[118.960,32.153];
 export default function NavigationMap({stops=[],geometry,selectedId,onSelect,onIllustration,userPosition,onLocate,compact=false,markerMode='number'}){
  const container=useRef(null),map=useRef(null),sdk=useRef(null),overlays=useRef([]),userMarker=useRef(null),selectRef=useRef(onSelect),lastData=useRef(''),centerPending=useRef(false),manualMove=useRef(false);
@@ -10,10 +12,20 @@ export default function NavigationMap({stops=[],geometry,selectedId,onSelect,onI
   loadAMap().then(AMap=>{if(disposed)return;sdk.current=AMap;instance=new AMap.Map(container.current,{viewMode:'2D',center:overview,zoom:14,dragEnable:!compact,zoomEnable:!compact,scrollWheel:!compact,doubleClickZoom:!compact,touchZoom:!compact,animateEnable:!matchMedia('(prefers-reduced-motion: reduce)').matches});map.current=instance;instance.on('complete',()=>{if(!disposed){clearTimeout(timer);setStatus('ready');}});instance.on('zoomend',()=>{if(!disposed)setZoomRevision(n=>n+1);});instance.on('dragstart',()=>{manualMove.current=true;});}).catch(()=>{if(!disposed){clearTimeout(timer);setStatus('error');}});return()=>{disposed=true;clearTimeout(timer);instance?.destroy();map.current=null;};
  },[compact]);
  useEffect(()=>{if(status!=='ready'||!map.current)return;const AMap=sdk.current,m=map.current;m.remove(overlays.current);const points=stops.filter(p=>p.location),groups=[];
-  for(const p of points){const screen=m.lngLatToContainer(p.location);const group=markerMode==='dots'&&p.id!==selectedId?groups.find(g=>g[0].id!==selectedId&&Math.hypot(g.screen.x-screen.x,g.screen.y-screen.y)<16):null;if(group)group.push(p);else{const g=[p];g.screen=screen;groups.push(g);}}
-  const markers=groups.map(group=>{const p=group[0],active=group.some(v=>v.id===selectedId),button=document.createElement('button');button.type='button';button.className=markerMode==='dots'?(active?'map-dot is-active':group.length>1?'map-dot is-cluster':'map-dot'):'amap-stop-marker'+(active?' is-active':'');button.setAttribute('aria-label',group.map(v=>v.name).join('、'));if(markerMode==='number')button.textContent=String(p.number||1);else if(active){const name=document.createElement('span');name.className='map-dot-label';name.textContent=p.name;button.append(name);}else if(group.length>1)button.title=`${group.length}个相邻地点`;
-   const marker=new AMap.Marker({position:p.location,content:button,anchor:markerMode==='dots'&&!active?'center':'bottom-center',zIndex:active?150:100});marker.on('click',()=>selectRef.current?.(p.id));return marker;});
-  const line=geometry?[new AMap.Polyline({path:geometry.coordinates,strokeColor:'#8f2f23',strokeWeight:5,strokeOpacity:.92,lineJoin:'round',lineCap:'round',showDir:true})]:[];overlays.current=[...line,...markers];m.add(overlays.current);const signature=points.map(p=>p.id).sort().join('|')+'|'+(geometry?JSON.stringify(geometry.coordinates):'');if(signature!==lastData.current){lastData.current=signature;manualMove.current=false;fit();}if(markerMode==='dots'&&selectedId&&!manualMove.current){const p=points.find(p=>p.id===selectedId);if(p&&!m.getBounds().contains(p.location))m.panTo(p.location);}
+  for(const p of points){const screen=m.lngLatToContainer(p.location);const group=markerMode==='dots'&&!p.endpoint&&p.id!==selectedId?groups.find(g=>!g[0].endpoint&&g[0].id!==selectedId&&Math.hypot(g.screen.x-screen.x,g.screen.y-screen.y)<16):null;if(group)group.push(p);else{const g=[p];g.screen=screen;groups.push(g);}}
+  const markers=groups.map(group=>{
+   const p=group[0],active=group.some(v=>v.id===selectedId),button=document.createElement('button');button.type='button';
+   button.className=p.endpoint?`route-endpoint-marker is-${p.endpoint}${active?' is-active':''}`:markerMode==='dots'?(active?'map-dot is-active':group.length>1?'map-dot is-cluster':'map-dot'):'amap-stop-marker'+(active?' is-active':'');
+   button.setAttribute('aria-label',(p.endpoint?(p.endpoint==='start'?'路线起点：':'路线终点：'):'')+group.map(v=>v.name).join('、'));
+   if(p.endpoint)addEndpointIcon(button,p.endpoint);
+   else if(markerMode==='number')button.textContent=String(p.number||1);
+   else if(active){const name=document.createElement('span');name.className='map-dot-label';name.textContent=p.name;button.append(name);}
+   else if(group.length>1)button.title=`${group.length}个相邻地点`;
+   const offset=endpointOffset(p,points);
+   const marker=new AMap.Marker({position:p.location,content:button,offset:new AMap.Pixel(...offset),anchor:p.endpoint||markerMode==='dots'&&!active?'center':'bottom-center',zIndex:p.endpoint?200:active?150:100});
+   marker.on('click',()=>selectRef.current?.(p.id));return marker;
+  });
+  const line=geometry?[new AMap.Polyline({path:geometry.coordinates,strokeColor:'#8f2f23',strokeWeight:5,strokeOpacity:.92,lineJoin:'round',lineCap:'round',showDir:true})]:[];overlays.current=[...line,...markers];m.add(overlays.current);const signature=JSON.stringify(points.map(p=>[p.id,p.location,p.endpoint]))+'|'+(geometry?JSON.stringify(geometry.coordinates):'');if(signature!==lastData.current){lastData.current=signature;manualMove.current=false;fit();}if(markerMode==='dots'&&selectedId&&!manualMove.current){const p=points.find(p=>p.id===selectedId);if(p&&!m.getBounds().contains(p.location))m.panTo(p.location);}
  },[status,stops,geometry,selectedId,markerMode,zoomRevision]);
  useEffect(()=>{if(status!=='ready'||!map.current||!userPosition)return;const m=map.current,AMap=sdk.current;if(userMarker.current)m.remove(userMarker.current);const dot=document.createElement('div');dot.className='visitor-location-dot';dot.setAttribute('aria-label','我的位置');userMarker.current=new AMap.Marker({position:userPosition.location,content:dot,anchor:'center',zIndex:160});m.add(userMarker.current);if(centerPending.current){m.panTo(userPosition.location);centerPending.current=false;}},[status,userPosition]);
  useEffect(()=>{if(status!=='ready'||!container.current)return;let timer;const observer=new ResizeObserver(()=>{clearTimeout(timer);timer=setTimeout(fit,180);});observer.observe(container.current);return()=>{observer.disconnect();clearTimeout(timer);};},[status,compact]);

@@ -1,0 +1,39 @@
+.route-workspace .route-timeline{list-style:none;padding:0;margin:16px 0 24px}
+.route-timeline .route-timeline-stop{display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;padding:0 0 22px;border:0}
+.route-timeline .route-timeline-stop:last-child{padding-bottom:0}
+.route-timeline-rail{position:relative;display:flex;justify-content:center;padding-top:17px;color:#963e38}
+.route-timeline-stop:not(:last-child) .route-timeline-rail:after{content:"";position:absolute;top:28px;bottom:-45px;width:3px;background:#d9afa3}
+.route-timeline-node{position:relative;z-index:1;display:grid;place-items:center;box-sizing:border-box;width:13px;height:13px;border:3px solid currentColor;border-radius:50%;background:#fff}
+.route-timeline-node.has-icon{width:28px;height:28px;margin-top:-7px;border:0}
+.route-timeline .is-start .route-timeline-node{color:#47765b}
+.route-timeline .is-end .route-timeline-node{color:#ae692e}
+.route-timeline-body{min-width:0;padding:0 14px 6px;border-radius:14px}
+.route-timeline .is-selected .route-timeline-body,.route-timeline .is-next .route-timeline-body{background:#fbf0eb}
+.route-timeline-stop-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.route-workspace .route-timeline-name{display:block;min-height:46px;padding:6px 0;text-align:left;font:400 19px/1.6 var(--serif);color:#352f2a;overflow-wrap:anywhere;min-width:0}
+.route-timeline-labels{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px 8px;flex-shrink:0;max-width:45%;font-size:11px;color:#86776c}
+.route-timeline-meta{font-size:12px;color:#756a5b;line-height:1.8}
+.route-timeline-tools{display:flex;gap:4px 18px;flex-wrap:wrap;margin-top:4px}
+.route-workspace .route-timeline-tools button{display:inline-flex;align-items:center;gap:5px;min-height:36px;padding:0;color:#8f2f23;font-size:12px}
+.route-timeline.is-active-tour .route-timeline-rail:after{background:#e4dbd1}
+.route-timeline.is-active-tour .route-timeline-node{border-color:#d7cabe;color:#8b7c70}
+.route-timeline .is-visited .route-timeline-rail:after{background:#9db8a4}
+.route-timeline .is-visited .route-timeline-node,.route-timeline .is-visited .route-timeline-status{color:#47765b}
+.route-timeline .is-skipped .route-timeline-status{color:#86776c}
+.route-timeline .is-next .route-timeline-node{border-color:#963e38;background:#963e38;box-shadow:0 0 0 5px #f3ddd4;color:white}
+.route-timeline .is-next .route-timeline-node.has-icon{background:#fbf0eb;color:#963e38;box-shadow:none}
+.route-timeline .is-next .route-timeline-status{color:#8f2f23;font-weight:500}
+.route-timeline-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:22px}
+.route-workspace .route-timeline-heading h3{font:500 14px/1.6 var(--sans);margin:0}
+.route-timeline-heading>span{font-size:12px;color:#86776c}
+.route-plan-overview{display:flex;align-items:center;flex-wrap:wrap;gap:8px 22px;border-bottom:1px solid #eee3d6;margin:16px 0;padding:0 0 16px;color:#756a5b;font-size:13px}
+.route-plan-overview>span{display:flex;align-items:center;gap:7px}
+.route-plan-overview strong{font:400 22px var(--serif);color:#352f2a}
+.route-workspace .route-plan-notes{border-top:1px solid #eee3d6;margin:12px 0;color:#756a5b}
+.route-workspace .route-plan-notes>summary{font-size:12px}
+.route-plan-notes p{font-size:12px;margin:0 0 12px}
+.route-editor{border-top:1px solid #eee3d6;margin:18px 0 8px}
+.route-workspace .route-editor>summary{color:#8f2f23;font-size:13px}
+.route-editor-caption{font-size:12px;color:#86776c;margin:12px 0 0}
+.route-workspace .route-timeline :focus-visible{outline:2px solid #b47c62;outline-offset:3px}
+@media(max-width:600px){.route-timeline .route-timeline-stop{grid-template-columns:28px minmax(0,1fr);gap:5px;padding-bottom:18px}.route-timeline-stop:not(:last-child) .route-timeline-rail:after{bottom:-41px}.route-timeline-body{padding-left:10px;padding-right:10px}.route-workspace .route-timeline-name{font-size:18px}.route-timeline-stop-heading{gap:8px}.route-timeline-tools{gap:6px 14px}.route-workspace .route-timeline-tools button{min-height:44px}.route-plan-overview{gap:12px 18px}}

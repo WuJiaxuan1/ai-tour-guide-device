@@ -32,14 +32,14 @@ inline uint32_t Crc32(const uint8_t* data, size_t size) {
 }
 struct Bounds {
     double north = 0, west = 0, south = 0, east = 0;
-    bool Valid() const {
+    bool Valid(bool overview=false) const {
         return std::isfinite(north) && std::isfinite(south) && std::isfinite(east) && std::isfinite(west) &&
             north < 85 && south > -85 && west >= -180 && east <= 180 &&
-            north > south && east > west && north-south < 0.1 && east-west < 0.1;
+            north > south && east > west && north-south < (overview?20:0.1) && east-west < (overview?20:0.1);
     }
     static double Mercator(double lat) { return std::log(std::tan(0.7853981633974483 + lat * 0.008726646259971648)); }
     bool Project(double lat, double lng, double& x, double& y, int size = kWidth) const {
-        if (!Valid() || !std::isfinite(lat) || !std::isfinite(lng) || lat < south || lat > north || lng < west || lng > east) return false;
+        if (!Valid(true) || !std::isfinite(lat) || !std::isfinite(lng) || lat < south || lat > north || lng < west || lng > east) return false;
         x = (lng-west)/(east-west)*size;
         y = (Mercator(north)-Mercator(lat))/(Mercator(north)-Mercator(south))*size;
         return x >= 0 && y >= 0 && x < size && y < size;
@@ -53,7 +53,7 @@ struct Position {
     bool Fresh(int64_t now) const { return valid && now >= received_ms && now-received_ms+age_ms <= 15000 && accuracy > 0 && accuracy <= 50; }
 };
 struct Header {
-    uint32_t id = 0, crc = 0; std::string session; bool geo = false, chunk = false; Bounds bounds;
+    uint32_t id = 0, crc = 0, route_geometry_crc=0; std::string session; bool geo = false, chunk = false, overview=false; Bounds bounds;
     uint16_t size = kWidth;
     size_t Bytes() const { return size_t(size)*size*2; }
 };
@@ -68,19 +68,21 @@ struct Window {
 inline bool Parse(const uint8_t* b, size_t length, Header& out) {
     if(length<kHeader) return false;
     const bool chunk=b[4]==3 && b[5]==3;
-    const bool geo = chunk || (b[4] == 2 && b[5] == 2);
-    const uint16_t size=chunk?kChunkSize:kWidth;
+    const bool overview=b[4]==4 && b[5]==4;
+    const bool geo = overview || chunk || (b[4] == 2 && b[5] == 2);
+    const uint16_t size=(chunk||overview)?kChunkSize:kWidth;
     const size_t bytes=size_t(size)*size*2;
     if (length != (geo ? kGeoHeader : kHeader) + bytes || memcmp(b, "QMAP", 4) || (!geo && (b[4] != 1 || b[5] != 1)) || b[6] != 1 || b[7] != 0 ||
         Read16(b + 8) != size || Read16(b + 10) != size || Read32(b + 16) != bytes) return false;
     for (size_t i = 40; i < kHeader; ++i) if (b[i]) return false;
-    out.geo = geo; out.chunk=chunk; out.size=size;
+    out.geo = geo; out.chunk=chunk; out.overview=overview; out.route_geometry_crc=0;out.size=size;
     if (geo) {
         // ESP32 and our host targets are little endian IEEE754. Decode explicitly.
         auto real = [&](size_t offset) { uint64_t bits = uint64_t(Read32(b+offset)) | (uint64_t(Read32(b+offset+4))<<32); double v; memcpy(&v,&bits,8); return v; };
         out.bounds = {real(48),real(56),real(64),real(72)};
-        if (b[80] != 1 || !out.bounds.Valid()) return false; // GCJ-02, north-up Web Mercator
-        for(size_t i=81;i<kGeoHeader;++i) if(b[i]) return false;
+        if (b[80] != 1 || !out.bounds.Valid(overview)) return false; // GCJ-02, north-up Web Mercator
+        for(size_t i=81;i<kGeoHeader;++i) if(!(overview && i>=84 && i<88) && b[i]) return false;
+        if(overview) out.route_geometry_crc=Read32(b+84);
     }
     out.id = Read32(b + 12); out.crc = Read32(b + 20);
     if (!out.id || out.id > 2000000000) return false;

@@ -1,5 +1,19 @@
 # Prototype Instructions
 
+## Local route refinements — 2026-11-01
+- Adopt autumn-preview-v2 visual palette only: cream #fffaf0, paper cards #fffdf7, maple red #a84333, wheat selection #f5e4bc, brown text #40362d, dashed dividers and scrapbook imagery. Preserve current feature placement, live maps, visible search, timeline and all handlers; the reference preview is not a replacement implementation. Style-only integration lives in autumn-theme.css.
+- Use a shared left-side route timeline for official details, planned personal routes and active tours. Keep green start/orange end icons and occurrence IDs for repeated stops. Planned personal routes show actual order immediately with editing collapsed; progress reflects explicit visited/skipped/next-stop server states, never inferred GPS arrival.
+- Completing a tour opens History after successful completion; label the action 结束游览并查看历史行程. Use 枫叶精灵 for all visitor-facing device names, including pairing instructions and exported records; internal API identifiers stay unchanged.
+- Move shuttle services to Explore > 游客服务 > 接驳车; My Route has only official/custom tabs and History as its sole heading-side action. Each historical trip has two feature cards: 游览报告 and 专属手账, replacing 查看行程记录.
+- Reports opened from history use that trip's authoritative snapshot, not the fixed sample. Preserve fixed report styling/PNG export and sample fallback. Journal keeps existing local photo/fixed-card behavior and shows selected trip context; do not claim historical photo persistence or real image generation. Reading history must not switch current tour or device binding.
+- Personal-route UI should avoid repeating location/unavailable-estimate messages below stops. Show one location/pause notice and distinct available guidance in a next-stop card; keep action hierarchy clear.
+- Xiaozhi pairing uses a styled two-step card, labelled eight-digit field and inline pending/error/success states. Show success only after a real successful response, never confuse it with device online status. Do not change pairing APIs or connect production devices during UI checks.
+- User requires official recommendations to omit stops without known coordinates. Preserve raw source evidence outside the visitor route; runtime routes remove these stops.
+- Entrance and exit are selected separately from west/south gates; same-gate round trips are explicitly allowed. Route planning and persisted trips must retain both selected endpoints.
+- Use the AMap ticket-office anchors in backend/data/routes/gates.v1.json, with clear provenance; do not describe them as surveyed entrance boundaries.
+- My Route map uses Explore's unnumbered dot markers. Use a green arrow for start and orange flag for end; separate overlapping round-trip icons without moving coordinates.
+- This change is local on integration/local-web-debug-20261101; no publication/deployment is implied. See docs/operations/local-route-gates-20261101.md.
+
 ## Project decisions
 
 - The user selected OpenUI Trip Planner's visual direction and rejected TripStar's appearance.
@@ -66,3 +80,11 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 - Preserve white/serif/rose design. The new route workspace scrolls inside main-route; do not reintroduce old absolute bottom-sheet padding over it.
 - Keep image originals; predev/build generate ignored responsive derivatives. Font core subsets retain full on-demand fallback. Rebuild before deploying, and test actual currentSrc/cache behavior.
 - Xiaozhi is the chosen future text provider but its web transport is not connected. Current multi-turn support is bounded rules, not an LLM or cross-device memory. Handset/watch still require Android and lack route ACKs.
+
+## Local watch navigation — 2026-11-01
+- The route page now includes WatchNavigationCard with server map state and trip-scoped configuration download. This does not replace the voice pairing UI or imply that the watch has physically displayed the map.
+- Keep explicit waiting-location/preparing/paused/ready/ACK states; no fabricated GPS or routing success. See docs/operations/watch-navigation-p9-cloud01.md.
+
+## Unified connection card — 2026-11-01 P9-cloud02
+- Supersedes the cloud01 WatchNavigationCard/download workflow. Only existing 连接我的枫叶精灵 remains, with one voice-issued 8-digit code for voice and map. GET pair-device restores actual binding after refresh; watch state appears within its success card.
+- Show received only after matching server ACK, not simply after pairing. Preserve explicit pending/error/expired/legacy voice-only states. No visitor JSON export, server URL or secret-token inputs. See docs/operations/watch-navigation-p9-cloud02.md.

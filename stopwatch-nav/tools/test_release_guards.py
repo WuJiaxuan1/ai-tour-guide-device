@@ -12,7 +12,7 @@ import json
 import package_p1
 
 ROOT = Path(__file__).resolve().parents[1]
-STAGE = sys.argv.pop(1) if len(sys.argv) > 1 and sys.argv[1] in ("P1-test01", "P2-test01", "P3-test01", "P4-test01", "P5-test01", "P6-test01", "P7-test01", "P7-test03", "P7-test04", "P7-test07", "P8-test01", "P8-test02") else "P1-test01"
+STAGE = sys.argv.pop(1) if len(sys.argv) > 1 and sys.argv[1] in ("P1-test01", "P2-test01", "P3-test01", "P4-test01", "P5-test01", "P6-test01", "P7-test01", "P7-test03", "P7-test04", "P7-test07", "P8-test01", "P8-test02", "P8-avatar-test01", "P8-avatar-test02", "P8-avatar-test03", "P8-avatar-test04", "P8-avatar-test05", "P8-avatar-test06", "P8-avatar-test07", "P8-avatar-test08", "P8-avatar-test09", "P8-avatar-test10", "P8-avatar-test11", "P8-avatar-test12", "P8-overview-test01", "P8-overview-test02") else "P1-test01"
 RELEASE = ROOT / "releases" / STAGE
 HELPER = RELEASE / ("flash_" + STAGE.split('-')[0].lower() + ".py")
 spec = importlib.util.spec_from_file_location("p1_flash", HELPER)
