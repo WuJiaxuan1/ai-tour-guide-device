@@ -1,0 +1,21 @@
+import {useEffect,useState} from 'react';
+import ImmersiveTag from '../../components/ImmersiveTag';
+import {travelRequest} from '../../services/travel-api';
+const steps=[
+ {key:'gate',title:'从哪扇门进，哪扇门出？',options:[['west','西门'],['south','南门']]},
+ {key:'duration',title:'留多少时间给山里？',options:[['half','半天'],['full','全天']]},
+ {key:'intensity',title:'今天想走得轻松一些吗？',options:[['easy','轻松'],['normal','正常'],['energetic','能量无限']]},
+ {key:'companions',title:'这次和谁一起出发？',options:[['senior','有老人同行'],['child','有儿童同行'],['none','无特殊同行人员']]}
+];
+export function serverPreferences(f){return {entrance_id:f.gate,exit_id:f.exitGate,duration:f.duration==='half'?'half_day':'full_day',intensity:f.intensity,has_elderly:f.companions.includes('senior'),has_children:f.companions.includes('child')};}
+export default function ServerPresetRoutePanel({filters,onFilters,onChoose,onAdopt,step,onStep,busy,onImmersive}){
+ const [result,setResult]=useState(null),[error,setError]=useState(''),[loading,setLoading]=useState(false),[attempt,setAttempt]=useState(0);
+ const current=steps[step],companions=filters.companions||[];
+ useEffect(()=>{if(step<4)return;const c=new AbortController();setLoading(true);setError('');setResult(null);travelRequest('/planner/recommend',{method:'POST',body:serverPreferences(filters),signal:c.signal}).then(setResult).catch(e=>{if(!c.signal.aborted)setError(e.message);}).finally(()=>{if(!c.signal.aborted)setLoading(false);});return()=>c.abort();},[step,filters,attempt]);
+ const pick=value=>{if(current.key!=='companions'){onFilters({...filters,[current.key]:value});return;}const next=value==='none'?['none']:companions.includes(value)?companions.filter(v=>v!==value):[...companions.filter(v=>v!=='none'),value];onFilters({...filters,companions:next});};
+ const valid=current&&(current.key==='gate'?filters.gate&&filters.exitGate:current.key==='companions'?companions.length:filters[current.key]);
+ return <section aria-label="官方推荐路线" className="preset-wizard">
+ {current?<><div className="wizard-progress" aria-label={`第 ${step+1} 步，共 4 步`}>{steps.map((s,i)=><span key={s.key} className={i<=step?'reached':''}>{i+1}<small>{['进出门','时长','体力','同行'][i]}</small></span>)}</div><h2>{current.title}</h2>{current.key==='gate'&&<p>进入景区</p>}<div className="preference-pills" role="group" aria-label={current.key==='gate'?'入口':current.title}>{current.options.map(([value,label])=><button key={value} aria-pressed={current.key==='companions'?companions.includes(value):filters[current.key]===value} onClick={()=>pick(value)}>{label}</button>)}</div>{current.key==='gate'&&<><p>离开景区</p><div className="preference-pills" role="group" aria-label="出口">{current.options.map(([value,label])=><button key={value} aria-pressed={filters.exitGate===value} onClick={()=>onFilters({...filters,exitGate:value})}>{label}</button>)}</div></>}{current.key==='companions'&&(companions.includes('senior')||companions.includes('child'))&&<p className="route-data-note">可同时选择老人和儿童；将按轻松强度筛选，并核对两类适配条件。</p>}<div className="wizard-actions">{step>0&&<button onClick={()=>onStep(step-1)}>上一步</button>}<button className="route-primary" disabled={!valid} onClick={()=>onStep(step+1)}>{step===3?'查看推荐':'下一步'}</button></div></>
+ :<><button className="route-back" onClick={()=>onStep(0)}>返回偏好</button><h2>适合你的山中一程</h2>{loading&&<p role="status">正在匹配预设路线…</p>}{error&&<p role="alert">{error}<button onClick={()=>setAttempt(n=>n+1)}>重试</button></p>}{result&&<><p role="status">{result.count?`找到 ${result.count} 条符合条件的路线`:'现有预设路线尚未覆盖这组条件。'}</p>{result.warnings.map(w=><p key={w} className="route-data-note">{w}</p>)}<div className="preset-route-results">{result.routes.map(route=><article className="preset-route-card" key={route.route_id}><span className="route-kicker">{route.entrance_id==='west'?'西门':'南门'}进入 · {route.exit_id==='west'?'西门':'南门'}离开</span><h3>{route.name}</h3><ImmersiveTag route={route} onOpen={onImmersive}/>{route.highlights.map(h=><p key={h}>{h}</p>)}<ol className="route-flow">{route.stops.map(s=><li key={s.stop_id}>{s.name}</li>)}</ol>{route.warnings.map(w=><p key={w} className="route-data-note">{w}</p>)}<button className="route-primary" disabled={busy} onClick={()=>onAdopt(route,serverPreferences(filters))}>选择这条路线</button><button className="route-card-open" onClick={()=>onChoose(route)}>查看路线详情</button></article>)}</div></>}</>}
+ </section>;
+}
