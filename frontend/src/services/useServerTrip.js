@@ -16,7 +16,8 @@ export default function useServerTrip(visitor){
  // Refresh freshness even when the phone stops producing fixes.
  useEffect(()=>{if(!trip?.id)return;const timer=setInterval(()=>refresh().catch(()=>{}),30000);return()=>clearInterval(timer);},[trip?.id,refresh]);
  const choose=async(route,preferences)=>{setError('');const t=await travelRequest('/trips',{method:'POST',body:{client_event_id:requestId(),route_id:route.route_id,revision:route.revision,preferences}});accept(t);await refresh(t.id);return t;};
+ const choosePersonal=async(input,signal)=>{setError('');const t=await travelRequest('/trips/from-selection',{method:'POST',body:input,signal});accept(t);await refresh(t.id);return tripRef.current;};
  const command=async(action,stop_id)=>{const t=tripRef.current;if(!t)return;setError('');try{const next=await travelRequest(`/trips/${t.id}/commands`,{method:'POST',body:{client_event_id:requestId(),expected_version:t.version,action,...(stop_id?{stop_id}:{})}});accept(next);await refresh(t.id);return next;}catch(e){setError(e.message);await refresh(t.id).catch(()=>{});throw e;}};
  const forget=useCallback(id=>{if(tripRef.current?.id===id){accept(null);setError('');setConnected(false);}},[accept]);
- return {trip,navigation,error,setError,loading,connected,choose,command,refresh,forget};
+ return {trip,navigation,error,setError,loading,connected,choose,choosePersonal,command,refresh,forget};
 }

@@ -14,6 +14,7 @@ import {createPairing} from './pairing.mjs';
 import {validateTool} from '../../integrations/xiaozhi/bridge-tools.mjs';
 import {createTripDeletion} from './deletion.mjs';
 import {createPhotoService} from './photos.mjs';
+import {createPersonalTripService} from './personal-trip.mjs';
 
 export async function readJSON(req, limit = 65536) {
   check((req.headers['content-type'] || '').split(';')[0] === 'application/json', 'INVALID_CONTENT_TYPE', '请提交 JSON。', 415);
@@ -26,9 +27,10 @@ export function sendJSON(res, status, value) {
   res.writeHead(status, {'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff'});
   res.end(JSON.stringify(value));
 }
-export function createTravelApi({root, presets, convertLocation, walkingLeg, reverseGeocode, knowledge, converse, catalog = [], model = createTextModel({config:()=>modelConfig(root)}), store = new TravelStore(resolve(root, '.local-work/travel.sqlite'))}) {
+export function createTravelApi({root, presets, planRoads, convertLocation, walkingLeg, reverseGeocode, knowledge, converse, catalog = [], model = createTextModel({config:()=>modelConfig(root)}), store = new TravelStore(resolve(root, '.local-work/travel.sqlite'))}) {
   const trips = createTripService(store, presets.data || presets);
   const data = presets.data || presets;
+  const personalTrip=createPersonalTripService({store,data,planRoads});
   const immersive = createImmersiveService({root,store});
   const navigation = createNavigationService({store, convertLocation, walkingLeg,reverseGeocode,onProximity:immersive.onProximity});
   const dynamic = createDynamicInfo(root,store.clock);
@@ -83,6 +85,11 @@ export function createTravelApi({root, presets, convertLocation, walkingLeg, rev
       else if (/^\/experiences\/[a-z0-9-]+$/.test(path) && method === 'GET') sendJSON(res,200,immersive.get(path.split('/').at(-1)));
       else if (path === '/planner/recommend' && method === 'POST') sendJSON(res, 200, recommend(data, await readJSON(req)));
       else if (path === '/trips' && method === 'POST') sendJSON(res, 201, trips.create(session, await readJSON(req)));
+      else if (path === '/trips/from-selection' && method === 'POST') {
+        const controller=new AbortController();const closed=()=>{if(!res.writableEnded)controller.abort();};res.on('close',closed);
+        try{sendJSON(res,201,await personalTrip(session,await readJSON(req),{signal:AbortSignal.any([controller.signal,AbortSignal.timeout(240000)])}));}
+        finally{res.off('close',closed);}
+      }
       else if (path === '/trips' && method === 'GET') sendJSON(res, 200, {trips: store.listTrips(session)});
       else {
         const match = /^\/trips\/([a-f0-9-]{36})(?:\/(.*))?$/.exec(path);

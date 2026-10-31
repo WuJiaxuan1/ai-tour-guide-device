@@ -55,6 +55,7 @@ const presets=createPresetService(root,[...catalog,...facilities]);
 const planRoads=createRoadPlanner({catalog:[...catalog,...facilities],data:presets.data,walkingLeg});
 const converse=createConversationService(knowledge,presets,[...catalog,...facilities]);
 const travel=createTravelApi({root,presets,knowledge,converse,catalog:[...catalog,...facilities],
+ planRoads:(selection,{signal})=>planRoads(selection,{key:readConfig(root).serverKey,signal}),
  reverseGeocode:createReverseGeocoder({key:()=>readConfig(root).serverKey}),
  convertLocation:async location=>{const d=await amapRequest('/v3/assistant/coordinate/convert',{locations:location.map(n=>n.toFixed(6)).join(','),coordsys:'gps'},readConfig(root).serverKey,{});return String(d.locations).split(',').map(Number);},
  walkingLeg:async (from,to)=>{const p=await walkingLeg({location:from},{location:to},readConfig(root).serverKey,AbortSignal.timeout(12000));return p?{distance_m:Number(p.distance),walk_seconds:Number(p.duration)}:null;}

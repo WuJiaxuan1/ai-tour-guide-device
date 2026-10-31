@@ -1,0 +1,58 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
+import {TravelStore} from '../src/travel/store.mjs';
+import {createPresetService} from '../src/presets.mjs';
+import {createPersonalTripService} from '../src/travel/personal-trip.mjs';
+import {createTripService} from '../src/travel/trips.mjs';
+import {navigationContext} from '../src/travel/navigation.mjs';
+import {createRoadPlanner} from '../src/road-planner.mjs';
+const root=fileURLToPath(new URL('../..',import.meta.url));
+const catalog=['places','facilities'].flatMap(f=>JSON.parse(readFileSync(new URL(`../../frontend/src/content/${f}.json`,import.meta.url),'utf8')));
+const data=createPresetService(root,catalog).data;
+test('custom editor selections use server road planning and reject unrelated stay overrides',async t=>{
+ const {store,web}=fixture(t);
+ const roadPlanner=createRoadPlanner({catalog,data,walkingLeg:async(from,to)=>({distance:'100',duration:'60',steps:[{distance:'100',duration:'60',polyline:from.location.join(',')+';'+to.location.join(',')}]})});
+ const create=createPersonalTripService({store,data,planRoads:selection=>roadPlanner(selection)});
+ const gate=data.gates.find(g=>g.id==='west').placeId;
+ const input={client_event_id:'custom-stops',selection:{stopIds:['temple','mirror-lake'],entryId:gate,exitId:gate},stay_minutes:{temple:30}};
+ const trip=await create(web,input);
+ assert.deepEqual(trip.route.stops.map(s=>s.attraction_id).sort(),[gate,gate,'mirror-lake','temple'].sort());
+ assert.equal(trip.route.stops.find(s=>s.attraction_id==='temple').planned_stay_seconds,1800);
+ assert.ok(trip.route.route_id.startsWith('personal-'));assert.equal(trip.route.navigation_ready,true);
+ await assert.rejects(()=>create(web,{...input,client_event_id:'bad-override',stay_minutes:{unknown:20}}),e=>e.code==='INVALID_INPUT');
+ assert.equal(store.listTrips(web).length,1);
+});
+function fixture(t){const store=new TravelStore(':memory:');t.after(()=>store.close());const web=store.authenticate(store.createSession().token);return {store,web};}
+test('legacy selections create server-owned geometry, stop occurrences, stays and navigation shared with device',async t=>{
+ const {store,web}=fixture(t);let calls=0;
+ const plan=structuredClone(data.routes.find(r=>r.routeId==='R02').roadPlan);
+ const create=createPersonalTripService({store,data,planRoads:async selection=>{calls++;assert.equal(selection.presetId,'R02');return plan;}});
+ const input={client_event_id:'from-original-editor',selection:{presetId:'R02'},stay_minutes:{temple:0}};
+ const trip=await create(web,input);assert.equal(trip.status,'planned');assert.deepEqual(trip.route.geometry,plan.geometry);
+ assert.equal(trip.route.stops.find(s=>s.attraction_id==='temple').planned_stay_seconds,0);
+ assert.equal(trip.route.stops[0].attraction_id,trip.route.stops.at(-1).attraction_id);assert.notEqual(trip.route.stops[0].stop_id,trip.route.stops.at(-1).stop_id);
+ assert.equal(trip.route.immersive_experiences[0].attraction_id,'temple');
+ const service=createTripService(store,data),active=service.command(web,trip.id,{client_event_id:'start',expected_version:1,action:'start'});
+ assert.equal((await create(web,input)).status,'active');assert.equal(calls,1);
+ const device=store.authenticate(store.createSession({kind:'device',ownerId:web.owner_id,tripId:trip.id}).token);
+ const first=navigationContext(store.getTrip(device,trip.id),null).next_stop;
+ service.command(device,trip.id,{client_event_id:'visit',expected_version:active.version,action:'confirm_visit',stop_id:first.stop_id});
+ assert.notEqual(navigationContext(store.getTrip(web,trip.id),null).next_stop.stop_id,first.stop_id);
+ await assert.rejects(()=>create(web,{...input,client_event_id:'new-while-active'}),e=>e.code==='ACTIVE_TRIP_EXISTS');
+ await assert.rejects(()=>create(web,{...input,stay_minutes:{temple:30}}),e=>e.code==='IDEMPOTENCY_CONFLICT');
+});
+test('personal trip boundary rejects forged snapshots, devices, invalid stays, failures and coalesces retries',async t=>{
+ const {store,web}=fixture(t);let release,calls=0;const wait=new Promise(resolve=>release=resolve);
+ const create=createPersonalTripService({store,data,planRoads:async()=>{calls++;await wait;return structuredClone(data.routes.find(r=>r.routeId==='R02').roadPlan);}});
+ const input={client_event_id:'duplicate-click',selection:{presetId:'R02'},stay_minutes:{}};
+ await assert.rejects(()=>create(web,{...input,route:{geometry:{}}}),e=>e.code==='INVALID_INPUT');
+ await assert.rejects(()=>create({...web,kind:'device'},input),e=>e.code==='FORBIDDEN');
+ await assert.rejects(()=>create(web,{...input,stay_minutes:{temple:361}}),e=>e.code==='INVALID_INPUT');
+ const a=create(web,input),b=create(web,input);release();assert.equal((await a).id,(await b).id);assert.equal(calls,1);assert.equal(store.listTrips(web).length,1);
+ const fail=createPersonalTripService({store,data,planRoads:async()=>{throw Error('upstream secret should not leak');}});
+ await assert.rejects(()=>fail(web,{...input,client_event_id:'failed'}),e=>e.code==='ROAD_PLAN_FAILED'&&!e.message.includes('secret'));
+ assert.equal(store.listTrips(web).length,1);
+ const foreign=store.authenticate(store.createSession().token);assert.throws(()=>store.getTrip(foreign,(store.listTrips(web)[0]).id),e=>e.code==='NOT_FOUND');
+});

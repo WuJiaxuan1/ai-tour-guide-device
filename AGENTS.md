@@ -1,5 +1,11 @@
 # Project workflow
 
+## Selective frontend restoration — 2026-10-31
+- Latest user whitelist keeps server chat/about/history notice, temple immersive tags/experience/archive/mobile optimizations, active tour controls/map/location/navigation text/sync/recovery/pairing, server trip history/deletion, engineering/styles/assets. Restore all other frontend behavior to baseline 05398bb, including card add/remove, chat draft adoption, original preset wizard/filtering, personal route editing/planning, fixed ReportPage and PNG export. Keep JournalPage unchanged.
+- Active entry is RoutePage with shared ServerTourControls, not ServerRoutePage/ServerPresetRoutePanel. ServerMemoryPage/PhotoStudioPage remain inactive history; no new photo development. Historical trip details use ServerTripRecord without model-summary/TXT controls.
+- Minimal backend compatibility POST /api/v1/trips/from-selection recreates routes with the existing server road planner; never trust browser geometry. This connects restored personal-route UI to the retained authoritative trip, location and Xiaozhi tools.
+- Continue only on codex/full-implementation-photo-r12. This round is source/local-preview work; production remains photo-r12 until a separate deployment. See docs/operations/frontend-selective-restoration.md.
+
 ## Current publication authorization — 2026-10-31
 - Latest user instruction: publish ONLY to `codex/full-implementation-photo-r12`, not main. The initial main push completed before this correction arrived; it was reverted with a normal commit, restoring the exact original main tree. Further implementation changes belong on this branch. Do not push or merge implementation changes to main without new explicit authorization.
 - User explicitly requested publishing the complete current frontend, backend and supporting implementation to WuJiaxuan1/ai-tour-guide-device. Commit/push and normal GitHub authentication are authorized for this task; historical no-push notes below are superseded for this publication.
