@@ -1,5 +1,21 @@
 # Project workflow
 
+## Git publication authorized — 2026-10-31
+- The user explicitly requested committing and pushing the completed MCP work to GitHub with a descriptive commit message. This supersedes the earlier no-commit/no-push restriction for this MCP publication only. Publish the reviewed MCP source, tests, environment example, deployment notes and handoff; preserve unrelated untracked hardware, history and local files.
+- The MCP publication follows baseline b9ff2ac on release/frontend-0.5.1. Earlier statements that this MCP increment exists only locally describe the pre-publication state. Deployment and acceptance boundaries remain in docs/operations/mcp-deployment-20261031.md.
+
+## Server MCP deployed — 2026-10-31
+- Latest MCP state: docs/operations/mcp-deployment-20261031.md. qixia-mcp.service is enabled and runs from the real independent release 0.5.1-20261031-mcp1, calling 127.0.0.1:18787. Website current remains 0.5.0-20261031-r2. Computer shutdown no longer stops server MCP.
+- Five tools discovered; 31 local backend tests and 8 server MCP tests passed. At 12:04:17 Asia/Hong_Kong explain_current_place succeeded; user confirmed normal Mingjing Lake audio. Later explain/search calls succeeded too. Two observed WSS disconnects recovered in about 5 seconds each; root cause remains unverified. This is one confirmed voice use case, not navigation/ACK/memory acceptance.
+- Runtime fixes cover field mapping, explicit unsupported filters, complete paginated replies, full-envelope byte budget, environment precedence, validation, safe audit and supervisor recovery. The older undeployed/local-only statements below are historical. No Git commit/push in this deployment.
+- MCP unit uses a fixed independent release path; do not duplicate a current symlink with cp -a and treat it as a new directory. Never start a competing local bridge on the same token. Private server env remains outside releases and source handoffs.
+
+## Backend / MCP handoff — 2026-10-31 end of session
+- Continue from docs/handoffs/backend-mcp-handoff-20261031.md. Latest observed local HEAD is b9ff2ac on release/frontend-0.5.1; older HEAD statements below are historical. This session makes no commits/pushes.
+- Local Xiaozhi WSS is online and five tools were discovered (user screenshot), but StopWatch is elsewhere; business tool calls and voice acceptance are not verified. Server MCP is not deployed. Shutting down this PC stops its MCP only, not the existing server website.
+- Before deploying MCP, address handoff section 4: entryGate/gate mismatch and ignored filters, result byte limits/nested payloads/duplicate structured output, child API-base configuration propagation, validation/recovery and truthful audit/source semantics. Tool discovery and the prior 25 backend tests do not establish full acceptance.
+- Preserve agreed six-stage implementation order in the handoff. Private .env.local and SSH identities never enter the source handoff archive; teammates need the baseline project plus reviewed incremental files.
+
 - Edit the canonical project in place. Do not create a separate GitHub publication copy or mirror the full project for routine edits.
 - The user wants to learn GitHub uploading personally. Provide file selection and step-by-step instructions; do not push, publish, create remote commits, or run authentication on their behalf unless they explicitly request that action later.
 - Put project-specific temporary output under this project's .local-work/ on F drive. Avoid writing project intermediates to the C-drive chat workspace.

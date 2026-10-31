@@ -5,7 +5,9 @@
   "version": "0.5.1",
   "scripts": {
     "start": "node src/server.mjs",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "mcp:server": "node integrations/xiaozhi/mcp-stdio-server.mjs",
+    "mcp:pipe": "node integrations/xiaozhi/mcp_pipe.mjs -- node integrations/xiaozhi/mcp-stdio-server.mjs"
   },
   "engines": {
     "node": ">=22"
