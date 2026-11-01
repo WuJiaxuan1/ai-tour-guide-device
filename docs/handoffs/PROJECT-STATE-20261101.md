@@ -56,13 +56,13 @@ npm --prefix frontend ci
 
 ```sh
 npm --prefix backend test
-npm --prefix frontend test
 npm --prefix frontend run build
+npm --prefix frontend test
 npm --prefix frontend run test:sites
 node --env-file=.env.local backend/src/server.mjs
 ```
 
-打开 http://127.0.0.1:8787/ 。开发可另开`npm --prefix frontend run dev`，使用Vite实际地址；作者5174/8790只是旧临时设置。后端需要完整checkout，不能只复制frontend/dist。
+全新环境先build再运行前端测试，Sites测试会读取构建产物。打开 http://127.0.0.1:8787/ 。开发可另开`npm --prefix frontend run dev`，使用Vite实际地址；作者5174/8790只是旧临时设置。后端需要完整checkout，不能只复制frontend/dist。
 
 **本地网页启动不需要启动生产MCP。** 仅用户明确要求且已停止同接入点另一实例时，以下二选一：
 

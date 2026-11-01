@@ -34,8 +34,9 @@ npm --prefix frontend ci
 
 ```sh
 npm --prefix backend test
-npm --prefix frontend test
 npm --prefix frontend run build
+npm --prefix frontend test
+npm --prefix frontend run test:sites
 node --env-file=.env.local backend/src/server.mjs
 ```
 

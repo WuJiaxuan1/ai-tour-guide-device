@@ -20,7 +20,7 @@
 
 目前单智能体、单演示设备全局绑定12小时，不是多用户隔离。手机网页提供GPS；手表主动下载地图，公网不能直推热点内手表。底图与路线分传；不承诺主动语音、转向播报、自动到达或偏航重算。
 
-新机用Node24：npm --prefix backend ci；npm --prefix frontend ci；复制.env.example为.env.local。需要时询问用户私密配置文件位置，不让用户把密钥贴聊天；缺配置先运行可用页面/接口。运行两端测试、frontend build和test:sites；node --env-file=.env.local backend/src/server.mjs，默认本地8787，Vite端口以实际输出为准。本地数据不能覆盖生产。
+新机用Node24：npm --prefix backend ci；npm --prefix frontend ci；复制.env.example为.env.local。需要时询问用户私密配置文件位置，不让用户把密钥贴聊天；缺配置先运行可用页面/接口。先frontend build，再前端test/test:sites（它们依赖产物），并运行backend test；node --env-file=.env.local backend/src/server.mjs，默认本地8787，Vite端口以实际输出为准。本地数据不能覆盖生产。
 
 SSH为jxwu@43.160.252.245:22；RSA主机指纹SHA256:5OF28RSeYDMCf99Y1o7D0ItPOcn1s1xp2SR3A89D44g。私钥、DPAPI口令、API/WSS配置、签名库、照片、运行数据不在Git，用户自行备份。不要绕过指纹或擅自更换身份。应用根/home/jxwu/apps/ai-tour-guide-device，保护current/shared；部署不得覆盖已有行程数据。DPAPI密文依赖原Windows账户，跨机未必能解密。
 
