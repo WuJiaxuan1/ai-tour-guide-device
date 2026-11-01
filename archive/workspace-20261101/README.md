@@ -10,6 +10,7 @@
 | `hardware-releases/` | P1至P9各阶段的选择性源码快照、构建校验、烧录脚本和历史验收记录。source是当时打包器选择的文件，不是每版完整仓库；不可只解压一个source就声称可独立构建。 |
 | `historical-binaries.json` | 原工作区历史bin/APK名称、大小、SHA256。旧二进制本体未全量上传，避免大量重复发布物；当前cloud02及overview02回退bin、最新App安装包已在stopwatch-nav/distributions。 |
 | `autumn-preview-v2/` | 用户指定的秋日视觉参考，含静态HTML/CSS/JS及截图；是设计稿，不是运行中的网站。 |
+| `route-timeline-preview/` | 原对话中获认可的左侧路线色条交互演示片段，已从临时可视化目录补档；依赖原演示容器样式，不是生产页面。 |
 | `original-documents/` | 原始项目梳理、硬件计划、旧交接材料。以最新总交接为准。 |
 | `knowledge-v1-original/` | 收到的旧知识库原始资料，用于溯源；当前运行使用qixia-deepseek-v2.1。 |
 | `avatar-reference/` | 表情移植辅助脚本；上游 https://github.com/Trentct/m5stack-stopwatch-avatar ，参考提交204963257cb4dc2f3d7501eff900897bac55ef82。当前固件已包含实际移植代码及许可。 |
@@ -17,6 +18,6 @@
 | `server-verification/` | 从当前服务器只读取回的历史验证脚本；部分脚本会创建/删除测试行程，**只作参考，不能直接对生产运行**。 |
 | `local-debug-helpers/` | 本机临时验收/启动脚本的历史副本；含原环境路径，使用前审阅。 |
 | `AGENTS-history.md` | 归档前累计工作记录，仅供追溯；当前仓库根AGENTS.md是有效接手指引。 |
-| `source-inventory.json` | 从旧工作区复制的文件清单与原始SHA256；Git对文本的CRLF/LF转换可能改变字节校验，二进制校验不受影响。 |
+| `source-inventory.json` | 从旧工作区复制的文件清单与原始SHA256；文本另有LF归一化摘要。新克隆运行`node scripts/verify-archive.mjs`可检查源码快照、固件、APK及LFS模型，不执行网络请求或设备操作。 |
 
 私钥、WSS令牌、API Key、签名库、SQLite、个人照片、完整设备Flash读取、IDE/SDK/依赖/浏览器缓存没有公开。删除工作区前请按私密备份清单处理。保留了历史代码不意味着所有旧发布物、历史日志或废弃生成结果都已上传。
