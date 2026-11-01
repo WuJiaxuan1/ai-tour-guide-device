@@ -1,0 +1,34 @@
+import assert from 'node:assert/strict';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {createHash,randomUUID} from 'node:crypto';
+const base=process.env.VERIFY_BASE||'http://127.0.0.1:18788',checks=[],tracked=new Set();
+const req=async(path,{method='GET',body,token}={})=>{const r=await fetch(base+'/api/v1'+path,{method,headers:{'Content-Type':'application/json',...(token?{Authorization:'Bearer '+token}:{})},body:body?JSON.stringify(body):undefined,signal:AbortSignal.timeout(240000)});const data=await r.json();assert.ok(r.ok,`${method} ${path}: ${r.status} ${data.error?.code||''}`);return data;};
+const {token}=await req('/sessions',{method:'POST'});
+const get=id=>req(`/trips/${id}`,{token});
+const command=async(id,action,stop_id)=>{const t=await get(id);return req(`/trips/${id}/commands`,{method:'POST',token,body:{client_event_id:randomUUID(),expected_version:t.version,action,...(stop_id?{stop_id}:{})}});};
+const remove=async id=>{let t=await get(id);if(['active','paused'].includes(t.status))t=await command(id,'complete');await req(`/trips/${id}`,{method:'DELETE',token,body:{expected_version:t.version}});tracked.delete(id);};
+try{
+ const html=await(await fetch(base+'/')).text();assert.ok(html.includes('index-CMHjK11e.js'));checks.push('new_web_bundle');
+ const bundle=await(await fetch(base+'/assets/index-CMHjK11e.js')).text();for(const s of ['跳过这一步','添加到专属路线','保存游览报告','连接我的小智','确认这段行程'])assert.ok(bundle.includes(s),s);checks.push('restored_ui_and_retained_pairing');
+ const health=await(await fetch(base+'/api/health')).json();assert.ok(health.ok&&health.mapConfigured&&health.servicesConfigured);checks.push('backend_and_map_configured');
+ const bytes=Buffer.from(await(await fetch(base+'/immersive/qixia-temple/app.js')).arrayBuffer()),hash=b=>createHash('sha256').update(b).digest('hex');assert.equal(hash(bytes),hash(readFileSync('frontend/public/immersive/qixia-temple/app.js')));checks.push('immersive_assets_preserved');
+ const caps=await req('/capabilities',{token});assert.equal(caps.photo_craft_available,false);assert.equal(caps.text_model_configured,true);checks.push('photo_rollback_and_model_configuration');
+ const presets=await(await fetch(base+'/api/routes/presets')).json();assert.ok(presets.routes.some(r=>r.routeId==='R02'));checks.push('original_preset_catalog');
+ const input={client_event_id:randomUUID(),selection:{presetId:'R02'},stay_minutes:{temple:0}};
+ let trip=await req('/trips/from-selection',{method:'POST',token,body:input});tracked.add(trip.id);assert.equal(trip.status,'planned');assert.equal(trip.route.navigation_ready,true);assert.ok(trip.route.immersive_experiences.length);checks.push('selection_creates_server_trip');
+ assert.equal(trip.route.stops.find(s=>s.attraction_id==='temple').planned_stay_seconds,0);checks.push('custom_stay_preserved');
+ assert.equal((await req('/trips/from-selection',{method:'POST',token,body:input})).id,trip.id);checks.push('idempotent_creation');
+ trip=await command(trip.id,'start');assert.equal(trip.status,'active');checks.push('start_command');
+ const device=await req(`/trips/${trip.id}/device-binding`,{method:'POST',token,body:{}});
+ const webContext=await req(`/trips/${trip.id}/navigation-context`,{token}),deviceContext=await req(`/trips/${trip.id}/navigation-context`,{token:device.token});assert.equal(webContext.next_stop.stop_id,deviceContext.next_stop.stop_id);checks.push('device_and_web_share_state');
+ await command(trip.id,'confirm_visit',webContext.next_stop.stop_id);
+ const next=await req(`/trips/${trip.id}/navigation-context`,{token:device.token});assert.notEqual(next.next_stop.stop_id,webContext.next_stop.stop_id);
+ const answer=await req('/chat',{method:'POST',token:device.token,body:{client_event_id:randomUUID(),conversation_id:'ui-r13-verification',trip_id:trip.id,question:'下一站去哪'}});assert.ok(answer.reply.includes(next.next_stop.name));checks.push('visit_updates_device_reply');
+ assert.equal((await command(trip.id,'pause')).status,'paused');assert.equal((await command(trip.id,'resume')).status,'active');checks.push('pause_resume');
+ trip=await get(trip.id);const experience=await req(`/trips/${trip.id}/immersive`,{method:'POST',token,body:{client_event_id:randomUUID(),expected_version:trip.version,experience_id:'temple-ming-life'}});assert.equal(experience.immersive_sessions[0].experience_id,'temple-ming-life');checks.push('immersive_archive');
+ const abort=new AbortController();const timer=setTimeout(()=>abort.abort(),5000);try{const stream=await fetch(base+`/api/v1/trips/${trip.id}/events/stream?after=0`,{headers:{Authorization:'Bearer '+token},signal:abort.signal});assert.equal(stream.status,200);const reader=stream.body.getReader();const chunk=await reader.read();assert.ok(new TextDecoder().decode(chunk.value).includes('data:'));await reader.cancel();}finally{clearTimeout(timer);abort.abort();}checks.push('sse_through_site');
+ await command(trip.id,'complete');assert.ok((await req('/trips',{token})).trips.some(t=>t.id===trip.id));await remove(trip.id);assert.equal((await req('/trips',{token})).trips.length,0);checks.push('history_and_delete');
+ const gate=presets.gates.find(g=>g.id==='west').placeId;
+ const custom=await req('/trips/from-selection',{method:'POST',token,body:{client_event_id:randomUUID(),selection:{stopIds:['temple','mirror-lake'],entryId:gate,exitId:gate},stay_minutes:{temple:30}}});tracked.add(custom.id);assert.ok(custom.route.route_id.startsWith('personal-'));assert.equal(custom.route.stops.length,4);assert.equal(custom.route.navigation_ready,true);await remove(custom.id);checks.push('real_custom_road_plan_and_cleanup');
+ assert.equal(checks.length,17);const result={at:new Date().toISOString(),base,checks,global_xiaozhi_binding_untouched:true};writeFileSync('.local-work/ui-acceptance.json',JSON.stringify(result,null,2));console.log(JSON.stringify(result));
+}finally{for(const id of tracked)await remove(id);}

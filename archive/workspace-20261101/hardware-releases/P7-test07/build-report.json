@@ -1,0 +1,258 @@
+{
+  "stage": "P7-test07",
+  "hardware_function_test": "pending",
+  "firmware_version": "2.2.6-p7-test07",
+  "partition_table_sector_sha256": "ce40cfe75056ef74bc052942f8a9ee3dce8e5e14ba17a6f63685a8fa0d11a23d",
+  "wake_validation": {
+    "models": [
+      "fst",
+      "mn7_cn"
+    ],
+    "wake_config": {
+      "language": "cn",
+      "duration": 3000,
+      "threshold": 0.2,
+      "commands": [
+        {
+          "command": "feng ye jing ling",
+          "text": "枫叶精灵",
+          "action": "wake"
+        }
+      ]
+    },
+    "srmodels_bytes": 2681351,
+    "assets_bytes": 5242378,
+    "assets_sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  "assets_validation": {
+    "count": 24,
+    "files": [
+      "angry.png",
+      "confident.png",
+      "confused.png",
+      "cool.png",
+      "crying.png",
+      "delicious.png",
+      "embarrassed.png",
+      "font_puhui_common_30_4.bin",
+      "funny.png",
+      "happy.png",
+      "index.json",
+      "kissy.png",
+      "laughing.png",
+      "loving.png",
+      "neutral.png",
+      "relaxed.png",
+      "sad.png",
+      "shocked.png",
+      "silly.png",
+      "sleepy.png",
+      "srmodels.bin",
+      "surprised.png",
+      "thinking.png",
+      "winking.png"
+    ],
+    "index": {
+      "version": 1,
+      "srmodels": "srmodels.bin",
+      "text_font": "font_puhui_common_30_4.bin",
+      "emoji_collection": [
+        {
+          "name": "angry",
+          "file": "angry.png"
+        },
+        {
+          "name": "confident",
+          "file": "confident.png"
+        },
+        {
+          "name": "confused",
+          "file": "confused.png"
+        },
+        {
+          "name": "cool",
+          "file": "cool.png"
+        },
+        {
+          "name": "crying",
+          "file": "crying.png"
+        },
+        {
+          "name": "delicious",
+          "file": "delicious.png"
+        },
+        {
+          "name": "embarrassed",
+          "file": "embarrassed.png"
+        },
+        {
+          "name": "funny",
+          "file": "funny.png"
+        },
+        {
+          "name": "happy",
+          "file": "happy.png"
+        },
+        {
+          "name": "kissy",
+          "file": "kissy.png"
+        },
+        {
+          "name": "laughing",
+          "file": "laughing.png"
+        },
+        {
+          "name": "loving",
+          "file": "loving.png"
+        },
+        {
+          "name": "neutral",
+          "file": "neutral.png"
+        },
+        {
+          "name": "relaxed",
+          "file": "relaxed.png"
+        },
+        {
+          "name": "sad",
+          "file": "sad.png"
+        },
+        {
+          "name": "shocked",
+          "file": "shocked.png"
+        },
+        {
+          "name": "silly",
+          "file": "silly.png"
+        },
+        {
+          "name": "sleepy",
+          "file": "sleepy.png"
+        },
+        {
+          "name": "surprised",
+          "file": "surprised.png"
+        },
+        {
+          "name": "thinking",
+          "file": "thinking.png"
+        },
+        {
+          "name": "winking",
+          "file": "winking.png"
+        }
+      ],
+      "multinet_model": {
+        "language": "cn",
+        "duration": 3000,
+        "threshold": 0.2,
+        "commands": [
+          {
+            "command": "feng ye jing ling",
+            "text": "枫叶精灵",
+            "action": "wake"
+          }
+        ]
+      }
+    }
+  },
+  "boot_volume": 85,
+  "android_tests": 37,
+  "chunk_protocol": 1,
+  "chunk": {
+    "version": 3,
+    "kind": 3,
+    "size": 480,
+    "window": 240,
+    "bytes": 460800,
+    "header": 96,
+    "prefetch_margin_pixels": 60
+  },
+  "operation": "foreground GPS, north-up moving window, 320ms position interpolation, aligned chunk swap",
+  "rollback": "P7-test04 firmware + P7-test06 APK (user selected hidden text and 14.0)",
+  "source_files_sha256": {
+    "firmware/main/boards/m5stack-stopwatch/config.h": "be3335baa4accfd246abe362b1377bb0b66e32798c26d6c7dba103e48b5c783e",
+    "firmware/main/boards/m5stack-stopwatch/config.json": "ef863ac391314bef995a4e56a4c6f8dec38312754becabb19d6b733564926ac1",
+    "firmware/main/boards/m5stack-stopwatch/local_link_server.cc": "a5189670696290d588182e2448dcabfed71a927d8211770cafe3d0acb91f4e56",
+    "firmware/main/boards/m5stack-stopwatch/local_link_server.h": "1fad4da52e8f70a9a9e4cba9043abb24133cd3afa29d0d8696a268ef2e06e517",
+    "firmware/main/boards/m5stack-stopwatch/m5stack_stopwatch.cc": "3e47dabc116fa766224e4f49a4b4f6e7637b95f07a7739f95a5f6f2ab3ada2f7",
+    "firmware/main/boards/m5stack-stopwatch/map_frame.h": "6cf1ec0b632e7e2b7b05322e6d20bf65ff0e0068f615ccde757fe7e86e8a850a",
+    "firmware/main/boards/m5stack-stopwatch/README.md": "eb01d530329e3cacbe5922bb6bd33e5081c1c9561fe8901cfc0f72194422f42b",
+    "firmware/main/boards/m5stack-stopwatch/stopwatch_pages.h": "441b313310c9906a2a33618bf92ba29ad9dc4b09678f91bdc1d07813184ae144",
+    "firmware/main/boards/m5stack-stopwatch/swipe_tracker.h": "f183da3cc50923363f9381bc98d7dac4ee9983c2ff27d58c6b14dc6b62d55bee",
+    "firmware/components/78__esp-wifi-connect/.gitignore": "a3b0ac81095a616aee77cdf2f026e5db76bcc6e5243c8b5db4328d212328933f",
+    "firmware/components/78__esp-wifi-connect/CMakeLists.txt": "a2f87bea41d8e254a5ab277a2a4472db9c65fe8e741dbaf38c14584ca84361d0",
+    "firmware/components/78__esp-wifi-connect/dns_server.cc": "8e6f03dc39f7386a149e227c756a53e3f715454b1d024c7ce38b75cdf00045d1",
+    "firmware/components/78__esp-wifi-connect/idf_component.yml": "c1f17a89a79b9f54369c549aa2eb7a7954fdab9aa4252c75b1b2a3aa878e7e0f",
+    "firmware/components/78__esp-wifi-connect/MODIFICATIONS.md": "abe45269b6ec4d97d5843eb4b4dba2ffbdcecb808418a7ffe7a6ab772fc0310d",
+    "firmware/components/78__esp-wifi-connect/README.md": "7f71abcf20c79ecbf0c065ed625fcd92995f356a0a6281fbe3a8a92479ba610e",
+    "firmware/components/78__esp-wifi-connect/ssid_manager.cc": "e3441e0fc84012b539bd08b680cdfbfdaca5eb55af55423400268d0a18d5daca",
+    "firmware/components/78__esp-wifi-connect/wifi_configuration_ap.cc": "e12e1bf94777e9fdaa6e673a157f22e838723e8fafe7297b420ca12773b7297b",
+    "firmware/components/78__esp-wifi-connect/wifi_manager.cc": "3346377f3595774d8a8d07b259f4860a9aabaf323e39fba6c1cac598e44d5d20",
+    "firmware/components/78__esp-wifi-connect/wifi_station.cc": "44951ab5bb5c596130abb5c324187eb401089fef15b9662b6dc569b20d2c53d0",
+    "firmware/components/78__esp-wifi-connect/assets/ap.png": "defb386a203a1f29aab1ba06a97b087f74fbbeb20b8b2698d9d821efc7f95a36",
+    "firmware/components/78__esp-wifi-connect/assets/ap_v2.png": "a3d8fe8b7bfd944b83f0767485a8881eb20c24f3d65ba7763f1eb879e1e18d64",
+    "firmware/components/78__esp-wifi-connect/assets/ap_v3.png": "800fb2ef4f297fbfd7c46ce16792e63c583311c2569162d18f3d337c9a4a4eb5",
+    "firmware/components/78__esp-wifi-connect/assets/ap_v3_advanced.png": "715f1041d341359ffdd4b8529782d313bb0be0a83366f0c3c55aca1e1dfb6d33",
+    "firmware/components/78__esp-wifi-connect/assets/stopwatch_configuration_done.html": "86c8d5cf35a87b689f2b803378af7878526649737b1c88c9d113460702122f5f",
+    "firmware/components/78__esp-wifi-connect/assets/wifi_configuration.html": "7c8b6bc939c155d85b3cd0cf028971665e6d3255344d83f67b754b867bc8568a",
+    "firmware/components/78__esp-wifi-connect/assets/wifi_configuration_done.html": "0fc35ae3a8c538dd4275c92544777bdfbdc6e5fc2238da93b21e40d44f3fd9e9",
+    "firmware/components/78__esp-wifi-connect/include/dns_server.h": "68c8ad351a8d0f3993e4793dd28472e8ab0f8b74212450c03ec9190dbab821f9",
+    "firmware/components/78__esp-wifi-connect/include/provisioning_request.h": "b31bc3d71e7ebb878f4a632332d5532e87870bd04030f5b498ed1fe9e8264606",
+    "firmware/components/78__esp-wifi-connect/include/ssid_manager.h": "f45a0687170a30ba5592a9b3fde7c8f5da768dac7de185b256b2be56359d9e3f",
+    "firmware/components/78__esp-wifi-connect/include/wifi_configuration_ap.h": "c22f4973abb133e9ea811b662a4ec384f62bc0cebb5501375dd462b57635560e",
+    "firmware/components/78__esp-wifi-connect/include/wifi_manager.h": "96a29607b4abe22fa20deee3d7325cf19fdb0964fb2ae8944761a8b05c0fd790",
+    "firmware/components/78__esp-wifi-connect/include/wifi_station.h": "62da1f0b38889dbab64c992cd8151a1521622ca3dbb638f8bdc9e247b6a563c2",
+    "firmware/CMakeLists.txt": "c9561b2ea4fde2046003026f13b4f4aaa7a456a28ec53d7c6556fed37f6964b5",
+    "firmware/sdkconfig.stopwatch": "751662aaeae197e2f5d040202f16627a32fca9185fcc7e3f25003db4bddda200",
+    "firmware/main/audio/voice_gate.h": "ecf418aed8c5db6982cc4ad282f9f3ff7f6825f37559df142a7e4dd1d1193819",
+    "android/app/build.gradle.kts": "fa057360bab1fe568deff390bff508c8f3859864a1babbb6572299f857c5badb",
+    "android/app/src/main/java/com/example/motonav/SurroundingMapActivity.kt": "3679b1b00895197a6e5976cc19a9da07d103913d521dcbf89848ed7f366aeb26",
+    "android/app/src/main/java/com/example/motonav/SurroundingMap.kt": "d85f28f2bdaf67bc941d102fe976dc94c44aa4e8a67b339d85c9bf7d8333b88f",
+    "android/app/src/main/java/com/example/motonav/PhoneMapRenderer.kt": "eb48bc5b63360a081f72a111d7f9276ba77b1ae97e81b81fb440ca5abbc5778f",
+    "android/app/src/main/java/com/example/motonav/MapZoom.kt": "8affad475a9c8cfaf4f8fbdd07909c2adfcee656e2f2af6345a8d6bf7a075999",
+    "android/app/src/main/java/com/example/motonav/MapDetail.kt": "adc291094b5ac808a95e44d157f6c3178f9d4e6b49127d163fddd9274ae2bd80",
+    "android/app/src/main/java/com/example/motonav/MapChunkPolicy.kt": "85f223f240eafa101817b8efbdcfd3eecdcac8c5ea77781101d783ac094d3c3b",
+    "android/app/src/main/java/com/example/motonav/MapPreviewPixels.kt": "44ab1cdcfbf06580fbc63d4bd95897e8766f9512d72ab0c8241ff366b181c6fe",
+    "android/app/src/main/java/com/example/motonav/MapFrameEncoder.kt": "9267df24e7f8484a18f4223caaf930a436e4533b8f017174f7f4cc27f9d09a68",
+    "android/app/src/main/java/com/example/motonav/LocalLinkClient.kt": "7fab660d0dead3baf61b5e67f82a0230021f9691f3755f242db76b83d10ce1f6",
+    "android/app/src/test/java/com/example/motonav/LocalLinkClientTest.kt": "62f89598e93436ca024eeb2c50eb882b32e812e81c2d04a9c30fd0fb382f40d4",
+    "android/app/src/test/java/com/example/motonav/MapFrameEncoderTest.kt": "c3d0549d95bb189e262ce955f6ecb1b8c1be93700e1d5346c91782d9d0e10b7b",
+    "android/app/src/test/java/com/example/motonav/SurroundingMapTest.kt": "c3eed74f11f559b80d97fb1e8bbab958475b210286b1523e9f47f2c3aff1857e",
+    "android/app/src/test/java/com/example/motonav/AmapKeyStoreTest.kt": "df0abd0e1c11b7b92ad9f585730205384f134f31e8268bebd124895f95f31874",
+    "android/app/src/test/java/com/example/motonav/MapPreviewPixelsTest.kt": "68720d4a4ceae3f8c4ba74dbf7d113ab474edb3ebc6ff152f01a167031059e0d",
+    "android/app/src/test/java/com/example/motonav/MapZoomTest.kt": "562618f24b9a0badd169e643f08526b14744b64f56a7aceb7404bd0ec3a9b9ed",
+    "android/app/src/test/java/com/example/motonav/MapDetailTest.kt": "6be4810f23dcb1357e91514d19868c9f691d4b6cbd8ef34bcb342d78c2a91b89",
+    "android/app/src/test/java/com/example/motonav/MapChunkTest.kt": "fd50dafd92ddd0cff70b603563c1504c9cb1233f55b23b5910acae216c82caf9",
+    "tests/host/local_link_server_test.cc": "227ef21f01aad32f455c9dcaaff705eeed11c6ac173cb35ebc4d795ef17ec119",
+    "tests/p5host/pages_test.cc": "8332765130f3c540df1eec5362d3bd2024f16bf126660c596e637887ada0ef13",
+    "tools/test_device_protocol.py": "858030c7843c4a3d4570bd9085fe5900b53beaa2ebbdf763b693365c5041d368",
+    "tools/test_pages.py": "332ffeac843739d92541e10405e403bd2a762e06ab713e7f579d501252be1545",
+    "tools/package_p7_chunks.py": "fb1c1da697b545dff0bd6dece062d14052c100d6a59e0ed9a8b82d100b2d890a"
+  },
+  "app": {
+    "filename": "p7-xiaozhi-app.bin",
+    "bytes": 2981584,
+    "sha256": "95f5fc3241597ca0e8efccad1a376d72799a3eeb86c1e5258e731bf39d852060"
+  },
+  "assets": {
+    "filename": "p7-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  "restore_app": {
+    "filename": "restore-P7-test04-app.bin",
+    "bytes": 2980144,
+    "sha256": "c848c9285aea3bb34211f0e2a845f2d1303756a77d3617d88a8dec50e33c7739"
+  },
+  "restore_assets": {
+    "filename": "restore-P7-test04-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  "apk": {
+    "filename": "maple-map-P7-test07.apk",
+    "bytes": 55735814,
+    "sha256": "fc7637726d13b1a3bd46bc8b04bb158c5fadeac29d07df1c35ac05922f0d4e49"
+  }
+}

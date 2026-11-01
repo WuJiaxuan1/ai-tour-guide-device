@@ -1,0 +1,758 @@
+[
+  {
+    "stage": "P1-test01",
+    "file": "maple-map-P1-test01.apk",
+    "bytes": 55151551,
+    "sha256": "d07b569f9ae3a9c03e1ddf9698c8f86c8a01c9175a5d6c3f93b74fa7baef6dc9"
+  },
+  {
+    "stage": "P1-test01",
+    "file": "p1-xiaozhi-app.bin",
+    "bytes": 2955104,
+    "sha256": "05c847ae6af8c151a138ee0727e6ef6a07fcfbcc6828954a5b62233c7bfc5631"
+  },
+  {
+    "stage": "P1-test01",
+    "file": "p1-xiaozhi-assets.bin",
+    "bytes": 2851767,
+    "sha256": "0cb9c556a0521281271937b2e48c078b01110be4ac81b6a1d173554bcb5ebc0e"
+  },
+  {
+    "stage": "P1-test01",
+    "file": "partition-table.bin",
+    "bytes": 3072,
+    "sha256": "4811619cacae08ef2e0e71b7220c6033a346ca5da7ca179082408c963ef530b5"
+  },
+  {
+    "stage": "P1-test01",
+    "file": "restore-v2.2.6-app.bin",
+    "bytes": 2949424,
+    "sha256": "d85c66cff7f4901cb9d9d32b95d53d4944f4e9cc96a42426712968d783e6c377"
+  },
+  {
+    "stage": "P1-test01",
+    "file": "restore-v2.2.6-assets.bin",
+    "bytes": 2851677,
+    "sha256": "457fe977e9344e4a233fa5314abc10e13b0c4e673bad377385d119e728de1b6d"
+  },
+  {
+    "stage": "P2-test01",
+    "file": "maple-map-P2-test01.apk",
+    "bytes": 55162643,
+    "sha256": "d52fbbd51f7539da1090e0ac89f6e0be2fde91f6bfa0d147e345b440a6a46234"
+  },
+  {
+    "stage": "P2-test01",
+    "file": "p2-xiaozhi-app.bin",
+    "bytes": 2961888,
+    "sha256": "767f9e028cb031a101bc90b3f786b7c71e5aac7d62e64fd63f95aef5868b11c1"
+  },
+  {
+    "stage": "P2-test01",
+    "file": "p2-xiaozhi-assets.bin",
+    "bytes": 2851767,
+    "sha256": "0cb9c556a0521281271937b2e48c078b01110be4ac81b6a1d173554bcb5ebc0e"
+  },
+  {
+    "stage": "P2-test01",
+    "file": "restore-P1-app.bin",
+    "bytes": 2955104,
+    "sha256": "05c847ae6af8c151a138ee0727e6ef6a07fcfbcc6828954a5b62233c7bfc5631"
+  },
+  {
+    "stage": "P2-test01",
+    "file": "restore-P1-assets.bin",
+    "bytes": 2851767,
+    "sha256": "0cb9c556a0521281271937b2e48c078b01110be4ac81b6a1d173554bcb5ebc0e"
+  },
+  {
+    "stage": "P3-test01",
+    "file": "p3-xiaozhi-app.bin",
+    "bytes": 2963072,
+    "sha256": "29b5fd4e8388a99328ff59bb7bd8e7265c79e19f31b16c022438d6e1e13a52bf"
+  },
+  {
+    "stage": "P3-test01",
+    "file": "p3-xiaozhi-assets.bin",
+    "bytes": 2851767,
+    "sha256": "0cb9c556a0521281271937b2e48c078b01110be4ac81b6a1d173554bcb5ebc0e"
+  },
+  {
+    "stage": "P3-test01",
+    "file": "restore-P2-app.bin",
+    "bytes": 2961888,
+    "sha256": "767f9e028cb031a101bc90b3f786b7c71e5aac7d62e64fd63f95aef5868b11c1"
+  },
+  {
+    "stage": "P3-test01",
+    "file": "restore-P2-assets.bin",
+    "bytes": 2851767,
+    "sha256": "0cb9c556a0521281271937b2e48c078b01110be4ac81b6a1d173554bcb5ebc0e"
+  },
+  {
+    "stage": "P4-test01",
+    "file": "p4-xiaozhi-app.bin",
+    "bytes": 2963376,
+    "sha256": "ac5f5d2ebfbef4efff7799605e15fcffa5b21a447291bf6a6c382a2b5468c8a6"
+  },
+  {
+    "stage": "P4-test01",
+    "file": "p4-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P4-test01",
+    "file": "restore-P3-app.bin",
+    "bytes": 2963072,
+    "sha256": "29b5fd4e8388a99328ff59bb7bd8e7265c79e19f31b16c022438d6e1e13a52bf"
+  },
+  {
+    "stage": "P4-test01",
+    "file": "restore-P3-assets.bin",
+    "bytes": 2851767,
+    "sha256": "0cb9c556a0521281271937b2e48c078b01110be4ac81b6a1d173554bcb5ebc0e"
+  },
+  {
+    "stage": "P5-test01",
+    "file": "p5-xiaozhi-app.bin",
+    "bytes": 2967008,
+    "sha256": "0e6f6d4b2555336fcfe7f80e62d4458e88f1d40f111ff674a2fb79325f4e7896"
+  },
+  {
+    "stage": "P5-test01",
+    "file": "p5-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P5-test01",
+    "file": "restore-P4-app.bin",
+    "bytes": 2963376,
+    "sha256": "ac5f5d2ebfbef4efff7799605e15fcffa5b21a447291bf6a6c382a2b5468c8a6"
+  },
+  {
+    "stage": "P5-test01",
+    "file": "restore-P4-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P6-test01",
+    "file": "maple-map-P6-test01.apk",
+    "bytes": 55170663,
+    "sha256": "0f8e4f15bc0cbc2cf0b73b3ba1fd4fc938e05f79eff3569248e6884835db1634"
+  },
+  {
+    "stage": "P6-test01",
+    "file": "p6-xiaozhi-app.bin",
+    "bytes": 2972064,
+    "sha256": "a4d75703d1b1e60f6a85030d4f07a4496ee528be34c9fcb8ad44e976e3702994"
+  },
+  {
+    "stage": "P6-test01",
+    "file": "p6-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P6-test01",
+    "file": "restore-P5-app.bin",
+    "bytes": 2967008,
+    "sha256": "0e6f6d4b2555336fcfe7f80e62d4458e88f1d40f111ff674a2fb79325f4e7896"
+  },
+  {
+    "stage": "P6-test01",
+    "file": "restore-P5-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P7-test01",
+    "file": "maple-map-P7-test01.apk",
+    "bytes": 55191271,
+    "sha256": "324ed17b28d0f75ab2706df41b3a2d2557e832c87ecca8e97335dcda7e64fb12"
+  },
+  {
+    "stage": "P7-test01",
+    "file": "p7-xiaozhi-app.bin",
+    "bytes": 2979040,
+    "sha256": "3ee6ca78f649193070225ad248bbdfe58484a0f4f2b94e3adbd1f4017e897bb8"
+  },
+  {
+    "stage": "P7-test01",
+    "file": "p7-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P7-test01",
+    "file": "restore-P6-app.bin",
+    "bytes": 2972064,
+    "sha256": "a4d75703d1b1e60f6a85030d4f07a4496ee528be34c9fcb8ad44e976e3702994"
+  },
+  {
+    "stage": "P7-test01",
+    "file": "restore-P6-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P7-test02",
+    "file": "maple-map-P7-test02.apk",
+    "bytes": 55193759,
+    "sha256": "6455db3615d701832702e90b6e072efa604f2b92fec31dbdb097eafd4005a6c5"
+  },
+  {
+    "stage": "P7-test03",
+    "file": "maple-map-P7-test03.apk",
+    "bytes": 55195147,
+    "sha256": "10564d4a833df539590ab8eeca7e2b88b86eb695945b9055b6b87a1cd44fa41b"
+  },
+  {
+    "stage": "P7-test03",
+    "file": "p7-xiaozhi-app.bin",
+    "bytes": 2979712,
+    "sha256": "6a98a72bf06659c177530f02958c4bc04de7193b1fa26085d867183e0251eb06"
+  },
+  {
+    "stage": "P7-test03",
+    "file": "p7-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P7-test03",
+    "file": "restore-P6-app.bin",
+    "bytes": 2972064,
+    "sha256": "a4d75703d1b1e60f6a85030d4f07a4496ee528be34c9fcb8ad44e976e3702994"
+  },
+  {
+    "stage": "P7-test03",
+    "file": "restore-P6-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P7-test04",
+    "file": "maple-map-P7-test04.apk",
+    "bytes": 55195307,
+    "sha256": "2e6219cec9969d54c4ce7893dca84b318b3e1091d6e3032a94447707436ff9ef"
+  },
+  {
+    "stage": "P7-test04",
+    "file": "p7-xiaozhi-app.bin",
+    "bytes": 2980144,
+    "sha256": "c848c9285aea3bb34211f0e2a845f2d1303756a77d3617d88a8dec50e33c7739"
+  },
+  {
+    "stage": "P7-test04",
+    "file": "p7-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P7-test04",
+    "file": "restore-P6-app.bin",
+    "bytes": 2972064,
+    "sha256": "a4d75703d1b1e60f6a85030d4f07a4496ee528be34c9fcb8ad44e976e3702994"
+  },
+  {
+    "stage": "P7-test04",
+    "file": "restore-P6-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P7-test05",
+    "file": "maple-map-P7-test05.apk",
+    "bytes": 55197963,
+    "sha256": "7844c1d41e9a3c58787a5b6ac1b8c5321491f8347502b4518e9b976cca710c8a"
+  },
+  {
+    "stage": "P7-test06",
+    "file": "maple-map-P7-test06.apk",
+    "bytes": 55200939,
+    "sha256": "f75512e48d587a7ebf502bdca4b0bf3eb6e051bd5cefd093182099ca0200236d"
+  },
+  {
+    "stage": "P7-test07",
+    "file": "maple-map-P7-test07.apk",
+    "bytes": 55735814,
+    "sha256": "fc7637726d13b1a3bd46bc8b04bb158c5fadeac29d07df1c35ac05922f0d4e49"
+  },
+  {
+    "stage": "P7-test07",
+    "file": "p7-xiaozhi-app.bin",
+    "bytes": 2981584,
+    "sha256": "95f5fc3241597ca0e8efccad1a376d72799a3eeb86c1e5258e731bf39d852060"
+  },
+  {
+    "stage": "P7-test07",
+    "file": "p7-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P7-test07",
+    "file": "restore-P7-test04-app.bin",
+    "bytes": 2980144,
+    "sha256": "c848c9285aea3bb34211f0e2a845f2d1303756a77d3617d88a8dec50e33c7739"
+  },
+  {
+    "stage": "P7-test07",
+    "file": "restore-P7-test04-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-avatar-test01",
+    "file": "p8-avatar-xiaozhi-app.bin",
+    "bytes": 3016384,
+    "sha256": "e4291477f3c0fd4ddd9622e917f8c7c5c836e448e96b3994eab8c97337147650"
+  },
+  {
+    "stage": "P8-avatar-test01",
+    "file": "p8-avatar-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-avatar-test01",
+    "file": "restore-P8-test02-app.bin",
+    "bytes": 2990064,
+    "sha256": "a132cc372397e07cc5f81e37d2d1cfd4185f7d0602bcadfc5532d0f04f475d5d"
+  },
+  {
+    "stage": "P8-avatar-test01",
+    "file": "restore-P8-test02-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-avatar-test02",
+    "file": "p8-avatar-xiaozhi-app.bin",
+    "bytes": 3061712,
+    "sha256": "b5cefb2c71d2dd005f3f4ad6bfa2db5eb8d27567604ce5e5e06e3d81618b8a7e"
+  },
+  {
+    "stage": "P8-avatar-test02",
+    "file": "p8-avatar-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-avatar-test02",
+    "file": "restore-P8-avatar-test01-app.bin",
+    "bytes": 3016384,
+    "sha256": "e4291477f3c0fd4ddd9622e917f8c7c5c836e448e96b3994eab8c97337147650"
+  },
+  {
+    "stage": "P8-avatar-test02",
+    "file": "restore-P8-avatar-test01-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-avatar-test03",
+    "file": "p8-avatar-xiaozhi-app.bin",
+    "bytes": 3062848,
+    "sha256": "e5d3cb566b340c8b80127deea7beb8e9b69e902f09324c28ab375ce62749c4a1"
+  },
+  {
+    "stage": "P8-avatar-test03",
+    "file": "p8-avatar-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-avatar-test03",
+    "file": "restore-P8-avatar-test01-app.bin",
+    "bytes": 3016384,
+    "sha256": "e4291477f3c0fd4ddd9622e917f8c7c5c836e448e96b3994eab8c97337147650"
+  },
+  {
+    "stage": "P8-avatar-test03",
+    "file": "restore-P8-avatar-test01-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-avatar-test04",
+    "file": "p8-avatar-xiaozhi-app.bin",
+    "bytes": 3063424,
+    "sha256": "5ca458edb502cedd2d072f88b7cfa005af19a96d8e2d844a0a3581c6e1811267"
+  },
+  {
+    "stage": "P8-avatar-test04",
+    "file": "p8-avatar-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-avatar-test04",
+    "file": "restore-P8-avatar-test01-app.bin",
+    "bytes": 3016384,
+    "sha256": "e4291477f3c0fd4ddd9622e917f8c7c5c836e448e96b3994eab8c97337147650"
+  },
+  {
+    "stage": "P8-avatar-test04",
+    "file": "restore-P8-avatar-test01-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-avatar-test05",
+    "file": "p8-avatar-xiaozhi-app.bin",
+    "bytes": 3064512,
+    "sha256": "b23a18f3b2de8148d9b384292845294a7ed95e843df86390d86771d44875dfde"
+  },
+  {
+    "stage": "P8-avatar-test05",
+    "file": "p8-avatar-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-avatar-test05",
+    "file": "restore-P8-avatar-test04-app.bin",
+    "bytes": 3063424,
+    "sha256": "5ca458edb502cedd2d072f88b7cfa005af19a96d8e2d844a0a3581c6e1811267"
+  },
+  {
+    "stage": "P8-avatar-test05",
+    "file": "restore-P8-avatar-test04-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-avatar-test06",
+    "file": "p8-avatar-xiaozhi-app.bin",
+    "bytes": 3065440,
+    "sha256": "f499ca3a864524dc220de305bee781a96a434eecdd5603cfcd0f7ac60481a8da"
+  },
+  {
+    "stage": "P8-avatar-test06",
+    "file": "p8-avatar-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-avatar-test06",
+    "file": "restore-P8-avatar-test04-app.bin",
+    "bytes": 3063424,
+    "sha256": "5ca458edb502cedd2d072f88b7cfa005af19a96d8e2d844a0a3581c6e1811267"
+  },
+  {
+    "stage": "P8-avatar-test06",
+    "file": "restore-P8-avatar-test04-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-avatar-test07",
+    "file": "p8-avatar-xiaozhi-app.bin",
+    "bytes": 3065440,
+    "sha256": "79fd2d64897849f63398697f86055788988ee27e1b0a64e6e6eaee2aae9bd6a6"
+  },
+  {
+    "stage": "P8-avatar-test07",
+    "file": "p8-avatar-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-avatar-test07",
+    "file": "restore-P8-avatar-test04-app.bin",
+    "bytes": 3063424,
+    "sha256": "5ca458edb502cedd2d072f88b7cfa005af19a96d8e2d844a0a3581c6e1811267"
+  },
+  {
+    "stage": "P8-avatar-test07",
+    "file": "restore-P8-avatar-test04-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-avatar-test08",
+    "file": "p8-avatar-xiaozhi-app.bin",
+    "bytes": 3072512,
+    "sha256": "52d557fc93e6067c82d78c914d96e9c67be8abffcc6aa048ff59217dcd28a4a0"
+  },
+  {
+    "stage": "P8-avatar-test08",
+    "file": "p8-avatar-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-avatar-test08",
+    "file": "restore-P8-avatar-test07-app.bin",
+    "bytes": 3065440,
+    "sha256": "79fd2d64897849f63398697f86055788988ee27e1b0a64e6e6eaee2aae9bd6a6"
+  },
+  {
+    "stage": "P8-avatar-test08",
+    "file": "restore-P8-avatar-test07-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-avatar-test09",
+    "file": "p8-avatar-xiaozhi-app.bin",
+    "bytes": 3072960,
+    "sha256": "5d7ccc7f4f9d6d3df313e16b0b22ff5beca0f05fca4cb567cdbe61e8a87fc2ee"
+  },
+  {
+    "stage": "P8-avatar-test09",
+    "file": "p8-avatar-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-avatar-test09",
+    "file": "restore-P8-avatar-test08-app.bin",
+    "bytes": 3072512,
+    "sha256": "52d557fc93e6067c82d78c914d96e9c67be8abffcc6aa048ff59217dcd28a4a0"
+  },
+  {
+    "stage": "P8-avatar-test09",
+    "file": "restore-P8-avatar-test08-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-avatar-test10",
+    "file": "p8-avatar-xiaozhi-app.bin",
+    "bytes": 3073552,
+    "sha256": "1863938fca4b9d515060be531805bdebb0dd663ef6d691c92a3201ab670b808c"
+  },
+  {
+    "stage": "P8-avatar-test10",
+    "file": "p8-avatar-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-avatar-test10",
+    "file": "restore-P8-avatar-test09-app.bin",
+    "bytes": 3072960,
+    "sha256": "5d7ccc7f4f9d6d3df313e16b0b22ff5beca0f05fca4cb567cdbe61e8a87fc2ee"
+  },
+  {
+    "stage": "P8-avatar-test10",
+    "file": "restore-P8-avatar-test09-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-avatar-test11",
+    "file": "p8-avatar-xiaozhi-app.bin",
+    "bytes": 3073568,
+    "sha256": "2bcb5805ad75b8e58e8f61b445a401f6547030c17fd98f61ab3a3ae6865b2a20"
+  },
+  {
+    "stage": "P8-avatar-test11",
+    "file": "p8-avatar-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-avatar-test11",
+    "file": "restore-P8-avatar-test10-app.bin",
+    "bytes": 3073552,
+    "sha256": "1863938fca4b9d515060be531805bdebb0dd663ef6d691c92a3201ab670b808c"
+  },
+  {
+    "stage": "P8-avatar-test11",
+    "file": "restore-P8-avatar-test10-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-avatar-test12",
+    "file": "p8-avatar-xiaozhi-app.bin",
+    "bytes": 3074256,
+    "sha256": "0175e2c6b929e4ea47edbe3b4ecc888ea8a4e5c294a17b6d61562c0dd403cef7"
+  },
+  {
+    "stage": "P8-avatar-test12",
+    "file": "p8-avatar-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-avatar-test12",
+    "file": "restore-P8-avatar-test10-app.bin",
+    "bytes": 3073552,
+    "sha256": "1863938fca4b9d515060be531805bdebb0dd663ef6d691c92a3201ab670b808c"
+  },
+  {
+    "stage": "P8-avatar-test12",
+    "file": "restore-P8-avatar-test10-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-overview-test01",
+    "file": "maple-map-P8-overview-test01.apk",
+    "bytes": 55242643,
+    "sha256": "db6f33531a18d991d1eabfe73801500d80174328f1aeda5a3ee6371fa2f214bb"
+  },
+  {
+    "stage": "P8-overview-test01",
+    "file": "p8-overview-xiaozhi-app.bin",
+    "bytes": 3074688,
+    "sha256": "167d119c6dd105870d390382831656166ef5e1e3c39bbaf28f58768ae3cf1a42"
+  },
+  {
+    "stage": "P8-overview-test01",
+    "file": "p8-overview-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-overview-test01",
+    "file": "restore-P8-avatar-test11-app.bin",
+    "bytes": 3073568,
+    "sha256": "2bcb5805ad75b8e58e8f61b445a401f6547030c17fd98f61ab3a3ae6865b2a20"
+  },
+  {
+    "stage": "P8-overview-test01",
+    "file": "restore-P8-avatar-test11-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-overview-test02",
+    "file": "p8-overview02-xiaozhi-app.bin",
+    "bytes": 3074688,
+    "sha256": "3123ae1599d405c23731174686a88ba7b371c16a9169676afa3ee213c9ce6214"
+  },
+  {
+    "stage": "P8-overview-test02",
+    "file": "p8-overview02-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-overview-test02",
+    "file": "restore-P8-overview-test01-app.bin",
+    "bytes": 3074688,
+    "sha256": "167d119c6dd105870d390382831656166ef5e1e3c39bbaf28f58768ae3cf1a42"
+  },
+  {
+    "stage": "P8-overview-test02",
+    "file": "restore-P8-overview-test01-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-test01",
+    "file": "maple-map-P8-test01.apk",
+    "bytes": 55785808,
+    "sha256": "4ed6b250b8e350e23ab2713527e4142056f686b66d1cf24ab42d126456b1d119"
+  },
+  {
+    "stage": "P8-test01",
+    "file": "p8-xiaozhi-app.bin",
+    "bytes": 2988560,
+    "sha256": "81efe2b2d0790d8f8e32e57792c6dd7bb0e760f3fb331711aca2a4caec4b67c6"
+  },
+  {
+    "stage": "P8-test01",
+    "file": "p8-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-test01",
+    "file": "restore-P7-test07-app.bin",
+    "bytes": 2981584,
+    "sha256": "95f5fc3241597ca0e8efccad1a376d72799a3eeb86c1e5258e731bf39d852060"
+  },
+  {
+    "stage": "P8-test01",
+    "file": "restore-P7-test07-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-test02",
+    "file": "maple-map-P8-test02.apk",
+    "bytes": 55798227,
+    "sha256": "46a16899378c31f7db47aa0b97af07c51cbf611fb3f175d3ba8c5947dbc5cd3b"
+  },
+  {
+    "stage": "P8-test02",
+    "file": "p8-progress-xiaozhi-app.bin",
+    "bytes": 2990064,
+    "sha256": "a132cc372397e07cc5f81e37d2d1cfd4185f7d0602bcadfc5532d0f04f475d5d"
+  },
+  {
+    "stage": "P8-test02",
+    "file": "p8-progress-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P8-test02",
+    "file": "restore-P7-test07-app.bin",
+    "bytes": 2981584,
+    "sha256": "95f5fc3241597ca0e8efccad1a376d72799a3eeb86c1e5258e731bf39d852060"
+  },
+  {
+    "stage": "P8-test02",
+    "file": "restore-P7-test07-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P9-cloud01",
+    "file": "p9-cloud01-app.bin",
+    "bytes": 3097536,
+    "sha256": "c348c570b7ea8a8f75f95d4b0f59786f1083f95c36b0c82fb20c5a04b34e0539"
+  },
+  {
+    "stage": "P9-cloud01",
+    "file": "p9-cloud01-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P9-cloud01",
+    "file": "restore-overview02-app.bin",
+    "bytes": 3074688,
+    "sha256": "3123ae1599d405c23731174686a88ba7b371c16a9169676afa3ee213c9ce6214"
+  },
+  {
+    "stage": "P9-cloud01",
+    "file": "restore-overview02-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P9-cloud02",
+    "file": "p9-cloud02-app.bin",
+    "bytes": 3101712,
+    "sha256": "361c5a84bd6b3b72724c06fdaae52ef82b23a514b6256fcb7c0714a6d5d696c2"
+  },
+  {
+    "stage": "P9-cloud02",
+    "file": "p9-cloud02-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  {
+    "stage": "P9-cloud02",
+    "file": "restore-overview02-app.bin",
+    "bytes": 3074688,
+    "sha256": "3123ae1599d405c23731174686a88ba7b371c16a9169676afa3ee213c9ce6214"
+  },
+  {
+    "stage": "P9-cloud02",
+    "file": "restore-overview02-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  }
+]

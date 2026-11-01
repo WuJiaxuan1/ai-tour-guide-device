@@ -1,0 +1,21 @@
+{
+  "stage": "P7-test02",
+  "scope": "APK-only Key save/apply fix",
+  "hardware_function_test": "pending",
+  "firmware": "2.2.6-p7-test01 (unchanged)",
+  "firmware_package": "../P7-test01",
+  "firmware_app_sha256": "3ee6ca78f649193070225ad248bbdfe58484a0f4f2b94e3adbd1f4017e897bb8",
+  "android_tests": 24,
+  "apk": {
+    "filename": "maple-map-P7-test02.apk",
+    "bytes": 55193759,
+    "sha256": "6455db3615d701832702e90b6e072efa604f2b92fec31dbdb097eafd4005a6c5"
+  },
+  "source_files_sha256": {
+    "app/build.gradle.kts": "0f5dbacf5014a4c8a4da86079b6f4e9a5c01f1ca4496726d7748d1a3b4f0ea07",
+    "app/src/main/java/com/example/motonav/AmapKeyStore.kt": "9aafa468523df61b6e639a298c6699be2e507fe9ee962e31aa2f473727f3d810",
+    "app/src/main/java/com/example/motonav/Keys.kt": "59faa8f359d02e2100860dd0e5b77c1f8ea04868ed5c42c597b652c7c7b4b67a",
+    "app/src/main/java/com/example/motonav/SurroundingMapActivity.kt": "259999f917f35ab7412a8db08b530fbe8e1a4200db432ad73c4b5e377361fd5c",
+    "app/src/test/java/com/example/motonav/AmapKeyStoreTest.kt": "df0abd0e1c11b7b92ad9f585730205384f134f31e8268bebd124895f95f31874"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-31",
+  "status": "passed",
+  "evidence": "用户在当前对话反馈：全部通过，继续",
+  "evidence_type": "user-reported hardware acceptance",
+  "firmware_version": "2.2.6-p8-avatar01",
+  "app_sha256": "e4291477f3c0fd4ddd9622e917f8c7c5c836e448e96b3994eab8c97337147650",
+  "assets_sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f",
+  "items": [
+    "开机与配网",
+    "待机与对话",
+    "情绪与打断",
+    "按键与滑动",
+    "导航回归",
+    "连续运行"
+  ],
+  "limits": "未独立测量设备帧率、运行时内存余量；不代表多设备或长期稳定性认证。"
+}

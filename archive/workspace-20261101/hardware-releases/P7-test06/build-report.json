@@ -1,0 +1,32 @@
+{
+  "stage": "P7-test06",
+  "scope": "APK-only map text toggle; 14.0 zoom retained",
+  "hardware_function_test": "pending",
+  "firmware": "2.2.6-p7-test04 (unchanged)",
+  "firmware_package": "../P7-test04",
+  "firmware_app_sha256": "c848c9285aea3bb34211f0e2a845f2d1303756a77d3617d88a8dec50e33c7739",
+  "android_tests": 32,
+  "apk": {
+    "filename": "maple-map-P7-test06.apk",
+    "bytes": 55200939,
+    "sha256": "f75512e48d587a7ebf502bdca4b0bf3eb6e051bd5cefd093182099ca0200236d"
+  },
+  "source_files_sha256": {
+    "app/build.gradle.kts": "d2ff237d5cf8e0fcdbbcaf7dff4cdd3e3afcc9106dd06cb9efb61c460f58a267",
+    "app/src/main/java/com/example/motonav/MapDetail.kt": "3e8f5718fdcd703102c2f4a5f8762203f61956abec6a54084910110567d614a9",
+    "app/src/main/java/com/example/motonav/MapZoom.kt": "d708bd7b2a2856c81d28b546b66bdfa620e7a480c39d754e0f88666bb0e79fa7",
+    "app/src/main/java/com/example/motonav/PhoneMapRenderer.kt": "76bbeff470aa2c98d6372d8766b3269260d32e43dcf49047b8a01794db718dd5",
+    "app/src/main/java/com/example/motonav/SurroundingMapActivity.kt": "6051c0882042d9f1b9843fafd15ac7c5443660776782a5fd6e76e0056480c33f",
+    "app/src/main/java/com/example/motonav/SurroundingMap.kt": "25477de24467bfd3502473810a2641c454ad755152e3218aa6740249716edafa",
+    "app/src/main/java/com/example/motonav/MapPreviewPixels.kt": "799679839da38423628eff1c028e87ffc71b6c73ab57aef19bfba54462b841ab",
+    "app/src/main/java/com/example/motonav/MapFrameEncoder.kt": "36eadccc31645e804be2cfd08f4ee056dd96da0f2e1aff97966393bcdf0d85fa",
+    "app/src/main/java/com/example/motonav/LocalLinkClient.kt": "522047c6ef43d2b24ac18297c53df6ee7a6e0cbcfd5ff9f6c1f651a38f55d238",
+    "app/src/test/java/com/example/motonav/LocalLinkClientTest.kt": "62f89598e93436ca024eeb2c50eb882b32e812e81c2d04a9c30fd0fb382f40d4",
+    "app/src/test/java/com/example/motonav/MapFrameEncoderTest.kt": "c3d0549d95bb189e262ce955f6ecb1b8c1be93700e1d5346c91782d9d0e10b7b",
+    "app/src/test/java/com/example/motonav/SurroundingMapTest.kt": "c3eed74f11f559b80d97fb1e8bbab958475b210286b1523e9f47f2c3aff1857e",
+    "app/src/test/java/com/example/motonav/AmapKeyStoreTest.kt": "df0abd0e1c11b7b92ad9f585730205384f134f31e8268bebd124895f95f31874",
+    "app/src/test/java/com/example/motonav/MapPreviewPixelsTest.kt": "ba46b7aa2e43ff106a1b09b7154510d620f48ead162b2a8fc8418a781136a688",
+    "app/src/test/java/com/example/motonav/MapZoomTest.kt": "562618f24b9a0badd169e643f08526b14744b64f56a7aceb7404bd0ec3a9b9ed",
+    "app/src/test/java/com/example/motonav/MapDetailTest.kt": "c323861e302adb4c499514fba26ffbd5a3deec92a1c0523759be4f3241d73033"
+  }
+}

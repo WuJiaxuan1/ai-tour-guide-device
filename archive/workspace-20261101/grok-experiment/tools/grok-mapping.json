@@ -1,0 +1,23 @@
+{
+  "neutral": {"state":"idle","match":"direct"},
+  "happy": {"state":"happy","match":"direct"},
+  "laughing": {"state":"laughing","match":"direct"},
+  "sad": {"state":"sad","match":"direct"},
+  "angry": {"state":"angry","match":"direct"},
+  "confused": {"state":"confused","match":"direct"},
+  "thinking": {"state":"thinking","match":"direct"},
+  "surprised": {"state":"surprised","match":"direct"},
+  "sleepy": {"state":"drowsy","match":"approximate"},
+  "confident": {"state":"proud","match":"approximate"},
+  "embarrassed": {"state":"shy","match":"approximate"},
+  "shocked": {"state":"scared","match":"approximate"},
+  "funny": {"state":"playful","match":"approximate"},
+  "silly": {"state":"playful","eye":17,"match":"approximate eye variant"},
+  "relaxed": {"state":"humming","match":"approximate"},
+  "cool": {"state":"proud","eye":8,"match":"approximate eye variant; no sunglasses in source"},
+  "loving": {"state":"happy","eye":19,"match":"approximate eye variant; no hearts in source"},
+  "kissy": {"state":"shy","eye":24,"match":"approximate eye variant; no kiss in source"},
+  "crying": {"state":"sad","eye":22,"match":"approximate eye variant; no tears in source"},
+  "delicious": {"state":"excited","match":"approximate; no eating expression in source"},
+  "winking": {"state":"playful","wink":true,"match":"source wink action"}
+}

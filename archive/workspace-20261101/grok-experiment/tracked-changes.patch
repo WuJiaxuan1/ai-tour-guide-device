@@ -1,0 +1,118 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 68bfe17..81adbf0 100755
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -9,6 +9,6 @@ include($ENV{IDF_PATH}/tools/cmake/project.cmake)
+ # "Trim" the build. Include the minimal set of components, main, and anything it depends on.
+ idf_build_set_property(MINIMAL_BUILD ON)
+ 
+-set(PROJECT_VER "2.2.6")
++set(PROJECT_VER "2.2.6-grok-v5")
+ 
+ project(xiaozhi)
+diff --git a/main/assets.cc b/main/assets.cc
+index f9bf9e6..c1b770e 100644
+--- a/main/assets.cc
++++ b/main/assets.cc
+@@ -51,7 +51,9 @@ bool Assets::FindPartition(Assets* assets) {
+ }
+ 
+ bool Assets::Apply(bool refresh_display_theme) {
+-    return strategy_ ? strategy_->Apply(this, refresh_display_theme) : false;
++    const bool ok = strategy_ ? strategy_->Apply(this, refresh_display_theme) : false;
++    if (ok) Board::GetInstance().GetDisplay()->OnAssetsLoaded();
++    return ok;
+ }
+ 
+ bool Assets::InitializePartition() {
+@@ -59,6 +61,8 @@ bool Assets::InitializePartition() {
+ }
+ 
+ void Assets::UnApplyPartition() {
++    // Stop displays that retain mapped resource pointers before invalidating them.
++    Board::GetInstance().GetDisplay()->OnAssetsUnloading();
+     if (strategy_) {
+         strategy_->UnApplyPartition(this);
+     }
+diff --git a/main/boards/m5stack-stopwatch/m5stack_stopwatch.cc b/main/boards/m5stack-stopwatch/m5stack_stopwatch.cc
+index 88523f5..b9eba10 100644
+--- a/main/boards/m5stack-stopwatch/m5stack_stopwatch.cc
++++ b/main/boards/m5stack-stopwatch/m5stack_stopwatch.cc
+@@ -1,5 +1,6 @@
+ #include "wifi_board.h"
+ #include "display/lcd_display.h"
++#include "grok_display.h"
+ #include "esp_lcd_co5300.h"
+ #include "codecs/es8311_audio_codec.h"
+ #include "application.h"
+@@ -31,7 +32,7 @@ static const co5300_lcd_init_cmd_t vendor_specific_init[] = {
+     {0x29, (uint8_t []){0x00}, 0, 20},  // Display on
+ };
+ 
+-class RoundLcdDisplay : public SpiLcdDisplay {
++class RoundLcdDisplay : public GrokRoundDisplay {
+ public:
+     static void rounder_event_cb(lv_event_t* e) {
+         lv_area_t* area = static_cast<lv_area_t*>(lv_event_get_param(e));
+@@ -50,10 +51,10 @@ public:
+                     bool mirror_x,
+                     bool mirror_y,
+                     bool swap_xy)
+-        : SpiLcdDisplay(io_handle, panel_handle, width, height, offset_x, offset_y, mirror_x, mirror_y, swap_xy) {}
++        : GrokRoundDisplay(io_handle, panel_handle, width, height, offset_x, offset_y, mirror_x, mirror_y, swap_xy) {}
+ 
+     void SetupUI() override {
+-        SpiLcdDisplay::SetupUI();
++        GrokRoundDisplay::SetupUI();
+         DisplayLockGuard lock(this);
+ 
+         // Horizontal inset so labels stay inside the round mask
+diff --git a/main/display/display.h b/main/display/display.h
+index 9e73014..31aa508 100644
+--- a/main/display/display.h
++++ b/main/display/display.h
+@@ -39,6 +39,8 @@ public:
+     virtual void SetTheme(Theme* theme);
+     virtual Theme* GetTheme() { return current_theme_; }
+     virtual void UpdateStatusBar(bool update_all = false);
++    virtual void OnAssetsUnloading() {}
++    virtual void OnAssetsLoaded() {}
+     virtual void SetPowerSaveMode(bool on);
+     virtual void SetupUI() { 
+         setup_ui_called_ = true;
+diff --git a/main/display/lcd_display.cc b/main/display/lcd_display.cc
+index be236bb..9fbe675 100644
+--- a/main/display/lcd_display.cc
++++ b/main/display/lcd_display.cc
+@@ -128,6 +128,9 @@ SpiLcdDisplay::SpiLcdDisplay(esp_lcd_panel_io_handle_t panel_io, esp_lcd_panel_h
+     ESP_LOGI(TAG, "Initialize LVGL port");
+     lvgl_port_cfg_t port_cfg = ESP_LVGL_PORT_INIT_CONFIG();
+     port_cfg.task_priority = 1;
++#if CONFIG_BOARD_TYPE_M5STACK_STOPWATCH
++    port_cfg.task_stack = 10240;
++#endif
+ #if CONFIG_SOC_CPU_CORES_NUM > 1
+     port_cfg.task_affinity = 1;
+ #endif
+@@ -138,8 +141,19 @@ SpiLcdDisplay::SpiLcdDisplay(esp_lcd_panel_io_handle_t panel_io, esp_lcd_panel_h
+         .io_handle = panel_io_,
+         .panel_handle = panel_,
+         .control_handle = nullptr,
+-        .buffer_size = static_cast<uint32_t>(width_ * 20),
+-        .double_buffer = false,
++        .buffer_size = static_cast<uint32_t>(width_ *
++#if CONFIG_BOARD_TYPE_M5STACK_STOPWATCH
++            32),
++#else
++            20),
++#endif
++        // Overlap DMA transfers and LVGL drawing for the continuous round-screen animation.
++        .double_buffer =
++#if CONFIG_BOARD_TYPE_M5STACK_STOPWATCH
++            true,
++#else
++            false,
++#endif
+         .trans_size = 0,
+         .hres = static_cast<uint32_t>(width_),
+         .vres = static_cast<uint32_t>(height_),

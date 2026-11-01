@@ -1,0 +1,108 @@
+{
+  "status": "compiled_host_validated_hardware_performance_pending",
+  "baseline": {
+    "version": "2.2.6",
+    "project": "xiaozhi",
+    "time": "09:05:36",
+    "date": "May 19 2026",
+    "idf": "v5.5.2"
+  },
+  "source_commit": "356541a94d6ea73f291388eb028a670e6c75f2f3",
+  "flash_offset": "0x800000",
+  "partition_bytes": 8388608,
+  "assets": {
+    "filename": "grok-v5-vector-assets.bin",
+    "bytes": 7297480,
+    "sha256": "2f2f4d055fe0aebc9d1a00336fad4f665f20a9001e0436ff356a2041c1f90628"
+  },
+  "vector_sha256": "5357b2ed22005bf68b2f3bf765b56725bfc1b20458de3ed04e6091e12296998c",
+  "voice_model_sha256": "56990e6b97faeced7aeea48c89f15b0d0c579c012a8106b91e96141f490051a6",
+  "requires_custom_main_program": true,
+  "hardware_tested": false,
+  "notes": [
+    "Do not flash this asset alone over v3: the factory firmware does not read the vector bank.",
+    "Original PNGs are retained as fallback data; the custom renderer uses vectors only.",
+    "Original voice model and font preserved; no custom wake word."
+  ],
+  "application": {
+    "version": "2.2.6-grok-v5",
+    "project": "xiaozhi",
+    "idf": "v5.5.2"
+  },
+  "app": {
+    "filename": "grok-v5-app.bin",
+    "offset": "detected_active_ota_slot",
+    "bytes": 2965712,
+    "sha256": "cd60c1ba095843785b76169db95c46ea11a2b61dc2f4100f4709db45e2480165"
+  },
+  "restore_app": {
+    "filename": "original-v2.2.6-app.bin",
+    "offset": "0x20000",
+    "bytes": 2949424,
+    "sha256": "d85c66cff7f4901cb9d9d32b95d53d4944f4e9cc96a42426712968d783e6c377",
+    "version": "2.2.6",
+    "project": "xiaozhi",
+    "idf": "v5.5.2"
+  },
+  "source_files": {
+    "CMakeLists.txt": "c6053d222133aaf2e8bdff4d9220732e4172f857611a86689669ed4985a40da9",
+    "main/assets.cc": "3a1e9a67294f8a4b56ddaeb0d8afa84a91aea098b77f8956ca567432159b7f76",
+    "main/display/display.h": "00b1f7b0433512a6ffc9b414abe69578e284f0be70254c6cb8ddf19aefc3eef0",
+    "main/display/lcd_display.cc": "73bb2163086f32a68846e49ae7547254c6bb9b534023b4968de9e79b5888ca66",
+    "main/boards/m5stack-stopwatch/m5stack_stopwatch.cc": "c6fd6275485cb614964a419e7ef2e77eb76cd9fa8f586a0152e584540641e5fa",
+    "main/boards/m5stack-stopwatch/grok_motion.h": "635cb07f1bb0d66cb6aa690bb3a4f07b5f5a7ec1d941b59be15bc0f69898a171",
+    "main/boards/m5stack-stopwatch/grok_display.h": "d9fc79f9c161f2a7ee3348cdcfebd15c751d9582e1b119f1dd9b2e9d1229c185",
+    "sdkconfig.grok": "d646a0a1e95762e2dad58c1c17d690a9b8f2dff830514ebe2612f19134aed258",
+    "dependencies.lock": "290956ca7403bf3a95ede88ec1cb43a9b4e34498bc1daca0c5390998545f9a89"
+  },
+  "checks": [
+    "ESP32-S3 image checksum and appended SHA256",
+    "compiled partition table identical to factory and saved device backup",
+    "saved device backup has valid OTA-0 sequence 1, OTA-1 empty",
+    "application and assets fit existing partitions",
+    "original voice model/font unchanged",
+    "desktop C++ animation tests and visual preview passed",
+    "custom v5 image, ESP-IDF v5.5.2, ESP checksums and SHA256",
+    "all 22 animation poses exactly match v4",
+    "all changed pixels covered by <=24 dirty rectangles; identical frames have no invalidation",
+    "1760-frame antialiasing regression, mean error <0.01/255",
+    "original v4 rollback files preserved"
+  ],
+  "firmware_build_log": "D:\\Study\\yiqifen\\stopwatch-custom\\.tools\\firmware-v5-build.log",
+  "preserve": [
+    "bootloader",
+    "partition table",
+    "NVS/Wi-Fi/binding",
+    "OTA selection",
+    "original wake model"
+  ],
+  "limitations": [
+    "Actual device FPS and voice stability not yet measured.",
+    "17ms interval is an upper scheduling target (~59fps), not a guarantee of 59fps.",
+    "GrokPerf submissions is frame submission rate, not a physical screen scanout measurement.",
+    "Animations and resource library retain all v4 scope limits (sampled vectors, no particle ribbons)."
+  ],
+  "partition_table_sector_sha256": "ce40cfe75056ef74bc052942f8a9ee3dce8e5e14ba17a6f63685a8fa0d11a23d",
+  "restore_assets": {
+    "filename": "../output/original-v2.2.6-assets.bin",
+    "bytes": 2851677,
+    "sha256": "457fe977e9344e4a233fa5314abc10e13b0c4e673bad377385d119e728de1b6d"
+  },
+  "performance_changes": [
+    "Active-edge scanlines and integer coverage/blending; retains four AA subscans",
+    "Only changed pixels written into the RGB565 frame buffer",
+    "32px dirty tiles merged into at most 24 invalidation rectangles",
+    "Single draw-and-refresh cadence; maximum target 1000/17 fps",
+    "Wall-clock animation timing and actual submission-rate diagnostic log every 5s",
+    "32-row DMA double buffers; renderer-specific O3 optimization",
+    "CPU remains 240MHz, QSPI remains vendor 40MHz; audio tasks retain higher priority"
+  ],
+  "desktop_results": {
+    "tested_frames": 1760,
+    "dirty_region_percent": 29.699,
+    "changed_pixels_percent": 1.93203,
+    "mean_gray_difference_from_v4_out_of_255": 0.00819659,
+    "maximum_gray_difference_out_of_255": 5,
+    "timing_note": "Desktop render benchmark is not device performance. See renderer-test-results.txt."
+  }
+}

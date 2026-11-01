@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "source": "栖霞山旅游度假区官方小程序",
+    "section": "栖游/热门推荐",
+    "captured_at": "2026-10-27",
+    "capture_method": "用户提供连续页面截图，Codex 人工识别与重叠去重",
+    "version": "0.1",
+    "scope": "游客中心、卫生间、停车场",
+    "excluded_fields": {
+      "display_distance": "截图中的距离取决于用户当时位置，不能作为景区固定知识",
+      "coordinates": "小程序只显示导航按钮，截图未提供经纬度"
+    }
+  },
+  "visitor_centers": [
+    {
+      "id": "qixia_ancient_town_story_museum",
+      "name": "栖霞古镇故事馆",
+      "location_text": "南京市栖霞区20县道与栖霞街交叉口西北40米",
+      "hours": "09:00-17:00",
+      "navigation_available": true,
+      "source_image": "codex-clipboard-15b7cc7c-d524-42e0-ab6a-46d70a4333dd.jpg"
+    },
+    {
+      "id": "qixia_tourism_resort_comprehensive_service_center",
+      "name": "栖霞山旅游服务度假区综合服务中心",
+      "location_text": "南京市栖霞区栖霞街60号",
+      "hours": "09:00-17:00",
+      "navigation_available": true,
+      "source_image": "codex-clipboard-15b7cc7c-d524-42e0-ab6a-46d70a4333dd.jpg",
+      "review_note": "名称按小程序截图原文录入；“旅游服务度假区”的表述建议现场核对招牌。"
+    },
+    {
+      "id": "west_gate_visitor_service_center",
+      "name": "西门游客服务中心",
+      "location_text": "南京市栖霞区栖霞街88号（近栖霞大道）栖霞山风景名胜区内（西侧）",
+      "hours": "09:00-17:00",
+      "navigation_available": true,
+      "source_image": "codex-clipboard-15b7cc7c-d524-42e0-ab6a-46d70a4333dd.jpg"
+    },
+    {
+      "id": "south_gate_visitor_service_center",
+      "name": "南门游客服务中心",
+      "location_text": "南京市栖霞区栖霞大道与栖霞南街交汇处东1000米",
+      "hours": "09:00-17:00",
+      "navigation_available": true,
+      "source_image": "codex-clipboard-15b7cc7c-d524-42e0-ab6a-46d70a4333dd.jpg"
+    }
+  ],
+  "restrooms": [
+    {
+      "id": "west_gate_left_restroom",
+      "name": "卫生间",
+      "location_text": "西门进入左侧",
+      "nearby_poi": "西门",
+      "hours": "09:00-17:00",
+      "navigation_available": true,
+      "source_image": "codex-clipboard-8d946a03-814c-471a-8fd7-8f7955106990.jpg",
+      "review_note": "名称过于通用，后续建议归一为“西门入口左侧卫生间”。"
+    },
+    {
+      "id": "west_gate_visitor_center_restroom",
+      "name": "西门游客中心",
+      "location_text": "西门游客中心",
+      "nearby_poi": "西门游客服务中心",
+      "hours": "09:00-17:00",
+      "navigation_available": true,
+      "source_image": "codex-clipboard-8d946a03-814c-471a-8fd7-8f7955106990.jpg",
+      "review_note": "位于卫生间分类，建议展示名归一为“西门游客中心卫生间”。"
+    },
+    {
+      "id": "south_gate_visitor_center_restroom",
+      "name": "南门游客中心卫生间",
+      "location_text": "南门游客中心卫生间",
+      "nearby_poi": "南门游客服务中心",
+      "hours": "09:00-17:00",
+      "navigation_available": true,
+      "source_image": "codex-clipboard-8d946a03-814c-471a-8fd7-8f7955106990.jpg"
+    },
+    {
+      "id": "mirror_lake_restroom",
+      "name": "明镜湖卫生间",
+      "location_text": "明镜湖附近",
+      "nearby_poi": "明镜湖（彩虹明镜）",
+      "hours": "09:00-17:00",
+      "navigation_available": true,
+      "source_image": "codex-clipboard-8d946a03-814c-471a-8fd7-8f7955106990.jpg"
+    },
+    {
+      "id": "drum_tower_restroom",
+      "name": "鼓楼卫生间",
+      "location_text": "鼓楼附近",
+      "nearby_poi": "鼓楼",
+      "hours": "09:00-17:00",
+      "navigation_available": true,
+      "source_image": "codex-clipboard-8d946a03-814c-471a-8fd7-8f7955106990.jpg"
+    },
+    {
+      "id": "thousand_buddha_cliff_restroom",
+      "name": "千佛崖卫生间",
+      "location_text": "千佛崖附近",
+      "nearby_poi": "千佛崖",
+      "hours": "09:00-17:00",
+      "navigation_available": true,
+      "source_image": "codex-clipboard-8d946a03-814c-471a-8fd7-8f7955106990.jpg"
+    },
+    {
+      "id": "jiyun_pavilion_restroom",
+      "name": "集云亭卫生间",
+      "location_text": "集云亭附近",
+      "nearby_poi": "集云亭",
+      "hours": "09:00-17:00",
+      "navigation_available": true,
+      "source_image": "codex-clipboard-1479d7d7-4a49-4040-b2f4-59dc1f70298f.jpg"
+    },
+    {
+      "id": "peach_blossom_valley_restroom",
+      "name": "桃花坞卫生间",
+      "location_text": "桃花坞附近",
+      "nearby_poi": "桃花坞",
+      "hours": "09:00-17:00",
+      "navigation_available": true,
+      "source_image": "codex-clipboard-1479d7d7-4a49-4040-b2f4-59dc1f70298f.jpg"
+    },
+    {
+      "id": "deyun_pavilion_restroom",
+      "name": "德云亭卫生间",
+      "location_text": "德云亭附近",
+      "nearby_poi": "德云亭",
+      "hours": "09:00-17:00",
+      "navigation_available": true,
+      "source_image": "codex-clipboard-1479d7d7-4a49-4040-b2f4-59dc1f70298f.jpg"
+    },
+    {
+      "id": "taixu_pavilion_restroom",
+      "name": "太虚亭卫生间",
+      "location_text": "太虚亭附近",
+      "nearby_poi": "太虚亭",
+      "hours": "09:00-17:00",
+      "navigation_available": true,
+      "source_image": "codex-clipboard-1479d7d7-4a49-4040-b2f4-59dc1f70298f.jpg"
+    },
+    {
+      "id": "xi_pavilion_restroom",
+      "name": "夕亭卫生间",
+      "location_text": "夕亭附近",
+      "nearby_poi": "夕亭",
+      "hours": "09:00-17:00",
+      "navigation_available": true,
+      "source_image": "codex-clipboard-1479d7d7-4a49-4040-b2f4-59dc1f70298f.jpg"
+    },
+    {
+      "id": "first_emperor_river_view_restroom",
+      "name": "始皇临江卫生间",
+      "location_text": "始皇临江附近",
+      "nearby_poi": "始皇临江",
+      "hours": "09:00-17:00",
+      "navigation_available": true,
+      "source_image": "codex-clipboard-1479d7d7-4a49-4040-b2f4-59dc1f70298f.jpg"
+    }
+  ],
+  "parking_lots": [
+    {
+      "id": "p1_bus_parking",
+      "name": "栖霞山风景区P1大客车停车场",
+      "location_text": "南京市栖霞区栖霞大道与红枫路交叉口西北240米",
+      "hours": "全天",
+      "vehicle_hint": "大客车",
+      "navigation_available": true,
+      "source_image": "codex-clipboard-94697468-4f0c-44a7-8487-be5f8aa55324.jpg"
+    },
+    {
+      "id": "ancient_town_south_parking",
+      "name": "古镇南停车场",
+      "location_text": "南京市栖霞区栖霞街48号",
+      "hours": "全天",
+      "navigation_available": true,
+      "source_image": "codex-clipboard-94697468-4f0c-44a7-8487-be5f8aa55324.jpg"
+    },
+    {
+      "id": "west_gate_p2_parking",
+      "name": "栖霞山西门P2停车场",
+      "location_text": "栖霞山风景名胜区西门停车场（出入口）",
+      "hours": "全天",
+      "navigation_available": true,
+      "source_image": "codex-clipboard-94697468-4f0c-44a7-8487-be5f8aa55324.jpg"
+    },
+    {
+      "id": "p3_surface_parking",
+      "name": "栖霞山风景名胜区-P3地上停车场",
+      "location_text": "南京市栖霞区栖霞街与20县道交叉口南60米",
+      "hours": "全天",
+      "navigation_available": true,
+      "source_image": "codex-clipboard-a3369d80-f1cf-40ec-9b16-1264b95dd814.jpg"
+    },
+    {
+      "id": "south_gate_parking",
+      "name": "栖霞山景区南门停车场",
+      "location_text": "南京市栖霞区栖霞山风景名胜区南门地面停车场",
+      "hours": "全天",
+      "navigation_available": true,
+      "source_image": "codex-clipboard-a3369d80-f1cf-40ec-9b16-1264b95dd814.jpg"
+    },
+    {
+      "id": "management_committee_east_parking",
+      "name": "栖霞山风景区管委会东停车场",
+      "location_text": "南京市栖霞区南水新村98号栖霞山综合开发管委会东停车场",
+      "hours": "全天",
+      "navigation_available": true,
+      "source_image": "codex-clipboard-a3369d80-f1cf-40ec-9b16-1264b95dd814.jpg"
+    }
+  ],
+  "quality_notes": [
+    "12处卫生间在小程序中均显示09:00-17:00，可能是统一运营口径，仍建议现场核验是否存在提前关闭或季节调整。",
+    "停车场的“全天”只代表小程序展示的开放时段，不代表全天收费、有人值守或始终有空位。",
+    "导航按钮说明小程序支持跳转导航，但截图未给出经纬度，后续需要逐个点击导航或从地图平台补坐标。",
+    "截图没有无障碍厕位、第三卫生间、母婴室、充电桩、车位数量、停车收费等关键字段。"
+  ]
+}

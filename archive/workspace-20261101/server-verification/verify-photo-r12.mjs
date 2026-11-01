@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {writeFileSync,readFileSync} from 'node:fs';
+import {createHash,randomUUID} from 'node:crypto';
+const base=process.env.VERIFY_BASE||'http://127.0.0.1:18788',checks=[];
+const html=await(await fetch(base+'/')).text();assert.ok(html.includes('index-Dklwdpot.js'));checks.push('rollback_bundle');
+const bundle=await(await fetch(base+'/assets/index-Dklwdpot.js')).text();assert.ok(bundle.includes('动画结束后展示固定纪念卡'));assert.ok(bundle.includes('照片仅在当前设备预览'));assert.ok(!bundle.includes('透明底照片贴纸（棋盘格仅用于预览）'));checks.push('initial_local_demo_restored');
+const asset=await fetch(base+'/assets/journal-result.png');assert.equal(asset.status,200);const hash=b=>createHash('sha256').update(b).digest('hex');assert.equal(hash(Buffer.from(await asset.arrayBuffer())),hash(readFileSync('frontend/dist/client/assets/journal-result.png')));checks.push('fixed_card_asset');
+assert.equal((await(await fetch(base+'/api/health')).json()).ok,true);checks.push('backend_health');
+const session=await(await fetch(base+'/api/v1/sessions',{method:'POST'})).json();
+const headers={Authorization:'Bearer '+session.token};
+const caps=await(await fetch(base+'/api/v1/capabilities',{headers})).json();assert.equal(caps.photo_craft_available,false);assert.equal(caps.photo_craft_mode,'local_demo');assert.equal(caps.persistent_trips,true);checks.push('capabilities_match_rollback');
+const upload=await fetch(base+'/api/v1/photos',{method:'POST',headers:{...headers,'Content-Type':'image/jpeg'},body:Buffer.from('test')});assert.equal(upload.status,410);assert.equal((await upload.json()).error.code,'PHOTO_CREATION_DISABLED');checks.push('old_client_upload_disabled');
+const generate=await fetch(base+'/api/v1/photos/'+randomUUID()+'/generate',{method:'POST',headers:{...headers,'Content-Type':'application/json'},body:'{}'});assert.equal(generate.status,410);checks.push('old_client_generate_disabled');
+assert.deepEqual((await(await fetch(base+'/api/v1/photos',{headers})).json()).photos,[]);assert.deepEqual((await(await fetch(base+'/api/v1/trips',{headers})).json()).trips,[]);checks.push('no_photo_or_trip_created');
+assert.equal(checks.length,8);const result={at:new Date().toISOString(),base,checks};writeFileSync('.local-work/photo-acceptance.json',JSON.stringify(result,null,2));console.log(JSON.stringify(result));

@@ -1,0 +1,30 @@
+{
+  "stage": "P7-test05",
+  "scope": "APK-only adjustable zoom, 13.0-18.0 in half steps",
+  "hardware_function_test": "pending",
+  "firmware": "2.2.6-p7-test04 (unchanged)",
+  "firmware_package": "../P7-test04",
+  "firmware_app_sha256": "c848c9285aea3bb34211f0e2a845f2d1303756a77d3617d88a8dec50e33c7739",
+  "android_tests": 30,
+  "apk": {
+    "filename": "maple-map-P7-test05.apk",
+    "bytes": 55197963,
+    "sha256": "7844c1d41e9a3c58787a5b6ac1b8c5321491f8347502b4518e9b976cca710c8a"
+  },
+  "source_files_sha256": {
+    "app/build.gradle.kts": "7fb95015a96ef6c61b68d300ec0b5eac856c7a052eee7b4592b3d4e1814a394f",
+    "app/src/main/java/com/example/motonav/MapZoom.kt": "d708bd7b2a2856c81d28b546b66bdfa620e7a480c39d754e0f88666bb0e79fa7",
+    "app/src/main/java/com/example/motonav/PhoneMapRenderer.kt": "0de3acd33e754bf839245409126bf66c5f1168952f4e9e3fff10fb6dd09fe430",
+    "app/src/main/java/com/example/motonav/SurroundingMapActivity.kt": "31c85df7bc5a33bccad2191ce291b415eb4f171765ebc65bebf484f50ca9b865",
+    "app/src/main/java/com/example/motonav/SurroundingMap.kt": "8e1e5a9b1c41fe2655ed614f9295b90400d56a93fd4b9dbb74d560e9222041ca",
+    "app/src/main/java/com/example/motonav/MapPreviewPixels.kt": "799679839da38423628eff1c028e87ffc71b6c73ab57aef19bfba54462b841ab",
+    "app/src/main/java/com/example/motonav/MapFrameEncoder.kt": "36eadccc31645e804be2cfd08f4ee056dd96da0f2e1aff97966393bcdf0d85fa",
+    "app/src/main/java/com/example/motonav/LocalLinkClient.kt": "522047c6ef43d2b24ac18297c53df6ee7a6e0cbcfd5ff9f6c1f651a38f55d238",
+    "app/src/test/java/com/example/motonav/LocalLinkClientTest.kt": "62f89598e93436ca024eeb2c50eb882b32e812e81c2d04a9c30fd0fb382f40d4",
+    "app/src/test/java/com/example/motonav/MapFrameEncoderTest.kt": "c3d0549d95bb189e262ce955f6ecb1b8c1be93700e1d5346c91782d9d0e10b7b",
+    "app/src/test/java/com/example/motonav/SurroundingMapTest.kt": "c3eed74f11f559b80d97fb1e8bbab958475b210286b1523e9f47f2c3aff1857e",
+    "app/src/test/java/com/example/motonav/AmapKeyStoreTest.kt": "df0abd0e1c11b7b92ad9f585730205384f134f31e8268bebd124895f95f31874",
+    "app/src/test/java/com/example/motonav/MapPreviewPixelsTest.kt": "ba46b7aa2e43ff106a1b09b7154510d620f48ead162b2a8fc8418a781136a688",
+    "app/src/test/java/com/example/motonav/MapZoomTest.kt": "562618f24b9a0badd169e643f08526b14744b64f56a7aceb7404bd0ec3a9b9ed"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "QixiaKnowledgeRecord",
+  "type": "object",
+  "required": [
+    "id",
+    "library_id",
+    "knowledge_type",
+    "name",
+    "content",
+    "verification_status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "library_id": {
+      "enum": [
+        "KB01",
+        "KB02",
+        "KB03",
+        "KB04",
+        "KB05",
+        "KB06",
+        "KB07",
+        "KB08"
+      ]
+    },
+    "knowledge_type": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string"
+    },
+    "source_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "captured_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "valid_from": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "valid_until": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "verification_status": {
+      "type": "string"
+    },
+    "confidence": {
+      "enum": [
+        "high",
+        "medium",
+        "low",
+        null
+      ]
+    },
+    "freshness": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "audience": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "related_pois": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "updated_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

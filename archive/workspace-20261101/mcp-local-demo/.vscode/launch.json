@@ -1,0 +1,31 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "1. 本机 MCP 测试（无需令牌和硬件）",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/local_check.py",
+      "python": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "envFile": "${workspaceFolder}/.env.example",
+      "subProcess": true,
+      "justMyCode": true,
+      "env": { "PYTHONIOENCODING": "utf-8" }
+    },
+    {
+      "name": "2. 连接小智 MCP（先填写本机 .env）",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/run_cloud.py",
+      "python": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "envFile": "${workspaceFolder}/.env.example",
+      "subProcess": true,
+      "justMyCode": true,
+      "env": { "PYTHONIOENCODING": "utf-8" }
+    }
+  ]
+}

@@ -1,0 +1,259 @@
+{
+  "stage": "P9-cloud01",
+  "firmware_version": "2.2.6-p9-cloud01",
+  "baseline": "P8-overview-test02",
+  "rollback": "P8-overview-test02",
+  "hardware_function_test": "pending",
+  "partition_table_sector_sha256": "ce40cfe75056ef74bc052942f8a9ee3dce8e5e14ba17a6f63685a8fa0d11a23d",
+  "source_files_sha256": {
+    "firmware/main/boards/m5stack-stopwatch/AVATAR-LICENSE.txt": "6f1e622c82a380075843bb084a7ec3b1f1d12a4a02526d75e78b0924a860aa75",
+    "firmware/main/boards/m5stack-stopwatch/AVATAR-NOTICE.md": "35c2930c6f85dd9eb0f6070d2da87f00cc36654c27a59db4e4c10c8e71630e70",
+    "firmware/main/boards/m5stack-stopwatch/avatar_display.cc": "572604b11da64d934f5f9f2d741ac185db091de4929e5de0cbbb0754340bf8b3",
+    "firmware/main/boards/m5stack-stopwatch/avatar_display.h": "cb5b90b18d29bc71a4bbca73e9b20b4d73c4ef7c0536f380e2f5b82650525b3b",
+    "firmware/main/boards/m5stack-stopwatch/avatar_engine.cc": "533dd43453cbd6dd4e984c62d3d02b6cb098fffc2eaf4f3701717452067ea7fd",
+    "firmware/main/boards/m5stack-stopwatch/avatar_engine.h": "3429be7a92aba332c58f20f1527ab74eab026827b36c8f27e7058377af708a87",
+    "firmware/main/boards/m5stack-stopwatch/avatar_haptic.h": "4e768c4002750c0dc7d1372fb38b060737cf825713b1520c9bac28efe063c00d",
+    "firmware/main/boards/m5stack-stopwatch/avatar_input.h": "080ffd3d3ee6bae209e154805b5b47d3cb9d0b73aa452140064d86a23a65125b",
+    "firmware/main/boards/m5stack-stopwatch/avatar_shake.h": "4ba501b3e42ee02724bfc3175567f2fba8ea576ec3ff4fb9093cc589dcc3b6b6",
+    "firmware/main/boards/m5stack-stopwatch/avatar_surface.h": "5b821ed5edbdcb7c75331841a3c4dbb71e4cf4c79d9aca5bba061fba8d5d1357",
+    "firmware/main/boards/m5stack-stopwatch/config.h": "be3335baa4accfd246abe362b1377bb0b66e32798c26d6c7dba103e48b5c783e",
+    "firmware/main/boards/m5stack-stopwatch/config.json": "ef863ac391314bef995a4e56a4c6f8dec38312754becabb19d6b733564926ac1",
+    "firmware/main/boards/m5stack-stopwatch/local_link_server.cc": "ef4b04070e7608d9cdbbcb4a0db5901eb4fea71eac59509416d51c1a61faae43",
+    "firmware/main/boards/m5stack-stopwatch/local_link_server.h": "5b49c46460a80aeed86f9f8885b50b11d0dcb2c2add89c90f3838b91b0a7e1de",
+    "firmware/main/boards/m5stack-stopwatch/m5stack_stopwatch.cc": "cac34b33a3fe7dd78b04a3ef9798ea35a153505099bcef5f8851a4860f465cc3",
+    "firmware/main/boards/m5stack-stopwatch/map_frame.h": "b097e0d0ba9b6167b553187c508f7e6315d1e7d844210fcb5682da2b499d0dfb",
+    "firmware/main/boards/m5stack-stopwatch/README.md": "eb01d530329e3cacbe5922bb6bd33e5081c1c9561fe8901cfc0f72194422f42b",
+    "firmware/main/boards/m5stack-stopwatch/route_frame.h": "ac8ab461981b45a7d6c3f1a20a0d42cde97bf813b0b000c2f7ec091827c13b8f",
+    "firmware/main/boards/m5stack-stopwatch/stopwatch_haptics.cc": "3846668550785380dfdb8cd008d8b310290ca8bacc2d39560581300307fa4935",
+    "firmware/main/boards/m5stack-stopwatch/stopwatch_haptics.h": "093f2c324296a05f2e453be448e7e9c7abde3b16fe45280e7a2ac6ece58386d8",
+    "firmware/main/boards/m5stack-stopwatch/stopwatch_imu.cc": "df0c3657a524498db2b7ae491a6edbdc8c9afc950495967dc866317ea6f43291",
+    "firmware/main/boards/m5stack-stopwatch/stopwatch_imu.h": "84deb7cb886f5a4db30c04b8eaa609e1fa015100fc5ba97690520efb4c20807b",
+    "firmware/main/boards/m5stack-stopwatch/stopwatch_pages.h": "106c42e44e6aab8bbaf05e0e1ddf6590cfa4bf03bf9d31781a52c0272460b2f5",
+    "firmware/main/boards/m5stack-stopwatch/swipe_tracker.h": "f183da3cc50923363f9381bc98d7dac4ee9983c2ff27d58c6b14dc6b62d55bee",
+    "firmware/CMakeLists.txt": "e6f205fbdace6fbde64687061271ebd0e11980cd7cb6ee229332e4849bef9715",
+    "firmware/main/CMakeLists.txt": "8d7528f68edbb5bbc2297698b55d269407e6d93f538a9a020be290e81655103d",
+    "firmware/main/application.cc": "49b8fa9a2a6786175dcdfac2f9373402fe0da10ebcff9a898e8c1f631e05d2a5",
+    "firmware/main/application.h": "2ccf414c360d1934b9e7131b226d7a087d7a18d421be1d6be7b4dd09b9b31fb4",
+    "firmware/main/device_state.h": "8feed983bffe0daa8f7fcf33e01c50a4de4033b523dafd94df02f382baff6254",
+    "firmware/main/audio/voice_gate.h": "ecf418aed8c5db6982cc4ad282f9f3ff7f6825f37559df142a7e4dd1d1193819",
+    "firmware/main/audio/audio_service.cc": "cd4f444d8a3163e1d63f2a6694717c6d33e1164e65738c883c1e7f97a00a33b0",
+    "firmware/main/audio/audio_service.h": "ebc47ddcfde35bed7bd20009ff11740e3f48867f35e9fb73d26d84902e86e6a9",
+    "firmware/main/audio/wake_words/custom_wake_word.cc": "e2f942380a378969b3eb91e0868d7e33ea3ee97dbefb0ca0bb00de4d18f55da9",
+    "firmware/main/audio/wake_words/custom_wake_word.h": "8d951155b309f96b472deae9135e2c0c36b2f5c2b9897c86e4ffc44ea77ff182",
+    "firmware/sdkconfig.stopwatch": "751662aaeae197e2f5d040202f16627a32fca9185fcc7e3f25003db4bddda200",
+    "firmware/dependencies.lock": "ba40595d769fe54a75d29cbc91a9e61edc4b74b4b8af62ed25bf013afb870573",
+    "firmware/main/idf_component.yml": "4e64e3899b4960f78e953adf007c671157b21cc1e3a5c311e66c10f7937284c9",
+    "firmware/components/78__esp-wifi-connect/.gitignore": "a3b0ac81095a616aee77cdf2f026e5db76bcc6e5243c8b5db4328d212328933f",
+    "firmware/components/78__esp-wifi-connect/CMakeLists.txt": "a2f87bea41d8e254a5ab277a2a4472db9c65fe8e741dbaf38c14584ca84361d0",
+    "firmware/components/78__esp-wifi-connect/dns_server.cc": "8e6f03dc39f7386a149e227c756a53e3f715454b1d024c7ce38b75cdf00045d1",
+    "firmware/components/78__esp-wifi-connect/idf_component.yml": "c1f17a89a79b9f54369c549aa2eb7a7954fdab9aa4252c75b1b2a3aa878e7e0f",
+    "firmware/components/78__esp-wifi-connect/MODIFICATIONS.md": "abe45269b6ec4d97d5843eb4b4dba2ffbdcecb808418a7ffe7a6ab772fc0310d",
+    "firmware/components/78__esp-wifi-connect/README.md": "7f71abcf20c79ecbf0c065ed625fcd92995f356a0a6281fbe3a8a92479ba610e",
+    "firmware/components/78__esp-wifi-connect/ssid_manager.cc": "e3441e0fc84012b539bd08b680cdfbfdaca5eb55af55423400268d0a18d5daca",
+    "firmware/components/78__esp-wifi-connect/wifi_configuration_ap.cc": "e12e1bf94777e9fdaa6e673a157f22e838723e8fafe7297b420ca12773b7297b",
+    "firmware/components/78__esp-wifi-connect/wifi_manager.cc": "3346377f3595774d8a8d07b259f4860a9aabaf323e39fba6c1cac598e44d5d20",
+    "firmware/components/78__esp-wifi-connect/wifi_station.cc": "44951ab5bb5c596130abb5c324187eb401089fef15b9662b6dc569b20d2c53d0",
+    "firmware/components/78__esp-wifi-connect/assets/ap.png": "defb386a203a1f29aab1ba06a97b087f74fbbeb20b8b2698d9d821efc7f95a36",
+    "firmware/components/78__esp-wifi-connect/assets/ap_v2.png": "a3d8fe8b7bfd944b83f0767485a8881eb20c24f3d65ba7763f1eb879e1e18d64",
+    "firmware/components/78__esp-wifi-connect/assets/ap_v3.png": "800fb2ef4f297fbfd7c46ce16792e63c583311c2569162d18f3d337c9a4a4eb5",
+    "firmware/components/78__esp-wifi-connect/assets/ap_v3_advanced.png": "715f1041d341359ffdd4b8529782d313bb0be0a83366f0c3c55aca1e1dfb6d33",
+    "firmware/components/78__esp-wifi-connect/assets/stopwatch_configuration_done.html": "86c8d5cf35a87b689f2b803378af7878526649737b1c88c9d113460702122f5f",
+    "firmware/components/78__esp-wifi-connect/assets/wifi_configuration.html": "7c8b6bc939c155d85b3cd0cf028971665e6d3255344d83f67b754b867bc8568a",
+    "firmware/components/78__esp-wifi-connect/assets/wifi_configuration_done.html": "0fc35ae3a8c538dd4275c92544777bdfbdc6e5fc2238da93b21e40d44f3fd9e9",
+    "firmware/components/78__esp-wifi-connect/include/dns_server.h": "68c8ad351a8d0f3993e4793dd28472e8ab0f8b74212450c03ec9190dbab821f9",
+    "firmware/components/78__esp-wifi-connect/include/provisioning_request.h": "b31bc3d71e7ebb878f4a632332d5532e87870bd04030f5b498ed1fe9e8264606",
+    "firmware/components/78__esp-wifi-connect/include/ssid_manager.h": "f45a0687170a30ba5592a9b3fde7c8f5da768dac7de185b256b2be56359d9e3f",
+    "firmware/components/78__esp-wifi-connect/include/wifi_configuration_ap.h": "c22f4973abb133e9ea811b662a4ec384f62bc0cebb5501375dd462b57635560e",
+    "firmware/components/78__esp-wifi-connect/include/wifi_manager.h": "96a29607b4abe22fa20deee3d7325cf19fdb0964fb2ae8944761a8b05c0fd790",
+    "firmware/components/78__esp-wifi-connect/include/wifi_station.h": "62da1f0b38889dbab64c992cd8151a1521622ca3dbb638f8bdc9e247b6a563c2",
+    "firmware/main/boards/m5stack-stopwatch/cloud_navigation.cc": "80d4457c7e81d20c61cfa387ae501bcb07b6be0c746b430f9ffed79456933805",
+    "firmware/main/boards/m5stack-stopwatch/cloud_navigation.h": "0130345af609d7647943f2b48df6eb11b670ece9313bf65489c5a7b7c419a3dc",
+    "tools/configure_cloud.py": "50cf656b9b83df2c430ae50dcd4a5a330979e5d223bd29675d0444f69dfed302",
+    "tools/package_cloud.py": "4d918b3b314a54d5a73d61858968a3efa30b29162f3b09f9cd1f03086af8d6e6",
+    "tests/host/cloud_wire_test.cc": "12a4d60c9b03b4590cc6ddea394673dcc2acfe7ce97f8f5dd43b90eeaa408cf6",
+    "docs/P9-cloud01-验收.md": "9d4508e2fc002158580fbf015eaeb5703d053d3f4fff76b6925e35b8443b3d50"
+  },
+  "firmware_source_guards": 56,
+  "wake_validation": {
+    "models": [
+      "fst",
+      "mn7_cn"
+    ],
+    "wake_config": {
+      "language": "cn",
+      "duration": 3000,
+      "threshold": 0.2,
+      "commands": [
+        {
+          "command": "feng ye jing ling",
+          "text": "枫叶精灵",
+          "action": "wake"
+        }
+      ]
+    },
+    "srmodels_bytes": 2681351,
+    "assets_bytes": 5242378,
+    "assets_sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  "assets_validation": {
+    "count": 24,
+    "files": [
+      "angry.png",
+      "confident.png",
+      "confused.png",
+      "cool.png",
+      "crying.png",
+      "delicious.png",
+      "embarrassed.png",
+      "font_puhui_common_30_4.bin",
+      "funny.png",
+      "happy.png",
+      "index.json",
+      "kissy.png",
+      "laughing.png",
+      "loving.png",
+      "neutral.png",
+      "relaxed.png",
+      "sad.png",
+      "shocked.png",
+      "silly.png",
+      "sleepy.png",
+      "srmodels.bin",
+      "surprised.png",
+      "thinking.png",
+      "winking.png"
+    ],
+    "index": {
+      "version": 1,
+      "srmodels": "srmodels.bin",
+      "text_font": "font_puhui_common_30_4.bin",
+      "emoji_collection": [
+        {
+          "name": "angry",
+          "file": "angry.png"
+        },
+        {
+          "name": "confident",
+          "file": "confident.png"
+        },
+        {
+          "name": "confused",
+          "file": "confused.png"
+        },
+        {
+          "name": "cool",
+          "file": "cool.png"
+        },
+        {
+          "name": "crying",
+          "file": "crying.png"
+        },
+        {
+          "name": "delicious",
+          "file": "delicious.png"
+        },
+        {
+          "name": "embarrassed",
+          "file": "embarrassed.png"
+        },
+        {
+          "name": "funny",
+          "file": "funny.png"
+        },
+        {
+          "name": "happy",
+          "file": "happy.png"
+        },
+        {
+          "name": "kissy",
+          "file": "kissy.png"
+        },
+        {
+          "name": "laughing",
+          "file": "laughing.png"
+        },
+        {
+          "name": "loving",
+          "file": "loving.png"
+        },
+        {
+          "name": "neutral",
+          "file": "neutral.png"
+        },
+        {
+          "name": "relaxed",
+          "file": "relaxed.png"
+        },
+        {
+          "name": "sad",
+          "file": "sad.png"
+        },
+        {
+          "name": "shocked",
+          "file": "shocked.png"
+        },
+        {
+          "name": "silly",
+          "file": "silly.png"
+        },
+        {
+          "name": "sleepy",
+          "file": "sleepy.png"
+        },
+        {
+          "name": "surprised",
+          "file": "surprised.png"
+        },
+        {
+          "name": "thinking",
+          "file": "thinking.png"
+        },
+        {
+          "name": "winking",
+          "file": "winking.png"
+        }
+      ],
+      "multinet_model": {
+        "language": "cn",
+        "duration": 3000,
+        "threshold": 0.2,
+        "commands": [
+          {
+            "command": "feng ye jing ling",
+            "text": "枫叶精灵",
+            "action": "wake"
+          }
+        ]
+      }
+    }
+  },
+  "validation": {
+    "build": "passed",
+    "protocol": "passed",
+    "lvgl": "passed",
+    "voice": "passed",
+    "server_wire": "passed",
+    "device_flash": "not performed",
+    "physical_test": "pending"
+  },
+  "app": {
+    "filename": "p9-cloud01-app.bin",
+    "bytes": 3097536,
+    "sha256": "c348c570b7ea8a8f75f95d4b0f59786f1083f95c36b0c82fb20c5a04b34e0539"
+  },
+  "assets": {
+    "filename": "p9-cloud01-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  "restore_app": {
+    "filename": "restore-overview02-app.bin",
+    "bytes": 3074688,
+    "sha256": "3123ae1599d405c23731174686a88ba7b371c16a9169676afa3ee213c9ce6214"
+  },
+  "restore_assets": {
+    "filename": "restore-overview02-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  }
+}

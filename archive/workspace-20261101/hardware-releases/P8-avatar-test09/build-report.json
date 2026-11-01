@@ -1,0 +1,309 @@
+{
+  "stage": "P8-avatar-test09",
+  "firmware_version": "2.2.6-p8-avatar09",
+  "hardware_function_test": "passed: user confirmed acceptance on 2026-10-31",
+  "partition_table_sector_sha256": "ce40cfe75056ef74bc052942f8a9ee3dce8e5e14ba17a6f63685a8fa0d11a23d",
+  "wake_validation": {
+    "models": [
+      "fst",
+      "mn7_cn"
+    ],
+    "wake_config": {
+      "language": "cn",
+      "duration": 3000,
+      "threshold": 0.2,
+      "commands": [
+        {
+          "command": "feng ye jing ling",
+          "text": "枫叶精灵",
+          "action": "wake"
+        }
+      ]
+    },
+    "srmodels_bytes": 2681351,
+    "assets_bytes": 5242378,
+    "assets_sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  "assets_validation": {
+    "count": 24,
+    "files": [
+      "angry.png",
+      "confident.png",
+      "confused.png",
+      "cool.png",
+      "crying.png",
+      "delicious.png",
+      "embarrassed.png",
+      "font_puhui_common_30_4.bin",
+      "funny.png",
+      "happy.png",
+      "index.json",
+      "kissy.png",
+      "laughing.png",
+      "loving.png",
+      "neutral.png",
+      "relaxed.png",
+      "sad.png",
+      "shocked.png",
+      "silly.png",
+      "sleepy.png",
+      "srmodels.bin",
+      "surprised.png",
+      "thinking.png",
+      "winking.png"
+    ],
+    "index": {
+      "version": 1,
+      "srmodels": "srmodels.bin",
+      "text_font": "font_puhui_common_30_4.bin",
+      "emoji_collection": [
+        {
+          "name": "angry",
+          "file": "angry.png"
+        },
+        {
+          "name": "confident",
+          "file": "confident.png"
+        },
+        {
+          "name": "confused",
+          "file": "confused.png"
+        },
+        {
+          "name": "cool",
+          "file": "cool.png"
+        },
+        {
+          "name": "crying",
+          "file": "crying.png"
+        },
+        {
+          "name": "delicious",
+          "file": "delicious.png"
+        },
+        {
+          "name": "embarrassed",
+          "file": "embarrassed.png"
+        },
+        {
+          "name": "funny",
+          "file": "funny.png"
+        },
+        {
+          "name": "happy",
+          "file": "happy.png"
+        },
+        {
+          "name": "kissy",
+          "file": "kissy.png"
+        },
+        {
+          "name": "laughing",
+          "file": "laughing.png"
+        },
+        {
+          "name": "loving",
+          "file": "loving.png"
+        },
+        {
+          "name": "neutral",
+          "file": "neutral.png"
+        },
+        {
+          "name": "relaxed",
+          "file": "relaxed.png"
+        },
+        {
+          "name": "sad",
+          "file": "sad.png"
+        },
+        {
+          "name": "shocked",
+          "file": "shocked.png"
+        },
+        {
+          "name": "silly",
+          "file": "silly.png"
+        },
+        {
+          "name": "sleepy",
+          "file": "sleepy.png"
+        },
+        {
+          "name": "surprised",
+          "file": "surprised.png"
+        },
+        {
+          "name": "thinking",
+          "file": "thinking.png"
+        },
+        {
+          "name": "winking",
+          "file": "winking.png"
+        }
+      ],
+      "multinet_model": {
+        "language": "cn",
+        "duration": 3000,
+        "threshold": 0.2,
+        "commands": [
+          {
+            "command": "feng ye jing ling",
+            "text": "枫叶精灵",
+            "action": "wake"
+          }
+        ]
+      }
+    }
+  },
+  "boot_volume": 85,
+  "baseline": "P8-avatar-test08 (user accepted)",
+  "android": "unchanged; use installed P8-test02 APK",
+  "avatar": {
+    "schedule_ms": 40,
+    "imu_sample_target_ms": 20,
+    "short_stall_neutral_ms": 500,
+    "smoothing_reset_ms": 2000,
+    "reference": "fixed vertical; no calibration",
+    "dead_zone_degrees": 1.5,
+    "full_travel_degrees": 25,
+    "smoothing_tau_ms": 80,
+    "gyro_lead": false,
+    "shake_threshold_g": 0.32,
+    "shake_axis_ratio": 1.15,
+    "shake_gap_tolerance_ms": 250,
+    "diagnostic_interval_ms": 2000,
+    "shake_rearm": "fresh gesture after animation completes; no quiet hold",
+    "single_tap": "surprised",
+    "double_tap": "happy",
+    "measured_device_fps": null,
+    "psram_canvas_bytes": 434312,
+    "renderer": "procedural RGB565 in LVGL, paused on map page",
+    "interaction": "fixed vertical gravity inclination, no learned neutral or gyro lead; idle single surprised / double happy; idle repeated horizontal shake -> one-shot dizzy; bounded tap/first-listen haptics with motor IMU suppression",
+    "source": "https://github.com/Trentct/m5stack-stopwatch-avatar",
+    "license": "AGPL-3.0-or-later"
+  },
+  "haptics": {
+    "strength_255": 160,
+    "pulse_ms": 45,
+    "imu_tail_ms": 180,
+    "request_expiry_ms": 150,
+    "off_retry_ms": 100,
+    "pwm_hz": 200,
+    "triggers": [
+      "confirmed idle tap",
+      "first listening per conversation"
+    ],
+    "physical_test": "passed: user-reported regression"
+  },
+  "left_button": "idle voice page starts automatic listening; map returns to voice only; other states ignore",
+  "speaking_rhythm": "planned; left-button request implemented first",
+  "source_files_sha256": {
+    "firmware/main/boards/m5stack-stopwatch/AVATAR-LICENSE.txt": "6f1e622c82a380075843bb084a7ec3b1f1d12a4a02526d75e78b0924a860aa75",
+    "firmware/main/boards/m5stack-stopwatch/AVATAR-NOTICE.md": "fd8179afca63869eaae10efb7de8ecad56bd5db3209ad1512adf31a45f62585c",
+    "firmware/main/boards/m5stack-stopwatch/avatar_display.cc": "9a5f9850e3d62b35bb180963b5cc276bcb2e9c3cec0616c0187a9d1d00a33223",
+    "firmware/main/boards/m5stack-stopwatch/avatar_display.h": "cb5b90b18d29bc71a4bbca73e9b20b4d73c4ef7c0536f380e2f5b82650525b3b",
+    "firmware/main/boards/m5stack-stopwatch/avatar_engine.cc": "533dd43453cbd6dd4e984c62d3d02b6cb098fffc2eaf4f3701717452067ea7fd",
+    "firmware/main/boards/m5stack-stopwatch/avatar_engine.h": "3429be7a92aba332c58f20f1527ab74eab026827b36c8f27e7058377af708a87",
+    "firmware/main/boards/m5stack-stopwatch/avatar_haptic.h": "31a8840257e1fcc609e466a57c8ffb40e4c763c1e50f2f661edaa64d60b357aa",
+    "firmware/main/boards/m5stack-stopwatch/avatar_input.h": "080ffd3d3ee6bae209e154805b5b47d3cb9d0b73aa452140064d86a23a65125b",
+    "firmware/main/boards/m5stack-stopwatch/avatar_shake.h": "4380b6489f656dfeaebf7f6875931c2ce89f2210da4d469eb580a83d47a4f65b",
+    "firmware/main/boards/m5stack-stopwatch/avatar_surface.h": "5b821ed5edbdcb7c75331841a3c4dbb71e4cf4c79d9aca5bba061fba8d5d1357",
+    "firmware/main/boards/m5stack-stopwatch/config.h": "be3335baa4accfd246abe362b1377bb0b66e32798c26d6c7dba103e48b5c783e",
+    "firmware/main/boards/m5stack-stopwatch/config.json": "ef863ac391314bef995a4e56a4c6f8dec38312754becabb19d6b733564926ac1",
+    "firmware/main/boards/m5stack-stopwatch/local_link_server.cc": "bbacab30652e874905b985bc0129e0b971db3569c8828724631c3f7d453f8afc",
+    "firmware/main/boards/m5stack-stopwatch/local_link_server.h": "e81b7b9e4c984da3c5e09b735a528ba6e64e5ce5b28dac53c7c2ed3aa49353aa",
+    "firmware/main/boards/m5stack-stopwatch/m5stack_stopwatch.cc": "cac34b33a3fe7dd78b04a3ef9798ea35a153505099bcef5f8851a4860f465cc3",
+    "firmware/main/boards/m5stack-stopwatch/map_frame.h": "c8cd2e5794e35fe5473041b85ba63ff3dbad6ffce2177602e64d2a4b3d22ef70",
+    "firmware/main/boards/m5stack-stopwatch/README.md": "eb01d530329e3cacbe5922bb6bd33e5081c1c9561fe8901cfc0f72194422f42b",
+    "firmware/main/boards/m5stack-stopwatch/route_frame.h": "185a3444577deef3b40baa6cae5b29b6f2931bdfc47ea8c0769df5cdf58e3a6e",
+    "firmware/main/boards/m5stack-stopwatch/stopwatch_haptics.cc": "3846668550785380dfdb8cd008d8b310290ca8bacc2d39560581300307fa4935",
+    "firmware/main/boards/m5stack-stopwatch/stopwatch_haptics.h": "093f2c324296a05f2e453be448e7e9c7abde3b16fe45280e7a2ac6ece58386d8",
+    "firmware/main/boards/m5stack-stopwatch/stopwatch_imu.cc": "df0c3657a524498db2b7ae491a6edbdc8c9afc950495967dc866317ea6f43291",
+    "firmware/main/boards/m5stack-stopwatch/stopwatch_imu.h": "84deb7cb886f5a4db30c04b8eaa609e1fa015100fc5ba97690520efb4c20807b",
+    "firmware/main/boards/m5stack-stopwatch/stopwatch_pages.h": "78b8dfc482202b9742fa9490ba22c9cda2147cf95e8ec340b69adb904473fe42",
+    "firmware/main/boards/m5stack-stopwatch/swipe_tracker.h": "f183da3cc50923363f9381bc98d7dac4ee9983c2ff27d58c6b14dc6b62d55bee",
+    "firmware/CMakeLists.txt": "b01565509d5a649b988b494a0f5e911d97659f9da21118eb7fc6295f291bed29",
+    "firmware/main/CMakeLists.txt": "c81981b85ae666c5348d31897f6f1e4776d7d9afbe4df57422bc0e7db20a0e69",
+    "firmware/main/application.cc": "362469e220369275e8a1f92b44a792af5b15406224420ad2f71726619ff3e881",
+    "firmware/sdkconfig.stopwatch": "751662aaeae197e2f5d040202f16627a32fca9185fcc7e3f25003db4bddda200",
+    "tools/package_avatar_button.py": "0f97da7c84f5ea46004873b585b431310d75bcfb21b9e0e7e006b6dd784b9992",
+    "tools/test_avatar.py": "d0aa1615831a71f9d66464f89bb328cda94dcb0f202481f37a825c2bbcf217b2",
+    "tools/capture_avatar_shake.py": "16d657abf42413f25af690dcd66d77bff998c969274031f12a0986e296c6510d",
+    "tools/test_release_guards.py": "1254989d23dc74e21e82ab861c47614d92e5f491d2552123e54ba29832edc15b",
+    "tests/p5host/avatar_haptic_test.cc": "77e2115ba70bca9fa28266046fa5298f62295ec05dc8c3705756bd3d2cae84d3",
+    "tests/p5host/avatar_test.cc": "321299a2347a601bca415f046545b9571042977940fc170be4e4acebf1ded652",
+    "tests/p5host/avatar_input_test.cc": "b715e451723bd7d4b184abed7217a5e1b3df2d4299e4ab501bd883caba67a844",
+    "tests/p5host/avatar_shake_test.cc": "a3469b9f5ce541414a50d17f9ac8b0a3ccb803ffadefbaf65c87f9cca3e664c5",
+    "tests/p5host/avatar_shake_probe.cc": "a50436ec653c3d6893f850f1086aed6b37902cac1c9cb19ff654a7407d57d1e1",
+    "tests/p5host/avatar_rearm_probe.cc": "80ebc473491a840748e3b297da3cd584272cd81aec2277ea8dd0601f49ff560b",
+    "firmware/dependencies.lock": "ba40595d769fe54a75d29cbc91a9e61edc4b74b4b8af62ed25bf013afb870573",
+    "firmware/main/idf_component.yml": "4e64e3899b4960f78e953adf007c671157b21cc1e3a5c311e66c10f7937284c9",
+    "docs/P8-震动与语音节奏开发顺序.md": "4a7a6dddb07f40ca05039277e5f8ba2f9e2006966ef399b61cca83b569f671eb",
+    "tests/p5host/CMakeLists.txt": "24a410ec786676fd00ba63bfdb4ecf00628954289a05256afd734132a43702cf",
+    "tests/p5host/lv_conf.h": "3953765d2f237b7845d3f8cf285eb641d690932a3ffc00057fa38a46cc1ddb41",
+    "docs/P8-avatar-test09-验收.md": "9f401489bc3e603c884016e2e84173013eb1b375af9da305b62ca06dd616129f"
+  },
+  "app": {
+    "filename": "p8-avatar-xiaozhi-app.bin",
+    "bytes": 3072960,
+    "sha256": "5d7ccc7f4f9d6d3df313e16b0b22ff5beca0f05fca4cb567cdbe61e8a87fc2ee"
+  },
+  "assets": {
+    "filename": "p8-avatar-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  "restore_app": {
+    "filename": "restore-P8-avatar-test08-app.bin",
+    "bytes": 3072512,
+    "sha256": "52d557fc93e6067c82d78c914d96e9c67be8abffcc6aa048ff59217dcd28a4a0"
+  },
+  "restore_assets": {
+    "filename": "restore-P8-avatar-test08-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  "package_support_sha256": {
+    "capture_avatar_shake.py": "16d657abf42413f25af690dcd66d77bff998c969274031f12a0986e296c6510d",
+    "flash_p8.py": "1917437f4358a8d8283cd093eea3068a53afc15a150d8db0b924a1fd61c31d98",
+    "left-button-change.diff": "66d650f35fa80a81a67971566ba176edbb796a94a31244bfd8b8281ae8b056e0",
+    "P8-avatar-test09-firmware-build.log": "26ffa93e7b6bad49dc9cbe177b8a796f60104fde3564f0c0ba88ca7250ae3389",
+    "P8-avatar-test09-host-build.log": "1613781c7f0d5e3c6df58080e72109dc6f35a713d5a37035e30c4a9851bc4f5d",
+    "P8-avatar-test09-host-tests.log": "68ea79fc9321706348f09b7aee8728f2dfa0d39b94efdec4a74163eaf7543ab6",
+    "P8-avatar-test09-package.log": "78b36c8307e37387ed3bc696b8edef86138b2c0246939668d7c9bc5cab6fe665",
+    "P8-avatar-test09-protocol-tests.log": "fc59034d5e3b1eb36b9546fac0fb5d4db029da51ca57e51b7e4e54520bb545ed",
+    "P8-avatar-test09-release-tests.log": "af5f0e355fce7d2ae2a92e2d0ca30629aa6500af9870d8888a1460546ea1cc7a",
+    "P8-avatar-test09-wake-tests.log": "2c6064a154d58994536a89146050a032b93ace27af153c884d106cd789f41f01",
+    "README-验收.md": "9f401489bc3e603c884016e2e84173013eb1b375af9da305b62ca06dd616129f",
+    "acceptance.json": "dd587fb198f73e37ed389e787676aeca86edcac95b15a87de1eed40156d930e8"
+  },
+  "validation": {
+    "firmware_build": "passed: ESP-IDF 5.5.2",
+    "host_tests": "passed: existing actual LVGL avatar, haptic, tilt/shake, page/map/route regressions",
+    "protocol_tests": "passed: production device protocol regression",
+    "wake_assets": "passed: maple wake configuration and unchanged packed resources",
+    "release_guards": "passed: 7 offline flash safety tests",
+    "source_and_binary_hashes": "passed: snapshot matches workspace; accepted test08 binary/source preserved; application, avatar, haptics and navigation cores unchanged",
+    "left_button": "passed: user-reported physical button and voice acceptance",
+    "rollback": "verified against accepted avatar08",
+    "device_flash": "user-installed; no agent flash performed",
+    "device_acceptance": "passed: user-reported, not independently measured"
+  },
+  "acceptance": {
+    "date": "2026-10-31",
+    "status": "passed",
+    "evidence": "用户反馈：验收通过，在倾听和思考的时候有没有特点表情对应？",
+    "evidence_type": "user-reported hardware acceptance",
+    "firmware_version": "2.2.6-p8-avatar09",
+    "app_sha256": "5d7ccc7f4f9d6d3df313e16b0b22ff5beca0f05fca4cb567cdbe61e8a87fc2ee",
+    "assets_sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f",
+    "items": [
+      "左键自动聆听",
+      "重复操作不结束对话",
+      "地图返回与切换",
+      "启动配网保护及唤醒词",
+      "表情震动导航回归"
+    ]
+  }
+}

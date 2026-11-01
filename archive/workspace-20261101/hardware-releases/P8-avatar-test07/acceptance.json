@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-31",
+  "status": "passed",
+  "evidence": "用户在当前对话反馈：全部测试通过，现在还有什么功能推荐加入？",
+  "evidence_type": "user-reported hardware acceptance",
+  "firmware_version": "2.2.6-p8-avatar07",
+  "app_sha256": "79fd2d64897849f63398697f86055788988ee27e1b0a64e6e6eaee2aae9bd6a6",
+  "assets_sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f",
+  "items": [
+    "不切页反复摇晃",
+    "持续摇晃与动画结束",
+    "单击惊讶与双击开心",
+    "对话优先",
+    "切页取消与避免误触",
+    "导航回归"
+  ],
+  "limits": "依据用户对本轮验收的反馈；未独立测量帧率、采样时序，不代表多设备或长期稳定性认证。"
+}

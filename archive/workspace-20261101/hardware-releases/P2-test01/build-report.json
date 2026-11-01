@@ -1,0 +1,174 @@
+{
+  "stage": "P2-test01",
+  "hardware_function_test": "passed_by_user",
+  "hardware_acceptance_date": "2026-10-27",
+  "hardware_acceptance_note": "User confirmed all five P2 acceptance items passed.",
+  "firmware_version": "2.2.6-p2-test01",
+  "android_package": "com.qixia.stopwatchnav",
+  "firmware_base_commit": "356541a94d6ea73f291388eb028a670e6c75f2f3",
+  "partition_table_sector_sha256": "ce40cfe75056ef74bc052942f8a9ee3dce8e5e14ba17a6f63685a8fa0d11a23d",
+  "assets_validation": {
+    "count": 24,
+    "files": [
+      "angry.png",
+      "confident.png",
+      "confused.png",
+      "cool.png",
+      "crying.png",
+      "delicious.png",
+      "embarrassed.png",
+      "font_puhui_common_30_4.bin",
+      "funny.png",
+      "happy.png",
+      "index.json",
+      "kissy.png",
+      "laughing.png",
+      "loving.png",
+      "neutral.png",
+      "relaxed.png",
+      "sad.png",
+      "shocked.png",
+      "silly.png",
+      "sleepy.png",
+      "srmodels.bin",
+      "surprised.png",
+      "thinking.png",
+      "winking.png"
+    ],
+    "index": {
+      "version": 1,
+      "srmodels": "srmodels.bin",
+      "text_font": "font_puhui_common_30_4.bin",
+      "emoji_collection": [
+        {
+          "name": "angry",
+          "file": "angry.png"
+        },
+        {
+          "name": "confident",
+          "file": "confident.png"
+        },
+        {
+          "name": "confused",
+          "file": "confused.png"
+        },
+        {
+          "name": "cool",
+          "file": "cool.png"
+        },
+        {
+          "name": "crying",
+          "file": "crying.png"
+        },
+        {
+          "name": "delicious",
+          "file": "delicious.png"
+        },
+        {
+          "name": "embarrassed",
+          "file": "embarrassed.png"
+        },
+        {
+          "name": "funny",
+          "file": "funny.png"
+        },
+        {
+          "name": "happy",
+          "file": "happy.png"
+        },
+        {
+          "name": "kissy",
+          "file": "kissy.png"
+        },
+        {
+          "name": "laughing",
+          "file": "laughing.png"
+        },
+        {
+          "name": "loving",
+          "file": "loving.png"
+        },
+        {
+          "name": "neutral",
+          "file": "neutral.png"
+        },
+        {
+          "name": "relaxed",
+          "file": "relaxed.png"
+        },
+        {
+          "name": "sad",
+          "file": "sad.png"
+        },
+        {
+          "name": "shocked",
+          "file": "shocked.png"
+        },
+        {
+          "name": "silly",
+          "file": "silly.png"
+        },
+        {
+          "name": "sleepy",
+          "file": "sleepy.png"
+        },
+        {
+          "name": "surprised",
+          "file": "surprised.png"
+        },
+        {
+          "name": "thinking",
+          "file": "thinking.png"
+        },
+        {
+          "name": "winking",
+          "file": "winking.png"
+        }
+      ]
+    }
+  },
+  "protocol": {
+    "version": 1,
+    "transport": "HTTP",
+    "port": 8765,
+    "max_body_bytes": 384
+  },
+  "android_tests": 9,
+  "firmware_host_tests": "valid fragmented echo, 15 rejection cases, lifecycle",
+  "rollback": "P1-test01, all five acceptance items passed by user on 2026-10-27",
+  "app": {
+    "filename": "p2-xiaozhi-app.bin",
+    "bytes": 2961888,
+    "sha256": "767f9e028cb031a101bc90b3f786b7c71e5aac7d62e64fd63f95aef5868b11c1"
+  },
+  "assets": {
+    "filename": "p2-xiaozhi-assets.bin",
+    "bytes": 2851767,
+    "sha256": "0cb9c556a0521281271937b2e48c078b01110be4ac81b6a1d173554bcb5ebc0e"
+  },
+  "restore_app": {
+    "filename": "restore-P1-app.bin",
+    "bytes": 2955104,
+    "sha256": "05c847ae6af8c151a138ee0727e6ef6a07fcfbcc6828954a5b62233c7bfc5631"
+  },
+  "restore_assets": {
+    "filename": "restore-P1-assets.bin",
+    "bytes": 2851767,
+    "sha256": "0cb9c556a0521281271937b2e48c078b01110be4ac81b6a1d173554bcb5ebc0e"
+  },
+  "apk": {
+    "filename": "maple-map-P2-test01.apk",
+    "bytes": 55162643,
+    "sha256": "d52fbbd51f7539da1090e0ac89f6e0be2fde91f6bfa0d147e345b440a6a46234"
+  },
+  "source_files_sha256": {
+    "firmware/sdkconfig.stopwatch": "9d12da0fe970cc4cd8c2b8d349c8c0d25f75311476ef629625a9a18e98f7c532",
+    "firmware/main/boards/m5stack-stopwatch/local_link_server.cc": "632e7054ae625e3a766ede591c602943528c8c8397b742df75ee993700a3a458",
+    "firmware/main/boards/m5stack-stopwatch/local_link_server.h": "b36c89ca72b4dc7179f031660d780d52da6c9a93466bd21dfa35a2cf61819fe3",
+    "android/app/build.gradle.kts": "da87e823fe12903144241e16e6df2aef4b72a1ecf80fa04ea26073045a7b57b2",
+    "android/app/src/main/AndroidManifest.xml": "e52c50875d261814b5402448bb55c12f75085fa2390816d90e7fe37760893174",
+    "android/app/src/main/res/values/strings.xml": "d0b985ec04fe579469e8a42b4d3b1459525ea31f3d2bf9d1b46e06dcbfe38c36",
+    "android/app/src/main/java/com/example/motonav/LocalLinkClient.kt": "ef1286ec9adb5aca6f37fd2e939b688276664cc386476b60a6633b39cd55fc2f",
+    "android/app/src/main/java/com/example/motonav/LocalLinkActivity.kt": "bf6840ecbb1d66258c9fbef137f3604743b5b902358496b35e91c6d705a6df9f"
+  }
+}

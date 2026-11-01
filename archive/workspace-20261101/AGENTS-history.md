@@ -1,0 +1,168 @@
+## Server MCP restored — 2026-11-01
+- User subsequently requested restoring server MCP and disconnecting local knowledge. Completed: local knowledge-cloud/knowledge-stdio processes stopped (verified zero remaining); qixia-mcp.service active with WSS connection established, qixia-guide.service remains active with unchanged PID. Do not restart local MCP unless explicitly requested.
+- The temporary local-mode implementation below is retained but no longer running. Do not confuse historical local tool discovery/voice calls with verification after the server restoration.
+
+## Temporary local knowledge MCP — 2026-11-01 (ended)
+- User previously chose stopping server MCP temporarily and using this PC's latest knowledge pack. That temporary switch has now ended; server MCP is restored as above. Never run both bridges on the same endpoint.
+- Local knowledge-cloud/knowledge-stdio/knowledge-tools use qixia-deepseek-v2.1 without trip binding. Actual WSS initialize, tools_list(2) and successful cloud qixia_trip_ask call observed; 11 knowledge/MCP tests passed; physical spoken-answer acceptance pending. No firmware flashing or Git publication in this task.
+- Machine controller: .local-work/local-knowledge/manage.ps1 (Status/Start/Stop/RestoreServer), private endpoint and logs alongside it. SSH uses existing encrypted Codex identity plus pinned host. See docs/operations/local-knowledge-mcp-20261101.md. Server reboot can restart original MCP; local network failure requires manual Start.
+
+## Production cloud navigation — 2026-11-01 cloud02-r15
+- User explicitly authorized deploying this branch's frontend/backend/MCP for testing. Production now 0.5.2-20261101-cloud02-r15, rollback kb-r14; see docs/operations/deployment-20261101-cloud02-r15.md. Do not confuse server deployment with firmware flashing.
+- Preserve shared/travel-data and private config. Original 16 trips/19 chats/5 jobs and binding digest unchanged. Two consistent SQLite backups and private rollback.sh retained. Native physical watch pairing requires P9-cloud02; old overview02 cannot obtain the new code.
+- Google official Chrome installed, sandbox enabled; production map rendering verified. Local/Linux backend80, frontend44/Sites4/build, staging12/public12 and public map/route/ACK/pause passed. Browser route page and map checked; phone GPS/device voice/TLS/physical display pending.
+- MCP main-entry guard must realpath argv to support current symlink. Do not regress to string equality against unresolved argv. Actual WSS/initialize/tools_list(4) observed; real bridge context read passed; no new physical voice test claimed.
+- Push deployment fix/record only to release/web-watch-cloud02-20261101, never main. Existing encrypted Codex SSH identity and pinned host remain the authorized connection on this machine.
+
+## Current branch publication — 2026-11-01 cloud02
+- User authorized publishing all current frontend/backend/hardware work to a repository branch and requested deployment/testing handoff. Use release/web-watch-cloud02-20261101; never push main or deploy/flash by inference.
+- Branch includes latest autumn UI/timeline/history changes, native unified pairing, backend maps, actual latest firmware source imported from D:/Study/yiqifen/stopwatch-nav, optional overview01 Android sources, and only the verified P9-cloud02 binary distribution with overview02 rollback (distributions/, not historical releases/).
+- Team handoff: docs/handoffs/web-watch-cloud02-20261101.md. Secrets, .local-work data, signing keys, dependencies and caches remain excluded. Source publication does not mean production or real-device acceptance.
+- Old source folders and their local edits stay intact. Imported current hardware is now intentionally updated in this branch; older prohibition against overwriting the historical copy is superseded by this explicit whole-project publication request.
+
+# Project workflow
+
+## Production knowledge update — 2026-11-01 kb-r14
+- User requested replacing the old project KB with 问枫枫_DeepSeek知识包_v2.1. Production now 0.5.2-20261101-kb-r14, rollback ui-r13; see docs/operations/deployment-20261101-kb-r14.md.
+- Web chat and Xiaozhi qixia_trip_ask share qixia-deepseek-v2.1 (213 records, 29 POIs, 53 facilities), full-context 01+02 once. Runtime no longer loads v1; old folder is historical. Real navigation still overrides KB estimates; current_data_required remains unconfirmed.
+- Frontend only regenerated knowledge text (JS index-uzWgNhEn.js), no UI/route/photo changes. Linux69 + frontend38, staging12/public11 passed, including actual DeepSeek questions. No new physical voice test claimed.
+- Shared data preserved (16 trips/17 chats/5 jobs), MCP PID and global binding unchanged; actual bridge read authorized, established socket observed. Bound trip is completed. Runtime baseline manifest is kb-runtime-manifest.json. Continue branch-only; never push main.
+
+## Production deployment — 2026-11-01 ui-r13
+- User accepted the selective frontend restoration and explicitly authorized public deployment. Production is now 0.5.2-20261101-ui-r13, rollback photo-r12; see docs/operations/deployment-20261101-ui-r13.md.
+- Web and backend deployed together, including /api/v1/trips/from-selection. JS index-CMHjK11e.js, CSS index-CoXqW1vl.css. Linux65 backend tests and staging/public17 checks each passed; local103 tests and13 browser flows were already accepted.
+- Existing shared/travel-data preserved and backed up. qixia-mcp.service stayed running on mcp-r2; bridge authorization/read succeeded, established socket observed, global binding unchanged. Existing bound trip was completed; a new trip needs pairing. Do not claim new physical voice verification.
+- Branch-only policy remains. Never push/merge implementation changes to main without explicit new authorization. Keep original fixed report/PNG and local JournalPage; do not reenable the rejected photo module.
+
+## Selective frontend restoration — 2026-10-31
+- Latest user whitelist keeps server chat/about/history notice, temple immersive tags/experience/archive/mobile optimizations, active tour controls/map/location/navigation text/sync/recovery/pairing, server trip history/deletion, engineering/styles/assets. Restore all other frontend behavior to baseline 05398bb, including card add/remove, chat draft adoption, original preset wizard/filtering, personal route editing/planning, fixed ReportPage and PNG export. Keep JournalPage unchanged.
+- Active entry is RoutePage with shared ServerTourControls, not ServerRoutePage/ServerPresetRoutePanel. ServerMemoryPage/PhotoStudioPage remain inactive history; no new photo development. Historical trip details use ServerTripRecord without model-summary/TXT controls.
+- Minimal backend compatibility POST /api/v1/trips/from-selection recreates routes with the existing server road planner; never trust browser geometry. This connects restored personal-route UI to the retained authoritative trip, location and Xiaozhi tools.
+- Continue only on codex/full-implementation-photo-r12. This round is source/local-preview work; production remains photo-r12 until a separate deployment. See docs/operations/frontend-selective-restoration.md.
+
+## Current publication authorization — 2026-10-31
+- Latest user instruction: publish ONLY to `codex/full-implementation-photo-r12`, not main. The initial main push completed before this correction arrived; it was reverted with a normal commit, restoring the exact original main tree. Further implementation changes belong on this branch. Do not push or merge implementation changes to main without new explicit authorization.
+- User explicitly requested publishing the complete current frontend, backend and supporting implementation to WuJiaxuan1/ai-tour-guide-device. Commit/push and normal GitHub authentication are authorized for this task; historical no-push notes below are superseded for this publication.
+- Keep photo-r12 behavior unchanged. Exclude credentials, personal photos, SQLite/runtime data, node_modules and generated builds. Preserve existing repository history, hardware and modeling files. Do not redeploy production as part of source publication.
+- Canonical project is this directory; use its .local-work for temporary files. Old machine paths and release-specific deployment helper paths below are historical. README and docs/operations/current-release-setup.md describe reproducible setup.
+
+## Current user decision and deployment — 2026-10-31 photo-r12
+- User rejected the photo-layout result and explicitly requested restoring the original demo and NO further improvements to this module. Do not resume photo development without a new explicit user request.
+- Production photo-r12 restores unchanged JournalPage at My Route > 专属手账 (local preview, fixed original card). PhotoStudioPage is inactive; new photo upload/generate POST endpoints return410; existing stored photos/read/download/delete remain, no user data deleted. Other modules/MCP preserved.
+- Local62 backend +36 frontend/build, Linux62 backend,8 staging and8 public rollback checks passed. JS index-Dklwdpot.js, CSS index-CoXqW1vl.css. Read docs/operations/deployment-20261031-photo-r12.md. No Git push.
+
+
+## Current update — 2026-10-31 photo-r11
+- Production photo-r11, rollback photo-r10. Fixes valid 8192x5464 camera JPEG rejected by the old24MP cap. Cap now60MP with explicit dimensions error, bounded decoding/1600px processing;8MB byte limit unchanged.
+- User original tested locally and outputs visually checked, personal image never included in source/assets. Synthetic same-size image passed server62 backend tests and15 staging/public checks; local62+36 tests/build passed. User phone retest pending.
+- Read docs/operations/deployment-20261031-photo-r11.md. Current JS index-DwVh9WWD.js; keep shared data/pairing and latest cumulative patch. Fonts still photo-r10-assets.zip.
+
+
+## Current update — 2026-10-31 photo-r10
+- Production is 0.5.2-20261031-photo-r10, rollback memory-r9. Read docs/operations/deployment-20261031-photo-r10.md and architecture/backend/14-independent-photo-craft.md.
+- User chose independent photo creation without a route. Real photo layout, card and transparent framed photo PNG, server gallery, retry/download/delete are deployed. No AI redrawing/subject removal/image provider is claimed. MCP pairing unchanged.
+- 61 backend + 36 frontend checks and build passed; 61 Linux backend, 14 staging and 14 public API checks passed; 3 extra public upload-size checks passed after exact photo endpoint Nginx limit was set to 8m (others128k). Linux output visually checked. Browser page QA blocked by auto-review; phone acceptance pending.
+- Memory-r9 user feedback still pending, immersive accepted. Live maple/activity deferred. No Git push. Handoff now also requires photo-r10-assets.zip for the server font and package lock/dependency changes.
+
+
+## Current update — 2026-10-31 18:40 CST
+- Production now memory-r9 (r8 backend plus final legacy-export frontend fix). Direct rollback memory-r8; pre-memory fallback immersive-r7. Read docs/operations/deployment-20261031-memory-r8.md.
+- Item 4 travel memory is implemented/deployed: explicit note interests, channel/pause counts, immersive choices, snapshot/stale summary, pending-job coalescing, full text export and history. 92 local checks; 56 server checks; 14 staging/public real-model checks on unchanged r8 backend; final r9 4 staging/public read-only checks. User device acceptance pending for memory only.
+- User confirmed item 3 immersive-r7 actual tests passed. Next item after memory acceptance is photos, with no image provider; no independent proactive speech or dynamic info work authorized by inference.
+- Shared data/pairing preserved, no Git push. Existing cumulative patch and immersive-r7-assets.zip remain the handoff pair.
+
+
+## User acceptance and next item — 2026-10-31
+- User confirmed immersive-r7 real-device tests passed, including mobile performance and query-time hints. Do not continue listing this round as awaiting user acceptance.
+- Original ordered plan item 4 is now active: validate/improve travel memory, actual visits/time, voice notes, web interactions, immersive choices, text download and history reopening. Photo creation is item 5 (no image provider yet); live maple/activity remains deferred.
+
+## Current update — 2026-10-31 18:18 CST
+- Production is immersive-r7, stable fallback immersive-r6. Read docs/operations/deployment-20261031-immersive-r7.md. 87 local checks, 53 server checks, staging/public each 15 passed. Shared data/pairing preserved, no Git push.
+- User reported mobile lag; mobile backgrounds, staged image loading, reduced full-screen effects and immediate post-commit response are implemented; real-phone performance acceptance pending.
+- User prefers query-time hints: fresh temple proximity adds a short hint to location/next-stop answers even after web dismissal; completed experience suppresses it. navigation-context.immersive_hint and guidance carry the hint for MCP. No device-push capability claimed.
+- Latest handoff assets are immersive-r7-assets.zip; retain r6 as historical.
+
+
+## Current update — 2026-10-31 17:49 CST
+- Website/backend is `0.5.2-20261031-immersive-r6`; stable fallback navigation-r5. Shared data and mcp-r2 preserved; no Git commit/push. Read docs/operations/deployment-20261031-immersive-r6.md.
+- User supplied immersive-demo and authorized web-first integration while device firmware is unknown. Team temple story is integrated; only temple scenic cards and routes containing temple have pills. Active/fresh proximity prompts once per trip; choices/completion persist. Original input preserved.
+- 83 local tests/build, 52 server tests and 12 staging plus 12 public API checks passed. Real browser visual/hold/audio checks were blocked by computer-use URL verification; no workaround used. User phone/device acceptance pending.
+- Proactive device speech remains not_connected. Query-triggered travel answers can mention pending experience. See docs/architecture/backend/12-immersive-device-delivery.md; do not equate MCP tools with a TTS push channel.
+- Source handoff includes cumulative text patch AND immersive-r6-assets.zip under workspace docs/artifacts; shared module and public HTML/JS/CSS/WebP/WAV must survive UI merging. Do not overwrite teammate changes.
+
+## Current session update — 2026-10-31 14:54 CST
+- User authorized deployment and continued frontend logic changes. Production current is now `0.5.2-20261031-trip-r1`; see `docs/operations/deployment-20261031-trip-r1.md` before touching the server. Preserve old release and shared/travel-data.
+- This workspace uses the user-authorized encrypted Codex SSH identity and pinned host keys via workspace-root scripts; older Macaroon/wujiaxuan/F-drive entries below refer to another machine and are historical.
+- UI remains under active development. Preserve the new /api/v1 adapters and authoritative server trip state when merging layout work. No Git commit/push was made.
+- Xiaozhi platform discovered five new tools; physical voice verification is pending. The new webpage supports an 8-digit code issued by qixia_pairing_code. Image provider and proactive speech remain unconnected.
+- Subsequent user confirmation on 2026-10-31: physical voice pairing succeeded and Xiaozhi's next stop matched the website. Mark only pairing and next-stop query as physically verified; other voice/location operations and long-term stability remain unverified.
+
+- Edit the canonical project in place. Do not create a separate GitHub publication copy or mirror the full project for routine edits.
+- The user wants to learn GitHub uploading personally. Provide file selection and step-by-step instructions; do not push, publish, create remote commits, or run authentication on their behalf unless they explicitly request that action later.
+- Put project-specific temporary output under this project's .local-work/ on F drive. Avoid writing project intermediates to the C-drive chat workspace.
+- Preserve useful missing versions under the existing modeling/frontend/docs organization, check bytes before removing duplicate working files, and remove disposable intermediates when finished.
+- Codex shared runtime caches, original user attachments, chat history and synced sources are separate from project working files; do not delete or relocate them as routine project cleanup.
+
+## SSH identity decision — 2026-10-30
+- Use the original wujiaxuan key at C:/Users/Macaroon/.ssh/ai-tour-guide_ed25519 for this project. The user rejected and requested deletion of the separately generated Codex identity; do not regenerate or select it.
+- Activate project-files/team/server/ssh-operation-logging/SKILL.md for SSH work. Private connection settings and pinned host metadata are in .local-work/operations/active-identity.json, ignored by Git.
+- RSA host identity was matched against both user-supplied randomart diagrams. Existing wujiaxuan public key was accepted by the server; an encrypted private key still requires local unlocking. Do not ask the user to paste its passphrase into chat or logs.
+
+## Next continuation reminders — 2026-10-30
+- At the next continuation of this project, remind the user to supply the finalized preset routes (including point IDs, entrance/exit, road geometry, distance/time matrix and fixed report metrics) and the completed scenic interactive easter egg. The user requested next-conversation reminders, not a timed automation.
+- All route-planning strategy follows docs/meetings/南客松第二次会议纪要.md. Preset route definitions are still being decided by the team. Do not independently finalize new routes or continue expanding the live route optimizer while waiting.
+- Scenic interactive easter egg is being developed elsewhere by the team. Do not replace it with another implementation; await the finished page and integration details.
+- Voice-provider replacement, independent photo-to-sticker service, generative text-agent integration and watch navigation acknowledgements remain unresolved; bounded local knowledge integration is implemented in 0.4.0; public deployment and IPv4 HTTPS 443 are resolved.
+- The user accepts the proposed mobile header, sticky category map, card/map highlighting, GPS repair and neutral-copy directions, and explicitly authorized implementation after the planning discussion, prioritizing the supplied knowledge base.
+- The next report should use fixed configuration metrics until the user supplies preset-route values. It belongs under My Route as a separate report view, while photo-to-sticker remains independent of trips.
+- Added planning requests: toggle selected stops off consistently across cards/detail/chat/facilities; fixed entrance/exit selectors; facility selected-state feedback; improved stay-duration picker; remove the arbitrary 8-place product-selection limit while coordinating route service capacity with the preset engine.
+- Root 11_后端接入说明.md is a reference proposal with older live-routing/2-to-8-place assumptions, conflicting with the meeting strategy. Do not treat those assumptions as user overrides. Review its POI ID mapping and time-budget details during the later team integration.
+
+## Latest handoff and unresolved integration findings — 2026-10-30
+- Read docs/handoffs/project-handoff-20261030-v0.4.0.md when continuing in a new chat. It covers the full frontend timeline, current knowledge limitations, backend/watch contracts and user-run Git Bash upload steps.
+- The website is deployed as 0.4.0, but its source changes remain uncommitted locally. Do not mistake deployment for Git publication.
+- Cold public mobile loading measured about 3.43 MB/30 resources, a 10.73s photo, uncompressed JS/CSS and no explicit static cache policy; the 2.9MB illustrated fallback is especially heavy. Performance is diagnosed, not optimized yet. Do not treat offscreen lazy images as failed requests.
+- stopwatch-nav/firmware contains its own .git and uncommitted/custom untracked navigation code. Do not stage it as a gitlink and claim the outer repository contains complete hardware sources. Preserve its history/work before a separately agreed monorepo/submodule integration.
+
+## 0.5.0 continuation corrections — 2026-10-30
+- The older uncommitted-0.4 statement is historical: current HEAD is 91317a5, the user's 0.4.0 release commit. This task makes no commits/pushes. Preserve unrelated untracked hardware and history.
+- Official source documents were moved byte-identically to docs/requirements/official-routes/official-shuttle-and-routes-v1.0.md and official-route-filter-matrix-v1.0.csv; original root copies were removed with user approval.
+- Eight documented route sequences and eleven observed filter combinations are now ingested. They are browseable, not navigation-ready: verified road geometry/matrix and some place mappings remain missing. Preserve R05 count discrepancy and R06 missing return.
+- User intends to reuse Xiaozhi. Do not choose another model provider or claim the web text transport is connected. Bounded multi-turn retrieval uses client history/context, not a shared unauthenticated server session store.
+- Responsive images are generated by frontend predev/build and ignored by Git; never delete original source photos. Font first-screen subsets are checked in with full on-demand fallback; regeneration is explicit.
+- Continue from docs/handoffs/project-handoff-20261030-v0.5.0.md for validation, deployment and remaining contracts.
+
+## Latest deployment — 2026-10-31
+- The user's latest working-tree frontend and road service are deployed as `0.5.0-20261031-r2`; see docs/operations/deployment-20261031.md. Previous release `0.5.0-20261030-r1` is retained. Package version remains 0.5.0; identify this deployment by release ID/assets.
+- R02 has saved real road geometry; personal selections request real walking roads. Earlier statements that all routes lack geometry describe the older snapshot. Six official names remain without confirmed coordinates; preserve explicit failures and R05/R06 discrepancies.
+- Build, 49 automated tests, staging verification, 18 public browser UI checks and 8 public live-service checks passed. GPS was simulated, not a real-phone acceptance test. Xiaozhi remains disconnected; journal is a local fixed-card experience.
+- No Git commit/push was made; HEAD remains 91317a5. Original SSH identity used, temporary deployment agents closed. Private receipt: .local-work/operations/verification-20261031-r2.json.
+
+## Current update — 2026-10-31 16:07 CST
+- Website deployed as 0.5.2-20261031-history-r2; see docs/operations/deployment-20261031-history-r2.md. MCP stays mcp-r2, shared data preserved.
+- User confirmed physical arrival-state sync, Mingjing Lake guide, and voice note reflected in memory. Field GPS/ETA, proactive voice and image generation remain unverified/unconnected.
+- History/record deletion is implemented; preserve ServerHistoryPage and deletion API during UI edits. No Git commit/push.
+
+## Current update — 2026-10-31 16:30 CST
+- Website/backend now 0.5.2-20261031-location-r3; see docs/operations/deployment-20261031-location-r3.md. Preserved shared data and MCP mcp-r2. No Git commit/push.
+- Real AMap reverse geocoding is connected; navigation-context location.address and the active route page expose a guarded approximate address. Freshness/accuracy checks still apply; field/device acceptance pending.
+
+## User decisions after location-r3
+- User confirmed all supplied location physical tests passed; next authorized item is navigation Q&A.
+- Defer live maple/activity sourcing and Q&A. Await teammate immersive page; do not replace it. No server image provider yet; photo-card processing must not be claimed as AI sticker redrawing.
+
+## Current update — 2026-10-31 17:12 CST
+- Website/backend now 0.5.2-20261031-navigation-r5. Read docs/operations/deployment-20261031-navigation-r5.md; r4 was rolled back after clock-skew failure, do not use r4 as rollback target. Stable fallback is location-r3.
+- Navigation guidance is shared by web/chat/MCP context. Pause/resume/new-fix lifecycle, completed next_stop=null, off-route streak and remaining metrics are implemented. 79 local checks; 51 server checks and 10 staging/public checks passed. Device navigation acceptance pending.
+
+## Local StopWatch cloud navigation — 2026-11-01
+- User requested migrating Android navigation work to the project backend, based on confirmed firmware 2.2.6-p8-overview02. First local release is 2.2.6-p9-cloud01; see docs/operations/watch-navigation-p9-cloud01.md.
+- Frontend browser remains GPS source. Backend renders official AMap SDK overview maps and next-stop roads, QRTE/QMAP v4 plus position/progress. Watch polls outbound using a trip-scoped 12-hour device session; do not claim public servers can directly reach hotspot IPs.
+- Latest hardware source is D:/Study/yiqifen/stopwatch-nav, release P9-cloud01 with overview02 rollback. Do not overwrite canonical repo's historical hardware copy or claim it already contains the new source.
+- Local backend/HTTP/real-map/production-parser/firmware build checks passed; physical flash, device networking/GPS and production deployment remain pending. No push or deployment authorization is implied by this local implementation.
+- Preserve existing unrelated in-progress frontend history/report/services changes in this shared worktree. Xiaozhi voice pairing and watch-map credentials remain distinct in this first version.
+
+## Unified voice/watch pairing — 2026-11-01 P9-cloud02
+- User rejected stopwatch-navigation.json downloads and the separate 同步到手表地图 section. Keep only DevicePairing; a native self.qixia.get_pairing_code issues a watch-associated code, and the existing web pairing action binds voice context and watch navigation together.
+- P9-cloud02 supersedes cloud01 daily setup. Remove qixia_pairing_code from bridge tool discovery; deployment needs bridge refresh plus new firmware, not just frontend changes. Default server origin requires valid trusted TLS. See docs/operations/watch-navigation-p9-cloud02.md.
+- Still single-agent/single-demo-device global binding; 12-hour validity, one-time 5-minute code, hashed private claim tokens, watch-only API scope. No multi-user support implied. Preserve other local edits and production data. Local implementation only; no push/deploy/flash performed.
