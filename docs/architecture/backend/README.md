@@ -13,8 +13,8 @@
 - `06-api-and-module-contracts.md`：API 清单、示例、模块交互规则
 - `07-knowledge-and-trust.md`：知识库导入、来源、核验与行中讲解规范
 - `08-security-privacy-errors.md`：权限、定位隐私、模型工具安全和异常降级
-- `09-development-testing-acceptance.md`：目录、编码、测试、验收和启动要求
-- `10-plan-roles-decisions.md`：任务分工模板、2–3 天计划、决策记录
+- `../../project/development-testing-acceptance-proposal.md`：目录、编码、测试、验收和启动要求
+- `../../project/plan-roles-decisions-proposal.md`：任务分工模板、2–3 天计划、决策记录
 
 ## 使用前请团队确认
 1. 将路线和景点演示数据替换为已核验资料。

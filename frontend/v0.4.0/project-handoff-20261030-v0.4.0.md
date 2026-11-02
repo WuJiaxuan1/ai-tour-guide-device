@@ -10,7 +10,7 @@
 
 ```text
 继续 F:\coding_projects\ai-tour-guide-device。
-先读 AGENTS.md、docs/handoffs/project-handoff-20261030-v0.4.0.md、
+先读 AGENTS.md、frontend/v0.4.0/project-handoff-20261030-v0.4.0.md、
 frontend/AGENTS.md、frontend/CHANGELOG.md、第二次会议纪要。
 线上已经是0.4.0，但本地0.4修改尚未提交Git，不能reset/clean或覆盖。
 优先处理网页慢加载，以及问枫枫只有规则检索、缺少多轮智能体的问题。
@@ -74,7 +74,7 @@ ai-tour-guide-device/
 
 建模 `v00–v05` 是顺序工程版本；AI意向图 `v1.0–v5.0` 是另一组图号。可编辑.blend/脚本/参数与exports导出网格用途不同，delivery为交付整理，gcode为具体机器任务。
 
-前端始终在一个frontend目录开发，版本通过Git提交/分支/标签及CHANGELOG记录，没有每次复制v01/v02。软件0.1–0.4不等于每句话都提交过。旧工作文件在 `docs/history/frontend-workfiles-20261029/`，存在qixia-frontend、full-guide、ui-polish等快照，但不能保证全部独立可运行。
+前端始终在一个frontend目录开发，版本通过Git提交/分支/标签及CHANGELOG记录，没有每次复制v01/v02。软件0.1–0.4不等于每句话都提交过。旧工作文件在 `frontend/workfiles-20261029/`，存在qixia-frontend、full-guide、ui-polish等快照，但不能保证全部独立可运行。
 
 ## 3. 前端从开始到0.4.0改了什么
 
@@ -308,7 +308,7 @@ Node22服务 `qixia-guide.service`，仅监听127.0.0.1:18787；Nginx443，2500�
 
 游客安卓/iOS网页统一Web JS Key；后端Web服务Key；原生Android Key还要求包名/签名SHA-1。已GCJ02不能再转，卡片直线距离不等于步行距离，栖霞区天气不等于景区传感器。
 
-SSH必须先读 `project-files/team/server/ssh-operation-logging/SKILL.md`。用原身份 `C:/Users/Macaroon/.ssh/ai-tour-guide_ed25519`（wujiaxuan）；另一个Codex钥匙已按用户要求删除，不能重新生成。主机RSA SHA256为 `5OF28RSeYDMCf99Y1o7D0ItPOcn1s1xp2SR3A89D44g`，严格验证，不能自动接受变化。
+SSH必须先读 `tools/skills/ssh-operation-logging/SKILL.md`。用原身份 `C:/Users/Macaroon/.ssh/ai-tour-guide_ed25519`（wujiaxuan）；另一个Codex钥匙已按用户要求删除，不能重新生成。主机RSA SHA256为 `5OF28RSeYDMCf99Y1o7D0ItPOcn1s1xp2SR3A89D44g`，严格验证，不能自动接受变化。
 
 密码只在本机Unlock wujiaxuan SSH key遮罩窗口输入；不发聊天、不保存。最近一次已解锁并发布0.4，随后临时agent关闭；旧deployment-agent.json不是仍可用的证明。私人工具/日志在.local-work/operations，操作前记录，结束检查双流/退出码/哈希，不公开发布。
 
@@ -390,7 +390,7 @@ git switch -c release/frontend-0.4.0
 ```bash
 git add frontend/src frontend/tests frontend/package.json frontend/package-lock.json frontend/README.md frontend/CHANGELOG.md frontend/AGENTS.md
 git add backend/src backend/data backend/scripts backend/tests backend/knowledge backend/package.json backend/README.md
-git add docs/handoffs docs/requirements/visitor-update-0.4.0-20261030.md docs/architecture/backend docs/operations/deployment-20261030.md AGENTS.md
+git add docs/project docs/requirements/visitor-update-20261030-v0.4.0.md docs/architecture/backend docs/operations/deployment-20261030.md AGENTS.md
 git diff --cached --stat
 git diff --cached --check
 git diff --cached --name-only -- .env.local .local-work project-files stopwatch-nav
@@ -533,9 +533,8 @@ node --test frontend/tests/*.test.mjs backend/tests/*.test.mjs
 
 ## 15. 资料入口与未知内容
 
-先读frontend/CHANGELOG，docs/requirements/visitor-update-0.4.0-20261030.md，第二次会议纪要，知识包README/11号说明，docs/architecture/backend/03/06/07号，stopwatch-nav/docs/硬件端-当前功能介绍.md与P7-test07/P7协议，docs/operations/deployment-20261030.md。
+先读frontend/CHANGELOG，docs/requirements/visitor-update-20261030-v0.4.0.md，第二次会议纪要，知识包README/11号说明，docs/architecture/backend/03/06/07号，stopwatch-nav/docs/硬件端-当前功能介绍.md与P7-test07/P7协议，docs/operations/deployment-20261030.md。
 
 旧navigation-integration.md仍有“手表GPS”“未公网部署”等旧段落，以本交接和新工程为准，不按旧段落回退。
 
 曾提供飞书 https://feishu.doubao.com/docx/WFrBdPrYWoUwpCxQrJfcCsJSnT9 ，交接时工具读取不可达；不能保证本文包含未落本地/对话的飞书内容。需可读导出后补，不编造。
-

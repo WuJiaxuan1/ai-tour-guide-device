@@ -61,7 +61,7 @@ FIRST_CLIP_V05_MODELS.3mf 保存六个零件的模型和摆放，本身不含切
 (D/'先读这个_第一盘打印说明.md').write_text(readme,encoding='utf-8')
 manifest={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in D.iterdir() if p.is_file() and p.name!='MANIFEST_SHA256.json'};(D/'MANIFEST_SHA256.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')
 assert manifest['CLIPV05.gcode']==checks['sha256']
-zpath=R/'MegaS_First_Clip_Test_v05.zip'
+zpath=R/'MegaS-First-Clip-Test-v05.zip'
 with zipfile.ZipFile(zpath,'w',zipfile.ZIP_DEFLATED) as z:
  for p in sorted(D.iterdir()):
   if p.is_file():z.write(p,'01-first-clip-tests/'+p.name)

@@ -55,7 +55,7 @@ MANIFEST_SHA256.json：文件校验值。
 '''
 (D/'主体精细打印说明.md').write_text(guide,encoding='utf-8')
 manifest={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in D.iterdir() if p.is_file() and p.name!='MANIFEST_SHA256.json'};assert manifest['BODY008.gcode']==report['sha256'];(D/'MANIFEST_SHA256.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')
-zpath=R/'MegaS_Body_Fine_008_v05.zip'
+zpath=R/'MegaS-Body-Fine-008-v05.zip'
 with zipfile.ZipFile(zpath,'w',zipfile.ZIP_DEFLATED,compresslevel=5) as z:
  for p in sorted(D.iterdir()):
   if p.is_file():z.write(p,'02-body-fine-008/'+p.name)

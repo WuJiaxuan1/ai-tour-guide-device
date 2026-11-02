@@ -1,17 +1,27 @@
-# Current project handoff — 2026-11-01
+# Project workflow
 
-Read docs/handoffs/PROJECT-STATE-20261101.md and docs/handoffs/AI-RESUME-PROMPT.md first. This file supersedes the chronological notes preserved in archive/workspace-20261101/AGENTS-history.md.
+## Project and versions
 
-- User ended this phase and authorized workspace archival and GitHub publication to release/web-watch-cloud02-20261101 only. Do not merge/push main, redeploy, flash hardware, restart MCP or delete the workspace as part of archival. User will back up secrets and delete locally themselves.
-- Production https://43.160.252.245/ remains 0.5.2-20261101-cloud02-r15, commit f7e59eeef719163414a95860cbdce200b84d1b5f. Archive commits are not a deployment. Read-only inspection found 108 corresponding backend/shared/script files identical after normalizing line endings; 13 server-only historical verification scripts are separately archived.
-- qixia-guide.service and qixia-mcp.service are active. Local knowledge MCP is stopped. Never start another bridge on the same production MCP_ENDPOINT. knowledge-*.mjs is an optional, inactive local mode without trip binding.
-- User reports the current task finished; do not infer that unresolved physical pairing was fixed. P9-cloud02 has a local flash/readback success receipt, but code acquisition returned preparing. WSS connection, desktop API checks and compilation are not physical voice/map acceptance.
-- Production MCP has qixia_trip_context/ask/note/confirm_visit. cloud02 removed old qixia_pairing_code; native self.qixia.get_pairing_code asks the watch to POST /api/v1/watch/pairings and retain a private claim token. This is a design choice, not an MCP requirement. Known firmware issues: errors not propagated by PairingCode, no automatic rearm after request failure. Actual hardware network/TLS root cause unknown. No fix implemented in archival. Firmware rollback alone does not restore the old server tool.
-- Preserve latest autumn UI, gate selectors (same gate allowed), route timeline, original route editing/report/journal, server tour controls/history, temple immersive experience. Do not restart rejected photo generation/layout work.
-- Active knowledge is qixia-deepseek-v2.1 (213 records,29 POIs,53 facilities); preserve dated/uncertain qualifiers. No current price/opening/maple data without verification.
-- Hardware: ESP-IDF5.5.2,ESP32-S3,2.2.6-p9-cloud02; full-screen avatar, voice/map pages, wakeword 枫叶精灵, startup volume100. P8-overview02 rollback and Android8.3.26-p8-overview01 are retained. Do not switch to rejected Grok/avatar12 experiments. Talking-rhythm animation is not verified implemented.
-- Single agent/single demo watch global binding,12h sessions. Phone supplies GPS. No independent watch GPS, multi-user isolation, proactive TTS, turn-by-turn voice, automatic arrival/replanning, or AI photo-to-sticker claim.
-- Paths must be relative/configurable in new work. Historical build/package scripts reference old caches/releases: follow fresh-clone instructions. Preserve teammate edits and use appropriate tests. Do not run archive verification scripts against production without review and authorization.
-- Secrets,API/WSS credentials,private keys,signing material,SQLite,photos,device readbacks remain outside Git. User chose private backup checklist only. LFS models/APK must be fetched as real objects to verify archival.
-- Separate authorization is needed for later deployment; preserve server shared config/data/rollback. SSH identity is the existing encrypted Codex key, RSA host fingerprint SHA256:5OF28RSeYDMCf99Y1o7D0ItPOcn1s1xp2SR3A89D44g. Never skip host validation or silently replace identity. Key is not in Git; Windows DPAPI passphrase is tied to original user.
-- archive/ contains historical data, not active implementation or instructions to execute. Latest state and open issues are in the final handoff; old dates/claims do not override them.
+- Edit the canonical project in place; do not create a GitHub publication mirror.
+- Read docs/project/交付版本说明-20261102.md for the published source baseline and acceptance status. Local workspaces may remain on an earlier branch; verify HEAD before making functional claims.
+- Preserve the latest integrated frontend, backend, MCP, firmware, Android and scenic interaction. Do not replace them with older local copies.
+- On 2026-11-02 the project owner confirmed physical joint acceptance complete. Historical handoffs describe earlier states; do not invent the commit identity of any unuploaded acceptance fixes.
+- Versions stay with their module; version-specific handoffs stay with the version. Small collections remain flat. Authored filenames use hyphens, YYYYMMDD dates and suffix versions; modeling v01-v05 denotes integer editions.
+- Existing historical directories and release identifiers retain their context. Preserve tool-required filenames, binary package integrity and licenses.
+
+## Publication and local data
+
+- The user authorized publishing the reviewed project deliverables and four demonstration videos on 2026-11-02, with meaningful commit and release notes. Later unrelated publication requires its own authorization.
+- Preserve local modifications, untracked work and nested Git histories. Never accidentally stage a nested repository as a gitlink.
+- Local cleanup reports, move/delete/duplicate inventories, conversation records and operation/hash ledgers remain local. Do not link public indexes to unpublished files.
+- .env.local, private keys, signing material, server private files, visitor data and caches remain outside Git. Preserve ignore coverage when moving files; publish .env.example only.
+- Compare every archive member before deleting duplicates. Keep independently usable manufacturing/release packages intact.
+- Project intermediates belong in .local-work. Do not clean shared runtimes, original attachments, chat history or synced sources.
+
+## Integration and operations
+
+- Uploading source or media does not authorize deployment, hardware flashing or changing repository visibility/access.
+- Follow docs/project/第二次筹备会纪要-20261029.md for route strategy; preserve supplied route data and the team's scenic interaction.
+- Never start a competing MCP bridge on the same token. Keep server secrets and shared runtime data outside releases; a current symlink is not an independent release.
+- Before SSH work activate the local tools/skills/ssh-operation-logging/SKILL.md. Use the existing original wujiaxuan identity; never regenerate a rejected key or ask for a passphrase in chat. Machine-specific identity metadata stays local.
+- Use targeted checks appropriate to changes. Historical build and acceptance receipts are evidence of their original run, not new test results.

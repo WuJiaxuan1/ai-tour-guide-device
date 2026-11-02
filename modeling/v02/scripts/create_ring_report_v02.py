@@ -82,5 +82,5 @@ status='''# 文旅智能导览设备 项目状态 v02
 
 本轮无对外消息、发布、采购或赛事提交。
 '''
-(R/'docs/history/project-status-20261028-v02.md').write_text(status,encoding='utf8')
+(R/'modeling/v02/reports/project-status-20261028-v02.md').write_text(status,encoding='utf8')
 print('ROUND2_SAVED_AND_DOCUMENTED')

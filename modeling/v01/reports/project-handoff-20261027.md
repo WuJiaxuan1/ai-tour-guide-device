@@ -131,7 +131,7 @@ F:\coding_projects\ai-tour-guide-device
 
 已读取本地文件：
 
-第一次南客松项目筹备会会议纪要.docx
+第一次筹备会纪要.docx
 
 纪要记载：
 - 会议时间：2026-10-26 21:14。
@@ -426,7 +426,7 @@ MCP 是操作连接方式，不是建模精度保证。
 
 | 文件 | 用途 |
 | --- | --- |
-| 第一次南客松项目筹备会会议纪要.docx | 项目背景、团队分工、功能讨论 |
+| 第一次筹备会纪要.docx | 项目背景、团队分工、功能讨论 |
 | 建模交接.md | 历史建模建议，存在过时内容 |
 | StopWatch.pdf | 官方产品手册和尺寸图 |
 | StopWatch-official.stl | 官方结构模型，包含重复展示零件 |
@@ -455,7 +455,7 @@ MCP 是操作连接方式，不是建模精度保证。
 - v1.0_back/front/front-three-quarter/side.png。
 - v2.0_front/front-three-quarter/left/right/rear.png。
 - v3.0_front/left/right/rear.png。
-- v4.0_housing-front.png。
+- housing-front-v4.0.png。
 - v5.0_housing-front/rear/left/right.png。
 - v5.0_ring-front/rear/left/right.png。
 
