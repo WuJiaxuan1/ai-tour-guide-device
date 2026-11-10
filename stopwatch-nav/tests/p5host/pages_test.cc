@@ -3,6 +3,7 @@
 #include <cstdio>
 #include "swipe_tracker.h"
 #include <cstring>
+#include <filesystem>
 
 static unsigned char buffer[466 * 20 * 2];
 static uint16_t framebuffer[466 * 466];
@@ -195,6 +196,58 @@ int main() {
     assert(framebuffer[116*466+100]==0xffe0); // same-revision retry cannot erase progress
     pages.SetRoute(nullptr);Advance(100);assert(framebuffer[116*466+100]==0);
     puts("PASS: P8-test02 actual LVGL progress split before clipping, no rollback, expiry retention, recolour, revision guard, map swap and route reset");
+
+    // Full overview uses the entire 480 image, never the 240px cruise window.
+    auto overview=std::make_shared<MapFrame>(MapWire::kChunkBytes);
+    overview->header=routeMap->header;overview->header.chunk=false;overview->header.overview=true;
+    overview->header.route_geometry_crc=1234;paint(*overview,240);
+    auto whole=std::make_shared<RouteWire::Frame>(*route);whole->revision=50;whole->geometry_crc=1234;
+    whole->points={{32.005,118.79},{32.005,118.81},{31.995,118.81}};
+    whole->destination=whole->points.back();whole->palette.traveled=0x00ffff;
+    pages.SetRoute(whole);assert(pages.SetImage(overview));Advance(500);
+    assert(framebuffer[300*466+200]==0xf800 && framebuffer[300*466+300]==0x07e0);
+    assert(framebuffer[175*466+233]==0xf81f); // full route has half the old crop's scale
+    assert(framebuffer[175*466+116]!=0xf81f); // green start marker
+    assert(framebuffer[291*466+349]==0xf800); // destination
+    for(uint32_t i=0;i<lv_obj_get_child_count(map);++i) {
+        auto child=lv_obj_get_child(map,i);
+        if(lv_obj_check_type(child,&lv_label_class)) assert(lv_obj_has_flag(child,LV_OBJ_FLAG_HIDDEN));
+    }
+    position.lat=32;position.lng=118.8;position.seq=60;position.route_revision=50;position.route_progress=.5;
+    pages.SetPosition(position,1000);Advance(400);
+    assert(framebuffer[175*466+180]==0x07ff && framebuffer[175*466+290]==0xf81f);
+    assert(framebuffer[233*466+233]==0xffe0);
+    position.lng=118.805;position.seq=61;pages.SetPosition(position,1000);Advance(400);
+    assert(framebuffer[233*466+291]==0xffe0);
+    assert(framebuffer[300*466+200]==0xf800 && framebuffer[300*466+300]==0x07e0); // fixed basemap
+    pages.SetPosition(position,17000);Advance(100);
+    assert(framebuffer[233*466+291]==0x07e0 && framebuffer[175*466+180]==0x07ff);
+    auto overviewStyle=std::make_shared<RouteWire::Frame>(*whole);overviewStyle->revision=51;overviewStyle->palette.route=0xffffff;
+    pages.SetRoute(overviewStyle);Advance(100);assert(framebuffer[175*466+290]==0xffff);
+    auto mismatch=std::make_shared<RouteWire::Frame>(*overviewStyle);mismatch->geometry_crc=5678;
+    pages.SetRoute(mismatch);Advance(100);assert(framebuffer[175*466+290]==0x07e0);
+    pages.SetRoute(whole);Advance(100);
+    pages.ShowMap(false);Advance(300);pages.ShowMap(true);Advance(300);
+    assert(framebuffer[175*466+290]==0xf81f);
+    // Actual production LVGL raster, synthetic basemap; exported for visual review.
+    const auto shot_path=std::filesystem::path(__FILE__).parent_path().parent_path()/"build/overview-lvgl.ppm";
+    FILE* shot=std::fopen(shot_path.string().c_str(),"wb");assert(shot);
+    std::fprintf(shot,"P6\n466 466\n255\n");
+    for(int y=0;y<466;++y) for(int x=0;x<466;++x) {
+        auto c=framebuffer[y*466+x];
+        unsigned char rgb[]={static_cast<unsigned char>((c>>11)*255/31),static_cast<unsigned char>(((c>>5)&63)*255/63),static_cast<unsigned char>((c&31)*255/31)};
+        if((x-232.5)*(x-232.5)+(y-232.5)*(y-232.5)>233*233) memset(rgb,0,3);
+        std::fwrite(rgb,1,3,shot);
+    }
+    std::fclose(shot);
+    assert(pages.SetImage(routeMap));Advance(400);pages.SetPosition(position,1000);Advance(400);
+    bool label_visible=false;
+    for(uint32_t i=0;i<lv_obj_get_child_count(map);++i) {
+        auto child=lv_obj_get_child(map,i);
+        if(lv_obj_check_type(child,&lv_label_class) && !lv_obj_has_flag(child,LV_OBJ_FLAG_HIDDEN)) label_visible=true;
+    }
+    assert(label_visible);
+    puts("PASS: overview actual LVGL full scale, fixed basemap, moving GPS, start/end, no labels, progress/recolour, geometry mismatch and cruise/voice return");
 
     SwipeTracker swipe;
     assert(swipe.Update(true,true,300,200,0)==0);

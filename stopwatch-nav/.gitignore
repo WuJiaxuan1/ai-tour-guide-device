@@ -3,6 +3,7 @@
 .kotlin/
 .venv*/
 *.apk
+!distributions/Android-overview01/*.apk
 *.aab
 *.elf
 *.map

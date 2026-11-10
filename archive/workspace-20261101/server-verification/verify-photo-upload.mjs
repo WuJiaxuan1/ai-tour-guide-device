@@ -1,0 +1,12 @@
+import {createRequire} from 'node:module';
+import {randomBytes,randomUUID} from 'node:crypto';
+import {writeFileSync} from 'node:fs';
+import assert from 'node:assert/strict';
+const sharp=createRequire(new URL('../backend/package.json',import.meta.url))('sharp');
+const base='https://43.160.252.245',session=await(await fetch(base+'/api/v1/sessions',{method:'POST'})).json();
+const photo=await sharp(randomBytes(1600*1200*3),{raw:{width:1600,height:1200,channels:3}}).jpeg({quality:95}).toBuffer();assert.ok(photo.length>1024*1024);
+const headers={Authorization:'Bearer '+session.token,'Content-Type':'image/jpeg','X-Client-Event-Id':randomUUID()};
+const r=await fetch(base+'/api/v1/photos',{method:'POST',headers,body:photo});assert.equal(r.status,201);const p=await r.json();
+const del=await fetch(base+'/api/v1/photos/'+p.id,{method:'DELETE',headers:{Authorization:'Bearer '+session.token,'Content-Type':'application/json'},body:JSON.stringify({expected_version:p.version})});assert.equal(del.status,200);
+const tooBig=await fetch(base+'/api/v1/photos',{method:'POST',headers:{...headers,'X-Client-Event-Id':randomUUID()},body:Buffer.alloc(8*1024*1024+1)});assert.equal(tooBig.status,413);
+const receipt={at:new Date().toISOString(),base,upload_bytes:photo.length,checks:['jpeg_over_1MB_accepted','test_photo_deleted','over_8MB_rejected']};writeFileSync('.local-work/photo-upload-acceptance.json',JSON.stringify(receipt,null,2));console.log(JSON.stringify(receipt));

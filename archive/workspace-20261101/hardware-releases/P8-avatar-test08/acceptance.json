@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-31",
+  "status": "passed",
+  "evidence": "用户反馈：验收全部通过，现在增加在小智界面按左键主动唤醒语言的功能",
+  "evidence_type": "user-reported hardware acceptance",
+  "firmware_version": "2.2.6-p8-avatar08",
+  "app_sha256": "52d557fc93e6067c82d78c914d96e9c67be8abffcc6aa048ff59217dcd28a4a0",
+  "assets_sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f",
+  "items": [
+    "单击双击短震",
+    "首次聆听短震与收音",
+    "马达不触发眩晕",
+    "震后倾斜和摇晃恢复",
+    "切页和状态取消",
+    "语音导航完整回归"
+  ]
+}

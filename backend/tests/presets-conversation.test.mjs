@@ -16,7 +16,7 @@ test('official data preserves eight routes, eleven observed filter cases and eig
  assert.equal(presets.shuttles.lines.filter(l=>l.scope==='internal').length,6);assert.equal(presets.shuttles.lines.filter(l=>l.scope==='external').length,2);
  for(const r of presets.data.routes){if(r.navigationReady)assert.ok(r.geometry.coordinates.length>2);assert.equal(new Set(r.stops.map(s=>s.stopId)).size,r.stops.length);}
  const r5=presets.data.routes.find(r=>r.routeId==='R05'),r6=presets.data.routes.find(r=>r.routeId==='R06');
- assert.equal(r5.officialNodeCount,7);assert.equal(r5.uniqueNodeCount,6);assert.equal(r5.countDiscrepancy,true);assert.equal(r6.completeness,'missing_exit');
+ assert.equal(r5.officialNodeCount,7);assert.equal(r5.uniqueNodeCount,6);assert.equal(r5.countDiscrepancy,false);assert.equal(r5.sourceCountDiscrepancy,true);assert.equal(r6.completeness,'missing_exit');
 });
 test('companion effort override uses approved easy rules while unknown combinations stay unknown',()=>{
  assert.deepEqual(presets.match({gate:'west',duration:'half',intensity:'normal',companions:'senior'}).routes.map(r=>r.routeId),['R01','R02']);
@@ -50,7 +50,7 @@ test('time and preferences survive history; dynamic facts and Xiaozhi remain bou
  assert.equal(parseMinutes('二十五分钟'),25);assert.equal(parseMinutes('一小时三十分钟'),90);assert.equal(parseMinutes('0分钟'),0);
  const a=await answer({messages:[user('只有两小时，想轻松拍照'),user('推荐几个地方')]});assert.equal(a.context.preferences.availableMinutes,120);assert.equal(a.context.preferences.effort,'low');assert.match(a.context.preferences.interests,/拍照/);
  assert.match((await answer({messages:[user('今天红叶红了吗')]})).reply,/没有已确认/);
- assert.match((await answer({messages:[user('小智接通了吗')]})).reply,/尚未打通/);
+ assert.match((await answer({messages:[user('小智接通了吗')]})).reply,/已连接同一服务器/);
  assert.match((await answer({messages:[user('同步到手表')]})).reply,/我的路线/);
  for(const input of [null,{}, {messages:[null]},{messages:[{role:'system',content:'x'}]},{messages:[user(' ')]}])await assert.rejects(answer(input),{status:400});
 });

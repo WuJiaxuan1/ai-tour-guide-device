@@ -1,0 +1,155 @@
+{
+  "stage": "P1-test01",
+  "firmware_source_commit": "356541a94d6ea73f291388eb028a670e6c75f2f3",
+  "firmware_tracked_source_changes": [],
+  "hardware_function_test": "passed: user confirmed all five acceptance items on 2026-10-27",
+  "partition_table_sector_sha256": "ce40cfe75056ef74bc052942f8a9ee3dce8e5e14ba17a6f63685a8fa0d11a23d",
+  "assets_validation": {
+    "count": 24,
+    "files": [
+      "angry.png",
+      "confident.png",
+      "confused.png",
+      "cool.png",
+      "crying.png",
+      "delicious.png",
+      "embarrassed.png",
+      "font_puhui_common_30_4.bin",
+      "funny.png",
+      "happy.png",
+      "index.json",
+      "kissy.png",
+      "laughing.png",
+      "loving.png",
+      "neutral.png",
+      "relaxed.png",
+      "sad.png",
+      "shocked.png",
+      "silly.png",
+      "sleepy.png",
+      "srmodels.bin",
+      "surprised.png",
+      "thinking.png",
+      "winking.png"
+    ],
+    "index": {
+      "version": 1,
+      "srmodels": "srmodels.bin",
+      "text_font": "font_puhui_common_30_4.bin",
+      "emoji_collection": [
+        {
+          "name": "angry",
+          "file": "angry.png"
+        },
+        {
+          "name": "confident",
+          "file": "confident.png"
+        },
+        {
+          "name": "confused",
+          "file": "confused.png"
+        },
+        {
+          "name": "cool",
+          "file": "cool.png"
+        },
+        {
+          "name": "crying",
+          "file": "crying.png"
+        },
+        {
+          "name": "delicious",
+          "file": "delicious.png"
+        },
+        {
+          "name": "embarrassed",
+          "file": "embarrassed.png"
+        },
+        {
+          "name": "funny",
+          "file": "funny.png"
+        },
+        {
+          "name": "happy",
+          "file": "happy.png"
+        },
+        {
+          "name": "kissy",
+          "file": "kissy.png"
+        },
+        {
+          "name": "laughing",
+          "file": "laughing.png"
+        },
+        {
+          "name": "loving",
+          "file": "loving.png"
+        },
+        {
+          "name": "neutral",
+          "file": "neutral.png"
+        },
+        {
+          "name": "relaxed",
+          "file": "relaxed.png"
+        },
+        {
+          "name": "sad",
+          "file": "sad.png"
+        },
+        {
+          "name": "shocked",
+          "file": "shocked.png"
+        },
+        {
+          "name": "silly",
+          "file": "silly.png"
+        },
+        {
+          "name": "sleepy",
+          "file": "sleepy.png"
+        },
+        {
+          "name": "surprised",
+          "file": "surprised.png"
+        },
+        {
+          "name": "thinking",
+          "file": "thinking.png"
+        },
+        {
+          "name": "winking",
+          "file": "winking.png"
+        }
+      ]
+    }
+  },
+  "android_source": "MotoNav-main/android/standard 8.3.26 (local copy)",
+  "android_package": "com.qixia.stopwatchnav",
+  "android_wifi_transport": "not implemented in P1",
+  "app": {
+    "filename": "p1-xiaozhi-app.bin",
+    "bytes": 2955104,
+    "sha256": "05c847ae6af8c151a138ee0727e6ef6a07fcfbcc6828954a5b62233c7bfc5631"
+  },
+  "assets": {
+    "filename": "p1-xiaozhi-assets.bin",
+    "bytes": 2851767,
+    "sha256": "0cb9c556a0521281271937b2e48c078b01110be4ac81b6a1d173554bcb5ebc0e"
+  },
+  "restore_app": {
+    "filename": "restore-v2.2.6-app.bin",
+    "bytes": 2949424,
+    "sha256": "d85c66cff7f4901cb9d9d32b95d53d4944f4e9cc96a42426712968d783e6c377"
+  },
+  "restore_assets": {
+    "filename": "restore-v2.2.6-assets.bin",
+    "bytes": 2851677,
+    "sha256": "457fe977e9344e4a233fa5314abc10e13b0c4e673bad377385d119e728de1b6d"
+  },
+  "apk": {
+    "filename": "maple-map-P1-test01.apk",
+    "bytes": 55151551,
+    "sha256": "d07b569f9ae3a9c03e1ddf9698c8f86c8a01c9175a5d6c3f93b74fa7baef6dc9"
+  }
+}

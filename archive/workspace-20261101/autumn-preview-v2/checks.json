@@ -1,0 +1,356 @@
+{
+  "checks": [
+    {
+      "name": "chat layout",
+      "ok": true,
+      "details": {
+        "overflow": false,
+        "images": true,
+        "map": 0,
+        "searchVisible": false,
+        "headingWeight": "650",
+        "bodyWeight": "500"
+      }
+    },
+    {
+      "name": "chat no filler copy",
+      "ok": true
+    },
+    {
+      "name": "explore layout",
+      "ok": true,
+      "details": {
+        "overflow": false,
+        "images": true,
+        "map": 2,
+        "searchVisible": false,
+        "headingWeight": "650",
+        "bodyWeight": "500"
+      }
+    },
+    {
+      "name": "search hidden on entry",
+      "ok": true
+    },
+    {
+      "name": "explore no filler copy",
+      "ok": true
+    },
+    {
+      "name": "official layout",
+      "ok": true,
+      "details": {
+        "overflow": false,
+        "images": true,
+        "map": 0,
+        "searchVisible": false,
+        "headingWeight": "650",
+        "bodyWeight": "500"
+      }
+    },
+    {
+      "name": "official no map",
+      "ok": true
+    },
+    {
+      "name": "official no filler copy",
+      "ok": true
+    },
+    {
+      "name": "personal layout",
+      "ok": true,
+      "details": {
+        "overflow": false,
+        "images": true,
+        "map": 0,
+        "searchVisible": false,
+        "headingWeight": "650",
+        "bodyWeight": "500"
+      }
+    },
+    {
+      "name": "personal no map",
+      "ok": true
+    },
+    {
+      "name": "personal no filler copy",
+      "ok": true
+    },
+    {
+      "name": "shuttle layout",
+      "ok": true,
+      "details": {
+        "overflow": false,
+        "images": true,
+        "map": 0,
+        "searchVisible": false,
+        "headingWeight": "650",
+        "bodyWeight": "500"
+      }
+    },
+    {
+      "name": "shuttle no map",
+      "ok": true
+    },
+    {
+      "name": "shuttle no filler copy",
+      "ok": true
+    },
+    {
+      "name": "result layout",
+      "ok": true,
+      "details": {
+        "overflow": false,
+        "images": true,
+        "map": 1,
+        "searchVisible": false,
+        "headingWeight": "650",
+        "bodyWeight": "500"
+      }
+    },
+    {
+      "name": "result no filler copy",
+      "ok": true
+    },
+    {
+      "name": "editing layout",
+      "ok": true,
+      "details": {
+        "overflow": false,
+        "images": true,
+        "map": 1,
+        "searchVisible": false,
+        "headingWeight": "650",
+        "bodyWeight": "500"
+      }
+    },
+    {
+      "name": "editing no filler copy",
+      "ok": true
+    },
+    {
+      "name": "search layout",
+      "ok": true,
+      "details": {
+        "overflow": false,
+        "images": true,
+        "map": 2,
+        "searchVisible": true,
+        "headingWeight": "650",
+        "bodyWeight": "500"
+      }
+    },
+    {
+      "name": "search revealed",
+      "ok": true
+    },
+    {
+      "name": "search no filler copy",
+      "ok": true
+    },
+    {
+      "name": "choices layout",
+      "ok": true,
+      "details": {
+        "overflow": false,
+        "images": true,
+        "map": 0,
+        "searchVisible": false,
+        "headingWeight": "650",
+        "bodyWeight": "500"
+      }
+    },
+    {
+      "name": "choices no map",
+      "ok": true
+    },
+    {
+      "name": "choices no filler copy",
+      "ok": true
+    },
+    {
+      "name": "shuttleopen layout",
+      "ok": true,
+      "details": {
+        "overflow": false,
+        "images": true,
+        "map": 0,
+        "searchVisible": false,
+        "headingWeight": "650",
+        "bodyWeight": "500"
+      }
+    },
+    {
+      "name": "shuttleopen no map",
+      "ok": true
+    },
+    {
+      "name": "shuttleopen no filler copy",
+      "ok": true
+    },
+    {
+      "name": "initial next disabled",
+      "ok": true
+    },
+    {
+      "name": "compact proportional gate",
+      "ok": true,
+      "details": {
+        "width": 76,
+        "height": 36,
+        "radius": 18,
+        "weight": "600"
+      }
+    },
+    {
+      "name": "map hidden before completing 西门",
+      "ok": true
+    },
+    {
+      "name": "map hidden before completing 半天",
+      "ok": true
+    },
+    {
+      "name": "map hidden before completing 轻松",
+      "ok": true
+    },
+    {
+      "name": "map hidden before completing 有老人同行",
+      "ok": true
+    },
+    {
+      "name": "map only after completed steps",
+      "ok": true
+    },
+    {
+      "name": "result title",
+      "ok": true
+    },
+    {
+      "name": "shuttles initially collapsed",
+      "ok": true
+    },
+    {
+      "name": "first shuttle opens",
+      "ok": true
+    },
+    {
+      "name": "only one shuttle open",
+      "ok": true
+    },
+    {
+      "name": "external no map",
+      "ok": true
+    },
+    {
+      "name": "pull reveals search",
+      "ok": true
+    },
+    {
+      "name": "preview search filters",
+      "ok": true
+    },
+    {
+      "name": "chat no overflow 375",
+      "ok": true
+    },
+    {
+      "name": "explore no overflow 375",
+      "ok": true
+    },
+    {
+      "name": "official no overflow 375",
+      "ok": true
+    },
+    {
+      "name": "personal no overflow 375",
+      "ok": true
+    },
+    {
+      "name": "shuttle no overflow 375",
+      "ok": true
+    },
+    {
+      "name": "chat no overflow 320",
+      "ok": true
+    },
+    {
+      "name": "explore no overflow 320",
+      "ok": true
+    },
+    {
+      "name": "official no overflow 320",
+      "ok": true
+    },
+    {
+      "name": "personal no overflow 320",
+      "ok": true
+    },
+    {
+      "name": "shuttle no overflow 320",
+      "ok": true
+    },
+    {
+      "name": "chat no overflow 844",
+      "ok": true
+    },
+    {
+      "name": "explore no overflow 844",
+      "ok": true
+    },
+    {
+      "name": "official no overflow 844",
+      "ok": true
+    },
+    {
+      "name": "personal no overflow 844",
+      "ok": true
+    },
+    {
+      "name": "shuttle no overflow 844",
+      "ok": true
+    },
+    {
+      "name": "chat no overflow 1440",
+      "ok": true
+    },
+    {
+      "name": "explore no overflow 1440",
+      "ok": true
+    },
+    {
+      "name": "official no overflow 1440",
+      "ok": true
+    },
+    {
+      "name": "personal no overflow 1440",
+      "ok": true
+    },
+    {
+      "name": "shuttle no overflow 1440",
+      "ok": true
+    },
+    {
+      "name": "board main images",
+      "ok": true
+    },
+    {
+      "name": "board routes images",
+      "ok": true
+    },
+    {
+      "name": "board states images",
+      "ok": true
+    },
+    {
+      "name": "board details images",
+      "ok": true
+    },
+    {
+      "name": "no script errors",
+      "ok": true,
+      "details": []
+    }
+  ],
+  "errors": []
+}

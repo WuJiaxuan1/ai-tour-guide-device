@@ -7,10 +7,11 @@ const root=fileURLToPath(new URL('../../',import.meta.url));
 const read=p=>JSON.parse(readFileSync(new URL(p,import.meta.url),'utf8'));
 const catalog=[...read('../../frontend/src/content/places.json'),...read('../../frontend/src/content/facilities.json')];
 const kb=loadKnowledge(root), service=createKnowledgeService(root,catalog);
-test('public knowledge projection contains twelve mapped POIs without source paths or maintenance metadata',()=>{
- assert.equal(kb.pois.length,12);assert.equal(new Set(kb.pois.map(p=>p.id)).size,12);
- for(const p of kb.pois){assert.ok(catalog.find(c=>c.id===p.id&&c.navigationAvailable));assert.ok(p.narration.length>20);}
- assert.equal(kb.canonical('west-gate'),'gate');
+test('public knowledge projection contains 29 POIs without inventing navigation availability or exposing source paths',()=>{
+ assert.equal(kb.pois.length,29);assert.equal(new Set(kb.pois.map(p=>p.id)).size,29);
+ for(const p of kb.pois){assert.equal(p.narration,kb.records.find(x=>x.library_id==='KB02'&&kb.canonical(x.id)===p.id).content);assert.ok(p.narration.trim());}
+ assert.equal(kb.canonical('west-gate'),'gate');assert.equal(kb.canonical('tea-house'),'tea');assert.equal(kb.canonical('spring-rain-bridge'),'spring-bridge');
+ assert.equal(kb.records.length,213);assert.equal(kb.retrieval.length,159);assert.equal(kb.version,'qixia-deepseek-v2.1');
  assert.equal(/sourceRefs|verificationStatus|\/Users\/|verification_backlog|双人/.test(JSON.stringify(service.catalog)),false);
 });
 test('alias questions return grounded narration, dynamic information is never answered as confirmed',()=>{
@@ -34,3 +35,20 @@ test('preference recommendations select known POIs without silently activating c
 });
 
 test('visitor-service and ticket queries resolve actual facility categories and entrances include west gate',()=>{assert.ok(service.facilitiesNearby({type:'游客中心'}).length);assert.ok(service.facilitiesNearby({type:'售票处'}).length);assert.ok(service.facilitiesNearby({type:'出入口'}).some(p=>p.id==='gate'));});
+
+test('new content corrects pagoda material and resolves complete facility names before scenic aliases',()=>{
+ assert.match(service.publicPoi('pagoda').narration,/石/);
+ assert.doesNotMatch(service.publicPoi('pagoda').narration,/木制/);
+ const restroom=service.chat('千佛崖卫生间在哪');assert.match(restroom.reply,/卫生间/);assert.doesNotMatch(restroom.reply,/佛像|石窟/);assert.equal(restroom.placeIds.includes('buddha'),false);
+ assert.match(service.chat('陆羽是谁').reply,/陆羽/);
+ const hotel=service.chat('附近有哪些酒店');assert.match(hotel.reply,/2026-10-27/);assert.match(hotel.reply,/不保证当前/);
+ assert.match(service.chat('观光车末班几点').reply,/没有已确认/);
+});
+test('model receives the complete new pack once, and public cards do not gain unverified navigation',()=>{
+ const evidence=service.modelEvidence({question:'介绍舍利塔'});
+ assert.equal(evidence.context,kb.fullContext);assert.equal(evidence.instructions,kb.instructions);
+ assert.deepEqual(evidence.sourceIds,['knowledge-pack:qixia-deepseek-v2.1']);
+ assert.ok(evidence.context.includes('陆羽'));assert.ok(evidence.context.includes('千佛崖卫生间'));
+ assert.ok(service.publicPoi('shamao-peak'));assert.equal('location' in service.publicPoi('shamao-peak'),false);
+ assert.ok(evidence.placeIds.every(id=>catalog.some(c=>c.id===id)));
+});

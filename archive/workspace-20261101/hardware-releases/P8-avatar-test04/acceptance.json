@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-31",
+  "status": "passed",
+  "evidence": "用户在当前对话反馈：测试通过，继续下一步",
+  "evidence_type": "user-reported hardware acceptance",
+  "firmware_version": "2.2.6-p8-avatar04",
+  "app_sha256": "5ca458edb502cedd2d072f88b7cfa005af19a96d8e2d844a0a3581c6e1811267",
+  "assets_sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f",
+  "items": [
+    "桌面开机再拿起",
+    "四方向倾斜",
+    "保持倾斜",
+    "切页比较",
+    "点按与对话",
+    "导航与持续使用"
+  ],
+  "limits": "基于用户本轮验收反馈，未独立测量帧率或采样时序，不代表多设备或长期稳定性认证。"
+}

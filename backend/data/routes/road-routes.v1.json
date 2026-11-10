@@ -1,54 +1,39 @@
 {
-  "version": "amap-roads-20261030",
+  "version": "amap-roads-gates-20261101",
   "routes": [
     {
       "schemaVersion": "1.0",
       "routeId": "R02",
-      "revision": 1,
+      "revision": 2,
       "travelMode": "walking",
       "coordinateSystem": "GCJ02",
       "coordinateOrder": "lng,lat",
       "source": {
         "provider": "amap",
-        "generatedAt": "2026-10-30T14:51:20.449Z"
+        "generatedAt": "2026-10-31T18:04:58.405Z"
       },
       "stops": [
         {
-          "id": "facility-b00190z2ds",
-          "name": "西门游客中心",
-          "category": "游客服务",
-          "facilityType": "游客服务",
-          "kind": "facility",
-          "tags": [
-            "游客服务"
-          ],
-          "intro": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
-          "story": "位置：栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
-          "images": [
-            "/assets/amap/1c4acfe803c5a181edb7.webp",
-            "/assets/amap/6cd12a4e6daecbb6b25b.webp",
-            "/assets/amap/9599b43cbd3a23785c58.webp"
-          ],
-          "image": "/assets/amap/1c4acfe803c5a181edb7.webp",
-          "audio": null,
-          "amapPoiId": "B00190Z2DS",
-          "navigationAvailable": true,
+          "id": "gate",
+          "name": "西门",
+          "placeId": "gate",
+          "poiId": "B001913YX0",
+          "poiName": "栖霞山风景名胜区西门售票处",
           "location": [
-            118.9547,
-            32.150235
+            118.954566,
+            32.150215
           ],
-          "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
-          "tel": null,
-          "openingHours": "07:00-17:30",
-          "placeId": "facility-b00190z2ds",
+          "positionSource": "amap-ticket-office",
+          "entranceVerified": false,
           "stopId": "R02-01",
-          "nodeId": "official-8be685b4ea78",
-          "stayMinutes": 10,
+          "nodeId": "gate",
+          "stayMinutes": 0,
           "facility": {
             "nodeId": "official-3d305d6e61ba",
             "name": "西门游客中心卫生间",
             "placeId": null
-          }
+          },
+          "endpoint": "start"
         },
         {
           "nodeId": "official-175363c1dce8",
@@ -73,36 +58,18 @@
           }
         },
         {
-          "id": "mirror-lake",
+          "nodeId": "official-f4d94cfceb65",
           "name": "彩虹明镜",
-          "category": "湖光与倒影",
-          "intro": "一起看看湖面的倒影，记录沿途的风景。",
-          "story": "湖面、亭桥、倒影与题名，让明镜湖成为认识栖霞山水的一处线索。看山可以从水开始：近处的树影、桥与亭，和远处的山色落在同一面湖里。季节、光线与风，也会让这里呈现不同的样子。",
-          "tags": [
-            "自然",
-            "湖景"
-          ],
-          "images": [
-            "/assets/places/7cfa779125af2b.webp",
-            "/assets/amap/0d9e537c92a9b600f9b0.webp",
-            "/assets/amap/b950c5c817326a4f7115.webp",
-            "/assets/amap/aab23402f5f1a0a32da0.webp"
-          ],
-          "image": "/assets/places/7cfa779125af2b.webp",
-          "religious": false,
-          "mapName": "明镜湖",
-          "aliases": [],
-          "audio": "/assets/audio/mirror-lake.wav",
-          "amapPoiId": "B001912HV0",
-          "navigationAvailable": true,
+          "kind": "place",
+          "placeId": "mirror-lake",
+          "nearPlaceId": null,
           "location": [
             118.95631,
             32.151776
           ],
-          "address": "栖霞街88号栖霞山风景区内",
-          "placeId": "mirror-lake",
+          "status": "mapped",
+          "id": "mirror-lake",
           "stopId": "R02-03",
-          "nodeId": "official-f4d94cfceb65",
           "stayMinutes": 20,
           "facility": {
             "nodeId": "official-5d740941a5fb",
@@ -111,36 +78,18 @@
           }
         },
         {
-          "id": "temple",
+          "nodeId": "official-78b668f7cfeb",
           "name": "栖霞古寺",
-          "category": "建筑与地方记忆",
-          "intro": "从山门、建筑和人物故事，认识栖霞的千年往来。",
-          "story": "栖霞寺与栖霞山的地名、六朝遗存及历代游山活动紧密相连。明僧绍隐居摄山、舍宅为寺，是这里的重要人物线索；陆羽采茶、诗人游山，也让建筑与山林有了不同的观看方式。近代，寂然法师等人在这里参与难民救护。今天看建筑时，可以留意始建、重建与现存实物所处的不同年代。",
-          "tags": [
-            "人文",
-            "建筑"
-          ],
-          "images": [
-            "/assets/places/2299a31d423f16.webp",
-            "/assets/amap/3bb65da5ee8c089dda6f.webp",
-            "/assets/amap/d81dee9f5893130ea2e0.webp",
-            "/assets/amap/cca54783e4ef10512447.webp"
-          ],
-          "image": "/assets/places/2299a31d423f16.webp",
-          "religious": false,
-          "mapName": "栖霞寺",
-          "aliases": [],
-          "audio": "/assets/audio/temple.wav",
-          "amapPoiId": "B00190D2L7",
-          "navigationAvailable": true,
+          "kind": "place",
+          "placeId": "temple",
+          "nearPlaceId": null,
           "location": [
             118.957983,
             32.151807
           ],
-          "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
-          "placeId": "temple",
+          "status": "mapped",
+          "id": "temple",
           "stopId": "R02-04",
-          "nodeId": "official-78b668f7cfeb",
           "stayMinutes": 40,
           "facility": {
             "nodeId": "official-e5f31f327375",
@@ -149,75 +98,34 @@
           }
         },
         {
-          "id": "pagoda",
+          "nodeId": "official-febfcce899cb",
           "name": "舍利塔",
-          "category": "石构建筑与雕刻",
-          "intro": "看看石塔的层次，再一起寻找雕刻的细节。",
-          "story": "舍利塔有隋代始建、南唐重建的历史层次。石构、层次与雕刻，使它同时成为建筑与艺术的观察对象。山中文物经历过毁损、重修与保护；始建年代、重建年代和今天看到的实物，需要放在不同层次里理解。",
-          "tags": [
-            "人文",
-            "建筑"
-          ],
-          "images": [
-            "/assets/places/59990a17d64f87.webp",
-            "/assets/places/09cb809ec10e5a.webp",
-            "/assets/amap/6368048c9d5ab1b54d99.webp",
-            "/assets/amap/70848a54ffa0afa7b946.webp",
-            "/assets/amap/eb0f8fe4788d12f4f06d.webp"
-          ],
-          "image": "/assets/places/59990a17d64f87.webp",
-          "religious": true,
-          "mapName": "舍利塔",
-          "aliases": [],
-          "audio": "/assets/audio/pagoda.wav",
-          "amapPoiId": "B001909CRJ",
-          "navigationAvailable": true,
+          "kind": "place",
+          "placeId": "pagoda",
+          "nearPlaceId": null,
           "location": [
             118.959868,
             32.151791
           ],
-          "address": "栖霞街84号栖霞山名胜风景区",
-          "placeId": "pagoda",
+          "status": "mapped",
+          "id": "pagoda",
           "stopId": "R02-05",
-          "nodeId": "official-febfcce899cb",
           "stayMinutes": 25,
           "facility": null
         },
         {
-          "id": "buddha",
+          "nodeId": "official-c6bddb88231d",
           "name": "千佛岩",
-          "category": "六朝石窟与山体",
-          "intro": "从岩壁、洞窟与造像之间，认识古代艺术。",
-          "story": "千佛岩依山开凿，是江南南朝石窟的重要遗存。洞窟、造像与山体融在一起，保留着六朝的文化印记；栖霞飞天也是其中的石窟艺术线索。与明征君碑、舍利塔合称栖霞三宝，可以从山体空间与雕刻形态开始观察。",
-          "tags": [
-            "人文",
-            "艺术"
-          ],
-          "images": [
-            "/assets/places/a7c179cd11b526.webp",
-            "/assets/places/0507568aa5638c.webp",
-            "/assets/places/917ca4c06199f3.webp",
-            "/assets/amap/7f7b04072a66ac8c3802.webp",
-            "/assets/amap/8e3b56600c7f25e5e999.webp",
-            "/assets/amap/17ab0fb9bde2e6c13e20.webp"
-          ],
-          "image": "/assets/places/a7c179cd11b526.webp",
-          "religious": true,
-          "mapName": "千佛岩",
-          "aliases": [
-            "千佛崖"
-          ],
-          "audio": "/assets/audio/buddha.wav",
-          "amapPoiId": "B001912JE8",
-          "navigationAvailable": true,
+          "kind": "place",
+          "placeId": "buddha",
+          "nearPlaceId": null,
           "location": [
             118.960159,
             32.151673
           ],
-          "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区栖霞古寺内",
-          "placeId": "buddha",
+          "status": "mapped",
+          "id": "buddha",
           "stopId": "R02-06",
-          "nodeId": "official-c6bddb88231d",
           "stayMinutes": 30,
           "facility": {
             "nodeId": "official-4085d08a3e67",
@@ -226,36 +134,18 @@
           }
         },
         {
-          "id": "mirror-lake",
+          "nodeId": "official-f4d94cfceb65",
           "name": "彩虹明镜",
-          "category": "湖光与倒影",
-          "intro": "一起看看湖面的倒影，记录沿途的风景。",
-          "story": "湖面、亭桥、倒影与题名，让明镜湖成为认识栖霞山水的一处线索。看山可以从水开始：近处的树影、桥与亭，和远处的山色落在同一面湖里。季节、光线与风，也会让这里呈现不同的样子。",
-          "tags": [
-            "自然",
-            "湖景"
-          ],
-          "images": [
-            "/assets/places/7cfa779125af2b.webp",
-            "/assets/amap/0d9e537c92a9b600f9b0.webp",
-            "/assets/amap/b950c5c817326a4f7115.webp",
-            "/assets/amap/aab23402f5f1a0a32da0.webp"
-          ],
-          "image": "/assets/places/7cfa779125af2b.webp",
-          "religious": false,
-          "mapName": "明镜湖",
-          "aliases": [],
-          "audio": "/assets/audio/mirror-lake.wav",
-          "amapPoiId": "B001912HV0",
-          "navigationAvailable": true,
+          "kind": "place",
+          "placeId": "mirror-lake",
+          "nearPlaceId": null,
           "location": [
             118.95631,
             32.151776
           ],
-          "address": "栖霞街88号栖霞山风景区内",
-          "placeId": "mirror-lake",
+          "status": "mapped",
+          "id": "mirror-lake",
           "stopId": "R02-07",
-          "nodeId": "official-f4d94cfceb65",
           "stayMinutes": 20,
           "facility": {
             "nodeId": "official-5d740941a5fb",
@@ -264,49 +154,34 @@
           }
         },
         {
-          "id": "facility-b00190z2ds",
-          "name": "西门游客中心",
-          "category": "游客服务",
-          "facilityType": "游客服务",
-          "kind": "facility",
-          "tags": [
-            "游客服务"
-          ],
-          "intro": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
-          "story": "位置：栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)。由高德地图提供点位信息，具体开放及服务情况以现场为准。",
-          "images": [
-            "/assets/amap/1c4acfe803c5a181edb7.webp",
-            "/assets/amap/6cd12a4e6daecbb6b25b.webp",
-            "/assets/amap/9599b43cbd3a23785c58.webp"
-          ],
-          "image": "/assets/amap/1c4acfe803c5a181edb7.webp",
-          "audio": null,
-          "amapPoiId": "B00190Z2DS",
-          "navigationAvailable": true,
+          "id": "gate",
+          "name": "西门",
+          "placeId": "gate",
+          "poiId": "B001913YX0",
+          "poiName": "栖霞山风景名胜区西门售票处",
           "location": [
-            118.9547,
-            32.150235
+            118.954566,
+            32.150215
           ],
-          "address": "栖霞街88号(近栖霞大道)栖霞山风景名胜区内(西侧)",
-          "tel": null,
-          "openingHours": "07:00-17:30",
-          "placeId": "facility-b00190z2ds",
+          "positionSource": "amap-ticket-office",
+          "entranceVerified": false,
           "stopId": "R02-08",
-          "nodeId": "official-8be685b4ea78",
-          "stayMinutes": 10,
+          "nodeId": "gate",
+          "stayMinutes": 0,
           "facility": {
             "nodeId": "official-3d305d6e61ba",
             "name": "西门游客中心卫生间",
             "placeId": null
-          }
+          },
+          "endpoint": "end"
         }
       ],
       "geometry": {
         "type": "LineString",
         "coordinates": [
           [
-            118.954657,
-            32.150417
+            118.954527,
+            32.150395
           ],
           [
             118.954896,
@@ -665,22 +540,22 @@
             32.150456
           ],
           [
-            118.954661,
-            32.150421
+            118.954531,
+            32.150399
           ]
         ]
       },
-      "distanceMeters": 1522,
-      "walkingSeconds": 1219,
+      "distanceMeters": 1548,
+      "walkingSeconds": 1239,
       "steps": [
         {
-          "instruction": "向东北步行194米向左后方行走",
+          "instruction": "向东北步行207米向左后方行走",
           "location": [
-            118.954657,
-            32.150417
+            118.954527,
+            32.150395
           ],
-          "distanceMeters": 194,
-          "walkingSeconds": 155
+          "distanceMeters": 207,
+          "walkingSeconds": 166
         },
         {
           "instruction": "向西南步行16米到达目的地",
@@ -872,21 +747,21 @@
           "walkingSeconds": 18
         },
         {
-          "instruction": "向西南步行194米到达目的地",
+          "instruction": "向西南步行207米到达目的地",
           "location": [
             118.956354,
             32.151133
           ],
-          "distanceMeters": 194,
-          "walkingSeconds": 155
+          "distanceMeters": 207,
+          "walkingSeconds": 166
         }
       ],
       "legs": [
         {
-          "fromId": "facility-b00190z2ds",
+          "fromId": "gate",
           "toId": "official-175363c1dce8",
-          "distanceMeters": 210,
-          "walkingSeconds": 168,
+          "distanceMeters": 223,
+          "walkingSeconds": 178,
           "hasStairs": false,
           "hasSlope": false,
           "fromStopId": "R02-01",
@@ -944,9 +819,9 @@
         },
         {
           "fromId": "mirror-lake",
-          "toId": "facility-b00190z2ds",
-          "distanceMeters": 290,
-          "walkingSeconds": 232,
+          "toId": "gate",
+          "distanceMeters": 303,
+          "walkingSeconds": 242,
           "hasStairs": false,
           "hasSlope": false,
           "fromStopId": "R02-07",

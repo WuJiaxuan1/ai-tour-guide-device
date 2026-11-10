@@ -1,0 +1,49 @@
+{
+  "commit": "b7e6cd48db4eeba13271c653c38e1ad0f48037b4",
+  "files": [
+    {
+      "path": "README.md",
+      "git_blob_sha1": "12d43bd406e73e99312c23e1c01f22fe7e520a4a"
+    },
+    {
+      "path": "replica/geometry-data.js",
+      "git_blob_sha1": "073d98681f3f07f3ff35508651a878adc7a1780f"
+    },
+    {
+      "path": "replica/grok-blob-idle.svg",
+      "git_blob_sha1": "7ce8c4a85f712aeaf5750e2230be650bc2d7730c"
+    },
+    {
+      "path": "replica/index.html",
+      "git_blob_sha1": "f505dc39efc4175d39f69399ce3b71f7eb7d34c7"
+    },
+    {
+      "path": "replica/src/character.js",
+      "git_blob_sha1": "ae3b58077eb2a9cdad224e5809156aec3aaa8601"
+    },
+    {
+      "path": "replica/src/eyes.js",
+      "git_blob_sha1": "3a105a125852ba1826b409d6225ddaabcd55e377"
+    },
+    {
+      "path": "replica/src/fx.js",
+      "git_blob_sha1": "8af2abd7d99363e9943445689ac0f327a466bba6"
+    },
+    {
+      "path": "replica/src/math.js",
+      "git_blob_sha1": "cb67b8a7997268ad98b2053ced41ea6050b569ee"
+    },
+    {
+      "path": "replica/src/pose.js",
+      "git_blob_sha1": "9bc5874de3f7678f2f61473cb3ec57f5226fe347"
+    },
+    {
+      "path": "replica/src/tables.js",
+      "git_blob_sha1": "617b2fd2a94f595c1b882a0dc3755dcc77af425a"
+    },
+    {
+      "path": "replica/src/tricks.js",
+      "git_blob_sha1": "1eafa9af3ffabbec6bd9f0f8f1e39a0c91ec8b21"
+    }
+  ]
+}

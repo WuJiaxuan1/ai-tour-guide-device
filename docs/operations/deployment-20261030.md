@@ -24,7 +24,7 @@ On 2026-10-30, after the team updated the Lighthouse firewall, external requests
 
 ## Updated firewall export
 
-The team supplied project-files/team/server/firewallRules_2026-10-30 14_09_29.csv. Compared with the October 28 export, it adds exactly one rule: IPv4 0.0.0.0/0, TCP 443, allow. No previous rules were removed. This confirms the rule needed for the externally verified standard HTTPS URL. Both original exports are preserved unchanged.
+The team supplied docs/operations/server-reference/firewall-rules-20261030-140929.csv. Compared with the October 28 export, it adds exactly one rule: IPv4 0.0.0.0/0, TCP 443, allow. No previous rules were removed. This confirms the rule needed for the externally verified standard HTTPS URL. Both original exports are preserved unchanged.
 
 ## Frontend and knowledge 0.4.0
 
@@ -40,6 +40,6 @@ Nginx now accepts128KiB chat bodies (formerly16KiB), enables HTTP/2 and gzip for
 
 Public Edge mobile-viewport verification:422,034 resource bytes/19 requests cold,300 resource bytes warm; HTTP/2; single-run load event about1.21s. This is not a guarantee for real mobile networks. Actual AMap and simulated GPS, eight presets, eight directional shuttles, bounded multi-turn knowledge and a chat body exceeding16KiB passed. No browser JavaScript errors. Route geometry, Xiaozhi web transport and watch delivery/ACK still await team integration.
 
-Audit and full limits: `docs/handoffs/project-handoff-20261030-v0.5.0.md`. Private deployment log:`.local-work/operations/logs/20261030T131254Z-0d3e47f9/operation.json`; public receipt:`.local-work/qa-public-v05.json`.
+Audit and full limits: `frontend/v0.5.0/project-handoff-20261030-v0.5.0.md`. Private deployment log:`.local-work/operations/logs/20261030T131254Z-0d3e47f9/operation.json`; public receipt:`.local-work/qa-public-v05.json`.
 
 Rollback, only if requested/needed after checking current target: switch the current symlink to the retained0.4 release, restore this release's`nginx.before.conf` with`sudo install`, validate with`sudo nginx -t`, then restart`qixia-guide.service` and reload Nginx. Record the whole operation using the project SSH logger; do not blindly rerun the activation script, which refuses an existing release.

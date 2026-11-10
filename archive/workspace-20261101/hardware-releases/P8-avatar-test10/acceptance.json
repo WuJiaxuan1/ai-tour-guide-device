@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-31",
+  "status": "passed",
+  "evidence": "用户反馈：测试全部通过，但是现在摇晃表情触发还是不稳定，继续调整，并在触发时也加上震动",
+  "evidence_type": "user-reported acceptance of wake recovery, with separate shake consistency issue",
+  "firmware_version": "2.2.6-p8-avatar10",
+  "app_sha256": "1863938fca4b9d515060be531805bdebb0dd663ef6d691c92a3201ab670b808c",
+  "assets_sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f",
+  "items": [
+    "开机唤醒",
+    "对话后再次唤醒",
+    "地图返回唤醒",
+    "中途切图返回",
+    "左键与唤醒词混用",
+    "原功能回归"
+  ],
+  "known_issue": "用户同时反馈摇晃表情同样晃法触发不稳定，下一版继续调整。"
+}

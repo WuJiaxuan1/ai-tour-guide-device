@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "title": "栖霞山半日游",
+  "coordinateSystem": "GCJ-02",
+  "source": "amap-poi-v3-keyword-search",
+  "confirmedAt": "2026-10-24",
+  "spots": [
+    {
+      "id": "mingjing-lake",
+      "name": "明镜湖",
+      "poiName": "栖霞山名胜风景区-明镜湖",
+      "poiId": "B001912HV0",
+      "type": "风景名胜;风景名胜相关;旅游景点",
+      "address": "栖霞街88号栖霞山风景区内",
+      "location": [118.95631, 32.151776]
+    },
+    {
+      "id": "qixia-temple",
+      "name": "栖霞寺",
+      "poiName": "栖霞山名胜风景区摄山栖霞寺",
+      "poiId": "B00190D2L7",
+      "type": "风景名胜;风景名胜;寺庙道观",
+      "address": "栖霞街88号栖霞山风景名胜区内(西侧)",
+      "location": [118.957983, 32.151807]
+    },
+    {
+      "id": "sarira-pagoda",
+      "name": "舍利塔",
+      "poiName": "栖霞古寺舍利塔",
+      "poiId": "B001909CRJ",
+      "type": "风景名胜;风景名胜相关;旅游景点",
+      "address": "栖霞街84号栖霞山名胜风景区",
+      "location": [118.959868, 32.151791]
+    },
+    {
+      "id": "thousand-buddha-rock",
+      "name": "千佛岩",
+      "poiName": "栖霞山名胜风景区-千佛岩",
+      "poiId": "B001912JE8",
+      "type": "风景名胜;风景名胜相关;旅游景点",
+      "address": "栖霞街88号栖霞山风景名胜区栖霞古寺内",
+      "location": [118.960159, 32.151673]
+    }
+  ]
+}

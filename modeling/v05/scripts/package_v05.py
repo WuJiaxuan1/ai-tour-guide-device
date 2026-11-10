@@ -82,12 +82,12 @@ for x,version in [(20,'v04'),(650,'v05')]:
 cd.text((30,663),'枫叶附近、右侧和下缘使用同角度模型渲染；不是概念效果图。',font=small,fill='#40464d');comparison.save(D/'V04_V05_SURFACE_COMPARISON.png')
 shutil.copy2(O/'assembly-snap-v05.blend',D/'assembly-snap-v05.blend')
 manifest={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in D.iterdir() if p.is_file() and p.name!='MANIFEST_SHA256.json'};(D/'MANIFEST_SHA256.json').write_text(json.dumps(manifest,indent=2))
-zip_path=R/'modeling/v05/AI_Tour_Guide_Closed_Back_Snap_v05.zip'
+zip_path=R/'modeling/v05/AI-Tour-Guide-Closed-Back-Snap-v05.zip'
 with zipfile.ZipFile(zip_path,'w',zipfile.ZIP_DEFLATED) as z:
  for p in sorted(D.iterdir()):
   if p.is_file():z.write(p,'print-delivery-v05/'+p.name)
 with zipfile.ZipFile(zip_path) as z:assert z.testzip() is None
-(R/'docs/history/project-status-20261028-v05.md').write_text('''# v05 项目状态
+(R/'modeling/v05/reports/project-status-20261028-v05.md').write_text('''# v05 项目状态
 
 用户已授权建模：封闭背部，只留小出声孔；从正面安装和取出完整 StopWatch；三个按钮只需避让，不需要壳内操作；取出充电；三根后支柱；前圈沿原曲面，采用隐藏可释放卡扣。此决定替代早先背面开放、螺丝耳和充电开口方案。
 

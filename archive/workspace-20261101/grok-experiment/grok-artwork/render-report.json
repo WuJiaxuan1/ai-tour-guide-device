@@ -1,0 +1,414 @@
+{
+  "source_commit": "b7e6cd48db4eeba13271c653c38e1ad0f48037b4",
+  "width": 466,
+  "height": 466,
+  "fps": 8,
+  "frames": 16,
+  "expressions": {
+    "neutral": {
+      "state": "idle",
+      "match": "direct",
+      "snapshot": {
+        "state": "idle",
+        "mode": "hold",
+        "shape": "blob",
+        "color": "black",
+        "scheme": "dark",
+        "eyeFrom": 0,
+        "eyeTo": 0,
+        "spin": 1.5795079401552252,
+        "tx": 0.5263346449347676,
+        "ty": 1.1104830677775126,
+        "squash": 1.0060079215966056,
+        "blink": 1.0000000000000007,
+        "overlay": null
+      }
+    },
+    "happy": {
+      "state": "happy",
+      "match": "direct",
+      "snapshot": {
+        "state": "happy",
+        "mode": "hold",
+        "shape": "blob",
+        "color": "black",
+        "scheme": "dark",
+        "eyeFrom": 2,
+        "eyeTo": 2,
+        "spin": 1.1414223094425278,
+        "tx": 1.705047182273574,
+        "ty": -1.9743298486506091,
+        "squash": 0.993475160833145,
+        "blink": 1.0000000000000007,
+        "overlay": null
+      }
+    },
+    "laughing": {
+      "state": "laughing",
+      "match": "direct",
+      "snapshot": {
+        "state": "laughing",
+        "mode": "hold",
+        "shape": "blob",
+        "color": "black",
+        "scheme": "dark",
+        "eyeFrom": 2,
+        "eyeTo": 17,
+        "spin": 0.01689068001053656,
+        "tx": -1.3358597834785106,
+        "ty": -3.198788787108846,
+        "squash": 1.0032364140240804,
+        "blink": 0.7000000000000003,
+        "overlay": null
+      }
+    },
+    "sad": {
+      "state": "sad",
+      "match": "direct",
+      "snapshot": {
+        "state": "sad",
+        "mode": "hold",
+        "shape": "blob",
+        "color": "black",
+        "scheme": "dark",
+        "eyeFrom": 4,
+        "eyeTo": 4,
+        "spin": 4.2594680839992085,
+        "tx": 0.7371415843183109,
+        "ty": 7.744279897286398,
+        "squash": 0.9699999999970143,
+        "blink": 0.7000000000000003,
+        "overlay": null
+      }
+    },
+    "angry": {
+      "state": "angry",
+      "match": "direct",
+      "snapshot": {
+        "state": "angry",
+        "mode": "hold",
+        "shape": "blob",
+        "color": "black",
+        "scheme": "dark",
+        "eyeFrom": 7,
+        "eyeTo": 7,
+        "spin": 0.00013216860444367878,
+        "tx": 0,
+        "ty": 3.535832577282962,
+        "squash": 0.974999999997512,
+        "blink": 1.0000000000000007,
+        "overlay": null
+      }
+    },
+    "confused": {
+      "state": "confused",
+      "match": "direct",
+      "snapshot": {
+        "state": "confused",
+        "mode": "hold",
+        "shape": "blob",
+        "color": "black",
+        "scheme": "dark",
+        "eyeFrom": 14,
+        "eyeTo": 14,
+        "spin": 11.427307590552436,
+        "tx": 2.8368313845087103,
+        "ty": 1.7264694680096442,
+        "squash": 1,
+        "blink": 0.9000000000000004,
+        "overlay": null
+      }
+    },
+    "thinking": {
+      "state": "thinking",
+      "match": "direct",
+      "snapshot": {
+        "state": "thinking",
+        "mode": "hold",
+        "shape": "blob",
+        "color": "black",
+        "scheme": "dark",
+        "eyeFrom": 8,
+        "eyeTo": 8,
+        "spin": -5.435265479034711,
+        "tx": 2.8841058009064557,
+        "ty": 2.343985710621322,
+        "squash": 1,
+        "blink": 1.0000000000000007,
+        "overlay": "dots"
+      }
+    },
+    "surprised": {
+      "state": "surprised",
+      "match": "direct",
+      "snapshot": {
+        "state": "surprised",
+        "mode": "hold",
+        "shape": "blob",
+        "color": "black",
+        "scheme": "dark",
+        "eyeFrom": 3,
+        "eyeTo": 3,
+        "spin": -0.000022407302544023014,
+        "tx": -0.040753972952183186,
+        "ty": -0.041771330255890714,
+        "squash": 1.0000000001337876,
+        "blink": 1.0000000000000007,
+        "overlay": null
+      }
+    },
+    "sleepy": {
+      "state": "drowsy",
+      "match": "approximate",
+      "snapshot": {
+        "state": "drowsy",
+        "mode": "hold",
+        "shape": "blob",
+        "color": "black",
+        "scheme": "dark",
+        "eyeFrom": 4,
+        "eyeTo": 4,
+        "spin": 1.01902714883059,
+        "tx": 0.6003975212334656,
+        "ty": 8.307121330316468,
+        "squash": 0.9927415470863625,
+        "blink": 0.27965368364666665,
+        "overlay": null
+      }
+    },
+    "confident": {
+      "state": "proud",
+      "match": "approximate",
+      "snapshot": {
+        "state": "proud",
+        "mode": "hold",
+        "shape": "blob",
+        "color": "black",
+        "scheme": "dark",
+        "eyeFrom": 15,
+        "eyeTo": 15,
+        "spin": 1.9668066748889657,
+        "tx": 1.3109100169854366,
+        "ty": -3.0607468696085096,
+        "squash": 1.0300000000029859,
+        "blink": 0.9000000000000004,
+        "overlay": null
+      }
+    },
+    "embarrassed": {
+      "state": "shy",
+      "match": "approximate",
+      "snapshot": {
+        "state": "shy",
+        "mode": "hold",
+        "shape": "blob",
+        "color": "black",
+        "scheme": "dark",
+        "eyeFrom": 0,
+        "eyeTo": 0,
+        "spin": -5.293677380342276,
+        "tx": -1.543438895464061,
+        "ty": 2.9987558653927775,
+        "squash": 0.9799999999980097,
+        "blink": 0.8500000000000003,
+        "overlay": null
+      }
+    },
+    "shocked": {
+      "state": "scared",
+      "match": "approximate",
+      "snapshot": {
+        "state": "scared",
+        "mode": "hold",
+        "shape": "blob",
+        "color": "black",
+        "scheme": "dark",
+        "eyeFrom": 3,
+        "eyeTo": 21,
+        "spin": 0.024295262997863405,
+        "tx": -2.014865651400889,
+        "ty": 1.9134493348044486,
+        "squash": 0.9699999999970143,
+        "blink": 1.0499999999999994,
+        "overlay": null
+      }
+    },
+    "funny": {
+      "state": "playful",
+      "match": "approximate",
+      "snapshot": {
+        "state": "playful",
+        "mode": "hold",
+        "shape": "blob",
+        "color": "black",
+        "scheme": "dark",
+        "eyeFrom": 2,
+        "eyeTo": 2,
+        "spin": -0.3868265183462394,
+        "tx": 2.72807549163772,
+        "ty": -2.418536035465473,
+        "squash": 0.989075027434222,
+        "blink": 1.0000000000000007,
+        "overlay": null
+      }
+    },
+    "silly": {
+      "state": "playful",
+      "eye": 17,
+      "match": "approximate eye variant",
+      "snapshot": {
+        "state": "playful",
+        "mode": "hold",
+        "shape": "blob",
+        "color": "black",
+        "scheme": "dark",
+        "eyeFrom": 17,
+        "eyeTo": 17,
+        "spin": -0.3868265183462394,
+        "tx": 2.72807549163772,
+        "ty": -2.418536035465473,
+        "squash": 0.989075027434222,
+        "blink": 1.0000000000000007,
+        "overlay": null
+      }
+    },
+    "relaxed": {
+      "state": "humming",
+      "match": "approximate",
+      "snapshot": {
+        "state": "humming",
+        "mode": "hold",
+        "shape": "blob",
+        "color": "black",
+        "scheme": "dark",
+        "eyeFrom": 0,
+        "eyeTo": 0,
+        "spin": 1.5734453399111723,
+        "tx": 0.8652317402719375,
+        "ty": 1.4505079770415408,
+        "squash": 1,
+        "blink": 1.0000000000000007,
+        "overlay": null
+      }
+    },
+    "cool": {
+      "state": "proud",
+      "eye": 8,
+      "match": "approximate eye variant; no sunglasses in source",
+      "snapshot": {
+        "state": "proud",
+        "mode": "hold",
+        "shape": "blob",
+        "color": "black",
+        "scheme": "dark",
+        "eyeFrom": 8,
+        "eyeTo": 8,
+        "spin": 1.9668066748889657,
+        "tx": 1.3109100169854366,
+        "ty": -3.0607468696085096,
+        "squash": 1.0300000000029859,
+        "blink": 0.9000000000000004,
+        "overlay": null
+      }
+    },
+    "loving": {
+      "state": "happy",
+      "eye": 19,
+      "match": "approximate eye variant; no hearts in source",
+      "snapshot": {
+        "state": "happy",
+        "mode": "hold",
+        "shape": "blob",
+        "color": "black",
+        "scheme": "dark",
+        "eyeFrom": 19,
+        "eyeTo": 19,
+        "spin": 1.1414223094425278,
+        "tx": 1.705047182273574,
+        "ty": -1.9743298486506091,
+        "squash": 0.993475160833145,
+        "blink": 1.0000000000000007,
+        "overlay": null
+      }
+    },
+    "kissy": {
+      "state": "shy",
+      "eye": 24,
+      "match": "approximate eye variant; no kiss in source",
+      "snapshot": {
+        "state": "shy",
+        "mode": "hold",
+        "shape": "blob",
+        "color": "black",
+        "scheme": "dark",
+        "eyeFrom": 24,
+        "eyeTo": 24,
+        "spin": -5.293677380342276,
+        "tx": -1.543438895464061,
+        "ty": 2.9987558653927775,
+        "squash": 0.9799999999980097,
+        "blink": 0.8500000000000003,
+        "overlay": null
+      }
+    },
+    "crying": {
+      "state": "sad",
+      "eye": 22,
+      "match": "approximate eye variant; no tears in source",
+      "snapshot": {
+        "state": "sad",
+        "mode": "hold",
+        "shape": "blob",
+        "color": "black",
+        "scheme": "dark",
+        "eyeFrom": 22,
+        "eyeTo": 22,
+        "spin": 4.2594680839992085,
+        "tx": 0.7371415843183109,
+        "ty": 7.744279897286398,
+        "squash": 0.9699999999970143,
+        "blink": 0.7000000000000003,
+        "overlay": null
+      }
+    },
+    "delicious": {
+      "state": "excited",
+      "match": "approximate; no eating expression in source",
+      "snapshot": {
+        "state": "excited",
+        "mode": "hold",
+        "shape": "blob",
+        "color": "black",
+        "scheme": "dark",
+        "eyeFrom": 2,
+        "eyeTo": 21,
+        "spin": -1.5604191317807499,
+        "tx": 2.72807549163772,
+        "ty": -4.616505524102076,
+        "squash": 1.0047886561239356,
+        "blink": 1.0000000000000007,
+        "overlay": null
+      }
+    },
+    "winking": {
+      "state": "playful",
+      "wink": true,
+      "match": "source wink action",
+      "snapshot": {
+        "state": "playful",
+        "mode": "hold",
+        "shape": "blob",
+        "color": "black",
+        "scheme": "dark",
+        "eyeFrom": 2,
+        "eyeTo": 2,
+        "spin": -0.3868265183462394,
+        "tx": 2.72807549163772,
+        "ty": -2.418536035465473,
+        "squash": 0.989075027434222,
+        "blink": 1.0000000000000007,
+        "overlay": null
+      }
+    }
+  }
+}

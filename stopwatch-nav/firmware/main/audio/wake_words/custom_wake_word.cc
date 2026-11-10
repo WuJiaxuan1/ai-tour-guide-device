@@ -133,14 +133,22 @@ void CustomWakeWord::OnWakeWordDetected(std::function<void(const std::string& wa
 }
 
 void CustomWakeWord::Start() {
+    std::lock_guard<std::mutex> lock(input_buffer_mutex_);
+    // A page/dialogue transition can stop a partial MultiNet recognition
+    // window. Resume with fresh acoustic state, synchronized with Feed().
+    input_buffer_.clear();
+    if (multinet_ && multinet_model_data_) {
+        multinet_->clean(multinet_model_data_);
+    }
     running_ = true;
+    ESP_LOGI(TAG, "WakeRecovery: detector started with fresh recognition state");
 }
 
 void CustomWakeWord::Stop() {
-    running_ = false;
-
     std::lock_guard<std::mutex> lock(input_buffer_mutex_);
+    running_ = false;
     input_buffer_.clear();
+    ESP_LOGI(TAG, "WakeRecovery: detector stopped");
 }
 
 void CustomWakeWord::Feed(const std::vector<int16_t>& data) {

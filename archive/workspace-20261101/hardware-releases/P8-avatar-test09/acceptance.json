@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-31",
+  "status": "passed",
+  "evidence": "用户反馈：验收通过，在倾听和思考的时候有没有特点表情对应？",
+  "evidence_type": "user-reported hardware acceptance",
+  "firmware_version": "2.2.6-p8-avatar09",
+  "app_sha256": "5d7ccc7f4f9d6d3df313e16b0b22ff5beca0f05fca4cb567cdbe61e8a87fc2ee",
+  "assets_sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f",
+  "items": [
+    "左键自动聆听",
+    "重复操作不结束对话",
+    "地图返回与切换",
+    "启动配网保护及唤醒词",
+    "表情震动导航回归"
+  ]
+}

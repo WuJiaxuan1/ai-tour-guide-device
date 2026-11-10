@@ -14,12 +14,13 @@ object MapFrameEncoder {
     const val CHUNK_PAYLOAD = 480 * 480 * 2
     data class Frame(val bytes: ByteArray, val id: Int, val session: String, val crc: Long)
 
-    fun encode(pixels: IntArray, id: Int, session: String, bounds: GeoBounds? = null, size: Int = WIDTH): Frame {
+    fun encode(pixels: IntArray, id: Int, session: String, bounds: GeoBounds? = null, size: Int = WIDTH, overviewRoute: WalkingRoute? = null): Frame {
         require(size==240 || (size==480 && bounds!=null))
         require(pixels.size == size * size)
         val payload=size*size*2
         require(id in 1..2_000_000_000 && session.matches(Regex("[0-9a-f]{32}")))
-        require(bounds == null || bounds.valid())
+        require(overviewRoute==null || (bounds!=null && size==480 && RouteOverview.fits(bounds,overviewRoute)))
+        require(bounds == null || bounds.valid(overviewRoute!=null))
         val header = if (bounds == null) HEADER else GEO_HEADER
         val bytes = ByteArray(header + payload)
         val buffer = ByteBuffer.wrap(bytes).order(ByteOrder.LITTLE_ENDIAN)
@@ -36,10 +37,11 @@ object MapFrameEncoder {
         buffer.putInt(id).putInt(payload).putInt(crc.toInt())
         for (i in session.indices step 2) buffer.put(session.substring(i, i + 2).toInt(16).toByte())
         if (bounds != null) {
-            bytes[4] = if(size==480) 3 else 2; bytes[5] = if(size==480) 3 else 2
+            bytes[4] = if(overviewRoute!=null) 4 else if(size==480) 3 else 2; bytes[5] = bytes[4]
             buffer.position(48)
             buffer.putDouble(bounds.north).putDouble(bounds.west).putDouble(bounds.south).putDouble(bounds.east)
             buffer.put(1) // GCJ-02, north-up Web Mercator
+            if(overviewRoute!=null) buffer.putInt(84,RouteOverview.geometryKey(overviewRoute).toInt())
         }
         return Frame(bytes, id, session, crc)
     }

@@ -1,3 +1,4 @@
+#include "mcp_server.h"
 #include "wifi_board.h"
 #include "display/lcd_display.h"
 #include "esp_lcd_co5300.h"
@@ -16,6 +17,10 @@
 #include "local_link_server.h"
 #include "stopwatch_pages.h"
 #include "swipe_tracker.h"
+#include "avatar_display.h"
+#include "stopwatch_imu.h"
+#include "stopwatch_haptics.h"
+#include <cstring>
 
 #define TAG "M5StackStopwatch"
 
@@ -39,6 +44,8 @@ class RoundLcdDisplay : public SpiLcdDisplay {
 private:
     lv_obj_t* local_link_label_ = nullptr;
     StopwatchPages pages_;
+    AvatarDisplay avatar_;
+    bool voice_ready_ = false;
     std::string local_status_;
     int shown_volume_ = -1;
     void RefreshLocalStatus() {
@@ -47,6 +54,69 @@ private:
         pages_.SetStatus(text.c_str());
     }
 public:
+    void SetAvatarFeedback(std::function<void(AvatarFeedback)> callback) {
+        DisplayLockGuard lock(this);avatar_.SetFeedback(std::move(callback));
+    }
+    void SuppressAvatarMotion(bool suppressed) {avatar_.SetMotionSuppressed(suppressed);}
+    void AvatarTouch(bool valid,bool pressed,int x,int y,uint32_t now,bool swipe) {
+        DisplayLockGuard lock(this);
+        if(Application::GetInstance().GetDeviceState()!=kDeviceStateIdle || Application::GetInstance().IsVoicePaused())
+            valid=false;
+        avatar_.Touch(valid,pressed,x,y,now,swipe);
+    }
+    void AvatarMotion(bool valid,const AvatarImuSample& sample,uint32_t now) {
+        avatar_.Motion(valid,sample,now);
+    }
+    void SetStatus(const char* status) override {
+        // The base method owns its lock; never call it while holding ours.
+        SpiLcdDisplay::SetStatus(status);
+        if (!status) return;
+        DisplayLockGuard lock(this);
+        const bool idle = std::strcmp(status, Lang::Strings::STANDBY) == 0;
+        const bool listening = std::strcmp(status, Lang::Strings::LISTENING) == 0;
+        const bool speaking = std::strcmp(status, Lang::Strings::SPEAKING) == 0;
+        const bool connecting = std::strcmp(status, Lang::Strings::CONNECTING) == 0;
+        // The upstream status timer also emits HH:MM. It must not exit avatar mode.
+        const bool clock = std::strlen(status) == 5 && status[2] == ':' &&
+            status[0] >= '0' && status[0] <= '2' && status[1] >= '0' && status[1] <= '9' &&
+            status[3] >= '0' && status[3] <= '5' && status[4] >= '0' && status[4] <= '9';
+        if (idle || listening || speaking) {
+            voice_ready_ = true;
+            avatar_.SetBase(idle ? ExpressionId::Idle : listening ? ExpressionId::Listening : ExpressionId::Speaking);
+            avatar_.SetVisible(true);
+        } else if (connecting && voice_ready_) {
+            avatar_.SetBase(ExpressionId::Thinking);
+            avatar_.SetVisible(true);
+        } else if (!clock) {
+            // Provisioning, activation, updates and errors retain the original UI.
+            avatar_.SetVisible(false);
+        }
+        if (avatar_.Visible() && gif_controller_) {
+            gif_controller_->Stop();
+            gif_controller_.reset();
+        }
+    }
+    void SetEmotion(const char* emotion) override {
+        {
+            DisplayLockGuard lock(this);
+            if (avatar_.Visible()) { avatar_.SetEmotion(emotion); return; }
+        }
+        SpiLcdDisplay::SetEmotion(emotion);
+    }
+    void SetChatMessage(const char* role, const char* content) override {
+        {
+            DisplayLockGuard lock(this);
+            if (avatar_.Visible()) {
+                // STT receipt is the existing protocol's observable waiting-for-answer event.
+                // Late STT must not override an answer already being spoken.
+                if (role && content && content[0] && std::strcmp(role,"user") == 0 &&
+                    avatar_.Base() == ExpressionId::Listening)
+                    avatar_.SetBase(ExpressionId::Thinking);
+                return;
+            }
+        }
+        SpiLcdDisplay::SetChatMessage(role, content);
+    }
     std::function<MapWire::Position()> position_provider;
     std::function<std::shared_ptr<const RouteWire::Frame>()> route_provider;
     void RefreshRoute() {DisplayLockGuard lock(this);if(route_provider) pages_.SetRoute(route_provider());}
@@ -68,6 +138,7 @@ public:
     }
     void ShowMap(bool map) {
         DisplayLockGuard lock(this);
+        avatar_.SetPaused(map);
         pages_.ShowMap(map);
         if(route_provider) pages_.SetRoute(route_provider());
         if (position_provider) pages_.SetPosition(position_provider(), esp_timer_get_time()/1000);
@@ -137,6 +208,8 @@ public:
         lv_obj_align(local_link_label_, LV_ALIGN_TOP_MID, 0, 105);
         local_status_ = "P7: set up Wi-Fi on each boot";
         pages_.Initialize(lv_screen_active(), width_, height_);
+        if (!avatar_.Initialize(pages_.VoiceRoot(), width_, height_))
+            ESP_LOGE(TAG, "Avatar allocation failed; original voice UI retained");
         RefreshLocalStatus();
     }
 };
@@ -155,6 +228,30 @@ private:
     uint32_t local_seq_ = 0;
     bool startup_wifi_cleared_ = false;
     i2c_master_dev_handle_t touch_device_ = nullptr;
+    StopwatchImu imu_;
+    StopwatchHaptics haptics_;
+
+    void InitializeMotion() {
+        if(xTaskCreate([](void* arg) {
+            auto* self=static_cast<M5StackStopwatchBoard*>(arg);
+            if(!self->imu_.Initialize(self->i2c_bus_)) {vTaskDelete(nullptr);return;}
+            unsigned failures=0;
+            TickType_t next_sample=xTaskGetTickCount();
+            for(;;) {
+                AvatarImuSample sample{};
+                const bool valid=self->imu_.Read(sample);
+                if(valid) failures=0;
+                else if(++failures==25) ESP_LOGW(TAG,"BMI270 readings unavailable; gaze returns to neutral");
+                self->display_->AvatarMotion(valid,sample,esp_timer_get_time()/1000);
+                // Fixed cadence, excluding display lock/render time. Avoid a
+                // burst of catch-up reads if a bus timeout missed the deadline.
+                const TickType_t period=pdMS_TO_TICKS(failures>=25?200:20);
+                if(xTaskGetTickCount()-next_sample>=period) next_sample=xTaskGetTickCount();
+                vTaskDelayUntil(&next_sample,period);
+            }
+        },"stopwatch_imu",4096,this,2,nullptr)!=pdPASS)
+            ESP_LOGW(TAG,"IMU task unavailable; tilt disabled");
+    }
 
     void RequestPage(bool map) {
         Application::GetInstance().Schedule([this, map]() {
@@ -198,7 +295,9 @@ private:
                 const int y = ((point[3] & 15) << 8) | point[4];
                 const bool pressed = point[0] == 1;
                 valid = valid && point[0] <= 1 && (!pressed || (x < DISPLAY_WIDTH && y < DISPLAY_HEIGHT));
-                const int direction = swipe.Update(valid, pressed, x, y, esp_timer_get_time() / 1000);
+                const uint32_t now=esp_timer_get_time()/1000;
+                const int direction = swipe.Update(valid, pressed, x, y, now);
+                self->display_->AvatarTouch(valid,pressed,x,y,now,direction!=0);
                 if (direction) self->RequestPage(direction < 0);
                 vTaskDelay(pdMS_TO_TICKS(30));
             }
@@ -315,9 +414,23 @@ private:
     }
 
     void InitializeButtons() {
-        // Button1 (GPIO2): left, return to voice. No action at left boundary.
+        // Button1 (GPIO2): return from map, or start an idle voice conversation.
         button1_.OnClick([this]() {
-            RequestPage(false);
+            // Resolve page/state on the application thread, in order with swipes.
+            Application::GetInstance().Schedule([this]() {
+                auto& app = Application::GetInstance();
+                if (app.IsVoicePaused()) {
+                    if (!app.SetVoicePaused(false)) return;
+                    local_link_.Images().SetActive(false);
+                    display_->ShowMap(false);
+                    return; // Returning from navigation must not open the microphone.
+                }
+                if (app.GetDeviceState() == kDeviceStateIdle) {
+                    // Use normal automatic end-of-speech, not push-to-talk mode.
+                    ESP_LOGI(TAG, "Left key: start voice conversation");
+                    app.ToggleChatState();
+                }
+            });
         });
 
         // Button2 (GPIO1): right, enter map. Provisioning/activation stays visible.
@@ -353,6 +466,12 @@ public:
             });
         });
         InitializeTouch();
+        if(haptics_.Initialize(i2c_bus_,ioe_,[this](bool suppressed){display_->SuppressAvatarMotion(suppressed);}))
+            display_->SetAvatarFeedback([this](AvatarFeedback event){haptics_.Feedback(event);});
+        InitializeMotion();
+        McpServer::GetInstance().AddTool("self.qixia.get_pairing_code",
+            "游客要连接网页行程、绑定手表或获取配对码时调用。读出工具提供的8位码，网页填写后语音与地图一起绑定。preparing时稍后再查询，不要编造数字。",
+            PropertyList(),[this](const PropertyList&) -> ReturnValue {return local_link_.PairingCode();});
     }
 
     void SetNetworkEventCallback(NetworkEventCallback callback) override {

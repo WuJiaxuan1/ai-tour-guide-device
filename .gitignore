@@ -1,5 +1,8 @@
 # External material: local by default; review before publishing
 /project-files/
+/references/organizer/
+/docs/operations/server-reference/
+/tools/skills/ssh-operation-logging/
 
 # Dependencies and generated caches
 node_modules/
@@ -25,6 +28,14 @@ Thumbs.db
 # Local distribution snapshots; use release assets when publishing
 *.zip
 /docs/history/reorganization-20261029/
+/docs/project/reorganization-20261029/
+
+# Relocated local authoring material: review before publication.
+/marketing/制作工程-20261101/
+/docs/product/制作工程-20261101/
+/frontend/design-assets/autumn-preview-v02/
+/frontend/design-assets/ui-review-20261031/
+~$*
 
 # Received hardware build caches, private signing material and release snapshots
 .gradle/
@@ -49,3 +60,27 @@ local.properties
 *.npz
 *.npy
 *.log
+
+# Local-only editorial records and externally hosted demonstration videos
+/.local-private/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+**/device-preflight/
+.venv-*/
+/docs/project/文件整理报告-20261102.md
+/docs/project/文件移动与改名清单-20261102.md
+/docs/project/文件删除清单-20261102.md
+/docs/project/保留及未认定删除清单-20261102.md
+/docs/project/结项版本基线-20261102.md
+/docs/project/协作规则历史-20261031.md
+/docs/project/项目入口-20261102-整理前.md
+/docs/project/workfile-cleanup-20261029.md
+/docs/project/survey-archive-cleanup-20261031.md
+/marketing/*.mp4
+/marketing/枫客松栖霞山-路演模板-v3.1.pptx
+/frontend/workfiles-20261029/
+/frontend/v*/git-diffstat-*.txt
+/docs/product/枫叶精灵-原文审查与修改说明-v2.0.md
+/docs/requirements/visitor-survey/visitor-survey-review-20261031.md
+/modeling/concept-images/prompts/参考截图提示词-原文提取.txt

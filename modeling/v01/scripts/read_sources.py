@@ -3,7 +3,7 @@ import importlib.util, json, zipfile, xml.etree.ElementTree as ET
 from pypdf import PdfReader
 root=Path(r'F:\coding_projects\ai-tour-guide-device')
 print('MODULES', {m:bool(importlib.util.find_spec(m)) for m in ['numpy','PIL','pypdfium2','fitz','pdfplumber','trimesh']})
-with zipfile.ZipFile(root/'docs/meetings/第一次南客松项目筹备会会议纪要.docx') as z:
+with zipfile.ZipFile(root/'docs/project/第一次筹备会纪要.docx') as z:
  tree=ET.fromstring(z.read('word/document.xml'))
  print('MEETING\n'+'\n'.join(''.join(p.itertext()) for p in tree.findall('.//{http://schemas.openxmlformats.org/wordprocessingml/2006/main}p')))
 r=PdfReader(root/'stopwatch-nav/reference/StopWatch.pdf')

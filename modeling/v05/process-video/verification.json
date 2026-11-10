@@ -1,0 +1,19 @@
+{
+  "PRINT_01_Closed_Back_Housing_v05": {
+    "source_vertices_preserved": true,
+    "vertices": 278741
+  },
+  "PRINT_02_Curved_Snap_Ring_v05": {
+    "source_vertices_preserved": true,
+    "vertices": 16268
+  },
+  "movie_frames": 150,
+  "fps": 30.0,
+  "duration_seconds": 5.0,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "mp4_bytes": 1302396,
+  "mp4_sha256": "1e1e4b16cd22295fb177308ec1de4d20a7efad050ae62bd30768467552524b47"
+}

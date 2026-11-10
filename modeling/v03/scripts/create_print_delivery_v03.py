@@ -186,5 +186,5 @@ status='''# 文旅智能导览设备 项目状态 v03
 
 本轮没有对外发消息、发布网站、提交赛事或采购。
 '''
-(R/'docs/history/project-status-20261028-v03.md').write_text(status,encoding='utf8')
+(R/'modeling/v03/reports/project-status-20261028-v03.md').write_text(status,encoding='utf8')
 print('DELIVERY_READY',str(D));print('ZIP',str(zipout),zipout.stat().st_size);print('FINAL_SAMPLE_WALL_MIN',A['wall_sampling']['min_mm']);print('FINAL_FILES',list(manifest))

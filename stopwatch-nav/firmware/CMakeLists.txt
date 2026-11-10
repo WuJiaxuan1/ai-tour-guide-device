@@ -9,6 +9,6 @@ include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 # "Trim" the build. Include the minimal set of components, main, and anything it depends on.
 idf_build_set_property(MINIMAL_BUILD ON)
 
-set(PROJECT_VER "2.2.6-p8-test02")
+set(PROJECT_VER "2.2.6-p9-cloud02")
 
 project(xiaozhi)

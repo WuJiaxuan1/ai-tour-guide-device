@@ -1,3 +1,4 @@
+import {createWatchMapRenderer} from './watch/map-renderer.mjs';
 import http from 'node:http';
 import {createPresetService} from './presets.mjs';
 import {createConversationService} from './conversation.mjs';
@@ -7,10 +8,12 @@ import {resolve,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {randomUUID} from 'node:crypto';
 import {readConfig} from './config.mjs';
-import {ServiceError,amapRequest,mergeLegs} from './amap.mjs';
+import {ServiceError,amapRequest,mergeLegs,decodePolyline} from './amap.mjs';
 import {createKnowledgeService} from './knowledge.mjs';
 import {shortestOrder} from './route-optimizer.mjs';
 import {createRoadPlanner} from './road-planner.mjs';
+import {createTravelApi} from './travel/api.mjs';
+import {createReverseGeocoder} from './travel/location-address.mjs';
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'../..');
 const catalog=JSON.parse(readFileSync(resolve(root,'frontend/src/content/places.json'),'utf8'));
@@ -52,6 +55,14 @@ const knowledge=createKnowledgeService(root,[...catalog,...facilities]);
 const presets=createPresetService(root,[...catalog,...facilities]);
 const planRoads=createRoadPlanner({catalog:[...catalog,...facilities],data:presets.data,walkingLeg});
 const converse=createConversationService(knowledge,presets,[...catalog,...facilities]);
+const travel=createTravelApi({root,presets,knowledge,converse,catalog:[...catalog,...facilities],
+ renderWatchMap:createWatchMapRenderer(root),
+ walkingGeometry:async(from,to)=>{const p=await walkingLeg({location:from},{location:to},readConfig(root).serverKey,AbortSignal.timeout(12000));return p?.steps?.flatMap(s=>decodePolyline(s.polyline));},
+ planRoads:(selection,{signal})=>planRoads(selection,{key:readConfig(root).serverKey,signal}),
+ reverseGeocode:createReverseGeocoder({key:()=>readConfig(root).serverKey}),
+ convertLocation:async location=>{const d=await amapRequest('/v3/assistant/coordinate/convert',{locations:location.map(n=>n.toFixed(6)).join(','),coordsys:'gps'},readConfig(root).serverKey,{});return String(d.locations).split(',').map(Number);},
+ walkingLeg:async (from,to)=>{const p=await walkingLeg({location:from},{location:to},readConfig(root).serverKey,AbortSignal.timeout(12000));return p?{distance_m:Number(p.distance),walk_seconds:Number(p.duration),geometry:{type:'LineString',coordinates:p.steps.flatMap(s=>decodePolyline(s.polyline))}}:null;}
+});
 const rates=new Map();
 const server=http.createServer(async(req,res)=>{
   const c=new AbortController();res.on('close',()=>{if(!res.writableEnded)c.abort();});
@@ -60,8 +71,9 @@ const server=http.createServer(async(req,res)=>{
     if(url.pathname.startsWith('/api/')||url.pathname.startsWith('/_AMapService/')){
       const client=req.socket.remoteAddress,now=Date.now();let rate=rates.get(client);if(!rate||now-rate.at>60000){rate={at:now,n:0};rates.set(client,rate);}if(++rate.n>180)throw new ServiceError('请求较多，请稍后再试。',429);
     }
+    if(await travel.handle(req,res,url))return;
     if(req.method==='GET'&&url.pathname==='/api/health')return json(res,200,{ok:true,mapConfigured:Boolean(config.webKey&&config.jscode),servicesConfigured:Boolean(config.serverKey)});
-    if(req.method==='GET'&&url.pathname==='/api/capabilities')return json(res,200,{knowledge:{mode:'bounded-retrieval',multiTurn:'rules',version:knowledge.version,places:knowledge.catalog.length},textModel:{provider:'xiaozhi',connected:false},routes:{mode:'official-presets',count:presets.data.routes.length,verifiedRoadEdges:presets.data.matrix.edges.length,ready:presets.data.routes.filter(r=>r.navigationReady).map(r=>r.routeId)},watch:{requiresAndroid:true,routeSync:false,acknowledgement:null}});
+    if(req.method==='GET'&&url.pathname==='/api/capabilities')return json(res,200,{knowledge:{mode:'full-context',version:knowledge.version,places:knowledge.catalog.length,...knowledge.counts},textModel:{api:'/api/v1/capabilities'},routes:{mode:'official-presets',count:presets.data.routes.length,verifiedRoadEdges:presets.data.matrix.edges.length,ready:presets.data.routes.filter(r=>r.navigationReady).map(r=>r.routeId)},watch:{requiresAndroid:true,routeSync:false,acknowledgement:null}});
     if(req.method==='GET'&&url.pathname==='/api/config')return json(res,200,{map:{webKey:config.webKey,serviceHost:'/_AMapService',configured:Boolean(config.webKey&&config.jscode)}});
     if(url.pathname.startsWith('/_AMapService/')){
       if(!config.webKey||!config.jscode)throw new ServiceError('地图服务尚未配置。',503);
@@ -109,4 +121,4 @@ const server=http.createServer(async(req,res)=>{
     return serveStatic(root,req,res,url);
   }catch(e){if(!res.headersSent)json(res,e.status||500,{error:e instanceof ServiceError?e.message:'服务暂时无法完成请求，请稍后重试。'});else res.end();}
 });
-server.listen(Number(process.env.PORT||8787),'127.0.0.1',()=>console.log(`Qixia navigation service ready on 127.0.0.1:${server.address().port} (credentials are never logged).`));
+server.listen(Number(process.env.PORT||8787),process.env.HOST||'127.0.0.1',()=>console.log(`Qixia navigation service ready on 127.0.0.1:${server.address().port} (credentials are never logged).`));

@@ -1,0 +1,202 @@
+{
+  "version": 1,
+  "title": "栖霞山半日游步行路线",
+  "coordinateSystem": "GCJ-02",
+  "source": "amap-walking-v5-coordinates",
+  "generatedAt": "2026-10-24",
+  "editable": true,
+  "manualEditHint": "可将任一 segment.status 改为 manual，并替换该段 path 数组；每个点格式为 [经度, 纬度]。",
+  "segments": [
+    {
+      "id": "mingjing-lake__qixia-temple",
+      "fromSpotId": "mingjing-lake",
+      "toSpotId": "qixia-temple",
+      "fromName": "明镜湖",
+      "toName": "栖霞寺",
+      "source": "amap-walking-v5-coordinates",
+      "status": "api-verified",
+      "distanceMeters": 230,
+      "straightLineMeters": 158,
+      "durationSeconds": 184,
+      "durationMinutes": 3,
+      "endpointOffsetMeters": {
+        "start": 6,
+        "end": 4
+      },
+      "warnings": [],
+      "instructions": [
+        "向东南步行44米左转",
+        "向东北步行41米向右前方行走",
+        "向东步行69米左转",
+        "向北步行24米右转",
+        "向东步行52米左转到达目的地"
+      ],
+      "path": [
+        [
+          118.956254,
+          32.151749
+        ],
+        [
+          118.956354,
+          32.151606
+        ],
+        [
+          118.956476,
+          32.151402
+        ],
+        [
+          118.956476,
+          32.151398
+        ],
+        [
+          118.956619,
+          32.15145
+        ],
+        [
+          118.956697,
+          32.151484
+        ],
+        [
+          118.956697,
+          32.151489
+        ],
+        [
+          118.956879,
+          32.151558
+        ],
+        [
+          118.957218,
+          32.15158
+        ],
+        [
+          118.957609,
+          32.151589
+        ],
+        [
+          118.957591,
+          32.151806
+        ],
+        [
+          118.957587,
+          32.151806
+        ],
+        [
+          118.957791,
+          32.151736
+        ],
+        [
+          118.957938,
+          32.151723
+        ],
+        [
+          118.958038,
+          32.15174
+        ],
+        [
+          118.95803,
+          32.15181
+        ]
+      ]
+    },
+    {
+      "id": "qixia-temple__sarira-pagoda",
+      "fromSpotId": "qixia-temple",
+      "toSpotId": "sarira-pagoda",
+      "fromName": "栖霞寺",
+      "toName": "舍利塔",
+      "source": "amap-walking-v5-coordinates",
+      "status": "api-verified",
+      "distanceMeters": 205,
+      "straightLineMeters": 177,
+      "durationSeconds": 164,
+      "durationMinutes": 3,
+      "endpointOffsetMeters": {
+        "start": 4,
+        "end": 3
+      },
+      "warnings": [],
+      "instructions": [
+        "向东北步行68米右转",
+        "向东步行57米右转",
+        "向东南步行80米到达目的地"
+      ],
+      "path": [
+        [
+          118.958025,
+          32.15181
+        ],
+        [
+          118.958038,
+          32.151745
+        ],
+        [
+          118.958303,
+          32.151827
+        ],
+        [
+          118.958485,
+          32.151897
+        ],
+        [
+          118.958568,
+          32.152005
+        ],
+        [
+          118.95918,
+          32.152023
+        ],
+        [
+          118.959197,
+          32.151879
+        ],
+        [
+          118.959223,
+          32.151853
+        ],
+        [
+          118.959579,
+          32.151858
+        ],
+        [
+          118.95977,
+          32.15181
+        ],
+        [
+          118.959848,
+          32.151771
+        ]
+      ]
+    },
+    {
+      "id": "sarira-pagoda__thousand-buddha-rock",
+      "fromSpotId": "sarira-pagoda",
+      "toSpotId": "thousand-buddha-rock",
+      "fromName": "舍利塔",
+      "toName": "千佛岩",
+      "source": "amap-walking-v5-coordinates",
+      "status": "api-verified",
+      "distanceMeters": 32,
+      "straightLineMeters": 30,
+      "durationSeconds": 26,
+      "durationMinutes": 1,
+      "endpointOffsetMeters": {
+        "start": 3,
+        "end": 6
+      },
+      "warnings": [],
+      "instructions": [
+        "向东南步行32米到达目的地"
+      ],
+      "path": [
+        [
+          118.959848,
+          32.151766
+        ],
+        [
+          118.960122,
+          32.151628
+        ]
+      ]
+    }
+  ]
+}

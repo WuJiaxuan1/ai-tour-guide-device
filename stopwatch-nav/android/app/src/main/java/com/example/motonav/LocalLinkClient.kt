@@ -12,7 +12,7 @@ class LocalLinkClient(private val baseUrl: String) {
     data class Status(val firmware: String, val bootId: String, val received: Long, val lastSeq: Long,
         val imageProtocol: Int = 0, val mapActive: Boolean = false, val displayedImage: Long = 0,
         val imageSession: String = "", val geoProtocol: Int = 0, val chunkProtocol: Int = 0,
-        val routeProtocol: Int=0,val routeRevision: Long=0,val routeSession: String="",val progressProtocol:Int=0)
+        val routeProtocol: Int=0,val routeRevision: Long=0,val routeSession: String="",val progressProtocol:Int=0,val overviewProtocol:Int=0)
     data class Ack(val bootId: String, val received: Long, val elapsedMs: Long)
     data class ImageAck(val bootId: String, val elapsedMs: Long)
     private val cancelled = AtomicBoolean(false)
@@ -33,7 +33,8 @@ class LocalLinkClient(private val baseUrl: String) {
             if(json.has("chunk_protocol")) integer(json,"chunk_protocol").toInt() else 0,
             if(json.has("route_protocol")) integer(json,"route_protocol").toInt() else 0,
             if(json.has("route_revision")) integer(json,"route_revision") else 0,json.optString("route_session"),
-            if(json.has("route_progress_protocol")) integer(json,"route_progress_protocol").toInt() else 0)
+            if(json.has("route_progress_protocol")) integer(json,"route_progress_protocol").toInt() else 0,
+            if(json.has("overview_protocol")) integer(json,"overview_protocol").toInt() else 0)
     }
 
     fun ping(session: String, sequence: Int, message: String = "手机链路测试"): Ack {

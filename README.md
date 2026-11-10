@@ -1,28 +1,71 @@
-# AI Tour Guide Device
+# 枫叶精灵｜随身文旅导览智能体
 
-文旅导览设备项目：实体外壳建模、前端界面，以及与团队后端和硬件的集成。
+面向栖霞山游客的软硬件导览项目：手机网页连接知识与行程服务、小智语音和 StopWatch 设备，并配套实体外壳设计与制造资料。
 
-## Directory layout
+![枫叶精灵项目封面](marketing/枫叶精灵-封面.jpg)
 
-- `modeling/`：外观意向图、设备参考、v00–v05 工程、模型交付及机器切片。详见 [modeling/README.md](modeling/README.md)。
-- `stopwatch-nav/`：StopWatch 设备子系统：Android 配套 App、固件、通信协议、测试和交接说明。
-- `backend/`：本地与正式部署可复用的高德安全代理、天气和步行路线服务。
-- `frontend/`：手机网页源码、图片与本地字体、问答/导航适配、测试和构建配置。
-- `project-files/organizer/`：主办方原始资料；`project-files/team/server/`：队友提供的服务器配置文件。
-- `docs/`：项目需求、架构、会议纪要及历史状态与交接。
+## 查看成果
 
-## Notes
+- [产品说明 v2.0](docs/product/枫叶精灵-产品说明-v2.0.docx) · [开发记录 v2.0](docs/project/枫叶精灵-开发记录-v2.0.docx)
+- [路演 PPT](marketing/枫叶精灵-路演-v1.0.pptx) · [实机与建模演示视频](https://github.com/WuJiaxuan1/ai-tour-guide-device/releases/tag/project-deliverables-20261102) · [展示图片](marketing/README.md)
+- [建模与打印资料](modeling/README.md) · [设备源码与烧录说明](stopwatch-nav/README.md)
+- [部署与使用交接](docs/handoffs/web-watch-cloud02-20261101.md) · [交付版本说明](docs/project/交付版本说明-20261102.md)
 
-目录按版本编号排列；编号不代表实物制造已验证。G-code 绑定机器及参数，使用前阅读同目录说明。
+## 交付版本
 
-本地生成的 APK、固件 bin、日志、构建缓存和密钥不纳入 Git；真机安装包与刷机文件按版本在本机 `D:\Study\yiqifen\stopwatch-nav\releases\` 保存，源码仓库只保留可审阅、可复现的工程和验收说明。
+本页对应 `codex/project-organization-20261102` 的项目成果整理。软件源码沿用集成分支 `release/web-watch-cloud02-20261101` 的 `cbf9250`，保留团队的前后端、MCP、设备实现与历史。这次资料发布不另设软件版本号，也不表示重新部署或烧录。
 
-历史文档保留当时内容及旧路径；目录迁移对照位于 [docs/history/reorganization-20261029/migration-map.json](docs/history/reorganization-20261029/migration-map.json)。历史要求可能已被后续讨论替代。
+| 对象 | 版本或说明 |
+| --- | --- |
+| 前后端与 MCP | cloud02-r15 集成系列；本次保留 cbf9250 的运行源码 |
+| StopWatch 固件 | 2.2.6-p9-cloud02，含完整源码及配套烧录/回滚包 |
+| Android 调试 App | 8.3.26-p8-overview01；网页方案无需安装 |
+| 产品说明与开发记录 | v2.0；原始 v1.0 随文档保留 |
+| 实体建模 | v00—v05，v05 表示第 5 版 |
 
-前端与高德导航接入、Key 类型、跨前后端/手表分工见 [docs/architecture/navigation-integration.md](docs/architecture/navigation-integration.md)。
+2026 年 11 月 2 日，项目负责人确认真机联合验收已完成。此前日期的交接记录保留当时状态；本次收录源码与验收状态的对应说明见[交付版本说明](docs/project/交付版本说明-20261102.md)。
 
-## Local development
+## 项目目录
 
-根目录 `.env.local` 保存地图配置，模板为 `.env.example`，不提交 Git。运行 `backend/` 中的 `npm start`（127.0.0.1:8787），再启动 `frontend/` 的开发服务；Vite 同源代理负责连接。构建后，后端也可托管 `frontend/dist/client/`。正式公开仍需团队配置域名、HTTPS、平台使用范围及发布环境。
+| 目录 | 内容 |
+| --- | --- |
+| `frontend/` | 手机网页、素材、测试及各版本交接 |
+| `backend/`、`shared/` | 知识、行程、导航、MCP 与公共规则 |
+| `stopwatch-nav/` | 固件、Android、设备协议与发布包 |
+| `modeling/` | 概念图、各版模型、制造参数与制作脚本 |
+| `docs/` | 产品、需求、架构、运维与项目文档 |
+| `marketing/` | 路演成稿、封面、介绍图片与视频入口 |
+| `deployment/`、`scripts/` | 部署模板与工程检查工具 |
 
-硬件状态见 [stopwatch-nav/docs/硬件端-当前功能介绍.md](stopwatch-nav/docs/硬件端-当前功能介绍.md)。当前 P8-test02 已完成路线叠加和已走路线变色的真机验收；定位来自 Android 手机，不是手表独立 GPS。网页与 Android/手表仍需后续统一路线接口。官方手册不随本仓库复制。
+新整理的版本资料随所属模块保存，单版本交接与相应版本放在一起。既有 `archive/workspace-20261101/` 是前次集成提交保存的历史资料，不作为当前运行入口。
+
+## 获取与运行
+
+使用 Node.js 24 LTS、npm、Git；建模及 APK 大文件需要 Git LFS。已有本地修改时先保存，再获取目标分支。
+
+```sh
+git clone --branch codex/project-organization-20261102 https://github.com/WuJiaxuan1/ai-tour-guide-device.git
+cd ai-tour-guide-device
+git lfs pull
+npm --prefix backend ci
+npm --prefix frontend ci
+```
+
+将 `.env.example` 复制为 `.env.local`，填写自己的地图、模型与 MCP 配置，然后执行：
+
+```sh
+npm --prefix backend test
+npm --prefix frontend test
+npm --prefix frontend run build
+node --env-file=.env.local backend/src/server.mjs
+```
+
+本地访问 `http://127.0.0.1:8787/`。开发网页可另开终端执行 `npm --prefix frontend run dev`。部署、HTTPS、固件烧录及回滚按[集成交接](docs/handoffs/web-watch-cloud02-20261101.md)操作。
+
+## 网页、语音与地图
+
+手机网页提供定位与行程，后端生成到下一站的地图和路线，手表地图页下载并显示进度。语音页通过小智云与 MCP 读取同一行程；当前为单智能体、单演示设备方案，手表没有独立 GPS。
+
+项目保留秋日网页、路线编辑与历史报告、寺庙沉浸式体验、表情互动及设备地图。具体功能、使用方式及各阶段记录见产品说明和工程交接。
+
+问卷答卷与路演情景数据为模拟数据，不是真实游客调查结果。使用展示图或 PPT 时应保留相应说明和素材来源。私密配置、用户数据、签名密钥及本机制作过程文件不随成果发布。

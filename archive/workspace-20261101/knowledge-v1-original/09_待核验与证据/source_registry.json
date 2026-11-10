@@ -1,0 +1,65 @@
+[
+  {
+    "id": "SRC01",
+    "name": "原始栖霞山知识库压缩包",
+    "type": "compiled_mixed",
+    "path": "90_原始材料_禁止上传到RAG/原始压缩包/栖霞山知识库.zip",
+    "used_by": [
+      "KB01",
+      "KB02",
+      "KB04",
+      "KB08",
+      "KB09"
+    ]
+  },
+  {
+    "id": "SRC02",
+    "name": "官方小程序设施截图与结构化数据",
+    "type": "official_mini_program_snapshot",
+    "path": "90_原始材料_禁止上传到RAG/小程序截图/ 与 结构化源数据/",
+    "used_by": [
+      "KB03"
+    ]
+  },
+  {
+    "id": "SRC03",
+    "name": "高德POI与步行接口结果",
+    "type": "map_api",
+    "path": "90_原始材料_禁止上传到RAG/结构化源数据/",
+    "used_by": [
+      "KB02",
+      "KB05"
+    ]
+  },
+  {
+    "id": "SRC04",
+    "name": "用户需求与小红书信息梳理v0.2",
+    "type": "ugc_synthesis",
+    "path": "90_原始材料_禁止上传到RAG/调研文本/用户需求与小红书信息梳理_v0.2.md",
+    "used_by": [
+      "KB07",
+      "KB08",
+      "KB09"
+    ]
+  },
+  {
+    "id": "SRC05",
+    "name": "栖霞山游客痛点画像PDF",
+    "type": "ai_generated_secondary",
+    "path": "90_原始材料_禁止上传到RAG/PDF/栖霞山游客痛点画像.pdf",
+    "used_by": [
+      "KB07"
+    ]
+  },
+  {
+    "id": "SRC06",
+    "name": "栖霞山路线与美食知识库详细版PDF",
+    "type": "ai_generated_secondary",
+    "path": "90_原始材料_禁止上传到RAG/PDF/栖霞山路线与美食知识库（详细版）.pdf",
+    "used_by": [
+      "KB06",
+      "KB07",
+      "KB09"
+    ]
+  }
+]

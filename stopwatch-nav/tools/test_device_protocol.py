@@ -23,6 +23,7 @@ geo_fixture = out / "p6/phone-geo-frame.bin"
 chunk_fixture=out / "p6/phone-chunk-frame.bin"
 route_fixture=out / "p6/phone-route-frame.bin"
 clear_fixture=out / "p6/phone-route-clear.bin"
-fixtures=[fixture,geo_fixture,chunk_fixture,route_fixture,clear_fixture]
+fixtures=[fixture,geo_fixture,chunk_fixture,route_fixture,clear_fixture,
+          out/'p6/phone-overview-frame.bin',out/'p6/phone-overview-route.bin']
 assert all(p.exists() for p in fixtures), "Run Android JVM tests first to generate all wire fixtures"
 run([out / "local_link_server_test.exe"] + fixtures)

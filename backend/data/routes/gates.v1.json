@@ -1,0 +1,10 @@
+{
+  "version": "amap-gates-20261101",
+  "coordinateSystem": "GCJ02",
+  "coordinateOrder": "lng,lat",
+  "source": "AMap place/text, queried 2026-11-01, 南京 citylimit. Ticket-office POIs are navigation anchors, not surveyed entrance boundaries.",
+  "gates": [
+    {"id":"west","name":"西门","placeId":"gate","poiId":"B001913YX0","poiName":"栖霞山风景名胜区西门售票处","location":[118.954566,32.150215],"positionSource":"amap-ticket-office","entranceVerified":false},
+    {"id":"south","name":"南门","placeId":"facility-b0g0m1mptg","poiId":"B0G0M1MPTG","poiName":"栖霞山风景名胜区南门售票处","location":[118.965153,32.145722],"positionSource":"amap-ticket-office","entranceVerified":false}
+  ]
+}

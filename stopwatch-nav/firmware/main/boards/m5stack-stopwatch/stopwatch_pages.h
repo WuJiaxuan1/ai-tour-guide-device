@@ -12,6 +12,10 @@ public:
         if (voice_) return;
         width_ = width;
         height_ = height;
+        // Pages move explicitly; off-screen neighbours must not create a
+        // screen scrollbar or allow LVGL to scroll the whole page container.
+        lv_obj_remove_flag(screen, LV_OBJ_FLAG_SCROLLABLE);
+        lv_obj_set_scrollbar_mode(screen, LV_SCROLLBAR_MODE_OFF);
         const auto count = lv_obj_get_child_count(screen);
         voice_ = CreateRoot(screen, width, height, 0x000000);
         for (uint32_t i = 0; i < count; ++i) {
@@ -38,6 +42,10 @@ public:
         lv_obj_set_size(destination_,26,26);lv_obj_set_style_radius(destination_,4,0);
         lv_obj_set_style_bg_opa(destination_,LV_OPA_COVER,0);lv_obj_set_style_border_width(destination_,3,0);
         lv_obj_add_flag(destination_,LV_OBJ_FLAG_HIDDEN);
+        start_=lv_obj_create(map_);lv_obj_remove_style_all(start_);
+        lv_obj_set_size(start_,24,24);lv_obj_set_style_radius(start_,LV_RADIUS_CIRCLE,0);
+        lv_obj_set_style_bg_opa(start_,LV_OPA_COVER,0);lv_obj_set_style_bg_color(start_,lv_color_hex(0x48DA73),0);
+        lv_obj_set_style_border_width(start_,3,0);lv_obj_add_flag(start_,LV_OBJ_FLAG_HIDDEN);
         marker_ = lv_obj_create(map_);
         lv_obj_remove_style_all(marker_);
         lv_obj_set_size(marker_, 24, 24);
@@ -74,6 +82,7 @@ public:
         if (map_status_) lv_label_set_text(map_status_, text);
     }
     bool IsMapShown() const { return map_shown_; }
+    lv_obj_t* VoiceRoot() const { return voice_; }
     void SetRoute(std::shared_ptr<const RouteWire::Frame> route) {
         if(route_==route) return;
         bool same=route_ && route && route_->active && route->active && route_->session==route->session &&
@@ -120,7 +129,7 @@ public:
         lv_image_set_src(image_, &image_descriptor_);
         const bool geo=frame_->header.geo;
         if(geo) {
-            lv_obj_set_size(image_,width_*frame_->header.size/MapWire::kWidth,height_*frame_->header.size/MapWire::kHeight);
+            lv_obj_set_size(image_,width_*frame_->header.size/ViewSize(),height_*frame_->header.size/ViewSize());
             lv_image_set_inner_align(image_,LV_IMAGE_ALIGN_STRETCH);
             lv_obj_align(image_,LV_ALIGN_TOP_LEFT,0,0);
             if(frame_->header.chunk) {
@@ -157,8 +166,11 @@ public:
         lv_obj_add_flag(note_, LV_OBJ_FLAG_HIDDEN);
         lv_obj_invalidate(image_);
         lv_label_set_text(title_, geo ? "N" : "测试图 · 非真实地图");
+        if(frame_->header.overview) {lv_obj_add_flag(title_,LV_OBJ_FLAG_HIDDEN);lv_obj_add_flag(gps_status_,LV_OBJ_FLAG_HIDDEN);}
+        else {lv_obj_remove_flag(title_,LV_OBJ_FLAG_HIDDEN);lv_obj_remove_flag(gps_status_,LV_OBJ_FLAG_HIDDEN);}
         RebuildRoute();
         lv_obj_move_foreground(route_layer_);
+        lv_obj_move_foreground(start_);
         lv_obj_move_foreground(destination_);
         lv_obj_move_foreground(marker_);
         lv_obj_move_foreground(title_);
@@ -212,8 +224,8 @@ public:
                 window_ready_=true;last_position_seq_=position.seq;
             }
         } else {
-            lv_obj_set_pos(marker_,int(std::lround(x*width_/MapWire::kWidth))-12,
-                int(std::lround(y*height_/MapWire::kHeight))-12);
+            lv_obj_set_pos(marker_,int(std::lround(x*width_/ViewSize()))-12,
+                int(std::lround(y*height_/ViewSize()))-12);
         }
         lv_obj_remove_flag(marker_, LV_OBJ_FLAG_HIDDEN);
         char text[64]; std::snprintf(text,sizeof(text),"GPS +/-%.0fm  age %llds",position.accuracy,
@@ -234,6 +246,9 @@ private:
     lv_obj_t* return_hint_ = nullptr;
     lv_obj_t* route_layer_=nullptr;
     lv_obj_t* destination_=nullptr;
+    lv_obj_t* start_=nullptr;
+    bool has_start_=false;
+    double start_x_=0,start_y_=0;
     std::shared_ptr<const RouteWire::Frame> route_;
     struct RouteSpan {RouteWire::Segment segment;size_t index;};
     std::vector<RouteSpan> segments_;
@@ -258,20 +273,24 @@ private:
         point_x_=x;point_y_=y;
         const auto window=MapWire::Window::At(x,y,frame_->header.size);
         window_x_=window.x;window_y_=window.y;
-        lv_obj_set_pos(image_,-int(std::lround(window.x*double(width_)/MapWire::kWidth)),
-            -int(std::lround(window.y*double(height_)/MapWire::kHeight)));
-        lv_obj_set_pos(marker_,int(std::lround((x-window.x)*width_/MapWire::kWidth))-12,
-            int(std::lround((y-window.y)*height_/MapWire::kHeight))-12);
+        lv_obj_set_pos(image_,-int(std::lround(window.x*double(width_)/ViewSize())),
+            -int(std::lround(window.y*double(height_)/ViewSize())));
+        lv_obj_set_pos(marker_,int(std::lround((x-window.x)*width_/ViewSize()))-12,
+            int(std::lround((y-window.y)*height_/ViewSize()))-12);
         UpdateRouteWindow();
     }
-    bool RouteMatches() const {return route_ && frame_ && frame_->header.geo && route_->session==frame_->header.session;}
+    int ViewSize() const {return frame_ && frame_->header.overview ? frame_->header.size : MapWire::kWidth;}
+    bool RouteMatches() const {return route_ && frame_ && frame_->header.geo && route_->session==frame_->header.session &&
+        (!frame_->header.overview || route_->geometry_crc==frame_->header.route_geometry_crc);}
     void RebuildRoute() {
-        segments_.clear();has_destination_=false;
+        segments_.clear();has_destination_=false;has_start_=false;
         const auto palette=RouteMatches()?route_->palette:RouteWire::Palette{};
         lv_obj_set_style_bg_color(marker_,lv_color_hex(palette.position),0);
         lv_obj_set_style_border_color(marker_,lv_color_hex(palette.outline),0);
         lv_obj_set_style_bg_color(destination_,lv_color_hex(palette.destination),0);
         lv_obj_set_style_border_color(destination_,lv_color_hex(palette.outline),0);
+        lv_obj_set_style_border_color(start_,lv_color_hex(palette.outline),0);
+        lv_obj_set_style_radius(destination_,frame_ && frame_->header.overview ? LV_RADIUS_CIRCLE : 4,0);
         if(frame_ && !frame_->header.chunk) window_x_=window_y_=0;
         if(RouteMatches() && route_->active) {
             const auto& bounds=frame_->header.bounds;
@@ -287,6 +306,9 @@ private:
                 // Retain original endpoints: the progress fraction is defined before clipping.
                 if(RouteWire::Clip(clipped,frame_->header.size)) segments_.push_back({segment,i-1});
             }
+            if(frame_->header.overview && !route_->points.empty()) {
+                auto first=project(route_->points.front());start_x_=first.first;start_y_=first.second;has_start_=true;
+            }
             auto end=project(route_->destination);destination_x_=end.first;destination_y_=end.second;
             has_destination_=destination_x_>=0&&destination_y_>=0&&destination_x_<frame_->header.size&&destination_y_<frame_->header.size;
         }
@@ -296,8 +318,16 @@ private:
         if(!route_layer_) return;
         lv_obj_invalidate(route_layer_);
         lv_obj_add_flag(destination_,LV_OBJ_FLAG_HIDDEN);
+        lv_obj_add_flag(start_,LV_OBJ_FLAG_HIDDEN);
+        if(has_start_) {
+            const double x=start_x_*width_/ViewSize(),y=start_y_*height_/ViewSize();
+            if(x>=0 && x<width_ && y>=0 && y<height_) {
+                lv_obj_set_pos(start_,int(std::lround(x))-12,int(std::lround(y))-12);
+                lv_obj_remove_flag(start_,LV_OBJ_FLAG_HIDDEN);
+            }
+        }
         if(has_destination_) {
-            const double x=(destination_x_-window_x_)*width_/MapWire::kWidth,y=(destination_y_-window_y_)*height_/MapWire::kHeight;
+            const double x=(destination_x_-window_x_)*width_/ViewSize(),y=(destination_y_-window_y_)*height_/ViewSize();
             if(x>=0&&x<width_&&y>=0&&y<height_) {
                 lv_obj_set_pos(destination_,int(std::lround(x))-13,int(std::lround(y))-13);
                 lv_obj_remove_flag(destination_,LV_OBJ_FLAG_HIDDEN);
@@ -316,11 +346,11 @@ private:
             dsc.round_start=dsc.round_end=1;
                 segment.x0-=self->window_x_;segment.x1-=self->window_x_;
                 segment.y0-=self->window_y_;segment.y1-=self->window_y_;
-                if(!RouteWire::Clip(segment,MapWire::kWidth)) return;
-                dsc.p1.x=area.x1+int(std::lround(segment.x0*self->width_/MapWire::kWidth));
-                dsc.p1.y=area.y1+int(std::lround(segment.y0*self->height_/MapWire::kHeight));
-                dsc.p2.x=area.x1+int(std::lround(segment.x1*self->width_/MapWire::kWidth));
-                dsc.p2.y=area.y1+int(std::lround(segment.y1*self->height_/MapWire::kHeight));
+                if(!RouteWire::Clip(segment,self->ViewSize())) return;
+                dsc.p1.x=area.x1+int(std::lround(segment.x0*self->width_/self->ViewSize()));
+                dsc.p1.y=area.y1+int(std::lround(segment.y0*self->height_/self->ViewSize()));
+                dsc.p2.x=area.x1+int(std::lround(segment.x1*self->width_/self->ViewSize()));
+                dsc.p2.y=area.y1+int(std::lround(segment.y1*self->height_/self->ViewSize()));
                 lv_draw_line(layer,&dsc);
         };
         for(const auto& span:self->segments_) draw(span.segment,palette.outline,palette.width+4);

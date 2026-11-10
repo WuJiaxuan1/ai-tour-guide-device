@@ -1,0 +1,11 @@
+const fs=require('node:fs'),path=require('node:path');
+const root=path.resolve(__dirname,'../..');
+const read=p=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
+const presets=read('backend/data/routes/preset-routes.v1.json');
+const route=presets.routes.find(r=>r.routeId==='R02');
+const roads=read('backend/data/routes/road-routes.v1.json').routes.find(r=>r.routeId==='R02');
+const places=read('frontend/src/content/places.json');
+const shuttles=read('backend/data/transport/shuttle-lines.v1.json').lines;
+const data={route:{name:route.name,duration:route.officialDurationMinutes,stops:route.stops.map(s=>({name:s.name,stayMinutes:s.stayMinutes}))},shuttles:shuttles.map(s=>({id:s.lineId,scope:s.scope,name:s.name,direction:s.direction,fare:s.fareYuan,unit:s.fareUnit,hours:s.hours,stops:s.stops.map(x=>x.name)})),places:places.slice(0,5).map(p=>({id:p.id,name:p.name,image:p.image,intro:p.intro,category:p.category}))};
+fs.writeFileSync(path.join(__dirname,'data.js'),'window.previewData='+JSON.stringify(data)+';\n');
+console.log(JSON.stringify({route:data.route,shuttles:data.shuttles.length,roadFields:Object.keys(roads)}));

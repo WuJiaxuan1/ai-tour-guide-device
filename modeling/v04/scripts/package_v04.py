@@ -83,7 +83,7 @@ with zipfile.ZipFile(zip_path,'w',zipfile.ZIP_DEFLATED) as z:
  for p in sorted(D.iterdir()):
   if p.is_file():z.write(p,'print-delivery-v04/'+p.name)
 with zipfile.ZipFile(zip_path) as z:assert z.testzip() is None
-(R/'docs/history/project-status-20261028-v04.md').write_text('''# v04 项目状态
+(O/'reports/project-status-20261028-v04.md').write_text('''# v04 项目状态
 
 用户已授权建模：封闭背部，只留小出声孔；从正面安装和取出完整 StopWatch；三个按钮只需避让，不需要壳内操作；取出充电；三根后支柱；前圈沿原曲面，采用隐藏可释放卡扣。此决定替代早先背面开放、螺丝耳和充电开口方案。
 

@@ -4,11 +4,11 @@ import kotlin.math.*
 
 /** Phone-rendered map contract; a future server can provide the same result. */
 data class GeoBounds(val north: Double, val west: Double, val south: Double, val east: Double) {
-    fun valid() = listOf(north,west,south,east).all { it.isFinite() } &&
+    fun valid(overview: Boolean = false) = listOf(north,west,south,east).all { it.isFinite() } &&
         north < 85 && south > -85 && west >= -180 && east <= 180 &&
-        north > south && east > west && north-south < .1 && east-west < .1
+        north > south && east > west && north-south < (if(overview) 20.0 else .1) && east-west < (if(overview) 20.0 else .1)
     fun pixel(lat: Double, lng: Double, size: Int = 240): Pair<Double,Double>? {
-        if (!valid() || !lat.isFinite() || !lng.isFinite() || lat !in south..north || lng !in west..east) return null
+        if (!valid(true) || !lat.isFinite() || !lng.isFinite() || lat !in south..north || lng !in west..east) return null
         fun mercator(v: Double) = ln(tan(PI/4 + Math.toRadians(v)/2))
         return ((lng-west)/(east-west)*size) to
             ((mercator(north)-mercator(lat))/(mercator(north)-mercator(south))*size)
@@ -28,8 +28,10 @@ data class PhoneFix(val lat: Double, val lng: Double, val accuracy: Double, val 
 }
 
 data class MapPixels(val pixels: IntArray, val bounds: GeoBounds, val zoom: Float = MapZoom.DEFAULT,
-                     val detail: MapDetail = MapDetail.CLEAN, val size: Int = 240)
+                     val detail: MapDetail = MapDetail.CLEAN, val size: Int = 240,
+                     val overviewRoute: WalkingRoute? = null)
 interface SurroundingMapSource {
     fun capture(fix: PhoneFix, zoom: Float, detail: MapDetail, done: (MapPixels?, String?) -> Unit)
+    fun captureOverview(route: WalkingRoute, done: (MapPixels?, String?) -> Unit)
     fun cancel()
 }

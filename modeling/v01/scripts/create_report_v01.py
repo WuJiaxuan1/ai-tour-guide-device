@@ -40,7 +40,7 @@ d.text((48,1382),'仍未完成：压圈承力面、可靠后承托、两颗螺�
 d.text((48,1435),'官方 STL 未含完整屏幕与电子件。蓝色内部结构不是游客看到的屏幕效果，也不能代表完整实物。',font=font(23),fill='#516173')
 im.save(O/'previews/round1-dimensions-and-sections.png')
 # Preserve handoff as a discoverable project-level reference without overwriting any input.
-handoff=R/'docs/history/ai-tour-guide-device-codex-handoff-20261027.md'
+handoff=R/'docs/project/ai-tour-guide-device-codex-handoff-20261027.md'
 if not handoff.exists():handoff.write_bytes((O/'reports/project-handoff-20261027.md').read_bytes())
 docs=R/'docs';docs.mkdir(exist_ok=True)
 status='''# 文旅智能导览设备 项目状态
@@ -67,7 +67,7 @@ status='''# 文旅智能导览设备 项目状态
 - modeling/v01/previews/round1-dimensions-and-sections.png：尺寸、原孔/草案对比及轴线剖面。
 - modeling/v01/parameters-v01.json：所有候选值和未知参数。
 - modeling/v01/reports/modeling-report-v01.md：检查条件与限制。
-- docs/history/ai-tour-guide-device-codex-handoff-20261027.md：原始总交接完整副本。
+- docs/project/ai-tour-guide-device-codex-handoff-20261027.md：原始总交接完整副本。
 
 ## 数字检查结果的范围
 

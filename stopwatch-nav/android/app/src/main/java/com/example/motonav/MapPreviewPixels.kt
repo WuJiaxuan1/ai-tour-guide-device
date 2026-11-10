@@ -4,7 +4,17 @@ package com.example.motonav
  * Bitmap.createBitmap(colors,...) is immutable and must never be passed to Canvas. */
 object MapPreviewPixels {
     fun render(base: MapPixels, fix: PhoneFix?, route: WalkingRoute?=null, palette: RoutePalette=RoutePalette(), progress:Double=0.0): IntArray {
+        val pixels=renderSquare(base,fix,route,palette,progress)
+        if(base.overviewRoute!=null) for(y in 0 until 240) for(x in 0 until 240)
+            if((x-119.5)*(x-119.5)+(y-119.5)*(y-119.5)>120*120) pixels[y*240+x]=0xff000000.toInt()
+        return pixels
+    }
+    private fun renderSquare(base:MapPixels,fix:PhoneFix?,route:WalkingRoute?,palette:RoutePalette,progress:Double):IntArray {
         require(base.size in listOf(240,480) && base.pixels.size == base.size * base.size)
+        if(base.overviewRoute!=null && base.size==480) {
+            val reduced=IntArray(240*240) {i->base.pixels[(i/240*2)*480+i%240*2]}
+            return renderSquare(base.copy(pixels=reduced,size=240),fix,route?.takeIf {RouteOverview.geometryKey(it)==RouteOverview.geometryKey(base.overviewRoute)},palette,progress)
+        }
         val (left,top)=MapChunkPolicy.origin(base,fix)
         val pixels=IntArray(240*240)
         for(y in 0 until 240) base.pixels.copyInto(pixels,y*240,(top+y)*base.size+left,(top+y)*base.size+left+240)
@@ -33,7 +43,11 @@ object MapPreviewPixels {
             }
             val end=RouteGeometry.project(base.bounds,route.destination,base.size)
             val ex=kotlin.math.round(end.first-left).toInt();val ey=kotlin.math.round(end.second-top).toInt()
-            if(ex in 0..239 && ey in 0..239) {
+            if(base.overviewRoute!=null) {
+                val start=points.first()
+                dot(start.first,start.second,7.0,palette.outline);dot(start.first,start.second,5.0,0x48da73)
+                dot(end.first,end.second,7.0,palette.outline);dot(end.first,end.second,5.0,palette.destination)
+            } else if(ex in 0..239 && ey in 0..239) {
                 for(y in maxOf(0,ey-7)..minOf(239,ey+7)) for(x in maxOf(0,ex-7)..minOf(239,ex+7))
                     pixels[y*240+x]=(if(kotlin.math.abs(x-ex)<=5 && kotlin.math.abs(y-ey)<=5) palette.destination else palette.outline) or 0xff000000.toInt()
             }

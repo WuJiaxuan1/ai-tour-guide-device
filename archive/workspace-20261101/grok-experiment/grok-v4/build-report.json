@@ -1,0 +1,87 @@
+{
+  "status": "compiled_host_validated_hardware_test_pending",
+  "baseline": {
+    "version": "2.2.6",
+    "project": "xiaozhi",
+    "time": "09:05:36",
+    "date": "May 19 2026",
+    "idf": "v5.5.2"
+  },
+  "source_commit": "356541a94d6ea73f291388eb028a670e6c75f2f3",
+  "flash_offset": "0x800000",
+  "partition_bytes": 8388608,
+  "assets": {
+    "filename": "grok-v4-vector-assets.bin",
+    "bytes": 7297480,
+    "sha256": "2f2f4d055fe0aebc9d1a00336fad4f665f20a9001e0436ff356a2041c1f90628"
+  },
+  "vector_sha256": "5357b2ed22005bf68b2f3bf765b56725bfc1b20458de3ed04e6091e12296998c",
+  "voice_model_sha256": "56990e6b97faeced7aeea48c89f15b0d0c579c012a8106b91e96141f490051a6",
+  "requires_custom_main_program": true,
+  "hardware_tested": false,
+  "notes": [
+    "Do not flash this asset alone over v3: the factory firmware does not read the vector bank.",
+    "Original PNGs are retained as fallback data; the custom renderer uses vectors only.",
+    "Original voice model and font preserved; no custom wake word."
+  ],
+  "application": {
+    "version": "2.2.6-grok-v4",
+    "project": "xiaozhi",
+    "idf": "v5.5.2"
+  },
+  "app": {
+    "filename": "grok-v4-app.bin",
+    "offset": "0x20000",
+    "bytes": 2961056,
+    "sha256": "ae16481f0a51543fd76a4e1263b11ad3c1f711bfda696e2983e6df2fd7e311dd"
+  },
+  "restore_app": {
+    "filename": "original-v2.2.6-app.bin",
+    "offset": "0x20000",
+    "bytes": 2949424,
+    "sha256": "d85c66cff7f4901cb9d9d32b95d53d4944f4e9cc96a42426712968d783e6c377",
+    "version": "2.2.6",
+    "project": "xiaozhi",
+    "idf": "v5.5.2"
+  },
+  "source_files": {
+    "CMakeLists.txt": "e2a5f7f84f381f4a4d88879a39a450f0451fcf9676807ccc20b0fdcc995fd89d",
+    "main/assets.cc": "3a1e9a67294f8a4b56ddaeb0d8afa84a91aea098b77f8956ca567432159b7f76",
+    "main/display/display.h": "00b1f7b0433512a6ffc9b414abe69578e284f0be70254c6cb8ddf19aefc3eef0",
+    "main/display/lcd_display.cc": "d11507b9f7f73982ade7251d99f47297000fff40bf42a164d9fa3c6b4b66fdeb",
+    "main/boards/m5stack-stopwatch/m5stack_stopwatch.cc": "c6fd6275485cb614964a419e7ef2e77eb76cd9fa8f586a0152e584540641e5fa",
+    "main/boards/m5stack-stopwatch/grok_motion.h": "bc34b16e9bb284d7349de28d517fd2c2dc38214b41d3f57e9f603905364253be",
+    "main/boards/m5stack-stopwatch/grok_display.h": "79fea189ee32bda32f967f8a6d45327e16935059f9712f452fa001f5a1f93ea3",
+    "sdkconfig.grok": "d646a0a1e95762e2dad58c1c17d690a9b8f2dff830514ebe2612f19134aed258",
+    "dependencies.lock": "290956ca7403bf3a95ede88ec1cb43a9b4e34498bc1daca0c5390998545f9a89"
+  },
+  "checks": [
+    "ESP32-S3 image checksum and appended SHA256",
+    "custom version and ESP-IDF 5.5.2",
+    "compiled partition table identical to factory and saved device backup",
+    "saved device backup has valid OTA-0 sequence 1, OTA-1 empty",
+    "application and assets fit existing partitions",
+    "original voice model/font unchanged",
+    "desktop C++ animation tests and visual preview passed"
+  ],
+  "firmware_build_log": "D:\\Study\\yiqifen\\stopwatch-custom\\.tools\\firmware-build.log",
+  "preserve": [
+    "bootloader",
+    "partition table",
+    "NVS/Wi-Fi/binding",
+    "OTA selection",
+    "original wake model"
+  ],
+  "limitations": [
+    "Hardware rendering speed and voice/network stability untested.",
+    "25 fps is a target, not a device measurement.",
+    "Vector motion sampled from upstream, interpolated/morphed on device; not a complete JS-engine port.",
+    "Particle ribbons/confetti and pointer interaction omitted."
+  ],
+  "partition_table_sector_sha256": "ce40cfe75056ef74bc052942f8a9ee3dce8e5e14ba17a6f63685a8fa0d11a23d",
+  "restore_assets": {
+    "filename": "../output/original-v2.2.6-assets.bin",
+    "bytes": 2851677,
+    "sha256": "457fe977e9344e4a233fa5314abc10e13b0c4e673bad377385d119e728de1b6d"
+  }
+}

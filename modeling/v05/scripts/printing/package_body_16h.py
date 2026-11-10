@@ -34,7 +34,7 @@ guide='''# 预计约 16 小时的 v05 主体试打印
 '''
 (D/'约16小时版本说明.md').write_text(guide,encoding='utf-8')
 manifest={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in D.iterdir() if p.is_file() and p.name!='MANIFEST_SHA256.json'};assert manifest['BODY16.gcode']==r['sha256'];(D/'MANIFEST_SHA256.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')
-zpath=D.parents[1]/'MegaS_Body_About16h_v05.zip'
+zpath=D.parents[1]/'MegaS-Body-About16h-v05.zip'
 with zipfile.ZipFile(zpath,'w',zipfile.ZIP_DEFLATED,compresslevel=5) as z:
  for p in D.iterdir():
   if p.is_file():z.write(p,'03-body-about-16h/'+p.name)

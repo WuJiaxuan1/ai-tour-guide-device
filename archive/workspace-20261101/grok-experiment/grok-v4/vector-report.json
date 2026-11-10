@@ -1,0 +1,158 @@
+{
+  "source_commit": "b7e6cd48db4eeba13271c653c38e1ad0f48037b4",
+  "frames": 240,
+  "frame_ms": 50,
+  "points": [
+    64,
+    48,
+    48,
+    24,
+    24
+  ],
+  "expressions": {
+    "neutral": {
+      "state": "idle",
+      "match": "direct",
+      "scale": 1.910507171478955,
+      "source_max_radius": 116.19951147743987
+    },
+    "happy": {
+      "state": "happy",
+      "match": "direct",
+      "scale": 1.7917831757228546,
+      "source_max_radius": 123.89891980676686
+    },
+    "laughing": {
+      "state": "laughing",
+      "match": "direct",
+      "scale": 1.841261131092214,
+      "source_max_radius": 120.56953587474703
+    },
+    "sad": {
+      "state": "sad",
+      "match": "direct",
+      "scale": 1.8572843513522783,
+      "source_max_radius": 119.52935469378345
+    },
+    "angry": {
+      "state": "angry",
+      "match": "direct",
+      "scale": 1.8341351138526882,
+      "source_max_radius": 121.03797496885517
+    },
+    "confused": {
+      "state": "confused",
+      "match": "direct",
+      "scale": 1.8856099583102977,
+      "source_max_radius": 117.73378636530698
+    },
+    "thinking": {
+      "state": "thinking",
+      "match": "direct",
+      "scale": 2.5720750220097495,
+      "source_max_radius": 86.31163480858939
+    },
+    "surprised": {
+      "state": "surprised",
+      "match": "direct",
+      "scale": 1.916547522928388,
+      "source_max_radius": 115.83328737958723
+    },
+    "sleepy": {
+      "state": "drowsy",
+      "match": "approximate",
+      "scale": 1.618751273931916,
+      "source_max_radius": 137.14274921357512
+    },
+    "confident": {
+      "state": "proud",
+      "match": "approximate",
+      "scale": 1.807635746617305,
+      "source_max_radius": 122.8123533269558
+    },
+    "embarrassed": {
+      "state": "shy",
+      "match": "approximate",
+      "scale": 1.8521724227069605,
+      "source_max_radius": 119.85925137333906
+    },
+    "shocked": {
+      "state": "scared",
+      "match": "approximate",
+      "scale": 1.9018806299598485,
+      "source_max_radius": 116.72656869358133
+    },
+    "funny": {
+      "state": "playful",
+      "match": "approximate",
+      "scale": 1.3638352922498598,
+      "source_max_radius": 162.77625404001407
+    },
+    "silly": {
+      "state": "playful",
+      "eye": 17,
+      "match": "approximate eye variant",
+      "scale": 1.3638352922498598,
+      "source_max_radius": 162.77625404001407
+    },
+    "relaxed": {
+      "state": "humming",
+      "match": "approximate",
+      "scale": 1.9089203589848192,
+      "source_max_radius": 116.29610368766855
+    },
+    "cool": {
+      "state": "proud",
+      "eye": 8,
+      "match": "approximate eye variant; no sunglasses in source",
+      "scale": 1.8090459581558445,
+      "source_max_radius": 122.71661700972403
+    },
+    "loving": {
+      "state": "happy",
+      "eye": 19,
+      "match": "approximate eye variant; no hearts in source",
+      "scale": 1.7015247696018256,
+      "source_max_radius": 130.47121262416314
+    },
+    "kissy": {
+      "state": "shy",
+      "eye": 24,
+      "match": "approximate eye variant; no kiss in source",
+      "scale": 1.8521724227069605,
+      "source_max_radius": 119.85925137333906
+    },
+    "crying": {
+      "state": "sad",
+      "eye": 22,
+      "match": "approximate eye variant; no tears in source",
+      "scale": 1.8572843513522783,
+      "source_max_radius": 119.52935469378345
+    },
+    "delicious": {
+      "state": "excited",
+      "match": "approximate; no eating expression in source",
+      "scale": 1.3373941829354685,
+      "source_max_radius": 165.99444115476004
+    },
+    "winking": {
+      "state": "playful",
+      "wink": true,
+      "match": "source wink action",
+      "scale": 1.3638352922498598,
+      "source_max_radius": 162.77625404001407
+    },
+    "listening": {
+      "state": "listening",
+      "match": "lifecycle",
+      "scale": 1.8572400273877614,
+      "source_max_radius": 119.53220732176801
+    }
+  },
+  "design": "Original engine sampled as vector poses; firmware interpolates frames and morphs states. No GIF decoding.",
+  "limitations": [
+    "Particle ribbons/confetti are omitted. Body, eyes, blinking, gaze and thinking dots retained.",
+    "12-second vector cycles have a 2-second Hermite seam; not the full interactive JS physics engine."
+  ],
+  "bytes": 4446496
+}

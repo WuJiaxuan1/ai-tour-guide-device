@@ -1,5 +1,6 @@
 import {ServiceError,mergeLegs} from './amap.mjs';
 import {randomUUID} from 'node:crypto';
+import {routeWithGates} from '../../shared/route-gates.mjs';
 
 // Fixed endpoints. Exact directed distance optimization for up to eight intermediate stops.
 export function fixedEndpointOrder(matrix){
@@ -13,12 +14,16 @@ export function fixedEndpointOrder(matrix){
  const out=[];let mask=size-1;while(end>=0){out.push(end+1);const p=prev[mask][end];mask^=1<<end;end=p;}return [0,...out.reverse(),n+1];
 }
 export function createRoadPlanner({catalog,data,walkingLeg}){
- const known=new Map([...data.nodes,...catalog].map(p=>[p.id,p]));
+ const known=new Map([...catalog,...data.nodes].map(p=>[p.id,p]));
  const point=id=>{const p=known.get(id);if(!p)throw new ServiceError('有地点无法识别，请重新选择。',400);if(!Array.isArray(p.location))throw new ServiceError(`${p.name}的准确位置仍待确认，请移除此点后重新规划，或选择其他路线。`,422);return {...p,id,placeId:id};};
  return async function plan(input,{key,signal}={}){
   let stops,preset;
   if(input.presetId){
    preset=data.routes.find(r=>r.routeId===input.presetId);if(!preset)throw new ServiceError('没有找到这条官方路线。',400);
+   if(input.entryId!==undefined||input.exitId!==undefined){
+    if(!data.gateIds.includes(input.entryId)||!data.gateIds.includes(input.exitId))throw new ServiceError('请选择有效的入口和出口。',400);
+    preset=routeWithGates(preset,data.gates,input.entryId,input.exitId);
+   }
    if(preset.completeness==='missing_exit')throw new ServiceError('这条官方路线尚未注明出口，请先在专属路线中选择出口后规划。',422);
    if(preset.roadPlan)return preset.roadPlan;
    stops=preset.stops.map(s=>({...point(s.placeId),...s,id:s.placeId}));
@@ -45,6 +50,6 @@ export function createRoadPlanner({catalog,data,walkingLeg}){
   const routeId=preset?.routeId||'personal-'+randomUUID();
   const ordered=order.map((index,i)=>({...stops[index],stopId:preset?stops[index].stopId:`${routeId}-${i}`,stayMinutes:stops[index].stayMinutes??20}));
   const result=mergeLegs(selectedPaths,ordered,routeId);
-  return {...result,name:preset?.name||'我的专属路线',navigationReady:true,optimization:{mode},legs:result.legs.map((l,i)=>({...l,fromStopId:ordered[i].stopId,toStopId:ordered[i+1].stopId}))};
+  return {...result,revision:preset?.revision||result.revision,name:preset?.name||'我的专属路线',navigationReady:true,optimization:{mode},legs:result.legs.map((l,i)=>({...l,fromStopId:ordered[i].stopId,toStopId:ordered[i+1].stopId}))};
  };
 }

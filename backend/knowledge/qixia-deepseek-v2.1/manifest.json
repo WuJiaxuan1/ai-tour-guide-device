@@ -1,0 +1,32 @@
+{
+  "name": "问枫枫DeepSeek知识包",
+  "version": "2.1",
+  "organized_at": "2026-10-31",
+  "integration_method": "chat_completions_messages_with_full_context",
+  "requires_new_backend": false,
+  "extra_service_created": false,
+  "live_model_tested": false,
+  "endpoint": "https://api.deepseek.com/chat/completions",
+  "example_model": "deepseek-flash",
+  "knowledge_records": 213,
+  "ordinary_retrieval_records": 159,
+  "dynamic_records_redacted": 12,
+  "counts_by_library": {
+    "KB01": 38,
+    "KB02": 29,
+    "KB03": 53,
+    "KB04": 10,
+    "KB05": 4,
+    "KB06": 9,
+    "KB07": 37,
+    "KB08": 33
+  },
+  "trigger_intents": 23,
+  "system_message_characters": 121737,
+  "system_message_utf8_bytes": 223501,
+  "token_count": "未调用分词接口；不以字符数冒充token数",
+  "official_references": [
+    "https://api-docs.deepseek.com/quick_start/agent_integrations/",
+    "https://api-docs.deepseek.com/api/create-chat-completion/"
+  ]
+}

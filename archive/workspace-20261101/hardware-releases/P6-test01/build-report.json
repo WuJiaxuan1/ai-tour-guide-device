@@ -1,0 +1,245 @@
+{
+  "stage": "P6-test01",
+  "hardware_function_test": "passed_by_user",
+  "firmware_version": "2.2.6-p6-test01",
+  "firmware_base_commit": "356541a94d6ea73f291388eb028a670e6c75f2f3",
+  "partition_table_sector_sha256": "ce40cfe75056ef74bc052942f8a9ee3dce8e5e14ba17a6f63685a8fa0d11a23d",
+  "assets_validation": {
+    "count": 24,
+    "files": [
+      "angry.png",
+      "confident.png",
+      "confused.png",
+      "cool.png",
+      "crying.png",
+      "delicious.png",
+      "embarrassed.png",
+      "font_puhui_common_30_4.bin",
+      "funny.png",
+      "happy.png",
+      "index.json",
+      "kissy.png",
+      "laughing.png",
+      "loving.png",
+      "neutral.png",
+      "relaxed.png",
+      "sad.png",
+      "shocked.png",
+      "silly.png",
+      "sleepy.png",
+      "srmodels.bin",
+      "surprised.png",
+      "thinking.png",
+      "winking.png"
+    ],
+    "index": {
+      "version": 1,
+      "srmodels": "srmodels.bin",
+      "text_font": "font_puhui_common_30_4.bin",
+      "emoji_collection": [
+        {
+          "name": "angry",
+          "file": "angry.png"
+        },
+        {
+          "name": "confident",
+          "file": "confident.png"
+        },
+        {
+          "name": "confused",
+          "file": "confused.png"
+        },
+        {
+          "name": "cool",
+          "file": "cool.png"
+        },
+        {
+          "name": "crying",
+          "file": "crying.png"
+        },
+        {
+          "name": "delicious",
+          "file": "delicious.png"
+        },
+        {
+          "name": "embarrassed",
+          "file": "embarrassed.png"
+        },
+        {
+          "name": "funny",
+          "file": "funny.png"
+        },
+        {
+          "name": "happy",
+          "file": "happy.png"
+        },
+        {
+          "name": "kissy",
+          "file": "kissy.png"
+        },
+        {
+          "name": "laughing",
+          "file": "laughing.png"
+        },
+        {
+          "name": "loving",
+          "file": "loving.png"
+        },
+        {
+          "name": "neutral",
+          "file": "neutral.png"
+        },
+        {
+          "name": "relaxed",
+          "file": "relaxed.png"
+        },
+        {
+          "name": "sad",
+          "file": "sad.png"
+        },
+        {
+          "name": "shocked",
+          "file": "shocked.png"
+        },
+        {
+          "name": "silly",
+          "file": "silly.png"
+        },
+        {
+          "name": "sleepy",
+          "file": "sleepy.png"
+        },
+        {
+          "name": "surprised",
+          "file": "surprised.png"
+        },
+        {
+          "name": "thinking",
+          "file": "thinking.png"
+        },
+        {
+          "name": "winking",
+          "file": "winking.png"
+        }
+      ],
+      "multinet_model": {
+        "language": "cn",
+        "duration": 3000,
+        "threshold": 0.2,
+        "commands": [
+          {
+            "command": "feng ye jing ling",
+            "text": "枫叶精灵",
+            "action": "wake"
+          }
+        ]
+      }
+    }
+  },
+  "wake_validation": {
+    "models": [
+      "fst",
+      "mn7_cn"
+    ],
+    "wake_config": {
+      "language": "cn",
+      "duration": 3000,
+      "threshold": 0.2,
+      "commands": [
+        {
+          "command": "feng ye jing ling",
+          "text": "枫叶精灵",
+          "action": "wake"
+        }
+      ]
+    },
+    "srmodels_bytes": 2681351,
+    "assets_bytes": 5242378,
+    "assets_sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  "page_and_audio_hardware_test": "passed_by_user",
+  "boot_volume": 85,
+  "page_controls": "left GPIO2/right swipe: voice; right GPIO1/left swipe: test image page",
+  "compatible_apk": "maple-map-P6-test01.apk",
+  "compatible_apk_sha256": "0f8e4f15bc0cbc2cf0b73b3ba1fd4fc938e05f79eff3569248e6884835db1634",
+  "android_tests": 14,
+  "image_protocol": {
+    "version": 1,
+    "kind": "synthetic test image",
+    "format": "RGB565LE",
+    "width": 240,
+    "height": 240,
+    "header_bytes": 48,
+    "payload_bytes": 115200,
+    "integrity": "CRC32 IEEE"
+  },
+  "touch": "CST820B polling, IOE pin4 reset, address0x15, coordinate register0x02, no-sleep register0xFE",
+  "rollback": "P5-test01, all five acceptance items passed by user on 2026-10-27",
+  "network_behavior": "clear SSID/password list once per boot; deferred save; explicit non-reboot exit; 120-second initial connection window",
+  "wifi_component": "project-local 78/esp-wifi-connect 3.1.5 override",
+  "app": {
+    "filename": "p6-xiaozhi-app.bin",
+    "bytes": 2972064,
+    "sha256": "a4d75703d1b1e60f6a85030d4f07a4496ee528be34c9fcb8ad44e976e3702994"
+  },
+  "assets": {
+    "filename": "p6-xiaozhi-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  "restore_app": {
+    "filename": "restore-P5-app.bin",
+    "bytes": 2967008,
+    "sha256": "0e6f6d4b2555336fcfe7f80e62d4458e88f1d40f111ff674a2fb79325f4e7896"
+  },
+  "restore_assets": {
+    "filename": "restore-P5-assets.bin",
+    "bytes": 5242378,
+    "sha256": "c7712fc7f5f52f1d54fdeb3f9c15e3481d00ddd90a6b4f834ad51123bfdfb64f"
+  },
+  "apk": {
+    "filename": "maple-map-P6-test01.apk",
+    "bytes": 55170663,
+    "sha256": "0f8e4f15bc0cbc2cf0b73b3ba1fd4fc938e05f79eff3569248e6884835db1634"
+  },
+  "source_files_sha256": {
+    "sdkconfig.stopwatch": "751662aaeae197e2f5d040202f16627a32fca9185fcc7e3f25003db4bddda200",
+    "components/78__esp-wifi-connect/.gitignore": "a3b0ac81095a616aee77cdf2f026e5db76bcc6e5243c8b5db4328d212328933f",
+    "components/78__esp-wifi-connect/CMakeLists.txt": "a2f87bea41d8e254a5ab277a2a4472db9c65fe8e741dbaf38c14584ca84361d0",
+    "components/78__esp-wifi-connect/dns_server.cc": "8e6f03dc39f7386a149e227c756a53e3f715454b1d024c7ce38b75cdf00045d1",
+    "components/78__esp-wifi-connect/idf_component.yml": "c1f17a89a79b9f54369c549aa2eb7a7954fdab9aa4252c75b1b2a3aa878e7e0f",
+    "components/78__esp-wifi-connect/MODIFICATIONS.md": "abe45269b6ec4d97d5843eb4b4dba2ffbdcecb808418a7ffe7a6ab772fc0310d",
+    "components/78__esp-wifi-connect/README.md": "7f71abcf20c79ecbf0c065ed625fcd92995f356a0a6281fbe3a8a92479ba610e",
+    "components/78__esp-wifi-connect/ssid_manager.cc": "e3441e0fc84012b539bd08b680cdfbfdaca5eb55af55423400268d0a18d5daca",
+    "components/78__esp-wifi-connect/wifi_configuration_ap.cc": "e12e1bf94777e9fdaa6e673a157f22e838723e8fafe7297b420ca12773b7297b",
+    "components/78__esp-wifi-connect/wifi_manager.cc": "3346377f3595774d8a8d07b259f4860a9aabaf323e39fba6c1cac598e44d5d20",
+    "components/78__esp-wifi-connect/wifi_station.cc": "44951ab5bb5c596130abb5c324187eb401089fef15b9662b6dc569b20d2c53d0",
+    "components/78__esp-wifi-connect/assets/ap.png": "defb386a203a1f29aab1ba06a97b087f74fbbeb20b8b2698d9d821efc7f95a36",
+    "components/78__esp-wifi-connect/assets/ap_v2.png": "a3d8fe8b7bfd944b83f0767485a8881eb20c24f3d65ba7763f1eb879e1e18d64",
+    "components/78__esp-wifi-connect/assets/ap_v3.png": "800fb2ef4f297fbfd7c46ce16792e63c583311c2569162d18f3d337c9a4a4eb5",
+    "components/78__esp-wifi-connect/assets/ap_v3_advanced.png": "715f1041d341359ffdd4b8529782d313bb0be0a83366f0c3c55aca1e1dfb6d33",
+    "components/78__esp-wifi-connect/assets/stopwatch_configuration_done.html": "86c8d5cf35a87b689f2b803378af7878526649737b1c88c9d113460702122f5f",
+    "components/78__esp-wifi-connect/assets/wifi_configuration.html": "7c8b6bc939c155d85b3cd0cf028971665e6d3255344d83f67b754b867bc8568a",
+    "components/78__esp-wifi-connect/assets/wifi_configuration_done.html": "0fc35ae3a8c538dd4275c92544777bdfbdc6e5fc2238da93b21e40d44f3fd9e9",
+    "components/78__esp-wifi-connect/include/dns_server.h": "68c8ad351a8d0f3993e4793dd28472e8ab0f8b74212450c03ec9190dbab821f9",
+    "components/78__esp-wifi-connect/include/provisioning_request.h": "b31bc3d71e7ebb878f4a632332d5532e87870bd04030f5b498ed1fe9e8264606",
+    "components/78__esp-wifi-connect/include/ssid_manager.h": "f45a0687170a30ba5592a9b3fde7c8f5da768dac7de185b256b2be56359d9e3f",
+    "components/78__esp-wifi-connect/include/wifi_configuration_ap.h": "c22f4973abb133e9ea811b662a4ec384f62bc0cebb5501375dd462b57635560e",
+    "components/78__esp-wifi-connect/include/wifi_manager.h": "96a29607b4abe22fa20deee3d7325cf19fdb0964fb2ae8944761a8b05c0fd790",
+    "components/78__esp-wifi-connect/include/wifi_station.h": "62da1f0b38889dbab64c992cd8151a1521622ca3dbb638f8bdc9e247b6a563c2",
+    "main/boards/m5stack-stopwatch/local_link_server.cc": "2ce49c1fb913d4f96f1bc830e131688ff7954fbb138ae871b8901ac61db5c918",
+    "main/boards/m5stack-stopwatch/local_link_server.h": "f0b1b10eed37ecd0e99d3001335b69acaa7cddf1f81d78a5742fbf2e99bbedb5",
+    "main/audio/voice_gate.h": "ecf418aed8c5db6982cc4ad282f9f3ff7f6825f37559df142a7e4dd1d1193819",
+    "main/boards/m5stack-stopwatch/stopwatch_pages.h": "73e796b22c11a8d639c2e45d044745d28a3c0e057efac45ad4c98588a6f5ce8b",
+    "main/boards/m5stack-stopwatch/map_frame.h": "4df49e3d89590c5c2d0b9890849b18e56be836a18c5eddf10907945c7f1f4e2f",
+    "main/boards/m5stack-stopwatch/swipe_tracker.h": "f183da3cc50923363f9381bc98d7dac4ee9983c2ff27d58c6b14dc6b62d55bee",
+    "android/app/build.gradle.kts": "665df399d30b21767d6ee9a27f9746351f0dc012eb4506cd800c62f86088d389",
+    "android/app/src/main/java/com/example/motonav/LocalLinkActivity.kt": "0259353583ec81a8782b6fea5ef6e272e9c370f997f736786503867a4e53eea9",
+    "android/app/src/main/java/com/example/motonav/LocalLinkClient.kt": "99d20fc195fa87e120dfaf3d613ddd33f77ccec0184613ca1f9ef2b4ee9d4b01",
+    "android/app/src/main/java/com/example/motonav/MapFrameEncoder.kt": "8276068cb2945edc66f34030038cade055e434deae778f445629ea37d7a00d72",
+    "android/app/src/test/java/com/example/motonav/LocalLinkClientTest.kt": "177fde7408b1ea8811ef2dc36af921b8f45ed87fc2ba580bb596fa5e0f6034ed",
+    "android/app/src/test/java/com/example/motonav/MapFrameEncoderTest.kt": "c3d0549d95bb189e262ce955f6ecb1b8c1be93700e1d5346c91782d9d0e10b7b"
+  },
+  "acceptance_date": "2026-10-28",
+  "acceptance_note": "User confirmed all P6 tests passed; proceed to P7."
+}

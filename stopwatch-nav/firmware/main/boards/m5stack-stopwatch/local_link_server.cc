@@ -86,7 +86,7 @@ bool LocalLinkServer::Start(const std::string& ip) {
     config.task_priority = 2;
     config.stack_size = 6144;
     config.max_open_sockets = 3;
-    config.max_uri_handlers = 5;
+    config.max_uri_handlers = 6;
     config.lru_purge_enable = true;
     config.recv_wait_timeout = 2;
     config.send_wait_timeout = 2;
@@ -126,11 +126,20 @@ bool LocalLinkServer::Start(const std::string& ip) {
         Stop();
         return false;
     }
+#ifdef ESP_PLATFORM
+    httpd_uri_t cloud{};cloud.uri="/api/v1/cloud";cloud.method=HTTP_POST;cloud.handler=CloudHandler;cloud.user_ctx=this;
+    if(httpd_register_uri_handler(server_,&cloud)!=ESP_OK){Stop();return false;}
+    if(!cloud_)cloud_=std::make_unique<CloudNavigation>(images_,[this](){if(image_ready_)image_ready_();});
+    cloud_->SetOnline(true);
+#endif
     ESP_LOGI(kTag, "P2 ready at http://%s:8765/api/v1/status", ip_.c_str());
     return true;
 }
 
 void LocalLinkServer::Stop() {
+#ifdef ESP_PLATFORM
+    if(cloud_)cloud_->SetOnline(false);
+#endif
     images_.Invalidate();
     if (server_) {
         httpd_stop(server_);
@@ -146,6 +155,10 @@ esp_err_t LocalLinkServer::StatusHandler(httpd_req_t* req) {
     cJSON_AddNumberToObject(body.get(), "protocol", 1);
     cJSON_AddStringToObject(body.get(), "firmware", esp_app_get_description()->version);
     cJSON_AddStringToObject(body.get(), "boot_id", self->boot_id_.c_str());
+#ifdef ESP_PLATFORM
+    cJSON_AddNumberToObject(body.get(),"cloud_protocol",1);
+    cJSON_AddStringToObject(body.get(),"cloud_state",self->cloud_?self->cloud_->State().c_str():"not_configured");
+#endif
     cJSON_AddStringToObject(body.get(), "ip", self->ip_.c_str());
     cJSON_AddNumberToObject(body.get(), "received_count", self->received_count_);
     cJSON_AddNumberToObject(body.get(), "last_seq", self->last_seq_);
@@ -154,6 +167,7 @@ esp_err_t LocalLinkServer::StatusHandler(httpd_req_t* req) {
     cJSON_AddNumberToObject(body.get(), "image_protocol", 1);
     cJSON_AddNumberToObject(body.get(), "geo_protocol", 1);
     cJSON_AddNumberToObject(body.get(), "chunk_protocol", 1);
+    cJSON_AddNumberToObject(body.get(), "overview_protocol", 1);
     cJSON_AddNumberToObject(body.get(), "chunk_size", MapWire::kChunkSize);
     cJSON_AddBoolToObject(body.get(), "map_active", image.active);
     cJSON_AddBoolToObject(body.get(), "image_pending", image.pending);
@@ -355,3 +369,18 @@ esp_err_t LocalLinkServer::EchoHandler(httpd_req_t* req) {
     if (self->received_) self->received_(self->last_seq_, self->received_count_);
     return SendJson(req, reply.get());
 }
+
+#ifdef ESP_PLATFORM
+esp_err_t LocalLinkServer::CloudHandler(httpd_req_t* req) {
+    auto* self=static_cast<LocalLinkServer*>(req->user_ctx);
+    if(!self->cloud_ || !req->content_len || req->content_len>384)return Reject(req,"400 Bad Request","invalid cloud configuration");
+    char buffer[385]{};size_t offset=0;
+    while(offset<req->content_len){int n=httpd_req_recv(req,buffer+offset,req->content_len-offset);if(n<=0)return Reject(req,"408 Request Timeout","incomplete configuration");offset+=n;}
+    if(!IsFlatJson(buffer,offset))return Reject(req,"400 Bad Request","flat JSON required");
+    Json input(cJSON_ParseWithLengthOpts(buffer,offset+1,nullptr,true),cJSON_Delete);
+    if(!input)return Reject(req,"400 Bad Request","invalid configuration");
+    auto value=[&](const char* key){auto* v=cJSON_GetObjectItemCaseSensitive(input.get(),key);return cJSON_IsString(v)?std::string(v->valuestring):std::string();};
+    if(!self->cloud_->Configure(value("server_url"),value("trip_id"),value("token")))return Reject(req,"400 Bad Request","HTTPS origin or LAN IPv4 and valid trip credential required");
+    Json reply(cJSON_CreateObject(),cJSON_Delete);cJSON_AddBoolToObject(reply.get(),"configured",true);return SendJson(req,reply.get());
+}
+#endif
